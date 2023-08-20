@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import ContentWrapper from '../components/ContentWrapper';
-import AmazonListingCard from '../components/Cards/AmazonListingCard/AmazonListingCard';
+import ContentWrapper from '../../components/ContentWrapper';
+import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -15,6 +15,7 @@ export async function getStaticProps(context) {
         data {
           attributes {
             AmazonLink
+            AmazonASIN
             ProductName
             ProductCategory
           }
@@ -37,23 +38,24 @@ export default function Products({ products }) {
   return (
     <ContentWrapper>
       <Head>
-        <title>One Drink Three Bars - Cocktail Recipes</title>
+        <title>One Drink Three Bars - Cocktail Recipes - Home Bar Supplies</title>
         <meta name="description" content="One Drink Three Bars" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>Products</h1>
-        <ul>
-          {products.map((product, index) => (
-            <AmazonListingCard
-              key={index}
-              productName={product.attributes.ProductName}
-              productCategory={product.attributes.ProductCategory}
-              amazonLink={product.attributes.AmazonLink}
-            />
-          ))}
-        </ul>
+        <h1>Home Bar Supplies</h1>
+
+        {products.map((product, index) => (
+          <AmazonListingCard
+            key={index}
+            productName={product.attributes.ProductName}
+            productCategory={product.attributes.ProductCategory}
+            amazonLink={product.attributes.AmazonLink}
+            amazonASIN={product.attributes.AmazonASIN}
+          />
+        ))}
+
       </main>
     </ContentWrapper>
   );

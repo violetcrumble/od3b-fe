@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../../utils/stylevars';
 
 export const NavMenuStyles = styled.div`
   ul {
@@ -6,18 +7,19 @@ export const NavMenuStyles = styled.div`
     padding: 0;
     list-style: none;
     overflow: hidden;
+    background-color: black;
   }
 
   li a {
     display: block;
     padding: 20px 20px;
-    border-right: 1px solid #f4f4f4;
     text-decoration: none;
+    color: white;
   }
 
   li a:hover,
   .menu-btn:hover {
-    background-color: #f4f4f4;
+    background-color: #ccc;
   }
 
   /* menu */
@@ -27,8 +29,6 @@ export const NavMenuStyles = styled.div`
     max-height: 0;
     transition: max-height 0.2s ease-out;
   }
-
-  /* menu icon */
 
   .menu-icon {
     cursor: pointer;
@@ -67,8 +67,6 @@ export const NavMenuStyles = styled.div`
     top: -5px;
   }
 
-  /* menu btn */
-
   .menu-btn {
     display: none;
   }
@@ -94,14 +92,11 @@ export const NavMenuStyles = styled.div`
     top: 0;
   }
 
-  /* 48em = 768px */
 
-  @media (min-width: 48em) {
+  @media (min-width: ${breakpoints.md}) {
     li {
       float: left;
-    }
-    li a {
-      padding: 20px 30px;
+      margin-top: 22px;
     }
     .menu {
       clear: none;
