@@ -1,9 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const HeaderStyles = styled.header`
-  border: solid 1px black;
+  background-color: #000;
+  width: 100%;
+  position: fixed;
 
-  svg {
-    width: 200px;
+  .logo {
+    float: left;
+    margin: 20px;
   }
-`
+`;

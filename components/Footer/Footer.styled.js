@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const FooterStyles = styled.footer`
-  border: solid 1px black;
-`
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+`;

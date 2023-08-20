@@ -1,13 +1,13 @@
-import Head from "next/head";
-import ContentWrapper from "../components/ContentWrapper";
+import Head from 'next/head';
+import ContentWrapper from '../components/ContentWrapper';
 
 const URL = process.env.STRAPIBASEURL;
 
 export async function getStaticProps(context) {
   const fetchParams = {
-    method: "post",
+    method: 'post',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     },
     body: JSON.stringify({
       query: `{recipes {

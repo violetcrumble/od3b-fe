@@ -1,14 +1,14 @@
-import Head from "next/head";
-import ContentWrapper from "../components/ContentWrapper";
-import AmazonListingCard from "../components/Cards/AmazonListingCard/AmazonListingCard";
+import Head from 'next/head';
+import ContentWrapper from '../components/ContentWrapper';
+import AmazonListingCard from '../components/Cards/AmazonListingCard/AmazonListingCard';
 
 const URL = process.env.STRAPIBASEURL;
 
 export async function getStaticProps(context) {
   const fetchParams = {
-    method: "post",
+    method: 'post',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     },
     body: JSON.stringify({
       query: `{products {
@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      products: data.data.products.data, 
+      products: data.data.products.data,
     },
   };
 }
@@ -46,11 +46,12 @@ export default function Products({ products }) {
         <h1>Products</h1>
         <ul>
           {products.map((product, index) => (
-            <AmazonListingCard 
-            key={index} 
-            productName={product.attributes.ProductName} 
-            productCategory={product.attributes.ProductCategory} 
-            amazonLink={product.attributes.AmazonLink} />
+            <AmazonListingCard
+              key={index}
+              productName={product.attributes.ProductName}
+              productCategory={product.attributes.ProductCategory}
+              amazonLink={product.attributes.AmazonLink}
+            />
           ))}
         </ul>
       </main>

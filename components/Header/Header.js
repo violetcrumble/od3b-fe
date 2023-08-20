@@ -1,25 +1,17 @@
-import React from "react";
-import Link from "next/link";
-import Logo from "../Logo/Logo";
-import { HeaderStyles } from "./Header.styled";
+import React from 'react';
+
+import Logo from '../Logo/Logo';
+import { HeaderStyles } from './Header.styled';
+import NavMenu from './NavMenu/NavMenu';
 
 export default function Header() {
   return (
-    
-    <HeaderStyles>
-      <Logo />
-      <Link href="/">
-        Home
-      </Link>
-      <Link href="/cocktail-recipes">
-        Cocktail Recipes
-      </Link>
-      <Link href="/products">
-        Products
-      </Link>
-      <Link href="/blog">
-        Blog
-      </Link>
+    <HeaderStyles className="header">
+      <a href="" className="logo">
+        <Logo />
+      </a>
+
+      <NavMenu />
     </HeaderStyles>
   );
 }
