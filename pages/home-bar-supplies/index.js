@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
-import { ListingStyles } from '../../components/listings.styled';
+import { ListingStyles } from '../../components/Listings.styled';
 
 const URL = process.env.STRAPIBASEURL;
 
