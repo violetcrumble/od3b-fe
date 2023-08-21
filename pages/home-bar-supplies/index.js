@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
+import { ListingStyles } from '../../components/listings.styled';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -45,17 +46,20 @@ export default function Products({ products }) {
 
       <main>
         <h1>Home Bar Supplies</h1>
-
-        {products.map((product, index) => (
-          <AmazonListingCard
-            key={index}
-            productName={product.attributes.ProductName}
-            productCategory={product.attributes.ProductCategory}
-            amazonLink={product.attributes.AmazonLink}
-            amazonASIN={product.attributes.AmazonASIN}
-          />
-        ))}
-
+        {/* TODO: loop through the categories in Strapi */}
+        <a href="">Cocktail Books</a> | <a href="">Bar Tools</a><br /><br />
+        <ListingStyles>
+          {/* TODO: if it's not a multiple of 4, add a couple empty divs to make it one */}
+          {products.map((product, index) => (
+            <AmazonListingCard
+              key={index}
+              productName={product.attributes.ProductName}
+              productCategory={product.attributes.ProductCategory}
+              amazonLink={product.attributes.AmazonLink}
+              amazonASIN={product.attributes.AmazonASIN}
+            />
+          ))}
+        </ListingStyles>
       </main>
     </ContentWrapper>
   );

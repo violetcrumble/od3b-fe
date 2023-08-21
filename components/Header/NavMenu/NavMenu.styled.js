@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints } from '../../../utils/stylevars';
+import { breakpoints, themeColors } from '../../../utils/stylevars';
 
 export const NavMenuStyles = styled.div`
   ul {
@@ -7,7 +7,7 @@ export const NavMenuStyles = styled.div`
     padding: 0;
     list-style: none;
     overflow: hidden;
-    background-color: black;
+    background-color: ${themeColors.baseColor};
   }
 
   li a {
@@ -16,13 +16,6 @@ export const NavMenuStyles = styled.div`
     text-decoration: none;
     color: white;
   }
-
-  li a:hover,
-  .menu-btn:hover {
-    background-color: #ccc;
-  }
-
-  /* menu */
 
   .menu {
     clear: both;

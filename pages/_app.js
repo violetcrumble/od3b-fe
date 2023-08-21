@@ -5,7 +5,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 h1 {
   margin-block-start: 0;
