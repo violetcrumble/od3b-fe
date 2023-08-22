@@ -24,6 +24,8 @@ export const AmazonListingCardStyles = styled.div`
     margin: 15px;
     width: 50%;
     text-align: center;
+    position: relative;
+    min-height: 160px;
   }
 
   a:link, a:visited {
