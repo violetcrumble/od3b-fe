@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import ContentWrapper from '../components/ContentWrapper';
+import ContentWrapper from '../../components/ContentWrapper';
 
 const URL = process.env.STRAPIBASEURL;
 

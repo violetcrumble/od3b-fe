@@ -59,6 +59,7 @@ export default function Products({ products }) {
               amazonASIN={product.attributes.AmazonASIN}
             />
           ))}
+          {products.length !== Math.floor(products.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}
         </ListingStyles>
       </main>
     </ContentWrapper>
