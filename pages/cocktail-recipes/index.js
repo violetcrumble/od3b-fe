@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 
 const URL = process.env.STRAPIBASEURL;
@@ -16,6 +17,7 @@ export async function getStaticProps(context) {
             title
             ingredients
             recipebody
+            recipeUrlSlug
             PhotoMain {
               data {
                 attributes {
@@ -57,6 +59,7 @@ export default function Recipes({ recipes }) {
               <h2>{recipe.attributes.title}</h2>
               <p>Ingredients: {recipe.attributes.ingredients}</p>
               <p>Recipe: {recipe.attributes.recipebody}</p>
+              <p><Link href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}>learn more</Link></p>
               {/* <img width="500" src={recipe.attributes.PhotoMain.data.attributes.url} alt={recipe.attributes.PhotoMain.data.attributes.caption} /> */}
             </li>
           ))}
