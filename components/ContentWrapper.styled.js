@@ -4,7 +4,7 @@ import { breakpoints, headerHeight } from '../utils/stylevars';
 export const ContentWrapperStyles = styled.main`
   margin: 0 auto;
   max-width: ${breakpoints.lg};
-  padding: 20px;
+  padding: 20px 40px;
 
   padding-top: ${headerHeight + 30}px;
 

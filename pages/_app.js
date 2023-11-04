@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { themeColors } from '../utils/stylevars';
 
 const GlobalStyles = createGlobalStyle`
 html,
@@ -6,6 +7,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
+    background-color: ${themeColors.grayLighter};
 }
 h1 {
   margin-block-start: 0;

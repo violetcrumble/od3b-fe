@@ -17,6 +17,15 @@ export default function Home() {
           while fostering an inclusive and unpretentious approach. We believe that everyone can appreciate the art of
           crafting great cocktails. Join us on this journey to raise your cocktail game!
         </p>
+
+        <h3>Full Episodes</h3>
+        <p>We visit 3 bars and order the same drink. Results may vary!</p>
+
+        <h3>OD3Bs Shorts</h3>
+        <p>Just need to know how to make a drink? Have the attention span of a gnat? Check out our YouTube shorts!</p>
+
+        <h3>Cocktail Recipe Videos</h3>
+        <p>Want to learn how to make awesome cocktails at home? Check out our recipe videos!</p>
       </main>
     </ContentWrapper>
   );

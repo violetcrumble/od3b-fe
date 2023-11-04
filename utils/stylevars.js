@@ -11,6 +11,7 @@ export const themeColors = {
     baseColor: "#010101", //black
     fontColor: "#ffffff",
     white: "#ffffff",
+    grayLighter: "#efefef", 
     gray: "#9c9c9c", //dusty gray
     grayDarker: "#414141", //tundora
     brandColorPrimary: "#a919c9", //purple heart
@@ -20,4 +21,4 @@ export const themeColors = {
     brandColorTertiary: "#fe5242", //sunset orange
 }
 
-export const headerHeight = 100;
+export const headerHeight = 120;
