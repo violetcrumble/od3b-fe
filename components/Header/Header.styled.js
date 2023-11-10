@@ -8,6 +8,7 @@ export const HeaderStyles = styled.header`
   height: ${headerHeight}px;
   padding: 10px 30px;
   z-index: ${zIndices.header};
+  position: relative;
 
   .logo {
     float: left;

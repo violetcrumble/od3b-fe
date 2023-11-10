@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import ContentWrapper from '../components/ContentWrapper';
 import HeroImage from '../components/HeroImage/HeroImage';
-import { HomeStyles } from './index.styled';
+import { HomeStyles } from '../components/Home.styled';
 import { ContentWrapperConstrainedStyles } from '../components/ContentWrapperConstrained.styled';
 import Link from 'next/link';
 
