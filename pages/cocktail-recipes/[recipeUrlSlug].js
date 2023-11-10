@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ContentWrapper from '../../components/ContentWrapper';
+import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 
 
 const URL = process.env.STRAPIBASEURL;
@@ -81,8 +82,8 @@ export default function Recipe({ recipes }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <ContentWrapperConstrainedStyles>
       
-
       <main>
         <h1>{featuredRecipe[0].attributes.title}</h1>
 
@@ -106,6 +107,7 @@ export default function Recipe({ recipes }) {
 
   
       </main>
+      </ContentWrapperConstrainedStyles>
     </ContentWrapper>
   );
 }

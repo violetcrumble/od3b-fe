@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
+import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -51,6 +52,7 @@ export default function Recipes({ recipes }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <ContentWrapperConstrainedStyles>
       <main>
         <h1>Recipes</h1>
         <ul>
@@ -65,6 +67,7 @@ export default function Recipes({ recipes }) {
           ))}
         </ul>
       </main>
+      </ContentWrapperConstrainedStyles>
     </ContentWrapper>
   );
 }
