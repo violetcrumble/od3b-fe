@@ -11,7 +11,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{recipes {
+      query: `{recipes(pagination: { limit: 300 }) {
         data {
           attributes {
             title

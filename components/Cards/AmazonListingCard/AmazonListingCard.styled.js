@@ -8,10 +8,10 @@ export const AmazonListingCardStyles = styled.div`
 
   h2 {
     font-size: 16px;
+    font-weight: normal;
   }
 
   .product-info {
-    
     padding: 10px;
     width: 50%;
   }
@@ -30,7 +30,6 @@ export const AmazonListingCardStyles = styled.div`
     color: #fff;
     padding: 3px;
     text-align: center;
-    font-weight: bold;
     text-decoration: none;
   }
 

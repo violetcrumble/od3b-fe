@@ -21,4 +21,8 @@ export const themeColors = {
     brandColorTertiary: "#fe5242", //sunset orange
 }
 
+export const zIndices = {
+    header: "500"
+}
+
 export const headerHeight = 120;

@@ -12,7 +12,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{products {
+      query: `{products(pagination: { limit: 300 }) {
         data {
           attributes {
             AmazonLink

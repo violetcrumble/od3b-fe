@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { headerHeight, themeColors } from '../../utils/stylevars';
+import { headerHeight, themeColors, zIndices } from '../../utils/stylevars';
 
 export const HeaderStyles = styled.header`
   background-color: ${themeColors.baseColor};
@@ -8,6 +8,7 @@ export const HeaderStyles = styled.header`
   position: fixed;
   height: ${headerHeight}px;
   padding: 10px 30px;
+  z-index: ${zIndices.header};
 
   .logo {
     float: left;

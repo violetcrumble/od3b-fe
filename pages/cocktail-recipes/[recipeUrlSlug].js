@@ -5,7 +5,7 @@ import ContentWrapper from '../../components/ContentWrapper';
 
 const URL = process.env.STRAPIBASEURL;
 
-const query = `{recipes {
+const query = `{recipes(pagination: { limit: 300 }) {
   data {
     attributes {
       title

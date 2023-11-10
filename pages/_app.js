@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { themeColors } from '../utils/stylevars';
+import { montserrat } from '../utils/fonts';
 
 const GlobalStyles = createGlobalStyle`
 html,
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyles />
+      <div className={montserrat.className}>
       <Component {...pageProps} />
+      </div>
     </>
   );
 }
