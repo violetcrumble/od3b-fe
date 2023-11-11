@@ -1,12 +1,14 @@
+
 import React from 'react';
 import Link from 'next/link';
-import { ContentWrapperConstrainedStyles } from '../ContentWrapperConstrained.styled';
+import { HomeStyles } from './Home.styled.js';
+import HeroImage from '../HeroImage/HeroImage';
+import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 
-export default function HeroImage() {
+
+export default function HomePage() {
     return (
-
         <HomeStyles>
-
             <div className="hero-wrapper">
                 <HeroImage />
             </div>
@@ -31,14 +33,6 @@ export default function HeroImage() {
 
                 </div>
             </ContentWrapperConstrainedStyles>
-
         </HomeStyles>
     );
 }
-
-
-
-
-
-
-
