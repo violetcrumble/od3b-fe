@@ -5,7 +5,7 @@ import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
 import Markdown from 'react-markdown';
-import { RecipeDetailPageStyles } from './recipedetail.styled';
+import { RecipeDetailPageStyles } from '../../components/recipedetail.styled';
 
 
 const URL = process.env.STRAPIBASEURL;
