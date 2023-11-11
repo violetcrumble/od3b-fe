@@ -18,23 +18,28 @@ export const HeroStyles = styled.div`
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 40px;
+    top: 40px;
 
     h1 {
       margin-top: 20px;
-      background-color: rgba(0, 0, 0, .4);
+      
       padding: 20px;
     }
 
     p {
       line-height: 150%;
+      text-shadow: black 0.1em 0.1em 0.2em
     }
 
     .youtube-button {
-      background-color: red;
+      background-color: #FF0000;
       color: white;
       text-decoration: none;
       padding: 20px;
       font-weight: bold;
+      text-shadow: black 0.1em 0.1em 0.2em;
     }
   }
 `;
