@@ -50,7 +50,7 @@ export default function Products({ products }) {
         <h1>Home Bar Supplies</h1>
         <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
         {/* TODO: loop through the categories in Strapi */}
-        <a href="">Cocktail Books</a> | <a href="">Bar Tools</a><br /><br />
+        {/* <a href="">Cocktail Books</a> | <a href="">Bar Tools</a><br /><br /> */}
         <Listing4ColStyles>
           {/* TODO: if it's not a multiple of 4, add a couple empty divs to make it one */}
           {products.map((product, index) => (

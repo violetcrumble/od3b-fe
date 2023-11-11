@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
+import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
+import Markdown from 'react-markdown';
+import { RecipeDetailPageStyles } from './recipedetail.styled';
 
 
 const URL = process.env.STRAPIBASEURL;
@@ -15,6 +18,7 @@ const query = `{recipes(pagination: { limit: 300 }) {
       recipebody
       recipeUrlSlug
       YouTubeLink
+      youTubeID
       PhotoMain {
         data {
           attributes {
@@ -84,32 +88,20 @@ export default function Recipe({ recipes }) {
 
       <ContentWrapperConstrainedStyles>
       
-      <main>
-
+      <RecipeDetailPageStyles>
+      
         <div className="breadcrumb"><Link href="/">Home</Link> : <Link href="/cocktail-recipes/">Cocktail Recipes</Link> : {featuredRecipe[0].attributes.title} Recipe</div>
 
         <h1>{featuredRecipe[0].attributes.title}</h1>
 
-        {featuredRecipe[0].attributes.YouTubeLink && <><h2>Video</h2>
-        <iframe 
-        width="560" 
-        height="315" 
-        src={featuredRecipe[0].attributes.YouTubeLink} 
-        title="YouTube video player" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
-
-        </iframe>
-        </>} 
-        
-        
+        {featuredRecipe[0].attributes.YouTubeLink && <YouTubePlayer videoId={featuredRecipe[0].attributes.youTubeID} />} 
         
         <h2>Recipe</h2>
-        {featuredRecipe[0].attributes.ingredients}
+        <Markdown>{featuredRecipe[0].attributes.ingredients}</Markdown>
         
-        {featuredRecipe[0].attributes.recipebody}
+        <Markdown>{featuredRecipe[0].attributes.recipebody}</Markdown>
 
-  
-      </main>
+      </RecipeDetailPageStyles>
       </ContentWrapperConstrainedStyles>
     </ContentWrapper>
   );
