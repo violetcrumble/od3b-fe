@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 import { breakpoints } from '../utils/stylevars';
 
-export const ListingStyles = styled.div`
+export const Listing3ColStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
   
   .listing-card {
     margin-bottom: 30px;
@@ -25,7 +30,7 @@ export const ListingStyles = styled.div`
 
   @media (min-width: ${breakpoints.lg}) {
     .listing-card {
-      width: 23%;
+      width: 30%;
     }
   }
 `;

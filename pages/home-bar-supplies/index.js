@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
-import { ListingStyles } from '../../components/Listings.styled';
+import { Listing4ColStyles } from '../../components/Listings4Col.styled';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 
 const URL = process.env.STRAPIBASEURL;
@@ -51,7 +51,7 @@ export default function Products({ products }) {
         <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
         {/* TODO: loop through the categories in Strapi */}
         <a href="">Cocktail Books</a> | <a href="">Bar Tools</a><br /><br />
-        <ListingStyles>
+        <Listing4ColStyles>
           {/* TODO: if it's not a multiple of 4, add a couple empty divs to make it one */}
           {products.map((product, index) => (
             <AmazonListingCard
@@ -63,7 +63,7 @@ export default function Products({ products }) {
             />
           ))}
           {products.length !== Math.floor(products.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}
-        </ListingStyles>
+        </Listing4ColStyles>
       </main>
       </ContentWrapperConstrainedStyles>
     </ContentWrapper>

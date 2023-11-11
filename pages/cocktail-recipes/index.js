@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
+import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
+import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -38,7 +40,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      recipes: data.data.recipes.data, // Extracting the recipes array
+      recipes: data.data.recipes.data,
     },
   };
 }
@@ -54,18 +56,17 @@ export default function Recipes({ recipes }) {
 
       <ContentWrapperConstrainedStyles>
       <main>
-        <h1>Recipes</h1>
-        <ul>
-          {recipes.map((recipe, index) => (
-            <li key={index}>
-              <h2>{recipe.attributes.title}</h2>
-              <p>Ingredients: {recipe.attributes.ingredients}</p>
-              <p>Recipe: {recipe.attributes.recipebody}</p>
-              <p><Link href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}>learn more</Link></p>
-              {/* <img width="500" src={recipe.attributes.PhotoMain.data.attributes.url} alt={recipe.attributes.PhotoMain.data.attributes.caption} /> */}
-            </li>
+        <h1>Cocktail Recipes</h1>
+       
+       <Listing3ColStyles>
+       {recipes.map((recipe, index) => (
+            <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}>
+              <RecipeListingCard  recipe={recipe} />
+            </Link>
           ))}
-        </ul>
+       </Listing3ColStyles>
+          
+        
       </main>
       </ContentWrapperConstrainedStyles>
     </ContentWrapper>

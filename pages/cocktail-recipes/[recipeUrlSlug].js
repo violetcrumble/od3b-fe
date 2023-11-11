@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
@@ -70,7 +71,6 @@ export async function getStaticProps() {
 export default function Recipe({ recipes }) {
   
   const featuredRecipe = recipes.filter((recipe) => recipe.attributes.recipeUrlSlug === useRouter().query.recipeUrlSlug.toString());
-  console.log(featuredRecipe);
   
   return (
     <ContentWrapper>
@@ -85,6 +85,9 @@ export default function Recipe({ recipes }) {
       <ContentWrapperConstrainedStyles>
       
       <main>
+
+        <div className="breadcrumb"><Link href="/">Home</Link> : <Link href="/cocktail-recipes/">Cocktail Recipes</Link> : {featuredRecipe[0].attributes.title} Recipe</div>
+
         <h1>{featuredRecipe[0].attributes.title}</h1>
 
         {featuredRecipe[0].attributes.YouTubeLink && <><h2>Video</h2>
