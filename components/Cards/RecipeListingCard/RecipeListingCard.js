@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { RecipeListingCardStyles } from './RecipeListingCard.styled';
 
@@ -8,7 +9,13 @@ export default function RecipeListingCard(props) {
         <RecipeListingCardStyles>
             {props.recipe.attributes.PhotoMain.data && 
             props.recipe.attributes.PhotoMain.data.attributes.url ? 
-            <img width="500" src={props.recipe.attributes.PhotoMain.data.attributes.url} alt={props.recipe.attributes.PhotoMain.data.attributes.caption }  /> : <div className="no-pic">picture not available</div>}
+            <Image
+                  alt={props.recipe.attributes.PhotoMain.data.attributes.caption }
+                  border="0"
+                  width="500"
+                  height="500"
+                  src={props.recipe.attributes.PhotoMain.data.attributes.url} />
+             : <div className="no-pic">picture not available</div>}
             
             <div className="recipe-info">
                 <h2>{props.recipe.attributes.title}</h2>
