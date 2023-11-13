@@ -105,14 +105,13 @@ export default function Recipe({ recipes }) {
               <Markdown>{featuredRecipe[0].attributes.recipebody}</Markdown>
 
               {featuredRecipe[0].attributes.PhotoMain.data &&
-                featuredRecipe[0].attributes.PhotoMain.data.attributes.url ?
+                featuredRecipe[0].attributes.PhotoMain.data.attributes.url &&
                 <Image
                   alt={featuredRecipe[0].attributes.PhotoMain.data.attributes.caption}
                   border="0"
                   width="500"
                   height="500"
-                  src={featuredRecipe[0].attributes.PhotoMain.data.attributes.url} /> : 
-                  <div className="no-pic">picture not available</div>}
+                  src={featuredRecipe[0].attributes.PhotoMain.data.attributes.url} /> }
 
 
             </div>
