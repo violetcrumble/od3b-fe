@@ -16,7 +16,7 @@ export const themeColors = {
     grayDarker: "#414141", //tundora
     brandColorPrimary: "#a919c9", //purple heart
     brandColorPrimaryLight: "#e486f4", // heliotrope
-    brandColorSecondary: "#197D86", //eastern blue
+    brandColorSecondary: "#155E65", //eastern blue
     brandColorSecondaryLight: "#6ce3ee", //spray
     brandColorTertiary: "#fe5242", //sunset orange
 }
