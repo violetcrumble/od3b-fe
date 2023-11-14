@@ -21,7 +21,7 @@ export default function HeroImage() {
       <div className="heroContent">
       <h1>Cocktail Recipes, Tips & Tricks</h1>
       <p>
-          At One Drink Three Bars, we're dedicated to empowering people to create excellent craft cocktails at home, and
+          At One Drink Three Bars, we&apos;re dedicated to empowering people to create excellent craft cocktails at home, and
           to discover the best bars. Our goal is to bridge the gap between ordinary and extraordinary beverages, all
           while fostering an inclusive and unpretentious approach.</p>
 
