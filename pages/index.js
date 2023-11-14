@@ -1,7 +1,20 @@
+import Head from 'next/head';
+import ContentWrapper from '../components/ContentWrapper';
+import HomePage from '../components/HomePage/Home';
+
+
+
 export default function Home() {
   return (
-    <div>
-      coming soon
-    </div>
+    <ContentWrapper>
+      <Head>
+        <title>One Drink Three Bars</title>
+        <meta name="description" content="One Drink Three Bars" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <HomePage />
+      
+    </ContentWrapper>
   );
 }
