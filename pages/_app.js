@@ -11,7 +11,17 @@ body {
     background-color: ${themeColors.grayLighter};
 }
 h1 {
+  color: ${themeColors.brandColorPrimary};
+}
+h2, h3 {
   margin-block-start: 0;
+  color: ${themeColors.brandColorSecondary};
+}
+a:link, a:visited {
+  color: ${themeColors.brandColorSecondary};
+}
+a:hover, a:active {
+  text-decoration: none;
 }
 `;
 

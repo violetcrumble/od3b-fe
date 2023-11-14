@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import ContentWrapper from '../components/ContentWrapper';
-import HeroImage from '../components/HeroImage/HeroImage';
 import HomePage from '../components/HomePage/Home';
 
 
@@ -15,7 +14,6 @@ export default function Home() {
       </Head>
 
       <HomePage />
-      
       
     </ContentWrapper>
   );
