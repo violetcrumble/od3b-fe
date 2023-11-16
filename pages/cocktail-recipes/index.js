@@ -52,22 +52,24 @@ export default function Recipes({ recipes }) {
         <title>One Drink Three Bars - Cocktail Recipes</title>
         <meta name="description" content="One Drink Three Bars" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="One Drink Three Bars - Cocktail Recipes" />
+        <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
 
       <ContentWrapperConstrainedStyles>
-      <main>
-        <h1>Cocktail Recipes</h1>
-       
-       <Listing3ColStyles>
-       {recipes.map((recipe, index) => (
-            <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}>
-              <RecipeListingCard  recipe={recipe} />
-            </Link>
-          ))}
-       </Listing3ColStyles>
-          
+        <main>
+          <h1>Cocktail Recipes</h1>
         
-      </main>
+        <Listing3ColStyles>
+        {recipes.map((recipe, index) => (
+              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}>
+                <RecipeListingCard  recipe={recipe} />
+              </Link>
+            ))}
+        </Listing3ColStyles>
+            
+          
+        </main>
       </ContentWrapperConstrainedStyles>
     </ContentWrapper>
   );

@@ -20,7 +20,6 @@ export default function Recipe({ recipe }) {
     return (
       <ContentWrapper>
 
-
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
@@ -53,20 +52,15 @@ export default function Recipe({ recipe }) {
                 <Markdown>{recipe.recipebody}</Markdown>
               </div>
 
-              
-
               {recipe.YouTubeLink &&
                 <YouTubePlayer videoId={recipe.youTubeID} />}
-
-                
-
 
             </div>
             <div className="recipe-col-2">
             {recipe.PhotoMain.data &&
                 recipe.PhotoMain.data.attributes.url &&
                 <img
-                  alt={recipe.PhotoMain.data.attributes.caption}
+                  alt={recipe.title}
                   border="0"
                   src={recipe.PhotoMain.data.attributes.url} /> }
               
