@@ -1,10 +1,20 @@
 import styled from 'styled-components';
-import { breakpoints } from '../utils/stylevars';
+import { themeColors, breakpoints } from '../utils/stylevars';
 
 export const RecipeDetailPageStyles = styled.main`
   .breadcrumb {
     margin: 20px 0;
   }
+
+  .youtube-button {
+      background-color: ${themeColors.brandColorTertiary};
+      color: white;
+      text-decoration: none;
+      padding: 20px;
+      font-weight: bold;
+      text-shadow: black 0.1em 0.1em 0.2em;
+      
+    }
 
   .recipe-detail-layout {
     display: flex;
@@ -12,13 +22,23 @@ export const RecipeDetailPageStyles = styled.main`
     justify-content: space-between;
     .recipe-col-1 {
       width: 100%; 
-      img {
-        max-width: 100%;
-        margin-bottom: 10px;
+
+      .recipe-ingredients,
+      .recipe-technique {
+        margin-bottom: 30px;
       }
+      .recipe-ingredients {
+        border-bottom: dotted 1px;
+      }
+      
     }
     .recipe-col-2 {
       width: 100%;
+      img {
+        max-width: 100%;
+        margin-bottom: 10px;
+        border: solid 1px black;
+      }
     }
   }
 

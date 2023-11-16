@@ -22,9 +22,12 @@ export default function Recipe({ recipe }) {
 
 
       <Head>
-        <title>One Drink Three Bars - Cocktail Recipes</title>
-        <meta name="description" content="One Drink Three Bars" />
+        <title>{`${recipe.title} cocktail recipe`}</title>
+        <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
+        <meta property="og:description" content={`How to make a ${recipe.title} cocktail at home`} />
+        <meta property="og:image" content={recipe.PhotoMain.data.attributes.url} />
       </Head>
 
       <ContentWrapperConstrainedStyles>
@@ -38,25 +41,39 @@ export default function Recipe({ recipe }) {
 
           <div className="recipe-detail-layout">
             <div className="recipe-col-1">
-              <h1>{recipe.title}</h1>
+              <h1>{recipe.title} Cocktail Recipe</h1>
 
-              <h2>Cocktail Recipe</h2>
-              <Markdown>{recipe.ingredients}</Markdown>
+              <div className="recipe-ingredients">
+                <h2>{recipe.title} Ingredients</h2>
+                <Markdown>{recipe.ingredients}</Markdown>
+              </div>
 
-              <Markdown>{recipe.recipebody}</Markdown>
+              <div className="recipe-technique">
+                <h2>How to make a {recipe.title}</h2>
+                <Markdown>{recipe.recipebody}</Markdown>
+              </div>
 
-              {recipe.PhotoMain.data &&
+              
+
+              {recipe.YouTubeLink &&
+                <YouTubePlayer videoId={recipe.youTubeID} />}
+
+                
+
+
+            </div>
+            <div className="recipe-col-2">
+            {recipe.PhotoMain.data &&
                 recipe.PhotoMain.data.attributes.url &&
                 <img
                   alt={recipe.PhotoMain.data.attributes.caption}
                   border="0"
                   src={recipe.PhotoMain.data.attributes.url} /> }
+              
+              <br /><br />
+              {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
 
 
-            </div>
-            <div className="recipe-col-2">
-              {recipe.YouTubeLink &&
-                <YouTubePlayer videoId={recipe.youTubeID} />}
             </div>
           </div>
 
