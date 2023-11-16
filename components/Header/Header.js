@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { HeaderStyles } from './Header.styled';
 import NavMenu from './NavMenu/NavMenu';
@@ -6,9 +7,9 @@ import NavMenu from './NavMenu/NavMenu';
 export default function Header() {
   return (
     <HeaderStyles className="header">
-      <a href="/" className="logo">
+      <Link href="/" className="logo">
         <img src="/logo.svg" width="200" height="70" alt="One Drink Three Bars" />
-      </a>
+      </Link>
       <NavMenu />
     </HeaderStyles>
   );
