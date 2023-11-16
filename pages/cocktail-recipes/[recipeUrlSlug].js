@@ -72,7 +72,7 @@ export default function Recipe({ recipe }) {
               
               <br /><br />
               {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
-
+              <br /><br />
 
             </div>
           </div>
