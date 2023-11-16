@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import useRouter from 'next/router';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
