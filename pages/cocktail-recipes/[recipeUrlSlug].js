@@ -106,11 +106,9 @@ export default function Recipe({ recipes }) {
 
               {featuredRecipe[0].attributes.PhotoMain.data &&
                 featuredRecipe[0].attributes.PhotoMain.data.attributes.url &&
-                <Image
+                <img
                   alt={featuredRecipe[0].attributes.PhotoMain.data.attributes.caption}
                   border="0"
-                  width="500"
-                  height="500"
                   src={featuredRecipe[0].attributes.PhotoMain.data.attributes.url} /> }
 
 

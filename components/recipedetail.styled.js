@@ -11,7 +11,11 @@ export const RecipeDetailPageStyles = styled.main`
     flex-wrap: wrap;
     justify-content: space-between;
     .recipe-col-1 {
-      width: 100%;
+      width: 100%; 
+      img {
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
     }
     .recipe-col-2 {
       width: 100%;
