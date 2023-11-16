@@ -28,7 +28,7 @@ export const HomeStyles = styled.main`
     @media (min-width: ${breakpoints.lg}) {
       border: none;
       .offering-card {
-        width: 30%;
+        width: 28%;
     }
     }
   }

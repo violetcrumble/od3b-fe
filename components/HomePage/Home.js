@@ -26,7 +26,7 @@ export default function HomePage() {
                         <Link href="https://www.youtube.com/@OneDrinkThreeBars/videos" target="_blank">View Cocktail Recipe Videos</Link>
                     </div>
 
-                    <div className="offering-card"><h3>OD3Bs Shorts</h3>
+                    <div className="offering-card"><h3>1D3Bs Shorts</h3>
                         <p>Just need to know how to make a drink? Have the attention span of a gnat? Check out our YouTube shorts!</p>
                         <Link href="https://www.youtube.com/@OneDrinkThreeBars/shorts" target="_blank">Cocktail Recipe Shorts</Link>
                     </div>
