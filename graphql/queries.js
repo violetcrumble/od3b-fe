@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_ALL_SLUGS = gql`
 query {
-    recipes {
+    recipes(pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
