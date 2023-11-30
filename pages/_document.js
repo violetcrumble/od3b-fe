@@ -1,5 +1,7 @@
-import Document from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import Document from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
+import Script from "next/script";
+import Head from 'next/head';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -18,6 +20,23 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: (
           <>
+            <Head>
+              <Script
+              id="google-tag-manager"
+              strategy="lazyOnload"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+            />
+
+              <Script id="google-analytics" strategy="lazyOnload">
+                {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+            page_path: window.location.pathname,
+            });
+        `}
+              </Script></Head>
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
