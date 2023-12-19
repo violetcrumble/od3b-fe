@@ -53,8 +53,9 @@ export default function Recipe({ recipe }) {
                 <Markdown>{recipe.recipebody}</Markdown>
               </div>
 
-              {recipe.YouTubeLink &&
-                <YouTubePlayer videoId={recipe.youTubeID} />}
+              {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
+              {/* {recipe.YouTubeLink &&
+                <YouTubePlayer videoId={recipe.youTubeID} />} */}
 
             </div>
             <div className="recipe-col-2">
@@ -63,13 +64,11 @@ export default function Recipe({ recipe }) {
                 <div className="recipe-image-container"><Image
                   src={recipe.PhotoMain.data.attributes.url}
                   alt={recipe.title}
-                  layout="responsive"
+                  layout="responsivea"
                 /></div>
               }
 
-              <br /><br />
-              {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
-              <br /><br />
+
 
             </div>
           </div>
