@@ -62,9 +62,9 @@ export default function Recipe({ recipe }) {
                 recipe.PhotoMain.data.attributes.url &&
                 <Image
                   src={recipe.PhotoMain.data.attributes.url}
-                  width={800}
-                  height={800}
                   alt={recipe.title}
+                  fill={true}
+                  placeholder={blur}
                 />
               }
 
