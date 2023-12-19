@@ -63,7 +63,7 @@ export default function Recipe({ recipe }) {
                 <div className="recipe-image-container"><Image
                   src={recipe.PhotoMain.data.attributes.url}
                   alt={recipe.title}
-                  fill={true}
+                  layout="responsive"
                 /></div>
               }
 
