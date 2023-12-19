@@ -54,6 +54,7 @@ export default function Recipe({ recipe }) {
               </div>
 
               {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
+              <br /><br /><br />
               {/* {recipe.YouTubeLink &&
                 <YouTubePlayer videoId={recipe.youTubeID} />} */}
 
@@ -64,7 +65,8 @@ export default function Recipe({ recipe }) {
                 <Image
                   src={recipe.PhotoMain.data.attributes.url}
                   alt={recipe.title}
-                  layout="responsivea"
+                  layout="responsive"
+                  placeholder="blur"
                 />
               }
 
