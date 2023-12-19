@@ -61,11 +61,11 @@ export default function Recipe({ recipe }) {
             <div className="recipe-col-2">
               {recipe.PhotoMain.data &&
                 recipe.PhotoMain.data.attributes.url &&
-                <div className="recipe-image-container"><Image
+                <Image
                   src={recipe.PhotoMain.data.attributes.url}
                   alt={recipe.title}
                   layout="responsivea"
-                /></div>
+                />
               }
 
 
