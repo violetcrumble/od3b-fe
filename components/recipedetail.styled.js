@@ -34,11 +34,15 @@ export const RecipeDetailPageStyles = styled.main`
     }
     .recipe-col-2 {
       width: 100%;
-      img {
+      .recipe-image-container {
+        position: relative;
+        img {
         max-width: 100%;
         margin-bottom: 10px;
         border: solid 1px black;
       }
+      }
+      
     }
   }
 
