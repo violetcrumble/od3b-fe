@@ -64,7 +64,6 @@ export default function Recipe({ recipe }) {
                   src={recipe.PhotoMain.data.attributes.url}
                   alt={recipe.title}
                   fill={true}
-                  placeholder={blur}
                 />
               }
 
