@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
@@ -12,13 +13,13 @@ import { RecipeDetailPageStyles } from '../../components/recipedetail.styled';
 const URL = process.env.STRAPIBASEURL;
 
 const client = new ApolloClient({
-    uri: `${URL}/graphql`,
-    cache: new InMemoryCache()
+  uri: `${URL}/graphql`,
+  cache: new InMemoryCache()
 });
 
 export default function Recipe({ recipe }) {
-    return (
-      <ContentWrapper>
+  return (
+    <ContentWrapper>
 
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
@@ -57,13 +58,16 @@ export default function Recipe({ recipe }) {
 
             </div>
             <div className="recipe-col-2">
-            {recipe.PhotoMain.data &&
+              {recipe.PhotoMain.data &&
                 recipe.PhotoMain.data.attributes.url &&
-                <img
+                <Image
+                  src={recipe.PhotoMain.data.attributes.url}
+                  width={800}
+                  height={800}
                   alt={recipe.title}
-                  border="0"
-                  src={recipe.PhotoMain.data.attributes.url} /> }
-              
+                />
+              }
+
               <br /><br />
               {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
               <br /><br />
@@ -74,36 +78,36 @@ export default function Recipe({ recipe }) {
         </RecipeDetailPageStyles>
       </ContentWrapperConstrainedStyles>
     </ContentWrapper>
-    )
+  )
 }
 
 export async function getStaticPaths() {
 
-    const { data } = await client.query({ query: GET_ALL_SLUGS });
+  const { data } = await client.query({ query: GET_ALL_SLUGS });
 
-    const paths = data.recipes.data.map((recipe) => {
-        return { params: { recipeUrlSlug: recipe.attributes.recipeUrlSlug } }
-    });
+  const paths = data.recipes.data.map((recipe) => {
+    return { params: { recipeUrlSlug: recipe.attributes.recipeUrlSlug } }
+  });
 
-    return {
-        paths,
-        fallback: false
-    }
+  return {
+    paths,
+    fallback: false
+  }
 }
 
 export async function getStaticProps({ params }) {
 
-    const { data } = await client.query({
-        query: GET_INDIVIDUAL_RECIPE,
-        variables: { recipeUrlSlug: params.recipeUrlSlug }
-    });
+  const { data } = await client.query({
+    query: GET_INDIVIDUAL_RECIPE,
+    variables: { recipeUrlSlug: params.recipeUrlSlug }
+  });
 
-    const attrs = data.recipes.data[0].attributes;
+  const attrs = data.recipes.data[0].attributes;
 
-    return {
-        props: {
-            recipe: attrs
-        }
+  return {
+    props: {
+      recipe: attrs
     }
+  }
 }
 
