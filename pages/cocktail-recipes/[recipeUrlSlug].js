@@ -66,11 +66,10 @@ export default function Recipe({ recipe }) {
                   src={recipe.PhotoMain.data.attributes.url}
                   alt={recipe.title}
                   layout="responsive"
-                  placeholder="blur"
+                  width="700"
+                  height="700"
                 />
               }
-
-
 
             </div>
           </div>
