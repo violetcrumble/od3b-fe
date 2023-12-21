@@ -28,9 +28,9 @@ export default function Recipe({ recipe }) {
       "image": [
         "${recipe.PhotoMain.data.attributes.url}"
        ],
-       "recipeIngredient": [
-        ${recipe.cocktailIngredients.ingredients}
-       ],
+       "recipeIngredient": 
+        ${JSON.stringify(recipe.cocktailIngredients.ingredients)}
+       ,
       "description": "${recipe.recipebody}",
       "keywords": "${recipe.keywords ? recipe.keywords : "cocktail recipes, easy cocktails to make at home, alcoholic drink recipes"}",
       "recipeCategory": "Cocktail",
