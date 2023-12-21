@@ -33,7 +33,11 @@ export default function Recipe({ recipe }) {
        ,
       "description": "${recipe.recipebody}",
       "keywords": "${recipe.keywords ? recipe.keywords : "cocktail recipes, easy cocktails to make at home, alcoholic drink recipes"}",
-      "recipeCategory": "Cocktail"
+      "recipeCategory": "Cocktail",
+      "video": {
+        "contentUrl": "${recipe.YouTubeLink}"
+      },
+      "author": "One Drink Three Bars"
     }
   `,
     };
