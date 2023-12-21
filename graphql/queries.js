@@ -41,7 +41,10 @@ query ($recipeUrlSlug: String!) {
         data {
           attributes {
             title
+            keywords
+            RecipeIntro
             ingredients
+            cocktailIngredients
             recipebody
             recipeUrlSlug
             YouTubeLink

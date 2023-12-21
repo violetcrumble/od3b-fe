@@ -18,6 +18,26 @@ const client = new ApolloClient({
 });
 
 export default function Recipe({ recipe }) {
+
+  function addRecipeJsonLd() {
+    return {
+      __html: `{
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "${recipe.title}",
+      "image": [
+        "${recipe.PhotoMain.data.attributes.url}"
+       ],
+       "recipeIngredient": [
+        ${recipe.cocktailIngredients.ingredients}
+       ],
+      "description": "${recipe.recipebody}",
+      "keywords": "${recipe.keywords ? recipe.keywords : "cocktail recipes, easy cocktails to make at home, alcoholic drink recipes"}",
+      "recipeCategory": "Cocktail",
+    }
+  `,
+    };
+  }
   return (
     <ContentWrapper>
 
@@ -28,6 +48,11 @@ export default function Recipe({ recipe }) {
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
         <meta property="og:description" content={`How to make a ${recipe.title} cocktail at home`} />
         <meta property="og:image" content={recipe.PhotoMain.data.attributes.url} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addRecipeJsonLd()}
+          key="recipe-jsonld"
+        />
       </Head>
 
       <ContentWrapperConstrainedStyles>
@@ -42,6 +67,11 @@ export default function Recipe({ recipe }) {
           <div className="recipe-detail-layout">
             <div className="recipe-col-1">
               <h1>{recipe.title} Cocktail Recipe</h1>
+
+              {recipe.RecipeIntro && <div className="recipe-intro">
+                {recipe.RecipeIntro}
+              </div>}
+              
 
               <div className="recipe-ingredients">
                 <h2>{recipe.title} Ingredients</h2>
@@ -70,7 +100,6 @@ export default function Recipe({ recipe }) {
                   height="700"
                 />
               }
-
             </div>
           </div>
 

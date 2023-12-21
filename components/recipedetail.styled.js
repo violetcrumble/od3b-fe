@@ -23,9 +23,11 @@ export const RecipeDetailPageStyles = styled.main`
     .recipe-col-1 {
       width: 100%; 
 
+      .recipe-intro,
       .recipe-ingredients,
       .recipe-technique {
         margin-bottom: 30px;
+        line-height: 150%;
       }
       .recipe-ingredients {
         border-bottom: dotted 1px;
