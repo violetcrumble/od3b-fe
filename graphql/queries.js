@@ -57,6 +57,16 @@ query ($recipeUrlSlug: String!) {
                 }
               }
             }
+            relatedProducts {
+              data {
+                attributes {
+                  AmazonLink
+                  AmazonASIN
+                  ProductName
+                  ProductCategory
+                }
+              }
+            }
           }
         }
         }

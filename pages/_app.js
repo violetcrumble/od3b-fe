@@ -13,10 +13,16 @@ body {
 }
 h1 {
   color: ${themeColors.brandColorPrimary};
+  font-size: 20px;
+  border-bottom: solid 1px;
 }
 h2, h3 {
   margin-block-start: 0;
   color: ${themeColors.brandColorSecondary};
+  font-size: 18px;
+}
+p {
+  font-size: 14px;
 }
 a:link, a:visited {
   color: ${themeColors.brandColorSecondary};

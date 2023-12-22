@@ -9,6 +9,7 @@ import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapper
 import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
 import Markdown from 'react-markdown';
 import { RecipeDetailPageStyles } from '../../components/recipedetail.styled';
+import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -73,24 +74,46 @@ export default function Recipe({ recipe }) {
               <h1>{recipe.title} Cocktail Recipe</h1>
 
               {recipe.RecipeIntro && <div className="recipe-intro">
-                {recipe.RecipeIntro}
+                <Markdown>{recipe.RecipeIntro}</Markdown>
               </div>}
-              
+
 
               <div className="recipe-ingredients">
-                <h2>{recipe.title} Ingredients</h2>
-                <Markdown>{recipe.ingredients}</Markdown>
+
+                <div className="recipe-ingredients-columns">
+                  <div className="recipe-ingredients-text">
+                    <h2>{recipe.title} Ingredients</h2>
+                    <div className="recipe-ingredients-list">
+                      <Markdown>{recipe.ingredients}</Markdown>
+                    </div>
+                  </div>
+
+                  {recipe.PhotoMain.data &&
+                    recipe.PhotoMain.data.attributes.url &&
+                    <div className="mobile-recipe-pic-container"><Image
+                      src={recipe.PhotoMain.data.attributes.url}
+                      alt={recipe.title}
+                      layout="responsive"
+                      width="300"
+                      height="300"
+                      className="mobile-recipe-image"
+                    /></div>
+                  }
+
+                </div>
               </div>
 
               <div className="recipe-technique">
                 <h2>How to make a {recipe.title}</h2>
                 <Markdown>{recipe.recipebody}</Markdown>
+
+                {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTube Video</Link>}
+                <br /><br />
+                {/* {recipe.YouTubeLink &&
+                <YouTubePlayer videoId={recipe.youTubeID} />} */}
               </div>
 
-              {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTubeVideo</Link>}
-              <br /><br /><br />
-              {/* {recipe.YouTubeLink &&
-                <YouTubePlayer videoId={recipe.youTubeID} />} */}
+
 
             </div>
             <div className="recipe-col-2">
@@ -105,6 +128,26 @@ export default function Recipe({ recipe }) {
                 />
               }
             </div>
+
+            {recipe.relatedProducts.data.length ? <div className="related-products">
+                <h2>Related Products</h2>
+                <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
+
+                <div className="related-product-cards">
+                {recipe && recipe.relatedProducts && recipe.relatedProducts.data && recipe.relatedProducts.data.map((product, index) => (
+                  <AmazonListingCard
+                    key={index}
+                    productName={product.attributes.ProductName}
+                    productCategory={product.attributes.ProductCategory}
+                    amazonLink={product.attributes.AmazonLink}
+                    amazonASIN={product.attributes.AmazonASIN}
+                  />
+                ))}
+                </div>
+              </div> : ""}
+
+
+
           </div>
 
         </RecipeDetailPageStyles>
