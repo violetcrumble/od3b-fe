@@ -26,3 +26,4 @@ export const zIndices = {
 }
 
 export const headerHeight = 120;
+export const headerHeightMobile = 80;

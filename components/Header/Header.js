@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <HeaderStyles className="header">
       <Link href="/" className="logo">
-        <img src="/logo.svg" width="200" height="70" alt="One Drink Three Bars" />
+        <img src="/logo.svg" alt="One Drink Three Bars" />
       </Link>
       <NavMenu />
     </HeaderStyles>

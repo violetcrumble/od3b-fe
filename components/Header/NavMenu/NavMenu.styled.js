@@ -25,7 +25,6 @@ export const NavMenuStyles = styled.div`
 
   .menu-icon {
     cursor: pointer;
-    display: inline-block;
     float: right;
     padding: 28px 20px;
     position: relative;
@@ -33,7 +32,7 @@ export const NavMenuStyles = styled.div`
   }
 
   .menu-icon .navicon {
-    background: #333;
+    background: #fff;
     display: block;
     height: 2px;
     position: relative;
@@ -43,7 +42,7 @@ export const NavMenuStyles = styled.div`
 
   .menu-icon .navicon:before,
   .menu-icon .navicon:after {
-    background: #333;
+    background: #fff;
     content: '';
     display: block;
     height: 100%;
