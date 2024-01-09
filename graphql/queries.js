@@ -73,4 +73,17 @@ query ($recipeUrlSlug: String!) {
   }
 `;
 
-export { GET_ALL_SLUGS, GET_ALL_RECIPES, GET_INDIVIDUAL_RECIPE };
+const GET_AMAZON_PRODUCTS = gql`
+query {products(pagination: { limit: 300 }) {
+  data {
+    attributes {
+      AmazonLink
+      AmazonASIN
+      ProductName
+      ProductCategory
+    }
+  }
+}}
+`;
+
+export { GET_ALL_SLUGS, GET_ALL_RECIPES, GET_INDIVIDUAL_RECIPE, GET_AMAZON_PRODUCTS };

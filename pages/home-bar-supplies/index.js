@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import { Listing4ColStyles } from '../../components/Listings4Col.styled';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
+import { HomeBarSuppliesStyles } from '../../components/homeBarSupples.styled';
+import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -13,16 +16,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{products(pagination: { limit: 300 }) {
-        data {
-          attributes {
-            AmazonLink
-            AmazonASIN
-            ProductName
-            ProductCategory
-          }
-        }
-      }}`,
+      query: GET_AMAZON_PRODUCTS,
     }),
   };
 
@@ -37,6 +31,30 @@ export async function getStaticProps(context) {
 }
 
 export default function Products({ products }) {
+
+  function filterProducts(category) {
+    if (category === "all_products"){
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(products.filter(element => element.attributes.ProductCategory == category));
+    }
+  }
+
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [currentCategory, setCurrentCategory] = useState();
+  // TODO: pull these from strapi instead of hard coding
+  const [productCategories, setProductCategories] = useState([
+    "all_products",
+    "glassware", 
+    "syrups", 
+    "garnishes", 
+    "bar_tools", 
+    "bitters", 
+    "ice_molds",
+    "appliances",
+    "cocktail_books",
+    "juices"]);
+
   return (
     <ContentWrapper>
       <Head>
@@ -46,25 +64,42 @@ export default function Products({ products }) {
       </Head>
 
       <ContentWrapperConstrainedStyles>
-      <main>
-        <h1>Home Bar Supplies</h1>
-        <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
-        {/* TODO: loop through the categories in Strapi */}
-        {/* <a href="">Cocktail Books</a> | <a href="">Bar Tools</a><br /><br /> */}
-        <Listing4ColStyles>
-          {/* TODO: if it's not a multiple of 4, add a couple empty divs to make it one */}
-          {products.map((product, index) => (
-            <AmazonListingCard
-              key={index}
-              productName={product.attributes.ProductName}
-              productCategory={product.attributes.ProductCategory}
-              amazonLink={product.attributes.AmazonLink}
-              amazonASIN={product.attributes.AmazonASIN}
-            />
-          ))}
-          {products.length !== Math.floor(products.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}
-        </Listing4ColStyles>
-      </main>
+        <HomeBarSuppliesStyles>
+          <h1>Home Bar Supplies</h1>
+          <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
+
+          <div className="product-category-filters">
+            <p>Filter products by category:</p>
+            <select
+              value={currentCategory}
+              onChange={(e) => { 
+                setCurrentCategory(e.target.value); 
+                filterProducts(e.target.value); 
+              }}
+            >
+              {productCategories.map((option, i) => {
+                return (
+                  <option value={option} key={i}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          <Listing4ColStyles>
+            {filteredProducts.map((product, index) => (
+              <AmazonListingCard
+                key={index}
+                productName={product.attributes.ProductName}
+                productCategory={product.attributes.ProductCategory}
+                amazonLink={product.attributes.AmazonLink}
+                amazonASIN={product.attributes.AmazonASIN}
+              />
+            ))}
+            {filteredProducts.length !== Math.floor(filteredProducts.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}
+          </Listing4ColStyles>
+        </HomeBarSuppliesStyles>
       </ContentWrapperConstrainedStyles>
     </ContentWrapper>
   );
