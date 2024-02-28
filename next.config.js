@@ -15,6 +15,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        port: '',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
         pathname: '/onedrinkthreebars/image/**',
