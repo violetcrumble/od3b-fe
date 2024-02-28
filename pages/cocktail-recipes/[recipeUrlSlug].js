@@ -141,6 +141,7 @@ export default function Recipe({ recipe }) {
                     productCategory={product.attributes.ProductCategory}
                     amazonLink={product.attributes.AmazonLink}
                     amazonASIN={product.attributes.AmazonASIN}
+                    amazonPhotoURL={product.attributes.AmazonPhotoURL}
                   />
                 ))}
                 </div>

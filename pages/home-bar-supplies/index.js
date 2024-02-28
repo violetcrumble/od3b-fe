@@ -18,6 +18,7 @@ export async function getStaticProps(context) {
           attributes {
             AmazonLink
             AmazonASIN
+            AmazonPhotoURL
             ProductName
             ProductCategory
           }
@@ -60,6 +61,7 @@ export default function Products({ products }) {
               productCategory={product.attributes.ProductCategory}
               amazonLink={product.attributes.AmazonLink}
               amazonASIN={product.attributes.AmazonASIN}
+              amazonPhotoURL={product.attributes.AmazonPhotoURL}
             />
           ))}
           {products.length !== Math.floor(products.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}

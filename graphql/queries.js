@@ -62,6 +62,7 @@ query ($recipeUrlSlug: String!) {
                 attributes {
                   AmazonLink
                   AmazonASIN
+                  AmazonPhotoURL
                   ProductName
                   ProductCategory
                 }
