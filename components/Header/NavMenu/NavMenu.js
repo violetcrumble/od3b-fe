@@ -19,6 +19,9 @@ export default function NavMenu() {
         <li>
           <Link href="/home-bar-supplies">Home Bar Supplies</Link>
         </li>
+        <li>
+          <Link href="/friends">Our Friends</Link>
+        </li>
       </ul>
     </NavMenuStyles>
   );
