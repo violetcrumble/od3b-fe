@@ -17,7 +17,7 @@ export const HeroStyles = styled.div`
     color: white;
     margin: 0 auto;
     text-align: center;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .6);
     padding: 10px 40px 20px 40px;
     
 
@@ -48,7 +48,7 @@ export const HeroStyles = styled.div`
     .heroContent {
       max-width: 600px;
       
-    top: 40px;
+    top: 126px;
     }
   }
 
