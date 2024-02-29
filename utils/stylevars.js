@@ -22,7 +22,8 @@ export const themeColors = {
 }
 
 export const zIndices = {
-    header: "500"
+    header: "500",
+    filterDropdown: "100",
 }
 
 export const headerHeight = 120;
