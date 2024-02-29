@@ -6,6 +6,7 @@ import { FriendsStyles } from '../../components/Friends.styled';
 
 import killdevill from '../../public/friends/killdevill.jpg';
 import gnome from '../../public/friends/gnome.jpeg';
+import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 
 export default function Friends() {
     return (
@@ -22,7 +23,7 @@ export default function Friends() {
 
                     <p>Check out some of my favorite cocktail content creators and influencers!</p>
 
-                    <div className="creatorCards">
+                    <Listing3ColStyles>
                         <CreatorCard
                             name="Kill-Divill Rum & Cocktails"
                             youTubeURL="https://www.youtube.com/@KillDivill"
@@ -41,7 +42,7 @@ export default function Friends() {
 
                         <div></div>
 
-                    </div>
+                    </Listing3ColStyles>
                 </FriendsStyles>
 
             </ContentWrapperConstrainedStyles>

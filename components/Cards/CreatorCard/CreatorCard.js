@@ -5,7 +5,7 @@ import Markdown from 'react-markdown';
 
 export default function CreatorCard(props) {
     return (
-        <CreatorCardStyles>
+        <CreatorCardStyles className="listing-card">
             <h2>{props.name}</h2>
             
             <div className="creator-info">
