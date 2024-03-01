@@ -12,7 +12,7 @@ export default function Friends() {
     return (
         <ContentWrapper>
             <Head>
-                <title>One Drink Three Bars</title>
+                <title>One Drink Three Bars - The Best Cocktail Content Creators</title>
                 <meta name="description" content="Friends of One Drink Three Bars" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
