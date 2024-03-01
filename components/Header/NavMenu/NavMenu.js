@@ -17,6 +17,9 @@ export default function NavMenu() {
           <Link href="/cocktail-recipes">Cocktail Recipes</Link>
         </li>
         <li>
+          <Link href="/blog">Articles</Link>
+        </li>
+        <li>
           <Link href="/home-bar-supplies">Home Bar Supplies</Link>
         </li>
         <li>

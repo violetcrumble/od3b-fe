@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const GET_ALL_SLUGS = gql`
+const GET_ALL_RECIPE_SLUGS = gql`
 query {
     recipes(pagination: { limit: 300 }) {
       data {
@@ -87,4 +87,58 @@ query {products(pagination: { limit: 300 }) {
 }}
 `;
 
-export { GET_ALL_SLUGS, GET_ALL_RECIPES, GET_INDIVIDUAL_RECIPE, GET_AMAZON_PRODUCTS };
+const GET_ALL_BLOG_SLUGS = gql`query {
+  blogPosts(pagination: { limit: 300 }) {
+    data {
+      attributes {
+        urlSlug
+      }
+    }
+  }
+}`;
+
+const GET_ALL_BLOG_POSTS = gql`query {blogPosts(pagination: { limit: 300 }) {
+  data {
+    attributes {
+      Title
+      urlSlug
+      Date
+      TextPreviewSnippet
+      ListingCardImage {
+        data {
+          attributes {
+            url
+            caption
+          }
+        }
+      }
+      blog_authors {
+        data {
+          attributes {
+            AuthorName
+          }
+        }
+      }
+    }
+  }
+}}`;
+
+const GET_BLOG_POST = gql`query ($urlSlug: String!) {
+  blogPosts(filters: { urlSlug: { eq: $urlSlug } }) {
+    data {
+      attributes {
+       urlSlug
+        blog_authors {
+        data {
+          attributes {
+            AuthorName
+          }
+        }
+      }
+       BlogPostBody
+      }
+    }
+      }
+}`;
+
+export { GET_ALL_RECIPE_SLUGS, GET_ALL_RECIPES, GET_INDIVIDUAL_RECIPE, GET_AMAZON_PRODUCTS, GET_ALL_BLOG_SLUGS, GET_ALL_BLOG_POSTS, GET_BLOG_POST };

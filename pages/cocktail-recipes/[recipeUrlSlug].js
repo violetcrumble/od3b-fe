@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { GET_ALL_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
+import { GET_ALL_RECIPE_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
@@ -159,7 +159,7 @@ export default function Recipe({ recipe }) {
 
 export async function getStaticPaths() {
 
-  const { data } = await client.query({ query: GET_ALL_SLUGS });
+  const { data } = await client.query({ query: GET_ALL_RECIPE_SLUGS });
 
   const paths = data.recipes.data.map((recipe) => {
     return { params: { recipeUrlSlug: recipe.attributes.recipeUrlSlug } }
