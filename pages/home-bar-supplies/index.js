@@ -77,7 +77,7 @@ export default function Products({ products }) {
     <ContentWrapper>
       <Head>
         <title>One Drink Three Bars - Cocktail Recipes - Home Bar Supplies</title>
-        <meta name="description" content="One Drink Three Bars" />
+        <meta name="description" content="If you need home bar supplies like cocktail mixing glasses, cocktail shakers, bitters, syrups or juices, check out some links to my favorite bar products." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
