@@ -28,7 +28,7 @@ export default function Friends() {
                             name="Kill-Divill Rum & Cocktails"
                             youTubeURL="https://www.youtube.com/@KillDivill"
                             instagramURL="https://www.instagram.com/kill.divill"
-                            bio="I am a rum-lover, cocktail hobbyist, and craft/local spirit enthusiast, and I hope to share what I know and grow even more."
+                            bio="I am a rum-lover, cocktail hobbyist, and craft/local spirit enthusiast, and I hope to share what I know to learn even more."
                             creatorImage={killdevill}
                             />
 
