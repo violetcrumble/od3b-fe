@@ -127,7 +127,8 @@ const GET_BLOG_POST = gql`query ($urlSlug: String!) {
   blogPosts(filters: { urlSlug: { eq: $urlSlug } }) {
     data {
       attributes {
-       urlSlug
+        Title
+        urlSlug
         blog_authors {
         data {
           attributes {

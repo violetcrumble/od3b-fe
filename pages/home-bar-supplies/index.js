@@ -69,9 +69,6 @@ export default function Products({ products }) {
 
   const [isActive, setIsActive] = useState(false);
   const [selected, setIsSelected] = useState("all_products");
-  function handleBlur(e) {
-    console.log(e);
-  }
 
   return (
     <ContentWrapper>

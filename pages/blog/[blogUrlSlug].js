@@ -44,11 +44,11 @@ export default function BlogPost({ blogPost }) {
     <ContentWrapper>
 
       <Head>
-        <title>{`Blog Post Title`}</title>
-        <meta name="description" content={`Blog Post Snippet`} />
+        <title>{blogPost.Title}</title>
+        <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content={`Blog Post Title`} />
-        <meta property="og:description" content={`Blog Post Snippet`} />
+        <meta property="og:title" content={blogPost.Title} />
+        <meta property="og:description" content={blogPost.TextPreviewSnippet} />
         {/* <meta property="og:image" content={recipe.PhotoMain.data.attributes.url} /> */}
         {/* <script
           type="application/ld+json"
@@ -63,7 +63,7 @@ export default function BlogPost({ blogPost }) {
         <div className="breadcrumb">
             <Link href="/">Home</Link>&nbsp;:&nbsp;
             <Link href="/blog">Articles</Link></div>
-            
+            <h1>{blogPost.Title}</h1>
             <Markdown>{blogPost.BlogPostBody}</Markdown>
         </BlogPostStyles>
       </ContentWrapperConstrainedStyles>
@@ -86,8 +86,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-
-console.log(params);
 
   const { data } = await client.query({
     query: GET_BLOG_POST,

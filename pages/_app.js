@@ -21,7 +21,7 @@ h2, h3 {
   color: ${themeColors.brandColorSecondary};
   font-size: 18px;
 }
-p {
+p, li {
   font-size: 14px;
 }
 a:link, a:visited {

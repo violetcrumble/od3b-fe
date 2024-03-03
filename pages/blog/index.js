@@ -20,6 +20,15 @@ export async function getStaticProps(context) {
             urlSlug
             Title
             Date
+            TextPreviewSnippet
+            ListingCardImage {
+              data {
+                attributes {
+                  url
+                  caption
+                }
+              }
+            }
             blog_authors {
                 data {
                   attributes {
