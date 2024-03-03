@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { themeColors } from '../../../utils/stylevars';
 
 export const AmazonListingCardStyles = styled.div`
-  background-color: #fff;
+  background-color: white;
   box-sizing: border-box;
   display: flex;
 
