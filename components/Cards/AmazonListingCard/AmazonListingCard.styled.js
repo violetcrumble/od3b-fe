@@ -10,12 +10,10 @@ export const AmazonListingCardStyles = styled.div`
     font-size: 16px;
     font-weight: normal;
   }
-
   .product-info {
     padding: 10px;
     width: 50%;
   }
-
   .product-pic {
     margin: 15px;
     width: 50%;
@@ -23,7 +21,6 @@ export const AmazonListingCardStyles = styled.div`
     position: relative;
     min-height: 160px;
   }
-
   a:link, a:visited {
     background-color: ${themeColors.brandColorPrimary};
     display: block;
@@ -32,7 +29,6 @@ export const AmazonListingCardStyles = styled.div`
     text-align: center;
     text-decoration: none;
   }
-
   a:hover, a:active {
     background-color: ${themeColors.brandColorPrimaryLight};
   }
