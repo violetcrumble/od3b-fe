@@ -17,29 +17,20 @@ const client = new ApolloClient({
 
 export default function BlogPost({ blogPost }) {
 
-//   function addBlogJsonLd() {
-//     return {
-//       __html: `{
-//       "@context": "https://schema.org/",
-//       "@type": "Recipe",
-//       "name": "${recipe.title}",
-//       "image": [
-//         "${recipe.PhotoMain.data.attributes.url}"
-//        ],
-//        "recipeIngredient": 
-//         ${JSON.stringify(recipe.cocktailIngredients.ingredients)}
-//        ,
-//       "description": "${recipe.recipebody}",
-//       "keywords": "${recipe.keywords ? recipe.keywords : "cocktail recipes, easy cocktails to make at home, alcoholic drink recipes"}",
-//       "recipeCategory": "Cocktail",
-//       "video": {
-//         "contentUrl": "${recipe.YouTubeLink}"
-//       },
-//       "author": "One Drink Three Bars"
-//     }
-//   `,
-//     };
-//   }
+  function addBlogJsonLd() {
+    return {
+      __html: `{
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "name": "${blogPost.Title}",
+      "thumbnail": "${blogPost.ListingCardImage.data.attributes.url}",
+      "articleBody": "${blogPost.BlogPostBody}",
+      "keywords": "${blogPost.seoKeywords}",
+      "author": "${blogPost.blog_authors.data[0].attributes.AuthorName}"
+    }
+  `,
+    };
+  }
   return (
     <ContentWrapper>
 
@@ -49,12 +40,12 @@ export default function BlogPost({ blogPost }) {
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
-        {/* <meta property="og:image" content={recipe.PhotoMain.data.attributes.url} /> */}
-        {/* <script
+        <meta property="og:image" content={blogPost.ListingCardImage.data.attributes.url} />
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={addRecipeJsonLd()}
-          key="recipe-jsonld"
-        /> */}
+          dangerouslySetInnerHTML={addBlogJsonLd()}
+          key="blogpost-jsonld"
+        />
       </Head>
 
       <ContentWrapperConstrainedStyles>
@@ -64,6 +55,7 @@ export default function BlogPost({ blogPost }) {
             <Link href="/">Home</Link>&nbsp;:&nbsp;
             <Link href="/blog">Articles</Link></div>
             <h1>{blogPost.Title}</h1>
+            <p>By: {blogPost.blog_authors.data[0].attributes.AuthorName} | {blogPost.Date}</p>
             <Markdown>{blogPost.BlogPostBody}</Markdown>
         </BlogPostStyles>
       </ContentWrapperConstrainedStyles>

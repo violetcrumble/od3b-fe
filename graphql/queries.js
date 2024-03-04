@@ -128,7 +128,18 @@ const GET_BLOG_POST = gql`query ($urlSlug: String!) {
     data {
       attributes {
         Title
+        Date
+        seoKeywords
+        seoDescription
         urlSlug
+        ListingCardImage {
+          data {
+            attributes {
+              url
+              caption
+            }
+          }
+        }
         blog_authors {
         data {
           attributes {
