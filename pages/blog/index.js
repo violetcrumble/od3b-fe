@@ -57,10 +57,10 @@ export default function BlogListing({ blogPosts }) {
     <ContentWrapper>
       <Head>
         <title>One Drink Three Bars - Cocktail Blog Posts and Cocktail Articles</title>
-        <meta name="description" content="One Drink Three Bars - How to make craft cocktails at home and how to find the best bars" />
+        <meta name="description" content="One Drink Three Bars - Visit the best bars and find the best cocktails with One Drink Three Bars" />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="One Drink Three Bars - Cocktail Blog Posts and Cocktail Articles" />
-        <meta property="og:description" content="How to make craft cocktails at home" />
+        <meta property="og:description" content="One Drink Three Bars - Visit the best bars and find the best cocktails with One Drink Three Bars" />
       </Head>
 
       <ContentWrapperConstrainedStyles>

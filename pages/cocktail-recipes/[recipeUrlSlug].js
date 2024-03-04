@@ -47,7 +47,7 @@ export default function Recipe({ recipe }) {
     <ContentWrapper>
 
       <Head>
-        <title>{`${recipe.title} cocktail recipe`}</title>
+        <title>{`${recipe.title} cocktail recipe - One Drink Three Bars`}</title>
         <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
@@ -71,7 +71,7 @@ export default function Recipe({ recipe }) {
 
           <div className="recipe-detail-layout">
             <div className="recipe-col-1">
-              <h1>{recipe.title} Cocktail Recipe</h1>
+              <h1>{recipe.title} Recipe</h1>
 
               {recipe.RecipeIntro && <div className="recipe-intro">
                 <Markdown>{recipe.RecipeIntro}</Markdown>

@@ -35,7 +35,7 @@ export default function BlogPost({ blogPost }) {
     <ContentWrapper>
 
       <Head>
-        <title>{blogPost.Title}</title>
+        <title>{blogPost.Title} - One Drink Three Bars Blog</title>
         <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />
