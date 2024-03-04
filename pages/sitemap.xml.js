@@ -1,59 +1,48 @@
-//pages/sitemap.xml.js
-const RECIPES_URL = 'https://https://one-drink-three-bars-cms-ac9b2b61e4f5.herokuapp.com/api/recipes';
-const BLOGPOSTS_URL = 'https://https://one-drink-three-bars-cms-ac9b2b61e4f5.herokuapp.com/api/blogposts';
+// pages/sitemap.xml.js
+
+const URL = "https://onedrinkthreebars.com";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <!--We manually set the two URLs we know already-->
+   <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
-       <loc>https://onedrinkthreebars.com</loc>
-     </url>
-     <url>
-       <loc>https://onedrinkthreebars.com/cocktail-recipes</loc>
-     </url>
-     ${recipes
-       .map(({ id }) => {
-         return `
-       <url>
-           <loc>${`${RECIPES_URL}/${id}`}</loc>
-       </url>
-     `;
-       })
-       .join('')}
-       <url>
-       <loc>https://onedrinkthreebars.com/blog</loc>
-     </url>
-       ${blogposts
-        .map(({ id }) => {
-          return `
-        <url>
-            <loc>${`${BLOGPOSTS_URL}/${id}`}</loc>
-        </url>
-      `;
-        })
-        .join('')}
-        <url>
-       <loc>https://onedrinkthreebars.com/friends</loc>
+       <loc>${URL}</loc>
+       <loc>${URL}/cocktail-recipes</loc>
+       <loc>${URL}/cocktail-recipes/naked-and-famous-cocktail</loc>
+       <loc>${URL}/cocktail-recipes/paper-plane-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/how-to-make-a-mai-tai</loc>
+       <loc>${URL}/cocktail-recipes/root-beer-rye-old-fashioned</loc>
+       <loc>${URL}/cocktail-recipes/aperol-spritz-recipe</loc>
+       <loc>${URL}/cocktail-recipes/old-fashioned-recipe</loc>
+       <loc>${URL}/cocktail-recipes/halloween-blood-bag-margarita</loc>
+       <loc>${URL}/cocktail-recipes/negroni-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/nirvana-baby-spencer-elden-drink</loc>
+       <loc>${URL}/cocktail-recipes/mint-julep-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/old-pal-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/rumchata-pumpkin-pie-martini</loc>
+       <loc>${URL}/cocktail-recipes/spicy-margarita-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/whiskey-sour-recipe</loc>
+       <loc>${URL}/cocktail-recipes/buzz-button-cocktail-white-lady</loc>
+       <loc>${URL}/cocktail-recipes/bag-in-the-aisle-old-forester</loc>
+       <loc>${URL}/cocktail-recipes/espresso-martini-recipe</loc>
+       <loc>${URL}/cocktail-recipes/white-russian-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/verbena-buzz-button-cocktail</loc>
+       <loc>${URL}/blog</loc>
+       <loc>${URL}/blog/best-bars-pigeon-forge-tennessee</loc>
+       <loc>${URL}/home-bar-supplies</loc>
+       <loc>${URL}/friends</loc>
      </url>
    </urlset>
  `;
 }
 
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
-
 export async function getServerSideProps({ res }) {
-  // We make an API call to gather the URLs for our site
-  const request = await fetch(EXTERNAL_DATA_URL);
-  const posts = await request.json();
 
-  // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(posts);
+  // Generate the XML sitemap with the blog data
+  const sitemap = generateSiteMap();
 
-  res.setHeader('Content-Type', 'text/xml');
-  // we send the XML to the browser
+  res.setHeader("Content-Type", "text/xml");
+  // Send the XML to the browser
   res.write(sitemap);
   res.end();
 
@@ -62,4 +51,4 @@ export async function getServerSideProps({ res }) {
   };
 }
 
-export default SiteMap;
+export default function SiteMap() {}
