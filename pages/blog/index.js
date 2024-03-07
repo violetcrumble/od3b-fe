@@ -67,12 +67,13 @@ export default function BlogListing({ blogPosts }) {
         <main>
           <h1>Cocktail Blog Posts and Articles</h1>
         
-        <Listing3ColStyles>
+        <Listing3ColStyles className="blog-container">
         {blogPosts.map((blogPost, index) => (
               <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`}>
                 <BlogListingCard  blogPost={blogPost} />
               </Link>
             ))}
+            <div className="listing-card"></div>
         </Listing3ColStyles>
             
           

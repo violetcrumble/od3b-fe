@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { themeColors } from '../../../utils/stylevars';
 
 export const BlogListingCardStyles = styled.div`
   
@@ -13,9 +14,17 @@ export const BlogListingCardStyles = styled.div`
     padding: 20px;
   }
 
-  .text-snippet,
   .byline-date {
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
+  }
+
+  .text-snippet {
+    line-height: 140%;
+    padding: 0 20px 10px 20px;
+
+    u {
+      color: ${themeColors.brandColorSecondary};
+    }
   }
 
 `;
