@@ -112,17 +112,9 @@ export default function Recipe({ recipe }) {
                     </div>
 
                   </div>
-
-                 
-
                 </div>
 
-                
-
               </div>
-
-        
-
 
             </div>
             <div className="recipe-col-2">
