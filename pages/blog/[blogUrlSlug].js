@@ -16,6 +16,8 @@ const client = new ApolloClient({
 });
 
 export default function BlogPost({ blogPost }) {
+  
+  const formattedDate = new Date(blogPost.Date).toLocaleString('en-us',{month:'long', year:'numeric', day:'numeric'})
 
   function addBlogJsonLd() {
     return {
@@ -26,7 +28,15 @@ export default function BlogPost({ blogPost }) {
       "thumbnail": "${blogPost.ListingCardImage.data.attributes.url}",
       "articleBody": "${blogPost.BlogPostBody}",
       "keywords": "${blogPost.seoKeywords}",
-      "author": "${blogPost.blog_authors.data[0].attributes.AuthorName}"
+      "description": "${blogPost.TextPreviewSnippet}",
+      "datePublished": "${blogPost.Date}",
+      "dateCreated": "${blogPost.Date}",
+      "dateModified": "${blogPost.Date}",
+      "genre":["SEO","JSON-LD"],
+      "author": {
+        "@type": "Person",
+        "name": "${blogPost.blog_authors.data[0].attributes.AuthorName}"
+      }
     }
   `,
     };
@@ -51,11 +61,9 @@ export default function BlogPost({ blogPost }) {
       <ContentWrapperConstrainedStyles>
 
         <BlogPostStyles>
-        <div className="breadcrumb">
-            <Link href="/">Home</Link>&nbsp;:&nbsp;
-            <Link href="/blog">Articles</Link></div>
+
             <h1>{blogPost.Title}</h1>
-            <p>By: {blogPost.blog_authors.data[0].attributes.AuthorName} | {blogPost.Date}</p>
+            <p>By: {blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
             <Markdown>{blogPost.BlogPostBody}</Markdown>
         </BlogPostStyles>
       </ContentWrapperConstrainedStyles>
