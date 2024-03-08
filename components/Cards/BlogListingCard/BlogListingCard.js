@@ -4,12 +4,14 @@ import { BlogListingCardStyles } from './BlogListingCard.styled';
 
 export default function BlogListingCard(props) {
     
+    const formattedDate = new Date(props.blogPost.attributes.Date).toLocaleString('en-us',{month:'long', year:'numeric', day:'numeric'})
+
     return (
         <BlogListingCardStyles>
            
            <div className="byline-date">
             <h2>{props.blogPost.attributes.Title}</h2>
-            <p>By: {props.blogPost.attributes.blog_authors.data[0].attributes.AuthorName} | {props.blogPost.attributes.Date}</p>
+            <p>{props.blogPost.attributes.blog_authors.data[0].attributes.AuthorName} | {formattedDate()}</p>
             </div>
            
            {props.blogPost.attributes.ListingCardImage.data && 

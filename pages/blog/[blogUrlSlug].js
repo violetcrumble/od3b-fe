@@ -63,7 +63,7 @@ export default function BlogPost({ blogPost }) {
         <BlogPostStyles>
 
             <h1>{blogPost.Title}</h1>
-            <p>By: {blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
+            <p>{blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
             <Markdown>{blogPost.BlogPostBody}</Markdown>
         </BlogPostStyles>
       </ContentWrapperConstrainedStyles>
