@@ -89,8 +89,6 @@ export default function Recipe({ recipe }) {
                 <Markdown>{recipe.RecipeIntro}</Markdown>
               </div>}
 
-              
-
               <div className="recipe-ingredients">
 
                 <div className="recipe-ingredients-columns">
