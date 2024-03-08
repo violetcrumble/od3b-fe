@@ -132,6 +132,7 @@ const GET_BLOG_POST = gql`query ($urlSlug: String!) {
         seoKeywords
         seoDescription
         urlSlug
+        TextPreviewSnippet
         ListingCardImage {
           data {
             attributes {
