@@ -106,9 +106,9 @@ export default function Recipe({ recipe }) {
 
                       <br />
                       {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTube Video</Link>}
-                <br /><br />
-                {/* {recipe.YouTubeLink &&
-                <YouTubePlayer videoId={recipe.youTubeID} />} */}
+                      <br /><br />
+                      {/* {recipe.YouTubeLink &&
+                      <YouTubePlayer videoId={recipe.youTubeID} />} */}
                     </div>
 
                   </div>
