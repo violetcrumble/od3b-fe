@@ -47,7 +47,7 @@ export default function Recipe({ recipe }) {
     <ContentWrapper>
 
       <Head>
-        <title>{`${recipe.title} cocktail recipe - One Drink Three Bars`}</title>
+        <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
@@ -67,28 +67,13 @@ export default function Recipe({ recipe }) {
           <div className="breadcrumb">
             <Link href="/">Home</Link>&nbsp;:&nbsp;
             <Link href="/cocktail-recipes/">Cocktail Recipes</Link>&nbsp;:&nbsp;
-            {recipe.title} Recipe</div>
+            {recipe.title}</div>
 
           <div className="recipe-detail-layout">
             <div className="recipe-col-1">
               <h1>{recipe.title} Recipe</h1>
 
-              {recipe.RecipeIntro && <div className="recipe-intro">
-                <Markdown>{recipe.RecipeIntro}</Markdown>
-              </div>}
-
-
-              <div className="recipe-ingredients">
-
-                <div className="recipe-ingredients-columns">
-                  <div className="recipe-ingredients-text">
-                    <h2>{recipe.title} Ingredients</h2>
-                    <div className="recipe-ingredients-list">
-                      <Markdown>{recipe.ingredients}</Markdown>
-                    </div>
-                  </div>
-
-                  {recipe.PhotoMain.data &&
+              {recipe.PhotoMain.data &&
                     recipe.PhotoMain.data.attributes.url &&
                     <div className="mobile-recipe-pic-container"><Image
                       src={recipe.PhotoMain.data.attributes.url}
@@ -100,19 +85,45 @@ export default function Recipe({ recipe }) {
                     /></div>
                   }
 
-                </div>
-              </div>
+              {recipe.RecipeIntro && <div className="recipe-intro">
+                <Markdown>{recipe.RecipeIntro}</Markdown>
+              </div>}
 
-              <div className="recipe-technique">
-                <h2>How to make a {recipe.title}</h2>
-                <Markdown>{recipe.recipebody}</Markdown>
+              
 
-                {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTube Video</Link>}
+              <div className="recipe-ingredients">
+
+                <div className="recipe-ingredients-columns">
+                  <div className="recipe-ingredients-text">
+                  
+                    <div className="recipe-ingredients-list">
+                    <h2>How to make a {recipe.title}</h2>
+                      <h4>Ingredients</h4>
+                      <div className="recipe-ingredients-list-inside">
+                      <Markdown>{recipe.ingredients}</Markdown>
+                      </div>
+
+                      <h4>Technique</h4>
+                      <Markdown>{recipe.recipebody}</Markdown>
+
+                      <br />
+                      {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTube Video</Link>}
                 <br /><br />
                 {/* {recipe.YouTubeLink &&
                 <YouTubePlayer videoId={recipe.youTubeID} />} */}
+                    </div>
+
+                  </div>
+
+                 
+
+                </div>
+
+                
+
               </div>
 
+        
 
 
             </div>

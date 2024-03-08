@@ -24,11 +24,8 @@ export const RecipeDetailPageStyles = styled.main`
       width: 100%; 
 
       .recipe-intro,
-      .recipe-ingredients,
-      .recipe-technique {
-        margin-bottom: 30px;
+      .recipe-ingredients {
         line-height: 150%;
-        border-bottom: dotted 1px;
       }
       .recipe-ingredients {
         
@@ -42,14 +39,7 @@ export const RecipeDetailPageStyles = styled.main`
               margin-top: 0;
             }
           }
-          .mobile-recipe-pic-container {
-            max-width: 45%;
-          }
-          .mobile-recipe-image {
-            border-radius: 20px;
-            border: solid 1px black;
-            margin-top: 30px;
-          }
+          
         }
       }
     }
@@ -59,9 +49,7 @@ export const RecipeDetailPageStyles = styled.main`
         img {
         max-width: 500px;
         margin-bottom: 10px;
-        border: solid 1px black;
         display: none;
-        border-radius: 20px;
       }
     }
 
@@ -82,7 +70,14 @@ export const RecipeDetailPageStyles = styled.main`
   }
 
   .recipe-ingredients-list {
-    columns: 2;
+    
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+
+    .recipe-ingredients-list-inside {
+      columns: 2;
+    }
   }
     
     .mobile-recipe-image {
