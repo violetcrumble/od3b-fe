@@ -11,7 +11,7 @@ export default function BlogListingCard(props) {
            
            <div className="byline-date">
             <h2>{props.blogPost.attributes.Title}</h2>
-            <p>{props.blogPost.attributes.blog_authors.data[0].attributes.AuthorName} | {formattedDate()}</p>
+            <p>{props.blogPost.attributes.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
             </div>
            
            {props.blogPost.attributes.ListingCardImage.data && 
