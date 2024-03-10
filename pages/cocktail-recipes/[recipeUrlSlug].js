@@ -11,6 +11,7 @@ import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
 import Markdown from 'react-markdown';
 import { RecipeDetailPageStyles } from '../../components/recipedetail.styled';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -110,7 +111,7 @@ export default function Recipe({ recipe }) {
                       {recipe.YouTubeLink && <Link 
                         className="youtube-button" 
                         href={recipe.YouTubeLink} 
-                        onClick={() => sendGTMEvent({ event: 'recipe-page-youtube-click', value: recipe.title })}
+                        onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
                         target='_blank'>
                         Watch YouTube Video</Link>}
                       <br /><br />

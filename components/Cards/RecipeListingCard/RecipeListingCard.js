@@ -3,8 +3,6 @@ import React from 'react';
 import { RecipeListingCardStyles } from './RecipeListingCard.styled';
 
 export default function RecipeListingCard(props) {
-    
-    console.log(props.recipe.attributes.title);
     return (
         
         <RecipeListingCardStyles>
