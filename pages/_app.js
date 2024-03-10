@@ -38,8 +38,8 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyles />
       <div className={montserrat.className}>
         <Component {...pageProps} />
-        <GoogleTagManager gtmId='${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}' />
-        <GoogleAnalytics gaId='${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}' />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
       </div>
     </>
   );
