@@ -58,6 +58,17 @@ export default function Recipe({ recipe }) {
           dangerouslySetInnerHTML={addRecipeJsonLd()}
           key="recipe-jsonld"
         />
+        <Script id="google-tag-manager-conversion">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}/XICSCIvHqZoZELirnLMq'})', {
+            page_path: window.location.pathname,
+            });
+        `}
+        </Script>
+
       </Head>
 
       <ContentWrapperConstrainedStyles>
