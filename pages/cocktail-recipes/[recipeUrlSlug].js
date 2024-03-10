@@ -108,7 +108,9 @@ export default function Recipe({ recipe }) {
 
                       <br />
                       {recipe.YouTubeLink && <Link 
-                        className="youtube-button" href={recipe.YouTubeLink} 
+                        className="youtube-button" 
+                        href={recipe.YouTubeLink} 
+                        onClick={() => sendGTMEvent({ event: 'recipe-page-youtube-click', value: recipe.title })}
                         target='_blank'>
                         Watch YouTube Video</Link>}
                       <br /><br />
