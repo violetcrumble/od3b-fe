@@ -47,17 +47,6 @@ export default function Recipe({ recipe }) {
   return (
     <ContentWrapper>
 
-      <Script id="google-tag-manager-conversion">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}/XICSCIvHqZoZELirnLMq'})', {
-            page_path: window.location.pathname,
-            });
-        `}
-      </Script>
-
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
@@ -118,7 +107,10 @@ export default function Recipe({ recipe }) {
                       <Markdown>{recipe.recipebody}</Markdown>
 
                       <br />
-                      {recipe.YouTubeLink && <Link className="youtube-button" href={recipe.YouTubeLink} target='_blank'>Watch YouTube Video</Link>}
+                      {recipe.YouTubeLink && <Link 
+                        className="youtube-button" href={recipe.YouTubeLink} 
+                        target='_blank'>
+                        Watch YouTube Video</Link>}
                       <br /><br />
                       {/* {recipe.YouTubeLink &&
                       <YouTubePlayer videoId={recipe.youTubeID} />} */}
