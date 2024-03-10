@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from "next/script";
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_RECIPE_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
@@ -46,6 +47,17 @@ export default function Recipe({ recipe }) {
   return (
     <ContentWrapper>
 
+      <Script id="google-tag-manager-conversion">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}/XICSCIvHqZoZELirnLMq'})', {
+            page_path: window.location.pathname,
+            });
+        `}
+      </Script>
+
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
@@ -58,16 +70,6 @@ export default function Recipe({ recipe }) {
           dangerouslySetInnerHTML={addRecipeJsonLd()}
           key="recipe-jsonld"
         />
-        <Script id="google-tag-manager-conversion">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('event', 'conversion', {'send_to': '${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}/XICSCIvHqZoZELirnLMq'})', {
-            page_path: window.location.pathname,
-            });
-        `}
-        </Script>
 
       </Head>
 
@@ -85,16 +87,16 @@ export default function Recipe({ recipe }) {
               <h1>{recipe.title} Recipe</h1>
 
               {recipe.PhotoMain.data &&
-                    recipe.PhotoMain.data.attributes.url &&
-                    <div className="mobile-recipe-pic-container"><Image
-                      src={recipe.PhotoMain.data.attributes.url}
-                      alt={recipe.title}
-                      layout="responsive"
-                      width="300"
-                      height="300"
-                      className="mobile-recipe-image"
-                    /></div>
-                  }
+                recipe.PhotoMain.data.attributes.url &&
+                <div className="mobile-recipe-pic-container"><Image
+                  src={recipe.PhotoMain.data.attributes.url}
+                  alt={recipe.title}
+                  layout="responsive"
+                  width="300"
+                  height="300"
+                  className="mobile-recipe-image"
+                /></div>
+              }
 
               {recipe.RecipeIntro && <div className="recipe-intro">
                 <Markdown>{recipe.RecipeIntro}</Markdown>
@@ -104,12 +106,12 @@ export default function Recipe({ recipe }) {
 
                 <div className="recipe-ingredients-columns">
                   <div className="recipe-ingredients-text">
-                  
+
                     <div className="recipe-ingredients-list">
-                    <h2>How to make a {recipe.title}</h2>
+                      <h2>How to make a {recipe.title}</h2>
                       <h4>Ingredients</h4>
                       <div className="recipe-ingredients-list-inside">
-                      <Markdown>{recipe.ingredients}</Markdown>
+                        <Markdown>{recipe.ingredients}</Markdown>
                       </div>
 
                       <h4>Technique</h4>
@@ -142,10 +144,10 @@ export default function Recipe({ recipe }) {
             </div>
 
             {recipe.relatedProducts.data.length ? <div className="related-products">
-                <h2>Related Products</h2>
-                <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
+              <h2>Related Products</h2>
+              <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
 
-                <div className="related-product-cards">
+              <div className="related-product-cards">
                 {recipe && recipe.relatedProducts && recipe.relatedProducts.data && recipe.relatedProducts.data.map((product, index) => (
                   <AmazonListingCard
                     key={index}
@@ -156,8 +158,8 @@ export default function Recipe({ recipe }) {
                     amazonPhotoURL={product.attributes.AmazonPhotoURL}
                   />
                 ))}
-                </div>
-              </div> : ""}
+              </div>
+            </div> : ""}
 
 
 
