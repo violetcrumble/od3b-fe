@@ -67,7 +67,6 @@ export default function Recipes({ recipes }) {
               </Link>
             ))}
         </Listing3ColStyles>
-            
           
         </main>
       </ContentWrapperConstrainedStyles>
