@@ -65,7 +65,8 @@ export default function Products({ products }) {
     "ice_molds",
     "appliances",
     "cocktail_books",
-    "juices"]);
+    "juices",
+    "teas"]);
 
   const [isActive, setIsActive] = useState(false);
   const [selected, setIsSelected] = useState("all_products");
