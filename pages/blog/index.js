@@ -69,7 +69,7 @@ export default function BlogListing({ blogPosts }) {
         
         <Listing3ColStyles className="blog-container">
         {blogPosts.map((blogPost, index) => (
-              <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`}>
+              <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
                 <BlogListingCard  blogPost={blogPost} />
               </Link>
             ))}
