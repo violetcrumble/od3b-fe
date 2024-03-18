@@ -11,4 +11,8 @@ export const CreatorCardStyles = styled.div`
     text-align: center;
   }
 
+  p {
+    line-height: 140%;
+  }
+
 `;

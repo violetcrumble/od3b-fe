@@ -6,6 +6,7 @@ import { FriendsStyles } from '../../components/Friends.styled';
 
 import killdevill from '../../public/friends/killdevill.jpg';
 import gnome from '../../public/friends/gnome.jpeg';
+import mybartender from '../../public/friends/mybartender.jpg';
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 
 export default function Friends() {
@@ -30,7 +31,7 @@ export default function Friends() {
                             instagramURL="https://www.instagram.com/kill.divill"
                             bio="I am a rum-lover, cocktail hobbyist, and craft/local spirit enthusiast, and I hope to share what I know to learn even more."
                             creatorImage={killdevill}
-                            />
+                        />
 
                         <CreatorCard
                             name="Gnome's Tavern"
@@ -38,6 +39,15 @@ export default function Friends() {
                             instagramURL="https://www.instagram.com/gnomestavern"
                             bio="Richard, aka The Gnome has an awesome YouTube channel and he also makes his own rum at the Happy Raptor Distillery in New Orleans, Louisiana!"
                             creatorImage={gnome}
+                        />
+
+                        <CreatorCard
+                            name="My Bartender"
+                            youTubeURL="https://www.youtube.com/@mybartender"
+                            instagramURL="https://www.instagram.com/_mybartender/"
+                            bio="As a leading digital media company and online magazine, we delve deep into the vibrant world of cocktails and liquors, offering our audience an intoxicating blend of engaging content, expert insights, and curated reviews."
+                            creatorImage={mybartender}
+                            websiteURL="https://www.mybartender.com"
                         />
 
                         <div></div>

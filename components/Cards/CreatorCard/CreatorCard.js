@@ -9,11 +9,13 @@ export default function CreatorCard(props) {
             <h2>{props.name}</h2>
             
             <div className="creator-info">
-            
-                
                 
                 <div>
-                    <p><a href={props.youTubeURL} target="_blank" rel="noopener noreferrer">YouTube</a> | <a href={props.instagramURL} target="_blank" rel="noopener noreferrer">Instagram</a></p>
+                    <p>
+                        <a href={props.youTubeURL} target="_blank" rel="noopener noreferrer">YouTube</a>&nbsp;|&nbsp;
+                        <a href={props.instagramURL} target="_blank" rel="noopener noreferrer">Instagram</a>
+                        {props.websiteURL &&  <> | <a href={props.websiteURL} target="_blank" rel="noopener noreferrer">{props.websiteURL}</a></>}
+                    </p>
                     <Markdown>{props.bio}</Markdown>
                 </div>
 
