@@ -62,7 +62,7 @@ export default function Recipes({ recipes }) {
         
         <Listing3ColStyles>
         {recipes.map((recipe, index) => (
-              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}>
+              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
                 <RecipeListingCard  recipe={recipe} />
               </Link>
             ))}
