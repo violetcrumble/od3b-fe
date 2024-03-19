@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HeroStyles } from './HeroImage.styled';
-import heroBanner from '../../public/hero2.jpg';
+import heroBanner from '../../public/hero4.jpg';
 
 export default function HeroImage() {
   return (

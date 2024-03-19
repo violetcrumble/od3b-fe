@@ -25,7 +25,7 @@ export default function BlogPost({ blogPost }) {
       "@context": "https://schema.org/",
       "@type": "BlogPosting",
       "name": "${blogPost.Title}",
-      "thumbnail": "${blogPost.ListingCardImage.data.attributes.url}",
+      "thumbnail": "${blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes ? blogPost.ListingCardImage.data.attributes.url : "/pic-not-available.gif" }",
       "articleBody": "${blogPost.BlogPostBody}",
       "keywords": "${blogPost.seoKeywords}",
       "description": "${blogPost.TextPreviewSnippet}",
@@ -45,12 +45,12 @@ export default function BlogPost({ blogPost }) {
     <ContentWrapper>
 
       <Head>
-        <title>{blogPost.Title} - One Drink Three Bars Blog</title>
+        <title>{blogPost.Title}</title>
         <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
-        <meta property="og:image" content={blogPost.ListingCardImage.data.attributes.url} />
+        <meta property="og:image" content={blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes ? blogPost.ListingCardImage.data.attributes.url : "/pic-not-available.gif" } />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={addBlogJsonLd()}
