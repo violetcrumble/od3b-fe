@@ -18,19 +18,13 @@ export const Listing3ColStyles = styled.div`
 
   @media (min-width: ${breakpoints.sm}) {
     .listing-card {
-      width: 48%;
+      width: 100%;
     }
   }
 
   @media (min-width: ${breakpoints.md}) {
     .listing-card {
-      width: 31%;
-    }
-  }
-
-  @media (min-width: ${breakpoints.lg}) {
-    .listing-card {
-      width: 30%;
+      width: 29%;
     }
   }
 `;
