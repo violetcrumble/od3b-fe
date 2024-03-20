@@ -45,7 +45,7 @@ export default function BlogPost({ blogPost }) {
     <ContentWrapper>
 
       <Head>
-        <title>{blogPost.Title}</title>
+        <title>{blogPost.Title} by {blogPost.blog_authors.data[0].attributes.AuthorName}</title>
         <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />

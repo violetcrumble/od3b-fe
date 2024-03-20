@@ -16,7 +16,7 @@ export const RecipeListingCardStyles = styled.div`
 
   .recipe-info {
     padding: 10px;
-    h2 {
+    h3 {
       font-size: 18px;
       font-weight: normal;
       text-decoration: none;
