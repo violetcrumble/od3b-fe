@@ -4,35 +4,54 @@ import Link from 'next/link';
 import { HomeStyles } from './Home.styled.js';
 import HeroImage from '../HeroImage/HeroImage';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
+import RecipeListingCard from '../Cards/RecipeListingCard/RecipeListingCard.js';
+import { Listing3ColStyles } from '../Listings3Col.styled.js';
 
+export default function HomePage({recipes}) {
+    
+    function filterRecipes(spiritsCategory) {
+        let filteredByCategory = [];
+        for (let i = 0; i < recipes.length; i++) {
+            for (let j = 0; j < recipes[i].attributes.spirits.data.length; j++ ) {
+                if (recipes[i].attributes.spirits.data[j].attributes.spirit === spiritsCategory) {
+                    filteredByCategory.push(recipes[i]);
+                }
+            }
+          }
+          return filteredByCategory;
+    }
 
-export default function HomePage() {
     return (
         <HomeStyles>
             <div className="hero-wrapper">
                 <HeroImage />
             </div>
 
-            <ContentWrapperConstrainedStyles>
-                <div className="offerings">
+            <div className="tequila-recipes-section recipes-section">
+                <ContentWrapperConstrainedStyles>
+                <h2>Tequila Recipes</h2>
+                <Listing3ColStyles>
+                {filterRecipes("tequila").slice(0,3).map((recipe, index) => (
+              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
+                <RecipeListingCard  recipe={recipe} />
+              </Link>
+            ))}
+                </Listing3ColStyles>
+                </ContentWrapperConstrainedStyles>
+            </div>
 
-                    <div className="offering-card"><h3>Full Episodes</h3>
-                        <p>We visit 3 bars and order the same drink. Results may vary!</p>
-                        <Link href="https://www.youtube.com/watch?v=D-GbyFvaabc&list=PLJxZHY_2ov3frKlUISWNKzvW85xtdhxvH" target="_blank">Watch Full Episodes</Link>
-                    </div>
-
-                    <div className="offering-card"><h3>Cocktail Recipe Videos</h3>
-                        <p>Want to learn how to make awesome cocktails at home? Check out our recipe videos!</p>
-                        <Link href="https://www.youtube.com/@OneDrinkThreeBars/videos" target="_blank">View Cocktail Recipe Videos</Link>
-                    </div>
-
-                    <div className="offering-card"><h3>1D3Bs Shorts</h3>
-                        <p>Just need to know how to make a drink? Have the attention span of a gnat? Check out our YouTube shorts!</p>
-                        <Link href="https://www.youtube.com/@OneDrinkThreeBars/shorts" target="_blank">Cocktail Recipe Shorts</Link>
-                    </div>
-
-                </div>
-            </ContentWrapperConstrainedStyles>
+            <div className="whiskey-recipes-section recipes-section">
+                <ContentWrapperConstrainedStyles>
+                <h2>Whiskey Recipes</h2>
+                <Listing3ColStyles>
+                {filterRecipes("whiskey").slice(0,3).map((recipe, index) => (
+              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
+                <RecipeListingCard  recipe={recipe} />
+              </Link>
+            ))}
+                </Listing3ColStyles>
+                </ContentWrapperConstrainedStyles>
+            </div>
         </HomeStyles>
     );
 }
