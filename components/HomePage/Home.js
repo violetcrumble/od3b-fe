@@ -9,6 +9,7 @@ import { Listing3ColStyles } from '../Listings3Col.styled.js';
 
 export default function HomePage({recipes}) {
     
+    // TODO: refactor this into separate file for reuse - also used on recipes page
     function filterRecipes(spiritsCategory) {
         let filteredByCategory = [];
         for (let i = 0; i < recipes.length; i++) {

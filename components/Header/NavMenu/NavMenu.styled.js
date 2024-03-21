@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { breakpoints, themeColors } from '../../../utils/stylevars';
 
 export const NavMenuStyles = styled.div`
-  ul {
+  .menu {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -10,11 +10,14 @@ export const NavMenuStyles = styled.div`
     background-color: ${themeColors.baseColor};
   }
 
-  li a {
+  .top-level-menu-item a {
     display: block;
     padding: 20px 20px;
     text-decoration: none;
     color: white;
+    &:hover {
+      color: ${themeColors.brandColorPrimaryLight};
+    }
   }
 
   .menu {
@@ -64,7 +67,7 @@ export const NavMenuStyles = styled.div`
   }
 
   .menu-btn:checked ~ .menu {
-    max-height: 240px;
+    max-height: 470px;
   }
 
   .menu-btn:checked ~ .menu-icon .navicon {
@@ -84,9 +87,12 @@ export const NavMenuStyles = styled.div`
     top: 0;
   }
 
-
+  .sub-menu {
+    position: relative;
+  }
+  
   @media (min-width: ${breakpoints.md}) {
-    li {
+    .top-level-menu-item {
       float: left;
       margin-top: 22px;
     }
@@ -97,6 +103,22 @@ export const NavMenuStyles = styled.div`
     }
     .menu-icon {
       display: none;
+    }
+    .sub-menu {
+      list-style: none;
+      overflow: hidden;
+      background-color: ${themeColors.baseColor};
+      position: absolute;
+      margin-left: 10px;
+      padding-inline-start: 0;
+      display: none;
+    }
+    .cocktail-recipes-top-menu {
+      &:hover {
+        .sub-menu {
+          display: block;
+        }
+      }
     }
   }
 `;

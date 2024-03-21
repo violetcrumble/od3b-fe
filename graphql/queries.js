@@ -97,28 +97,10 @@ const GET_ALL_BLOG_SLUGS = gql`query {
   }
 }`;
 
-const GET_ALL_BLOG_POSTS = gql`query {blogPosts(pagination: { limit: 300 }) {
+const GET_ALL_BLOG_POSTS = gql`query {spirits {
   data {
     attributes {
-      Title
-      urlSlug
-      Date
-      TextPreviewSnippet
-      ListingCardImage {
-        data {
-          attributes {
-            url
-            caption
-          }
-        }
-      }
-      blog_authors {
-        data {
-          attributes {
-            AuthorName
-          }
-        }
-      }
+      spirit
     }
   }
 }}`;
@@ -154,4 +136,13 @@ const GET_BLOG_POST = gql`query ($urlSlug: String!) {
       }
 }`;
 
-export { GET_ALL_RECIPE_SLUGS, GET_ALL_RECIPES, GET_INDIVIDUAL_RECIPE, GET_AMAZON_PRODUCTS, GET_ALL_BLOG_SLUGS, GET_ALL_BLOG_POSTS, GET_BLOG_POST };
+const GET_ALL_SPIRITS = gql`query ($urlSlug: String!) {
+  spirits {
+    data {
+      attributes {
+        spirit
+      }
+    }
+  }}`;
+
+export { GET_ALL_RECIPE_SLUGS, GET_ALL_RECIPES, GET_INDIVIDUAL_RECIPE, GET_AMAZON_PRODUCTS, GET_ALL_BLOG_SLUGS, GET_ALL_BLOG_POSTS, GET_BLOG_POST, GET_ALL_SPIRITS };

@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
+import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -21,6 +23,13 @@ export async function getStaticProps(context) {
             ingredients
             recipebody
             recipeUrlSlug
+            spirits {
+              data {
+                attributes {
+                  spirit
+                }
+              }
+            }
             PhotoMain {
               data {
                 attributes {
@@ -46,6 +55,22 @@ export async function getStaticProps(context) {
 }
 
 export default function Recipes({ recipes }) {
+
+  // TODO: refactor this into separate file for reuse - also used on home page
+  function filterRecipes(spiritsCategory, allRecipes) {
+    let filteredByCategory = [];
+    for (let i = 0; i < allRecipes.length; i++) {
+        for (let j = 0; j < allRecipes[i].attributes.spirits.data.length; j++ ) {
+            if (allRecipes[i].attributes.spirits.data[j].attributes.spirit === spiritsCategory) {
+                filteredByCategory.push(allRecipes[i]);
+            }
+        }
+      }
+      return filteredByCategory;
+  }
+
+  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  
   return (
     <ContentWrapper>
       <Head>
@@ -59,9 +84,11 @@ export default function Recipes({ recipes }) {
       <ContentWrapperConstrainedStyles>
         <main>
           <h1>Cocktail Recipes</h1>
+
+          <CategoryNavPills recipes={recipes} setFilteredRecipes={setFilteredRecipes} filterRecipes={filterRecipes} />
         
         <Listing3ColStyles>
-        {recipes.map((recipe, index) => (
+        {filteredRecipes.map((recipe, index) => (
               <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
                 <RecipeListingCard  recipe={recipe} />
               </Link>
