@@ -28,7 +28,7 @@ export default function HeroImage() {
           <Link href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ" target="_blank" className="youtube-button">Watch Our YouTube Videos</Link>
       
         <p>
-          If you're a fan of whiskey cocktails, gin cocktails, rum cocktails or tequila cocktails, <Link href="/cocktail-recipes/">check out some of our recipes here.</Link>
+          If you&apos;re a fan of whiskey cocktails, gin cocktails, rum cocktails or tequila cocktails, <Link href="/cocktail-recipes/">check out some of our recipes here.</Link>
         </p>
           
       </div>
