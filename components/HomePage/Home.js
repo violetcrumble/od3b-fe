@@ -30,6 +30,7 @@ export default function HomePage({recipes}) {
             <div className="tequila-recipes-section recipes-section">
                 <ContentWrapperConstrainedStyles>
                 <h2>Tequila Recipes</h2>
+                <p>Looking for something beyond a tequila sunrise? Whether you want the combination of tequila, lime juice, and orange liqueur in a margarita or you're in the mood for a crisp, refreshing ranch water, we're sure to have a tequila cocktail for you!</p>
                 <Listing3ColStyles>
                 {filterRecipes("tequila").slice(0,3).map((recipe, index) => (
               <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
@@ -43,6 +44,7 @@ export default function HomePage({recipes}) {
             <div className="whiskey-recipes-section recipes-section">
                 <ContentWrapperConstrainedStyles>
                 <h2>Whiskey Recipes</h2>
+                <p>From classic bourbon old fashioneds to equal parts bangers like the paper plane, there's a whiskey cocktai recipe here for you.</p>
                 <Listing3ColStyles>
                 {filterRecipes("whiskey").slice(0,3).map((recipe, index) => (
               <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">

@@ -21,22 +21,30 @@ export const HeroStyles = styled.div`
     padding: 10px 40px 20px 40px;
     
 
-    h1 {
+    h3 {
       margin-top: 20px;
       color: #fff;
       padding-bottom: 10px;
+      text-decoration: none;
+    }
+
+    h1 {
+      color: #fff;
     }
 
     p {
       line-height: 150%;
       text-shadow: black 0.1em 0.1em 0.2em
     }
+    a {
+      color: #fff;
+    }
 
     .youtube-button {
       background-color: ${themeColors.brandColorTertiary};
       color: white;
       text-decoration: none;
-      padding: 20px;
+      padding: 10px;
       font-weight: bold;
       text-shadow: black 0.1em 0.1em 0.2em;
     }
@@ -48,7 +56,7 @@ export const HeroStyles = styled.div`
     .heroContent {
       max-width: 600px;
       
-    top: 126px;
+    top: 110px;
     }
   }
 
