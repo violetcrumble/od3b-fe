@@ -4,8 +4,11 @@ import { themeColors } from '../../utils/stylevars';
 export const HomeStyles = styled.main`
 
 .recipes-section {
-  h2, p {
+  h1, p {
     color: #fff;
+  }
+  h1 {
+    text-decoration: none;
   }
 }
 
