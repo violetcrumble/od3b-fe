@@ -55,6 +55,20 @@ export default function HomePage({recipes}) {
                 </Listing3ColStyles>
                 </ContentWrapperConstrainedStyles>
             </div>
+
+            <div className="rum-recipes-section recipes-section">
+                <ContentWrapperConstrainedStyles>
+                <h1>Rum Cocktail Recipes</h1>
+                <p>From tiki classics to espresso martini riffs, we have some great rum recipes!</p>
+                <Listing3ColStyles>
+                {filterRecipes("rum").slice(0,3).map((recipe, index) => (
+              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
+                <RecipeListingCard  recipe={recipe} />
+              </Link>
+            ))}
+                </Listing3ColStyles>
+                </ContentWrapperConstrainedStyles>
+            </div>
         </HomeStyles>
     );
 }

@@ -20,4 +20,8 @@ export const HomeStyles = styled.main`
   background-color: ${themeColors.brandColorPrimary};
 }
 
+.rum-recipes-section {
+  background-color: ${themeColors.brandColorSecondary};
+}
+
 `;
