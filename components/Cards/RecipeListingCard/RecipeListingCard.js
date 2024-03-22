@@ -7,9 +7,9 @@ export default function RecipeListingCard(props) {
         
         <RecipeListingCardStyles>
             
-            {props.recipe.attributes.PhotoMain.data && 
-            props.recipe.attributes.PhotoMain.data.attributes.url ? 
-            <img width="500" src={props.recipe.attributes.PhotoMain.data.attributes.url} alt={props.recipe.attributes.title}  /> : 
+            {props.recipe.attributes.PhotoMain.data[0] && 
+            props.recipe.attributes.PhotoMain.data[0].attributes.url ? 
+            <img width="500" src={props.recipe.attributes.PhotoMain.data[0].attributes.url} alt={props.recipe.attributes.title}  /> : 
             <div className="no-pic"><img src="/pic-not-available.gif" alt="Image not Available" /></div>}
             
             <div className="recipe-info">

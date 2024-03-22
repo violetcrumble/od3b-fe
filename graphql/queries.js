@@ -57,6 +57,14 @@ query ($recipeUrlSlug: String!) {
                 }
               }
             }
+            videoThumbnail {
+              data {
+                attributes {
+                  url
+                  caption
+                }
+              }
+            }
             relatedProducts {
               data {
                 attributes {

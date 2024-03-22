@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { themeColors, breakpoints } from '../utils/stylevars';
 
 export const RecipeDetailPageStyles = styled.main`
+
   .breadcrumb {
     margin: 10px 0;
   }
@@ -53,9 +54,24 @@ export const RecipeDetailPageStyles = styled.main`
       }
     }
 
-    .related-products {
-      .listing-card {
-        margin-bottom: 20px;
+    .recipe-col-3 {
+      width: 100%;
+
+      .related-products {
+        .listing-card {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .video-thumbnail-container {
+      position: relative;
+      padding-bottom: 50%;
+      margin-bottom: 20px;
+      img {
+        position: absolute;
+        max-width: 100%;
+        top: 0;
+        left: 0;
       }
     }
   }
@@ -85,25 +101,20 @@ export const RecipeDetailPageStyles = styled.main`
     }
     .recipe-detail-layout {
       .recipe-col-1 {
-        width: 48%;
+        width: 41%;
       }
       .recipe-col-2 {
-        width: 48%;
-
+        width: 34%;
         img {
           display: block;
         }
       }
-    }
-
-    .related-products {
-      .related-product-cards {
-        display: flex;
-        .listing-card {
-          margin-right: 20px;
-        }
+      .recipe-col-3 {
+        width: 23%;
       }
     }
+
+    
   }
 
 `;

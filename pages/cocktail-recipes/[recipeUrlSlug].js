@@ -2,16 +2,15 @@ import React from 'react'
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from "next/script";
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_RECIPE_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
-import YouTubePlayer from '../../components/YouTubePlayer/YouTubePlayer';
 import Markdown from 'react-markdown';
 import { RecipeDetailPageStyles } from '../../components/recipedetail.styled';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import { sendGTMEvent } from '@next/third-parties/google';
+import videoOverlayGraphic from '../../public/video-overlay.gif';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -29,7 +28,7 @@ export default function Recipe({ recipe }) {
       "@type": "Recipe",
       "name": "${recipe.title}",
       "image": [
-        "${recipe.PhotoMain.data.attributes.url}"
+        "${recipe.PhotoMain.data[0].attributes.url}"
        ],
        "recipeIngredient": 
         ${JSON.stringify(recipe.cocktailIngredients.ingredients)}
@@ -54,7 +53,7 @@ export default function Recipe({ recipe }) {
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
         <meta property="og:description" content={`How to make a ${recipe.title} cocktail at home`} />
-        <meta property="og:image" content={recipe.PhotoMain.data.attributes.url} />
+        <meta property="og:image" content={recipe.PhotoMain.data[0].attributes.url} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={addRecipeJsonLd()}
@@ -72,25 +71,10 @@ export default function Recipe({ recipe }) {
             <Link href="/cocktail-recipes/">Cocktail Recipes</Link>&nbsp;:&nbsp;
             {recipe.title}</div>
 
+          <h1>{recipe.title} Recipe</h1>
+
           <div className="recipe-detail-layout">
             <div className="recipe-col-1">
-              <h1>{recipe.title} Recipe</h1>
-
-              {recipe.PhotoMain.data &&
-                recipe.PhotoMain.data.attributes.url &&
-                <div className="mobile-recipe-pic-container"><Image
-                  src={recipe.PhotoMain.data.attributes.url}
-                  alt={recipe.title}
-                  layout="responsive"
-                  width="300"
-                  height="300"
-                  className="mobile-recipe-image"
-                /></div>
-              }
-
-              {recipe.RecipeIntro && <div className="recipe-intro">
-                <Markdown>{recipe.RecipeIntro}</Markdown>
-              </div>}
 
               <div className="recipe-ingredients">
 
@@ -104,32 +88,78 @@ export default function Recipe({ recipe }) {
                         <Markdown>{recipe.ingredients}</Markdown>
                       </div>
 
+                      {/* show video thumbnail with overlay if we have it */}
+                      {recipe.YouTubeLink && recipe.videoThumbnail.data && recipe.videoThumbnail.data.attributes.url && 
+                      <div className="video-thumbnail-container">
+                        
+                        <Link
+                        href={recipe.YouTubeLink}
+                        onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
+                        target='_blank'><Image
+                        src={recipe.videoThumbnail.data.attributes.url}
+                        alt="YouTube Video"
+                        layout="responsive"
+                        width="1280"
+                        height="720"
+                      />
+                      <img src={videoOverlayGraphic.src} alt="" /></Link>
+                      <br />
+                      
+                      </div>}
+
+                      {recipe.PhotoMain.data[0] &&
+                        recipe.PhotoMain.data[0].attributes.url &&
+                        <div className="mobile-recipe-pic-container"><Image
+                          src={recipe.PhotoMain.data[0].attributes.url}
+                          alt={recipe.title}
+                          layout="responsive"
+                          width="300"
+                          height="300"
+                          className="mobile-recipe-image"
+                        /></div>
+                      }
+
                       <h4>Technique</h4>
                       <Markdown>{recipe.recipebody}</Markdown>
 
-                      <br />
-                      {recipe.YouTubeLink && <Link 
-                        className="youtube-button" 
-                        href={recipe.YouTubeLink} 
+                       {/* show button if no video thumbnail is uploaded */}
+                       {recipe.YouTubeLink && !recipe.videoThumbnail.data && <><br /><Link
+                        className="youtube-button"
+                        href={recipe.YouTubeLink}
                         onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
                         target='_blank'>
-                        Watch YouTube Video</Link>}
+                        Watch YouTube Video</Link></>}
+
                       <br /><br />
-                      {/* {recipe.YouTubeLink &&
-                      <YouTubePlayer videoId={recipe.youTubeID} />} */}
+                      
+
                     </div>
 
                   </div>
                 </div>
 
-              </div>
+                {recipe.RecipeIntro && <div className="recipe-intro">
+                  <Markdown>{recipe.RecipeIntro}</Markdown>
+                </div>}
 
+              </div>
             </div>
+
             <div className="recipe-col-2">
-              {recipe.PhotoMain.data &&
-                recipe.PhotoMain.data.attributes.url &&
+              {recipe.PhotoMain.data[0] &&
+                recipe.PhotoMain.data[0].attributes.url &&
                 <Image
-                  src={recipe.PhotoMain.data.attributes.url}
+                  src={recipe.PhotoMain.data[0].attributes.url}
+                  alt={recipe.title}
+                  layout="responsive"
+                  width="700"
+                  height="700"
+                />
+              }
+              {recipe.PhotoMain.data[1] &&
+                recipe.PhotoMain.data[1].attributes.url &&
+                <Image
+                  src={recipe.PhotoMain.data[1].attributes.url}
                   alt={recipe.title}
                   layout="responsive"
                   width="700"
@@ -138,26 +168,25 @@ export default function Recipe({ recipe }) {
               }
             </div>
 
-            {recipe.relatedProducts.data.length ? <div className="related-products">
-              <h2>Related Products</h2>
-              <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
+            <div className="recipe-col-3">
+              {recipe.relatedProducts.data.length ? <div className="related-products">
+                <h2>Related Products</h2>
+                <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
 
-              <div className="related-product-cards">
-                {recipe && recipe.relatedProducts && recipe.relatedProducts.data && recipe.relatedProducts.data.map((product, index) => (
-                  <AmazonListingCard
-                    key={index}
-                    productName={product.attributes.ProductName}
-                    productCategory={product.attributes.ProductCategory}
-                    amazonLink={product.attributes.AmazonLink}
-                    amazonASIN={product.attributes.AmazonASIN}
-                    amazonPhotoURL={product.attributes.AmazonPhotoURL}
-                  />
-                ))}
-              </div>
-            </div> : ""}
-
-
-
+                <div className="related-product-cards">
+                  {recipe && recipe.relatedProducts && recipe.relatedProducts.data && recipe.relatedProducts.data.map((product, index) => (
+                    <AmazonListingCard
+                      key={index}
+                      productName={product.attributes.ProductName}
+                      productCategory={product.attributes.ProductCategory}
+                      amazonLink={product.attributes.AmazonLink}
+                      amazonASIN={product.attributes.AmazonASIN}
+                      amazonPhotoURL={product.attributes.AmazonPhotoURL}
+                    />
+                  ))}
+                </div>
+              </div> : ""}
+            </div>
           </div>
 
         </RecipeDetailPageStyles>
