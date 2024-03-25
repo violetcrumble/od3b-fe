@@ -54,6 +54,7 @@ query ($recipeUrlSlug: String!) {
                 attributes {
                   url
                   caption
+                  alternativeText
                 }
               }
             }
@@ -62,6 +63,16 @@ query ($recipeUrlSlug: String!) {
                 attributes {
                   url
                   caption
+                  alternativeText
+                }
+              }
+            }
+            PhotoPinterest {
+              data {
+                attributes {
+                  url
+                  caption
+                  alternativeText
                 }
               }
             }

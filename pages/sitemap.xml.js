@@ -27,6 +27,19 @@ function generateSiteMap(posts) {
        <loc>${URL}/cocktail-recipes/espresso-martini-recipe</loc>
        <loc>${URL}/cocktail-recipes/white-russian-cocktail-recipe</loc>
        <loc>${URL}/cocktail-recipes/verbena-buzz-button-cocktail</loc>
+       <loc>${URL}/cocktail-recipes/old-pal-cocktail-recipe</loc>
+       <loc>${URL}/cocktail-recipes/painkiller</loc>
+       <loc>${URL}/cocktail-recipes/rock-and-rye-sour</loc>
+       <loc>${URL}/cocktail-recipes/irish-maid</loc>
+       <loc>${URL}/cocktail-recipes/suffering-bastard-tiki-drink</loc>
+       <loc>${URL}/cocktail-recipes/licor-43-mini-beer-shot</loc>
+       <loc>${URL}/cocktail-recipes/lavender-gin-sour</loc>
+       <loc>${URL}/cocktail-recipes/matcha-yuzu-gin-sour</loc>
+       <loc>${URL}/cocktail-recipes/benchmark-bonded-cheerwine-old-fashioned</loc>
+       <loc>${URL}/cocktail-recipes/tequila-espresso-martini</loc>
+       <loc>${URL}/cocktail-recipes/pink-lady</loc>
+       <loc>${URL}/cocktail-recipes/singapore-sling</loc>
+       <loc>${URL}/cocktail-recipes/french-blonde</loc>
        <loc>${URL}/blog</loc>
        <loc>${URL}/blog/best-bars-pigeon-forge-tennessee</loc>
        <loc>${URL}/home-bar-supplies</loc>

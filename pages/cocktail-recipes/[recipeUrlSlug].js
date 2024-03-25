@@ -95,12 +95,13 @@ export default function Recipe({ recipe }) {
                         <Link
                         href={recipe.YouTubeLink}
                         onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
-                        target='_blank'><Image
+                        target='_blank'>
+                          <Image
                         src={recipe.videoThumbnail.data.attributes.url}
-                        alt="YouTube Video"
+                        alt={recipe.videoThumbnail.data.attributes.alternativeText ? recipe.videoThumbnail.data.attributes.alternativeText : recipe.title}
                         layout="responsive"
-                        width="1280"
-                        height="720"
+                        width="590"
+                        height="332"
                       />
                       <img src={videoOverlayGraphic.src} alt="" /></Link>
                       <br />
@@ -111,7 +112,7 @@ export default function Recipe({ recipe }) {
                         recipe.PhotoMain.data[0].attributes.url &&
                         <div className="mobile-recipe-pic-container"><Image
                           src={recipe.PhotoMain.data[0].attributes.url}
-                          alt={recipe.title}
+                          alt={recipe.PhotoMain.data[0].attributes.alternativeText ? recipe.PhotoMain.data[0].attributes.alternativeText : recipe.title}
                           layout="responsive"
                           width="300"
                           height="300"
@@ -150,7 +151,7 @@ export default function Recipe({ recipe }) {
                 recipe.PhotoMain.data[0].attributes.url &&
                 <Image
                   src={recipe.PhotoMain.data[0].attributes.url}
-                  alt={recipe.title}
+                  alt={recipe.PhotoMain.data[0].attributes.alternativeText ? recipe.PhotoMain.data[0].attributes.alternativeText : recipe.title}
                   layout="responsive"
                   width="700"
                   height="700"
@@ -160,12 +161,24 @@ export default function Recipe({ recipe }) {
                 recipe.PhotoMain.data[1].attributes.url &&
                 <Image
                   src={recipe.PhotoMain.data[1].attributes.url}
-                  alt={recipe.title}
+                  alt={recipe.PhotoMain.data[1].attributes.alternativeText ? recipe.PhotoMain.data[1].attributes.alternativeText : recipe.title}
                   layout="responsive"
                   width="700"
                   height="700"
                 />
               }
+
+              {recipe.PhotoPinterest.data &&
+                recipe.PhotoPinterest.data.attributes.url &&
+                <Image
+                  src={recipe.PhotoPinterest.data.attributes.url}
+                  alt={recipe.PhotoPinterest.data.attributes.alternativeText}
+                  layout="responsive"
+                  width="500"
+                  height="775"
+                />
+              }
+
             </div>
 
             <div className="recipe-col-3">
