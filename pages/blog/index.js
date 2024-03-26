@@ -4,6 +4,7 @@ import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
+import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -14,31 +15,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{blogPosts(pagination: { limit: 300 }) {
-        data {
-          attributes {
-            urlSlug
-            Title
-            Date
-            TextPreviewSnippet
-            ListingCardImage {
-              data {
-                attributes {
-                  url
-                  caption
-                }
-              }
-            }
-            blog_authors {
-                data {
-                  attributes {
-                    AuthorName
-                  }
-                }
-              }
-          }
-        }
-      }}`,
+      query: GET_ALL_BLOG_POSTS,
     }),
   };
 

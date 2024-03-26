@@ -12,7 +12,7 @@ query {
   }
 `;
 
-const GET_ALL_RECIPES = gql`
+const GET_ALL_RECIPES = `
 query {
   recipes(pagination: { limit: 300 }) {
     data {
@@ -21,6 +21,13 @@ query {
         ingredients
         recipebody
         recipeUrlSlug
+        spirits {
+          data {
+            attributes {
+              spirit
+            }
+          }
+        }
         PhotoMain {
           data {
             attributes {
@@ -93,12 +100,13 @@ query ($recipeUrlSlug: String!) {
   }
 `;
 
-const GET_AMAZON_PRODUCTS = gql`
+const GET_AMAZON_PRODUCTS = `
 query {products(pagination: { limit: 300 }) {
   data {
     attributes {
       AmazonLink
       AmazonASIN
+      AmazonPhotoURL
       ProductName
       ProductCategory
     }
@@ -116,10 +124,28 @@ const GET_ALL_BLOG_SLUGS = gql`query {
   }
 }`;
 
-const GET_ALL_BLOG_POSTS = gql`query {spirits {
+const GET_ALL_BLOG_POSTS = `{blogPosts(pagination: { limit: 300 }) {
   data {
     attributes {
-      spirit
+      urlSlug
+      Title
+      Date
+      TextPreviewSnippet
+      ListingCardImage {
+        data {
+          attributes {
+            url
+            caption
+          }
+        }
+      }
+      blog_authors {
+          data {
+            attributes {
+              AuthorName
+            }
+          }
+        }
     }
   }
 }}`;

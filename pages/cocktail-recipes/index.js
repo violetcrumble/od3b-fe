@@ -7,6 +7,7 @@ import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeLi
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
 import filterRecipesByCategory  from '../../utils/filterRecipesByCategory.js';
+import { GET_ALL_RECIPES } from '../../graphql/queries.js';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -17,29 +18,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{recipes(pagination: { limit: 300 }) {
-        data {
-          attributes {
-            title
-            recipeUrlSlug
-            spirits {
-              data {
-                attributes {
-                  spirit
-                }
-              }
-            }
-            PhotoMain {
-              data {
-                attributes {
-                  url
-                  caption
-                }
-              }
-            }
-          }
-        }
-      }}`,
+      query: GET_ALL_RECIPES,
     }),
   };
 

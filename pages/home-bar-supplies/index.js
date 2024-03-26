@@ -5,6 +5,7 @@ import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonLi
 import { Listing4ColStyles } from '../../components/Listings4Col.styled';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import { HomeBarSuppliesStyles } from '../../components/homeBarSupples.styled';
+import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -15,17 +16,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{products(pagination: { limit: 300 }) {
-        data {
-          attributes {
-            AmazonLink
-            AmazonASIN
-            AmazonPhotoURL
-            ProductName
-            ProductCategory
-          }
-        }
-      }}`,
+      query: GET_AMAZON_PRODUCTS,
     }),
   };
 

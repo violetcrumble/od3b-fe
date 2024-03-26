@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import ContentWrapper from '../components/ContentWrapper';
 import HomePage from '../components/HomePage/Home';
-
+import { GET_ALL_RECIPES } from '../graphql/queries';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -12,31 +12,7 @@ export async function getStaticProps(context) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      query: `{recipes(pagination: { limit: 300 }) {
-        data {
-          attributes {
-            title
-            ingredients
-            recipebody
-            recipeUrlSlug
-            spirits {
-              data {
-                attributes {
-                  spirit
-                }
-              }
-            }
-            PhotoMain {
-              data {
-                attributes {
-                  url
-                  caption
-                }
-              }
-            }
-          }
-        }
-      }}`,
+      query: GET_ALL_RECIPES,
     }),
   };
 
