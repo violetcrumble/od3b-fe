@@ -6,6 +6,7 @@ import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapper
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
+import filterRecipesByCategory  from '../../utils/filterRecipesByCategory.js';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -20,8 +21,6 @@ export async function getStaticProps(context) {
         data {
           attributes {
             title
-            ingredients
-            recipebody
             recipeUrlSlug
             spirits {
               data {
@@ -56,19 +55,6 @@ export async function getStaticProps(context) {
 
 export default function Recipes({ recipes }) {
 
-  // TODO: refactor this into separate file for reuse - also used on home page
-  function filterRecipes(spiritsCategory, allRecipes) {
-    let filteredByCategory = [];
-    for (let i = 0; i < allRecipes.length; i++) {
-        for (let j = 0; j < allRecipes[i].attributes.spirits.data.length; j++ ) {
-            if (allRecipes[i].attributes.spirits.data[j].attributes.spirit === spiritsCategory) {
-                filteredByCategory.push(allRecipes[i]);
-            }
-        }
-      }
-      return filteredByCategory;
-  }
-
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   
   return (
@@ -85,7 +71,11 @@ export default function Recipes({ recipes }) {
         <main>
           <h1>Cocktail Recipes</h1>
 
-          <CategoryNavPills recipes={recipes} setFilteredRecipes={setFilteredRecipes} filterRecipes={filterRecipes} />
+          <CategoryNavPills 
+            recipes={recipes} 
+            setFilteredRecipes={setFilteredRecipes} 
+            filterRecipesByCategory={filterRecipesByCategory} 
+          />
         
         <Listing3ColStyles>
         {filteredRecipes.map((recipe, index) => (
