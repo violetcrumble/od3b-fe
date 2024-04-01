@@ -40,6 +40,9 @@ function generateSiteMap(posts) {
        <loc>${URL}/cocktail-recipes/pink-lady</loc>
        <loc>${URL}/cocktail-recipes/singapore-sling</loc>
        <loc>${URL}/cocktail-recipes/french-blonde</loc>
+       <loc>${URL}/cocktail-recipes/passionfruit-daiquiri-cachaca</loc>
+       <loc>${URL}/cocktail-recipes/saturn-gin-tiki</loc>
+       <loc>${URL}/cocktail-recipes/passion-fruit-margarita-chinola</loc>
        <loc>${URL}/blog</loc>
        <loc>${URL}/blog/best-bars-pigeon-forge-tennessee</loc>
        <loc>${URL}/home-bar-supplies</loc>
