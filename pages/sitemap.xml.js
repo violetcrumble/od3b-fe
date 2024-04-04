@@ -43,6 +43,7 @@ function generateSiteMap(posts) {
        <loc>${URL}/cocktail-recipes/passionfruit-daiquiri-cachaca</loc>
        <loc>${URL}/cocktail-recipes/saturn-gin-tiki</loc>
        <loc>${URL}/cocktail-recipes/passion-fruit-margarita-chinola</loc>
+       <loc>${URL}/cocktail-recipes/junction-35-bam-bam-vodka-fruity-pebbles</loc>
        <loc>${URL}/blog</loc>
        <loc>${URL}/blog/best-bars-pigeon-forge-tennessee</loc>
        <loc>${URL}/home-bar-supplies</loc>
