@@ -46,7 +46,6 @@ export default function Recipe({ recipe }) {
   }
   return (
     <ContentWrapper>
-
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={`How to make a ${recipe.title} cocktail at home`} />
