@@ -11,21 +11,21 @@ import pinterestIcon from '../../public/pinterest.svg';
 
 export default function SocialLinks() {
     return <SocialLinkStyles>
-        <li><a href="https://www.youtube.com/@OneDrinkThreeBars" target="_blank" rel="noopener noreferrer"><Image
+        <li><a href="https://www.youtube.com/@CocktailUnderground" target="_blank" rel="noopener noreferrer"><Image
             priority
             src={youtubeIcon}
             alt="Subscribe on YouTube"
             height={32}
       width={32}
         /></a></li>
-        <li><a href="https://www.facebook.com/onedrinkthreebars/" target="_blank" rel="noopener noreferrer"><Image
+        <li><a href="https://www.facebook.com/cocktailunderground/" target="_blank" rel="noopener noreferrer"><Image
             priority
             src={facebookIcon}
             alt="Follow me on Facebook"
             height={32}
       width={32}
         /></a></li>
-        <li><a href="https://www.instagram.com/onedrinkthreebars/" target="_blank" rel="noopener noreferrer"><Image
+        <li><a href="https://www.instagram.com/cocktail_underground/" target="_blank" rel="noopener noreferrer"><Image
             priority
             src={instagramIcon}
             alt="Follow me on Instagram"
