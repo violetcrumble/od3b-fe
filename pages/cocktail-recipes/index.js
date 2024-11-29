@@ -39,10 +39,10 @@ export default function Recipes({ recipes }) {
   return (
     <ContentWrapper>
       <Head>
-        <title>One Drink Three Bars - Cocktail Recipes</title>
-        <meta name="description" content="One Drink Three Bars - How to make craft cocktails at home and how to find the best bars" />
+        <title>Cocktail Underground - Cocktail Recipes</title>
+        <meta name="description" content="Cocktail Underground - How to make craft cocktails at home and how to find the best bars" />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="One Drink Three Bars - Cocktail Recipes" />
+        <meta property="og:title" content="Cocktail Underground - Cocktail Recipes" />
         <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
 

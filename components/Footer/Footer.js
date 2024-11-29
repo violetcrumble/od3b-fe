@@ -7,6 +7,6 @@ var currentTime = new Date();
 export default function Footer() {
   return <FooterStyles>
     <SocialLinks />
-    <p>Copyright &copy; {currentTime.getFullYear()} One Drink Three Bars</p>
+    <p>Copyright &copy; {currentTime.getFullYear()} Cocktail Underground</p>
   </FooterStyles>;
 }

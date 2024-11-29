@@ -33,11 +33,11 @@ export default function BlogListing({ blogPosts }) {
   return (
     <ContentWrapper>
       <Head>
-        <title>One Drink Three Bars - Cocktail Blog Posts and Cocktail Articles</title>
-        <meta name="description" content="One Drink Three Bars - Visit the best bars and find the best cocktails with One Drink Three Bars" />
+        <title>Cocktail Underground - Cocktail Blog Posts and Cocktail Articles</title>
+        <meta name="description" content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground" />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="One Drink Three Bars - Cocktail Blog Posts and Cocktail Articles" />
-        <meta property="og:description" content="One Drink Three Bars - Visit the best bars and find the best cocktails with One Drink Three Bars" />
+        <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
+        <meta property="og:description" content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground" />
       </Head>
 
       <ContentWrapperConstrainedStyles>

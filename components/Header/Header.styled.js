@@ -6,14 +6,16 @@ export const HeaderStyles = styled.header`
   box-sizing: border-box;
   width: 100%;
   height: ${headerHeightMobile}px;
-  padding: 10px 20px;
   z-index: ${zIndices.header};
   position: relative;
-
+  display: flex;
+  justify-content: space-between;
+  height: ${headerHeight}px;    
+    
   .logo {
-    float: left;
-    margin: 5px;
-    width: 120px;
+    display: block;
+    width: 100px;
+    padding: 10px 20px;
 
     svg {
       width: 100%;
@@ -22,12 +24,17 @@ export const HeaderStyles = styled.header`
   }
 
   @media (min-width: ${breakpoints.md}) {
-    height: ${headerHeight}px;
-    padding: 10px 30px;
-    
     .logo {
-      margin: 10px;
-      width: 200px;
+      display: block;
+      width: 150px;
+      padding: 10px 20px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
-    }
+  }
+
+
 `;

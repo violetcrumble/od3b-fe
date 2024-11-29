@@ -30,8 +30,8 @@ export default function Home({recipes}) {
   return (
     <ContentWrapper>
       <Head>
-        <title>One Drink Three Bars</title>
-        <meta name="description" content="One Drink Three Bars" />
+        <title>Cocktail Underground</title>
+        <meta name="description" content="Cocktail Underground" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

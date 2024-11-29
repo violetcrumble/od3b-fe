@@ -21,9 +21,9 @@ export default function HeroImage() {
       <div className="heroContent">
       <h3>Cocktail Recipes, Tips & Tricks</h3>
       <p>
-          At One Drink Three Bars, we&apos;re dedicated to empowering people to create craft cocktails at home, and
+          At Cocktail Underground, we&apos;re dedicated to empowering people to create craft cocktails at home, and
           to discover the best bars. Our goal is to bridge the gap between ordinary and extraordinary beverages,
-          while fostering an inclusive and unpretentious approach.</p>
+          while fostering an unpretentious approach.</p>
 
           <Link href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ" target="_blank" className="youtube-button">Watch Our YouTube Videos</Link>
       

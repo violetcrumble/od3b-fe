@@ -14,14 +14,14 @@ export default function Friends() {
     return (
         <ContentWrapper>
             <Head>
-                <title>One Drink Three Bars - The Best Cocktail Content Creators</title>
-                <meta name="description" content="Friends of One Drink Three Bars" />
+                <title>Cocktail Underground - The Best Cocktail Content Creators</title>
+                <meta name="description" content="Friends of Cocktail Underground" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <ContentWrapperConstrainedStyles>
                 <FriendsStyles>
-                    <h1>Friends of One Drink Three Bars - Our Favorite Cocktail Content Creators</h1>
+                    <h1>Friends of Cocktail Underground - Our Favorite Cocktail Content Creators</h1>
 
                     <p>Check out some of my favorite cocktail content creators and influencers!</p>
 

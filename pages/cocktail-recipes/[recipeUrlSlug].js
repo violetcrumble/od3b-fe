@@ -39,7 +39,7 @@ export default function Recipe({ recipe }) {
       "video": {
         "contentUrl": "${recipe.YouTubeLink}"
       },
-      "author": "One Drink Three Bars"
+      "author": "Cocktail Underground"
     }
   `,
     };

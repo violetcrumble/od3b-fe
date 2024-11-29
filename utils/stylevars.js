@@ -26,5 +26,5 @@ export const zIndices = {
     filterDropdown: "100",
 }
 
-export const headerHeight = 120;
+export const headerHeight = 100;
 export const headerHeightMobile = 80;

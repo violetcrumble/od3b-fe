@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <HeaderStyles className="header">
       <Link href="/" className="logo">
-        <Image src="/logo.svg" layout="responsive" alt="One Drink Three Bars" width="200" height="70" />
+        <Image src="/logo.svg" layout="responsive" alt="Cocktail Underground" width="200" height="70" />
       </Link>
       <NavMenu />
     </HeaderStyles>
