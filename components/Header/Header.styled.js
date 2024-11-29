@@ -26,7 +26,7 @@ export const HeaderStyles = styled.header`
   @media (min-width: ${breakpoints.md}) {
     .logo {
       display: block;
-      width: 150px;
+      width: 120px;
       padding: 10px 20px;
 
       svg {
