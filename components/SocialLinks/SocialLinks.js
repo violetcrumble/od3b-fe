@@ -32,7 +32,7 @@ export default function SocialLinks() {
             height={32}
       width={32}
         /></a></li>
-        <li><a href="https://www.tiktok.com/@onedrinkthreebars" target="_blank" rel="noopener noreferrer"><Image
+        <li><a href="https://www.tiktok.com/@cocktailunderground" target="_blank" rel="noopener noreferrer"><Image
             priority
             src={tiktokIcon}
             alt="Follow me on TikTok"
