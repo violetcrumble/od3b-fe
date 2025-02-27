@@ -40,8 +40,6 @@ export default function Recipes({ recipes }) {
   const queryStringParams = useSearchParams() 
   const cocktailCategory = queryStringParams.get('category');
 
-
-
   return (
     <ContentWrapper>
       <Head>

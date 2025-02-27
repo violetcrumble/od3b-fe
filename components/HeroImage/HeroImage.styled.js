@@ -11,31 +11,15 @@ export const HeroStyles = styled.div`
   
   .heroContent {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    margin: 0 auto;
-    text-align: center;
-    background-color: rgba(0, 0, 0, .6);
-    padding: 10px 40px 20px 40px;
-    
+    margin: 0 20px;
 
     h3 {
-      margin-top: 20px;
       color: #fff;
-      padding-bottom: 10px;
-      text-decoration: none;
+      font-size: 36px;
+      text-shadow: black 0.1em 0.1em 0.2em;
+      padding: 40px 0;
     }
 
-    h1 {
-      color: #fff;
-    }
-
-    p {
-      line-height: 150%;
-      text-shadow: black 0.1em 0.1em 0.2em
-    }
     a {
       color: #fff;
     }
@@ -47,6 +31,7 @@ export const HeroStyles = styled.div`
       padding: 10px;
       font-weight: bold;
       text-shadow: black 0.1em 0.1em 0.2em;
+      border-radius: 5px;
     }
   }
 

@@ -14,7 +14,7 @@ body {
 h1 {
   color: ${themeColors.brandColorPrimary};
   font-size: 20px;
-  border-bottom: solid 1px;
+  padding: 20px 0 10px 0;
 }
 h2, h3 {
   margin-block-start: 0;

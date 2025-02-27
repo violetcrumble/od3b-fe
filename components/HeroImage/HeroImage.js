@@ -19,17 +19,8 @@ export default function HeroImage() {
       </div>
 
       <div className="heroContent">
-      <h3>Cocktail Recipes, Tips & Tricks</h3>
-      <p>
-          At Cocktail Underground, we&apos;re dedicated to empowering people to create craft cocktails at home, and
-          to discover the best bars. Our goal is to bridge the gap between ordinary and extraordinary beverages,
-          while fostering an unpretentious approach.</p>
-
-          <Link href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ" target="_blank" className="youtube-button">Watch Our YouTube Videos</Link>
-      
-        <p>
-          If you&apos;re a fan of whiskey cocktails, gin cocktails, rum cocktails or tequila cocktails, <Link href="/cocktail-recipes/">check out some of our recipes here.</Link>
-        </p>
+      <h3>Empowering you to create craft cocktails at home</h3>
+      <Link href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ" target="_blank" className="youtube-button">Watch Our YouTube Videos</Link>
           
       </div>
     </HeroStyles>

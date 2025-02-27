@@ -6,9 +6,7 @@ export const HomeStyles = styled.main`
 .recipes-section {
   h1, p {
     color: #fff;
-  }
-  h1 {
-    text-decoration: none;
+    padding: 0;
   }
 }
 
