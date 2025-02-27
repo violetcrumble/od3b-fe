@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation'
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
@@ -35,11 +36,16 @@ export async function getStaticProps(context) {
 export default function Recipes({ recipes }) {
 
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
-  
+
+  const queryStringParams = useSearchParams() 
+  const cocktailCategory = queryStringParams.get('category');
+
+
+
   return (
     <ContentWrapper>
       <Head>
-        <title>Cocktail Underground - Cocktail Recipes</title>
+        <title>Cocktail Underground - {cocktailCategory} Cocktail Recipes</title>
         <meta name="description" content="Cocktail Underground - How to make craft cocktails at home and how to find the best bars" />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Cocktail Underground - Cocktail Recipes" />
