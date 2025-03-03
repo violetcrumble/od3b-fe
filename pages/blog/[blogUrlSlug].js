@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head';
-import Link from 'next/link';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
@@ -45,7 +44,7 @@ export default function BlogPost({ blogPost }) {
     <ContentWrapper>
 
       <Head>
-        <title>{blogPost.Title} by {blogPost.blog_authors.data[0].attributes.AuthorName}</title>
+        <title>{blogPost.Title}</title>
         <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />

@@ -16,7 +16,9 @@ export default function BlogListingCard(props) {
            
            {props.blogPost.attributes.ListingCardImage.data && 
             props.blogPost.attributes.ListingCardImage.data.attributes.url ? 
-            <img width="500" src={props.blogPost.attributes.ListingCardImage.data.attributes.url} alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption }  /> : 
+            <img width="500" 
+            src={props.blogPost.attributes.ListingCardImage.data.attributes.url} 
+            alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption }  /> : 
             
             <div className="no-pic"><img src="/pic-not-available.gif" alt="Image not Available" /></div>}
            

@@ -15,9 +15,9 @@ export const HeroStyles = styled.div`
 
     h3 {
       color: #fff;
-      font-size: 36px;
+      font-size: 32px;
       text-shadow: black 0.1em 0.1em 0.2em;
-      padding: 40px 0;
+      padding: 50px 0 0 0;
     }
 
     a {
@@ -39,9 +39,13 @@ export const HeroStyles = styled.div`
     height: 60vh;
 
     .heroContent {
-      max-width: 600px;
-      
-    top: 110px;
+      max-width: 780px;
+      top: 150px;
+
+      h3 {
+        font-size: 56px;
+        padding: 0;
+      }
     }
   }
 
