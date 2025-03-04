@@ -15,7 +15,7 @@ export const HomeStyles = styled.main`
 }
 
 .whiskey-recipes-section {
-  background-color: ${themeColors.brandColorPrimary};
+  background-color: ${themeColors.grayDarker};
 }
 
 .rum-recipes-section {

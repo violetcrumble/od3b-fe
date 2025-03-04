@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { CreatorCardStyles } from './CreatorCard.styled';
 import Markdown from 'react-markdown';
@@ -20,7 +21,14 @@ export default function CreatorCard(props) {
                     <Markdown>{props.bio}</Markdown>
                 </div>
 
-                <div className="creator-image-container"><img src={props.creatorImage.src} alt={props.name} /></div>
+                <div className="creator-image-container">
+                    <Image
+                        src={props.creatorImage.src}
+                        alt={props.name}
+                        width="100"
+                        height="100"
+                    />
+                </div>
 
             </div>
         </CreatorCardStyles>

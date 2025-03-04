@@ -40,7 +40,7 @@ export default function Friends() {
                             youTubeURL="https://www.youtube.com/@gnomestavern8285"
                             instagramURL="https://www.instagram.com/gnomestavern"
                             facebookURL="https://www.facebook.com/TavernGnome"
-                            bio="Richard, aka The Gnome has an awesome YouTube channel and he also makes his own rum at the Happy Raptor Distillery in New Orleans, Louisiana!"
+                            bio="Richard, aka The Gnome has an awesome YouTube channel and he also makes his own bitters, which you can find on his Etsy site!"
                             creatorImage={gnome}
                         />
 

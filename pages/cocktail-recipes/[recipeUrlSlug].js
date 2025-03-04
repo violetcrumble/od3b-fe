@@ -88,24 +88,31 @@ export default function Recipe({ recipe }) {
                       </div>
 
                       {/* show video thumbnail with overlay if we have it */}
-                      {recipe.YouTubeLink && recipe.videoThumbnail.data && recipe.videoThumbnail.data.attributes.url && 
-                      <div className="video-thumbnail-container">
-                        
-                        <Link
-                        href={recipe.YouTubeLink}
-                        onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
-                        target='_blank'>
-                          <Image
-                        src={recipe.videoThumbnail.data.attributes.url}
-                        alt={recipe.videoThumbnail.data.attributes.alternativeText ? recipe.videoThumbnail.data.attributes.alternativeText : recipe.title}
-                        layout="responsive"
-                        width="590"
-                        height="332"
-                      />
-                      <img src={videoOverlayGraphic.src} alt="" /></Link>
-                      <br />
-                      
-                      </div>}
+                      {recipe.YouTubeLink && recipe.videoThumbnail.data && recipe.videoThumbnail.data.attributes.url &&
+                        <div className="video-thumbnail-container">
+
+                          <Link
+                            href={recipe.YouTubeLink}
+                            onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
+                            target='_blank'>
+                            <Image
+                              src={recipe.videoThumbnail.data.attributes.url}
+                              alt={recipe.videoThumbnail.data.attributes.alternativeText ? recipe.videoThumbnail.data.attributes.alternativeText : recipe.title}
+                              layout="responsive"
+                              width="590"
+                              height="332"
+                            />
+                            <Image
+                              src={videoOverlayGraphic.src}
+                              alt=""
+                              layout="responsive"
+                              width="590"
+                              height="332"
+                            />
+                          </Link>
+                          <br />
+
+                        </div>}
 
                       {recipe.PhotoMain.data[0] &&
                         recipe.PhotoMain.data[0].attributes.url &&
@@ -122,8 +129,8 @@ export default function Recipe({ recipe }) {
                       <h4>Technique</h4>
                       <Markdown>{recipe.recipebody}</Markdown>
 
-                       {/* show button if no video thumbnail is uploaded */}
-                       {recipe.YouTubeLink && !recipe.videoThumbnail.data && <><br /><Link
+                      {/* show button if no video thumbnail is uploaded */}
+                      {recipe.YouTubeLink && !recipe.videoThumbnail.data && <><br /><Link
                         className="youtube-button"
                         href={recipe.YouTubeLink}
                         onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
@@ -131,7 +138,7 @@ export default function Recipe({ recipe }) {
                         Watch YouTube Video</Link></>}
 
                       <br /><br />
-                      
+
 
                     </div>
 
