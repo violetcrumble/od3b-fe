@@ -1,6 +1,6 @@
 // pages/sitemap.xml.js
 
-const URL = "https://onedrinkthreebars.com";
+const URL = "https://cocktailunderground.com";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -45,6 +45,8 @@ function generateSiteMap(posts) {
        <loc>${URL}/cocktail-recipes/passion-fruit-margarita-chinola</loc>
        <loc>${URL}/cocktail-recipes/junction-35-bam-bam-vodka-fruity-pebbles</loc>
        <loc>${URL}/cocktail-recipes/buzz-button-toothache-plant-mojito</loc>
+       <loc>${URL}/cocktail-recipes/mai-tai-with-cachaca</loc>
+       <loc>${URL}/cocktail-recipes/caipirinha-cocktail-recipe-cachaca-cocktail</loc>
        <loc>${URL}/blog</loc>
        <loc>${URL}/blog/best-bars-pigeon-forge-tennessee</loc>
        <loc>${URL}/home-bar-supplies</loc>

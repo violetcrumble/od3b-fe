@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.onedrinkthreebars.com/sitemap.xml
+Sitemap: http://www.cocktailunderground.com/sitemap.xml
