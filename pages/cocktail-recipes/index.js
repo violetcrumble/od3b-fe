@@ -8,6 +8,7 @@ import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeLi
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
 import filterRecipesByCategory  from '../../utils/filterRecipesByCategory.js';
+import { toTitleCase } from '../../utils/toTitleCase.js';
 import { GET_ALL_RECIPES } from '../../graphql/queries.js';
 
 const URL = process.env.STRAPIBASEURL;
@@ -56,7 +57,7 @@ export default function Recipes({ recipes }) {
 
       <ContentWrapperConstrainedStyles>
         <main>
-          <h1>Cocktail Recipes {cocktailCategory && `with ${cocktailCategory}`}</h1>
+          <h1>Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}</h1>
 
           <CategoryNavPills 
             recipes={recipes} 
