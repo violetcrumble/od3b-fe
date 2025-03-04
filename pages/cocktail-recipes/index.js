@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation'
 import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
@@ -35,13 +34,14 @@ export async function getStaticProps(context) {
 }
 
 export default function Recipes({ recipes }) {
-  const queryStringParams = useSearchParams() 
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
-  const [cocktailCategory, setCocktailCategory] = useState(queryStringParams.get('category'));
+  const [cocktailCategory, setCocktailCategory] = useState();
 
   useEffect(() => { 
     if(cocktailCategory) {
       setFilteredRecipes(filterRecipesByCategory(cocktailCategory, recipes));
+    } else {
+      setFilteredRecipes(recipes);
     }
    }, [cocktailCategory]);
 
