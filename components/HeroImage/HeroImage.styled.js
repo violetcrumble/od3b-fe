@@ -41,6 +41,8 @@ export const HeroStyles = styled.div`
     .heroContent {
       max-width: 780px;
       top: 150px;
+      text-align: center;
+      margin: 0 auto;
 
       h3 {
         font-size: 56px;
