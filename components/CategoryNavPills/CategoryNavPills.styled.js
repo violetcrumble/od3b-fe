@@ -17,5 +17,9 @@ export const CategoryNavPillsStyles = styled.ul`
         &:hover {
             cursor: pointer;
         }
+
+        &.active {
+            background-color: ${themeColors.brandColorTertiary};
+        }
     }
 `;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation'
@@ -34,11 +34,15 @@ export async function getStaticProps(context) {
 }
 
 export default function Recipes({ recipes }) {
-
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
-
   const queryStringParams = useSearchParams() 
-  const cocktailCategory = queryStringParams.get('category');
+  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [cocktailCategory, setCocktailCategory] = useState(queryStringParams.get('category'));
+
+  useEffect(() => { 
+    if(cocktailCategory) {
+      setFilteredRecipes(filterRecipesByCategory(cocktailCategory, recipes));
+    }
+   }, [cocktailCategory]);
 
   return (
     <ContentWrapper>
@@ -52,11 +56,13 @@ export default function Recipes({ recipes }) {
 
       <ContentWrapperConstrainedStyles>
         <main>
-          <h1>Cocktail Recipes</h1>
+          <h1>Cocktail Recipes {cocktailCategory && `with ${cocktailCategory}`}</h1>
 
           <CategoryNavPills 
             recipes={recipes} 
+            cocktailCategory={cocktailCategory}
             setFilteredRecipes={setFilteredRecipes} 
+            setCocktailCategory={setCocktailCategory}
             filterRecipesByCategory={filterRecipesByCategory} 
           />
         
