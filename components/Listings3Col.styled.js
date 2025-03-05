@@ -24,7 +24,7 @@ export const Listing3ColStyles = styled.div`
 
   @media (min-width: ${breakpoints.md}) {
     .listing-card {
-      width: 29%;
+      width: 32%;
     }
   }
 `;
