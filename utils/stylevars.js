@@ -9,7 +9,6 @@ export const breakpoints = {
 //https://muffingroup.com/blog/purple-color-palette
 export const themeColors = {
     baseColor: "#010101", //black
-    fontColor: "#ffffff",
     white: "#ffffff",
     grayLighter: "#efefef", 
     gray: "#9c9c9c", //dusty gray
