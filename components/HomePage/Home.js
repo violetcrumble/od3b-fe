@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { HomeStyles } from './Home.styled.js';
 import HeroImage from '../HeroImage/HeroImage';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../Cards/RecipeListingCard/RecipeListingCard.js';
@@ -11,7 +10,7 @@ import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 export default function HomePage({recipes}) {
 
     return (
-        <HomeStyles>
+        <main>
             <div className="hero-wrapper">
                 <HeroImage />
             </div>
@@ -57,6 +56,6 @@ export default function HomePage({recipes}) {
                 </Listing3ColStyles>
                 </ContentWrapperConstrainedStyles>
             </div>
-        </HomeStyles>
+        </main>
     );
 }
