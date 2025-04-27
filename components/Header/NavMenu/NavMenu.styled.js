@@ -67,7 +67,7 @@ export const NavMenuStyles = styled.div`
   }
 
   .menu-btn:checked ~ .menu {
-    max-height: 470px;
+    max-height: 710px;
   }
 
   .menu-btn:checked ~ .menu-icon .navicon {
