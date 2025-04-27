@@ -29,13 +29,13 @@ export default function Footer() {
 
       <div className="footer-recipe-nav footer-nav">
         <ul>
-          <li><Link href="/cocktail-recipes/tequila">Tequila Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes/mezcal">Mezcal Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes/whiskey">Whiskey Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes/rum">Rum Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes/cachaca">Cachaça Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes/gin">Gin Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes/vodka">Vodka Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=mezcal">Mezcal Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=cachaca">Cachaça Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=gin">Gin Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link></li>
         </ul>
       </div>
 
