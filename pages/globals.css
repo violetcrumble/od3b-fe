@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+
+@theme {
+    --color-base: #010101; /* black */
+    --color-white: #ffffff;
+    --color-gray-lighter: #efefef;
+    --color-gray: #9c9c9c; /* dusty gray */
+    --color-gray-darker: #414141; /* tundora */
+    --color-brand-primary: #a919c9; /* purple heart */
+    --color-brand-primary-light: #e486f4; /* heliotrope */
+    --color-brand-secondary: #155E65; /* eastern blue */
+    --color-brand-secondary-light: #6ce3ee; /* spray */
+    --color-brand-tertiary: #fe5242; /* sunset orange */
+}
