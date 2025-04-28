@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_RECIPE_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import Markdown from 'react-markdown';
 import { RecipeDetailPageStyles } from '../../components/recipedetail.styled';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
@@ -61,7 +60,7 @@ export default function Recipe({ recipe }) {
 
       </Head>
 
-      <ContentWrapperConstrainedStyles>
+      <div className="container mx-auto px-4">
 
         <RecipeDetailPageStyles>
 
@@ -209,7 +208,7 @@ export default function Recipe({ recipe }) {
           </div>
 
         </RecipeDetailPageStyles>
-      </ContentWrapperConstrainedStyles>
+      </div>
     </ContentWrapper>
   )
 }

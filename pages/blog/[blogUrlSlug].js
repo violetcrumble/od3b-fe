@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import Markdown from 'react-markdown';
 import { BlogPostStyles } from '../../components/blogpost.styled';
 
@@ -57,13 +56,14 @@ export default function BlogPost({ blogPost }) {
         />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
+      <div className="container mx-auto px-4">
         <BlogPostStyles>
             <h1>{blogPost.Title}</h1>
             <p>{blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
             <Markdown>{blogPost.BlogPostBody}</Markdown>
         </BlogPostStyles>
-      </ContentWrapperConstrainedStyles>
+        </div>
+      
     </ContentWrapper>
   )
 }

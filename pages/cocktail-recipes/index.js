@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
@@ -65,7 +64,7 @@ export default function Recipes({ recipes }) {
         <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
+      <div className="container mx-auto px-4">
         <main>
           <h1>
             Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}
@@ -92,7 +91,7 @@ export default function Recipes({ recipes }) {
             ))}
           </Listing3ColStyles>
         </main>
-      </ContentWrapperConstrainedStyles>
+      </div>
     </ContentWrapper>
   );
 }

@@ -2,60 +2,52 @@
 import React from 'react';
 import Link from 'next/link';
 import HeroImage from '../HeroImage/HeroImage';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../Cards/RecipeListingCard/RecipeListingCard.js';
-import { Listing3ColStyles } from '../Listings3Col.styled.js';
 import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 
 export default function HomePage({recipes}) {
 
     return (
         <main>
-            <div className="hero-wrapper">
-                <HeroImage />
+            
+            <HeroImage />
+            
+            <div className="container mx-auto px-4">
+                <h1 className="text-white">Tequila Recipes</h1>
+                <p className="text-white">Looking for something beyond a tequila sunrise? Whether you want the combination of tequila, lime juice, and orange liqueur in a margarita or you&apos;re in the mood for a crisp, refreshing ranch water, we&apos;re sure to have a tequila cocktail for you!</p>
+                <div className="flex flex-row justify-between gap-x-8">
+                  {filterRecipesByCategory("tequila", recipes).slice(0,3).map((recipe, index) => (
+                    <Link className="w-1/3" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
+                      <RecipeListingCard recipe={recipe} />
+                    </Link>
+                ))}
+                </div>
             </div>
 
-            <div className="tequila-recipes-section recipes-section">
-                <ContentWrapperConstrainedStyles>
-                <h1>Tequila Recipes</h1>
-                <p>Looking for something beyond a tequila sunrise? Whether you want the combination of tequila, lime juice, and orange liqueur in a margarita or you&apos;re in the mood for a crisp, refreshing ranch water, we&apos;re sure to have a tequila cocktail for you!</p>
-                <Listing3ColStyles>
-                {filterRecipesByCategory("tequila", recipes).slice(0,3).map((recipe, index) => (
-              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
-                <RecipeListingCard  recipe={recipe} />
-              </Link>
-            ))}
-                </Listing3ColStyles>
-                </ContentWrapperConstrainedStyles>
+            <div className="container mx-auto px-4">
+                <h1 className="text-white">Whiskey Recipes</h1>
+                <p className="text-white">From classic bourbon old fashioneds to equal parts bangers like the paper plane, there&apos;s a whiskey cocktai recipe here for you.</p>
+                <div className="flex flex-row justify-between gap-x-8">
+                  {filterRecipesByCategory("whiskey", recipes).slice(0,3).map((recipe, index) => (
+                    <Link className="w-1/3" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
+                      <RecipeListingCard recipe={recipe} />
+                    </Link>
+                ))}
+                </div>
             </div>
 
-            <div className="whiskey-recipes-section recipes-section">
-                <ContentWrapperConstrainedStyles>
-                <h1>Whiskey Recipes</h1>
-                <p>From classic bourbon old fashioneds to equal parts bangers like the paper plane, there&apos;s a whiskey cocktai recipe here for you.</p>
-                <Listing3ColStyles>
-                {filterRecipesByCategory("whiskey", recipes).slice(0,3).map((recipe, index) => (
-              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
-                <RecipeListingCard  recipe={recipe} />
-              </Link>
-            ))}
-                </Listing3ColStyles>
-                </ContentWrapperConstrainedStyles>
+            <div className="container mx-auto px-4">
+                <h1 className="text-white">Rum Recipes</h1>
+                <p className="text-white">From tiki classics to espresso martini riffs, we have some great rum recipes!</p>
+                <div className="flex flex-row justify-between gap-x-8">
+                  {filterRecipesByCategory("rum", recipes).slice(0,3).map((recipe, index) => (
+                    <Link className="w-1/3" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
+                      <RecipeListingCard recipe={recipe} />
+                    </Link>
+                ))}
+                </div>
             </div>
 
-            <div className="rum-recipes-section recipes-section">
-                <ContentWrapperConstrainedStyles>
-                <h1>Rum Cocktail Recipes</h1>
-                <p>From tiki classics to espresso martini riffs, we have some great rum recipes!</p>
-                <Listing3ColStyles>
-                {filterRecipesByCategory("rum", recipes).slice(0,3).map((recipe, index) => (
-              <Link className="listing-card" key={index} href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`} rel="canonical">
-                <RecipeListingCard  recipe={recipe} />
-              </Link>
-            ))}
-                </Listing3ColStyles>
-                </ContentWrapperConstrainedStyles>
-            </div>
         </main>
     );
 }

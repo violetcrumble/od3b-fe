@@ -3,7 +3,6 @@ import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import { Listing4ColStyles } from '../../components/Listings4Col.styled';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import { HomeBarSuppliesStyles } from '../../components/homeBarSupples.styled';
 import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
 
@@ -72,7 +71,7 @@ export default function Products({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
+      <div className="container mx-auto px-4">
         <HomeBarSuppliesStyles>
           <h1>Home Bar Supplies</h1>
           <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
@@ -127,7 +126,7 @@ export default function Products({ products }) {
             {filteredProducts.length !== Math.floor(filteredProducts.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}
           </Listing4ColStyles>
         </HomeBarSuppliesStyles>
-      </ContentWrapperConstrainedStyles>
+      </div>
     </ContentWrapper>
   );
 }

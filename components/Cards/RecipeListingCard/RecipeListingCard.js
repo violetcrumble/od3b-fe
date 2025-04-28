@@ -1,12 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { RecipeListingCardStyles } from './RecipeListingCard.styled';
-
 export default function RecipeListingCard(props) {
     return (
 
-        <RecipeListingCardStyles>
+        <div className="rounded-lg">
 
             {props.recipe.attributes.PhotoMain.data[0] &&
                 props.recipe.attributes.PhotoMain.data[0].attributes.url ?
@@ -16,6 +14,7 @@ export default function RecipeListingCard(props) {
                     layout="responsive"
                     width="500"
                     height="500"
+                    className="rounded-lg"
                 />
                 :
                 <div className="no-pic">
@@ -25,13 +24,14 @@ export default function RecipeListingCard(props) {
                         layout="responsive"
                         width="500"
                         height="500"
+                        className="rounded-lg"
                     />
                 </div>}
 
             <div className="recipe-info">
                 <h3>{props.recipe.attributes.title}</h3>
             </div>
-        </RecipeListingCardStyles>
+        </div>
 
     );
 }

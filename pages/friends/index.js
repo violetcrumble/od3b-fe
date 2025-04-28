@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import CreatorCard from '../../components/Cards/CreatorCard/CreatorCard';
 import { FriendsStyles } from '../../components/Friends.styled';
 
@@ -19,7 +18,7 @@ export default function Friends() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <ContentWrapperConstrainedStyles>
+            <div className="container mx-auto px-4">
                 <FriendsStyles>
                     <h1>Friends of Cocktail Underground - Our Favorite Cocktail Content Creators</h1>
 
@@ -66,7 +65,7 @@ export default function Friends() {
                     </Listing3ColStyles>
                 </FriendsStyles>
 
-            </ContentWrapperConstrainedStyles>
+            </div>
         </ContentWrapper>
     );
 }

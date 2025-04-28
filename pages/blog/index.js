@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
@@ -40,7 +39,7 @@ export default function BlogListing({ blogPosts }) {
         <meta property="og:description" content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground" />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
+      <div className="container mx-auto px-4">
         <main>
           <h1>Cocktail Blog Posts and Articles</h1>
         
@@ -55,7 +54,7 @@ export default function BlogListing({ blogPosts }) {
             
           
         </main>
-      </ContentWrapperConstrainedStyles>
+      </div>
     </ContentWrapper>
   );
 }
