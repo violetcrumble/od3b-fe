@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function CategoryNavPills(props) {
 
     return <CategoryNavPillsStyles>
-        <Link href="/cocktail-recipes?category=mezcal">All Cocktails</Link>
+        <Link href="/cocktail-recipes">All Cocktails</Link>
         <Link href="/cocktail-recipes?category=mezcal" className={props.cocktailCategory === "mezcal" && "active"}>Mezcal Cocktails</Link>
         <Link href="/cocktail-recipes?category=tequila" className={props.cocktailCategory === "tequila" && "active"}>Tequila Cocktails</Link>
         <Link href="/cocktail-recipes?category=whiskey" className={props.cocktailCategory === "whiskey" && "active"}>Whiskey Cocktails</Link>
