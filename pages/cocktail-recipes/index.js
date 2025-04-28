@@ -75,7 +75,6 @@ export default function Recipes({ recipes }) {
             recipes={recipes}
             cocktailCategory={cocktailCategory}
             setFilteredRecipes={setFilteredRecipes}
-            setCocktailCategory={setCocktailCategory}
             filterRecipesByCategory={filterRecipesByCategory}
           />
 

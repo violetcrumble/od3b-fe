@@ -1,57 +1,18 @@
 
 import { CategoryNavPillsStyles } from "./CategoryNavPills.styled";
+import Link from 'next/link';
 
 export default function CategoryNavPills(props) {
 
     return <CategoryNavPillsStyles>
-        <li className={!props.cocktailCategory && "active"}
-            onClick={() => {
-                props.setCocktailCategory();
-            }
-            }>All Cocktails</li>
-        
-        <li className={props.cocktailCategory === "mezcal" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("mezcal");
-            }
-            }>Mezcal Cocktails</li>
-
-        <li className={props.cocktailCategory === "tequila" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("tequila");
-            }
-            }>Tequila Cocktails</li>
-
-        <li className={props.cocktailCategory === "whiskey" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("whiskey");
-            }
-            }>Whiskey Cocktails</li>
-
-        <li className={props.cocktailCategory === "rum" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("rum");
-            }
-            }>Rum Cocktails</li>
-
-        <li className={props.cocktailCategory === "cachaça" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("cachaça");
-            }
-            }>Cachaça Cocktails</li>
-
-        <li className={props.cocktailCategory === "gin" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("gin");
-            }
-            }>Gin Cocktails</li>
-
-        <li className={props.cocktailCategory === "vodka" && "active"}
-            onClick={() => {
-                props.setCocktailCategory("vodka");
-            }
-            }>Vodka Cocktails</li>
-
+        <Link href="/cocktail-recipes?category=mezcal">All Cocktails</Link>
+        <Link href="/cocktail-recipes?category=mezcal" className={props.cocktailCategory === "mezcal" && "active"}>Mezcal Cocktails</Link>
+        <Link href="/cocktail-recipes?category=tequila" className={props.cocktailCategory === "tequila" && "active"}>Tequila Cocktails</Link>
+        <Link href="/cocktail-recipes?category=whiskey" className={props.cocktailCategory === "whiskey" && "active"}>Whiskey Cocktails</Link>
+        <Link href="/cocktail-recipes?category=rum" className={props.cocktailCategory === "rum" && "active"}>Rum Cocktails</Link>
+        <Link href="/cocktail-recipes?category=cachaça" className={props.cocktailCategory === "cachaça" && "active"}>Cachaça Cocktails</Link>
+        <Link href="/cocktail-recipes?category=gin" className={props.cocktailCategory === "gin" && "active"}>Gin Cocktails</Link>
+        <Link href="/cocktail-recipes?category=vodka" className={props.cocktailCategory === "vodka" && "active"}>Vodka Cocktails</Link>
 
     </CategoryNavPillsStyles>;
 }
