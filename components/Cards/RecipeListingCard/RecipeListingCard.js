@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function RecipeListingCard(props) {
     return (
 
-        <div className="rounded-lg">
+        <div className="rounded-lg shadow-xl bg-white">
 
             {props.recipe.attributes.PhotoMain.data[0] &&
                 props.recipe.attributes.PhotoMain.data[0].attributes.url ?
@@ -28,8 +28,8 @@ export default function RecipeListingCard(props) {
                     />
                 </div>}
 
-            <div className="recipe-info">
-                <h3>{props.recipe.attributes.title}</h3>
+            <div className="p-5">
+                <h3 className="text-brand-primary font-bold">{props.recipe.attributes.title}</h3>
             </div>
         </div>
 

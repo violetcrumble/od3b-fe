@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import CreatorCard from '../../components/Cards/CreatorCard/CreatorCard';
-import { FriendsStyles } from '../../components/Friends.styled';
-
 import killdevill from '../../public/friends/killdevill.jpg';
 import gnome from '../../public/friends/gnome.jpeg';
 import mybartender from '../../public/friends/mybartender.jpg';
@@ -19,7 +17,7 @@ export default function Friends() {
             </Head>
 
             <div className="container mx-auto px-4">
-                <FriendsStyles>
+
                     <h1>Friends of Cocktail Underground - Our Favorite Cocktail Content Creators</h1>
 
                     <p>Check out some of my favorite cocktail content creators and influencers!</p>
@@ -63,7 +61,6 @@ export default function Friends() {
                         />
 
                     </Listing3ColStyles>
-                </FriendsStyles>
 
             </div>
         </ContentWrapper>
