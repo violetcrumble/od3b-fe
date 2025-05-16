@@ -23,6 +23,7 @@ export const FriendsStyles = styled.main`
     .listing-card {
       width: 27%;
       margin-right: 2%;
+      padding: 20px;
     }
   }
 }

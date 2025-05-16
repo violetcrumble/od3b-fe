@@ -72,15 +72,7 @@ export default function Friends() {
                             websiteURL="https://www.mybartender.com"
                         />
 
-                        <CreatorCard
-                            name="My Bartender"
-                            youTubeURL="https://www.youtube.com/@mybartender"
-                            instagramURL="https://www.instagram.com/_mybartender/"
-                            facebookURL="https://www.facebook.com/mybartenderblog"
-                            bio="As a leading digital media company and online magazine, we delve deep into the vibrant world of cocktails and liquors, offering our audience an intoxicating blend of engaging content, expert insights, and curated reviews."
-                            creatorImage={mybartender}
-                            websiteURL="https://www.mybartender.com"
-                        />
+                        <div className='listing-card listing-card-ph'>&nbsp;</div>
                     </div>
 
                 </FriendsStyles>
