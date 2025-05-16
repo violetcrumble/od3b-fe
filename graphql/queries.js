@@ -503,6 +503,14 @@ const GET_BLOG_POST = gql`query ($urlSlug: String!) {
         Date
         seoKeywords
         seoDescription
+        ogImage {
+          data {
+            attributes {
+              url
+              caption
+            }
+          }
+        }
         urlSlug
         TextPreviewSnippet
         ListingCardImage {

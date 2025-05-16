@@ -41,6 +41,7 @@ export default function BlogPost({ blogPost }) {
   `,
     };
   }
+
   return (
     <ContentWrapper>
 
@@ -50,7 +51,7 @@ export default function BlogPost({ blogPost }) {
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
-        <meta property="og:image" content={blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes ? blogPost.ListingCardImage.data.attributes.url : "/pic-not-available.gif" } />
+        <meta property="og:image" content={blogPost.ogImage.data && blogPost.ogImage.data.attributes ? blogPost.ogImage.data.attributes.url : "/pic-not-available.gif" } />
         <meta property="og:url" content={`https://www.cocktailunderground.com/blog/` + blogPost.urlSlug} />
         <script
           type="application/ld+json"
