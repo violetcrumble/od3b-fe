@@ -3,7 +3,6 @@ import ContentWrapper from '../../components/ContentWrapper';
 import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import CreatorCard from '../../components/Cards/CreatorCard/CreatorCard';
 import { FriendsStyles } from '../../components/Friends.styled';
-
 import killdevill from '../../public/friends/killdevill.jpg';
 import gnome from '../../public/friends/gnome.jpeg';
 import mybartender from '../../public/friends/mybartender.jpg';
