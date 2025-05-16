@@ -20,7 +20,7 @@ export default function NavMenu() {
           <li><Link href="/cocktail-recipes?category=mezcal">Mezcal Cocktail Recipes</Link></li>
           <li><Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link></li>
           <li><Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link></li>
-          <li><Link href="/cocktail-recipes?category=cachaca">Cachaça Cocktail Recipes</Link></li>
+          <li><Link href="/cocktail-recipes?category=cachaça">Cachaça Cocktail Recipes</Link></li>
           <li><Link href="/cocktail-recipes?category=gin">Gin Cocktail Recipes</Link></li>
           <li><Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link></li>
           </ul>
