@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head';
+import Link from 'next/link';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
@@ -50,6 +51,7 @@ export default function BlogPost({ blogPost }) {
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
         <meta property="og:image" content={blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes ? blogPost.ListingCardImage.data.attributes.url : "/pic-not-available.gif" } />
+        <meta property="og:url" content={`https://www.cocktailunderground.com/blog/` + blogPost.urlSlug} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={addBlogJsonLd()}
@@ -58,7 +60,14 @@ export default function BlogPost({ blogPost }) {
       </Head>
 
       <ContentWrapperConstrainedStyles>
+      
+        
         <BlogPostStyles>
+        <div className="breadcrumb">
+            <Link href="/">Home</Link>&nbsp;:&nbsp;
+            <Link href="/blog/">Articles</Link>&nbsp;:&nbsp;
+            {blogPost.Title}</div>
+
             <h1>{blogPost.Title}</h1>
             <p>{blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
             <Markdown>{blogPost.BlogPostBody}</Markdown>

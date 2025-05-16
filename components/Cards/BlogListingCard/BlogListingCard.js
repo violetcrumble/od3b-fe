@@ -32,6 +32,7 @@ export default function BlogListingCard(props) {
                         alt="Image not Available"
                         layout="responsive"
                         width="500"
+                        height="500"
                     />
                 </div>}
 

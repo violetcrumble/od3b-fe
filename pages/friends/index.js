@@ -8,7 +8,7 @@ import killdevill from '../../public/friends/killdevill.jpg';
 import gnome from '../../public/friends/gnome.jpeg';
 import mybartender from '../../public/friends/mybartender.jpg';
 import subourbondad from '../../public/friends/subourbondad.gif';
-import { Listing3ColStyles } from '../../components/Listings3Col.styled';
+import waxseal from '../../public/friends/waxseal.jpg';
 
 export default function Friends() {
     return (
@@ -25,7 +25,16 @@ export default function Friends() {
 
                     <p>Check out some of my favorite cocktail content creators and influencers!</p>
 
-                    <Listing3ColStyles>
+                    <div className="friend-cards">
+                        <CreatorCard
+                            name="Wax Seal Productions"
+                            youTubeURL="https://www.youtube.com/@waxsealproductions"
+                            instagramURL="https://www.instagram.com/waxsealproductions"
+                            bio="Featuring custom cocktail designs by Wax Seal Productions, taste testing spirits and foods, cocktail tips and tricks, and cocktails we find interesting. We design cocktails for bars, restaurants, events, and literary cocktails around books, films, and shows. A proud member of the Shaken & Stirred Cocktail Designers and lovers of unique flavour profiles. Wax Seal Productions is an intellectual property management and content creation company with a focus on literary arts, cocktail design, and creative coaching. Visit my website for more information."
+                            creatorImage={waxseal}
+                            websiteURL="https://www.waxsealproductions.ca"
+                        />
+
                         <CreatorCard
                             name="Kill-Divill Rum & Cocktails"
                             youTubeURL="https://www.youtube.com/@KillDivill"
@@ -63,7 +72,17 @@ export default function Friends() {
                             websiteURL="https://www.mybartender.com"
                         />
 
-                    </Listing3ColStyles>
+                        <CreatorCard
+                            name="My Bartender"
+                            youTubeURL="https://www.youtube.com/@mybartender"
+                            instagramURL="https://www.instagram.com/_mybartender/"
+                            facebookURL="https://www.facebook.com/mybartenderblog"
+                            bio="As a leading digital media company and online magazine, we delve deep into the vibrant world of cocktails and liquors, offering our audience an intoxicating blend of engaging content, expert insights, and curated reviews."
+                            creatorImage={mybartender}
+                            websiteURL="https://www.mybartender.com"
+                        />
+                    </div>
+
                 </FriendsStyles>
 
             </ContentWrapperConstrainedStyles>

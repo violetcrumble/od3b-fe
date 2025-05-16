@@ -30,6 +30,14 @@ export async function getStaticProps(context) {
 }
 
 export default function BlogListing({ blogPosts }) {
+  
+  // Sort blog posts by Date in descending order (latest first)
+  const sortedBlogPosts = [...blogPosts].sort((a, b) => {
+    const dateA = new Date(a.attributes.Date);
+    const dateB = new Date(b.attributes.Date);
+    return dateB - dateA; // Descending order
+  });
+
   return (
     <ContentWrapper>
       <Head>
@@ -45,7 +53,7 @@ export default function BlogListing({ blogPosts }) {
           <h1>Cocktail Blog Posts and Articles</h1>
         
         <Listing3ColStyles className="blog-container">
-        {blogPosts.map((blogPost, index) => (
+        {sortedBlogPosts.map((blogPost, index) => (
               <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
                 <BlogListingCard  blogPost={blogPost} />
               </Link>
