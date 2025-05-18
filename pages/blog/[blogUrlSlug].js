@@ -16,7 +16,6 @@ const client = new ApolloClient({
 });
 
 export default function BlogPost({ blogPost }) {
-  
   const formattedDate = new Date(blogPost.Date).toLocaleString('en-us',{month:'long', year:'numeric', day:'numeric'})
 
   function addBlogJsonLd() {
