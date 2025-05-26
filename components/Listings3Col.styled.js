@@ -3,8 +3,8 @@ import { breakpoints } from '../utils/stylevars';
 
 export const Listing3ColStyles = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 
   a {
     text-decoration: none;
@@ -25,6 +25,16 @@ export const Listing3ColStyles = styled.div`
   @media (min-width: ${breakpoints.md}) {
     .listing-card {
       width: 32%;
+    }
+
+    > * {
+      flex: 0 0 32%;
+      margin: 1% 0;
+    }
+
+    > :nth-child(3n-1) {
+        margin-left: 2%;
+        margin-right: 2%;
     }
   }
 `;
