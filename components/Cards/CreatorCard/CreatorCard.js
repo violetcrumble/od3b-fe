@@ -1,12 +1,10 @@
-import React from 'react';
 import Image from 'next/image';
 
-import { CreatorCardStyles } from './CreatorCard.styled';
 import Markdown from 'react-markdown';
 
 export default function CreatorCard(props) {
     return (
-        <CreatorCardStyles className="listing-card">
+        <div className="listing-card">
             <h2>{props.name}</h2>
             <p>
                 <a href={props.youTubeURL} target="_blank" rel="noopener noreferrer">YouTube</a>&nbsp;|&nbsp;
@@ -31,6 +29,6 @@ export default function CreatorCard(props) {
                 </div>
 
             </div>
-        </CreatorCardStyles>
+        </div>
     );
 }

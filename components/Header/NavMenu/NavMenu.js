@@ -1,10 +1,8 @@
-import React from 'react';
 import Link from 'next/link';
-import { NavMenuStyles } from './NavMenu.styled';
 
 export default function NavMenu() {
   return (
-    <NavMenuStyles>
+    <nav>
       <input className="menu-btn" type="checkbox" id="menu-btn" />
       <label className="menu-icon" htmlFor="menu-btn">
         <span className="navicon"></span>
@@ -35,6 +33,6 @@ export default function NavMenu() {
           <Link href="/friends">Our Friends</Link>
         </li>
       </ul>
-    </NavMenuStyles>
+    </nav>
   );
 }

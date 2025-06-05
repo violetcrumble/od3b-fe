@@ -1,5 +1,3 @@
-import React from 'react';
-import { SocialLinkStyles } from './SocialLinks.styled';
 import Image from 'next/image';
 import facebookIcon from '../../public/facebook.svg';
 import youtubeIcon from '../../public/youtube.svg';
@@ -10,7 +8,7 @@ import pinterestIcon from '../../public/pinterest.svg';
 // get additional icons here - https://icons8.com/icons/set/social-media--white
 
 export default function SocialLinks() {
-    return <SocialLinkStyles>
+    return <div>
         <li><a href="https://www.youtube.com/@CocktailUnderground" target="_blank" rel="noopener noreferrer"><Image
             priority
             src={youtubeIcon}
@@ -46,5 +44,5 @@ export default function SocialLinks() {
             height={32}
       width={32}
         /></a></li>
-    </SocialLinkStyles>;
+    </div>;
 }

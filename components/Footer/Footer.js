@@ -1,5 +1,3 @@
-import React from 'react';
-import { FooterStyles } from './Footer.styled';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -7,7 +5,7 @@ import Image from 'next/image';
 var currentTime = new Date();
 
 export default function Footer() {
-  return <FooterStyles>
+  return <footer>
 
     <div className="footer-grid-main">
       
@@ -47,5 +45,5 @@ export default function Footer() {
     </div>
 
     
-  </FooterStyles>;
+  </footer>;
 }

@@ -2,10 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
-import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
 import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 import { toTitleCase } from '../../utils/toTitleCase.js';
@@ -51,7 +48,7 @@ export default function Recipes({ recipes }) {
   }, [category, recipes]);
 
   return (
-    <ContentWrapper>
+    <div>
       <Head>
         <title>
           Cocktail Underground - {cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'}
@@ -65,33 +62,30 @@ export default function Recipes({ recipes }) {
         <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
-        <main>
-          <h1>
-            Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}
-          </h1>
+      <main>
+        <h1>
+          Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}
+        </h1>
 
-          <CategoryNavPills
-            recipes={recipes}
-            cocktailCategory={cocktailCategory}
-            setFilteredRecipes={setFilteredRecipes}
-            filterRecipesByCategory={filterRecipesByCategory}
-          />
+        <CategoryNavPills
+          recipes={recipes}
+          cocktailCategory={cocktailCategory}
+          setFilteredRecipes={setFilteredRecipes}
+          filterRecipesByCategory={filterRecipesByCategory}
+        />
 
-          <Listing3ColStyles>
-            {filteredRecipes.map((recipe, index) => (
-              <Link
-                className="listing-card"
-                key={index}
-                href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-                rel="canonical"
-              >
-                <RecipeListingCard recipe={recipe} />
-              </Link>
-            ))}
-          </Listing3ColStyles>
-        </main>
-      </ContentWrapperConstrainedStyles>
-    </ContentWrapper>
+        {filteredRecipes.map((recipe, index) => (
+          <Link
+            className="listing-card"
+            key={index}
+            href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+            rel="canonical"
+          >
+            <RecipeListingCard recipe={recipe} />
+          </Link>
+        ))}
+
+      </main>
+    </div>
   );
 }

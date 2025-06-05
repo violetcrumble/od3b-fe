@@ -1,12 +1,10 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HeroStyles } from './HeroImage.styled';
 import heroBanner from '../../public/hero5.jpg';
 
 export default function HeroImage() {
   return (
-    <HeroStyles>
+    <div>
       <div className="imageWrapper">
         <Image
           priority
@@ -23,7 +21,7 @@ export default function HeroImage() {
       <Link href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ" target="_blank" className="youtube-button">Watch Our YouTube Videos</Link>
           
       </div>
-    </HeroStyles>
+    </div>
   );
 }
 

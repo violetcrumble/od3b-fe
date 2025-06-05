@@ -1,14 +1,11 @@
-import React from 'react';
 import Image from 'next/image';
-
-import { BlogListingCardStyles } from './BlogListingCard.styled';
 
 export default function BlogListingCard(props) {
 
     const formattedDate = new Date(props.blogPost.attributes.Date).toLocaleString('en-us', { month: 'long', year: 'numeric', day: 'numeric' })
 
     return (
-        <BlogListingCardStyles>
+        <div>
 
             <div className="byline-date">
                 <h2>{props.blogPost.attributes.Title}</h2>
@@ -40,6 +37,6 @@ export default function BlogListingCard(props) {
                 <p>{props.blogPost.attributes.TextPreviewSnippet} <u>Read More...</u></p>
             </div>
 
-        </BlogListingCardStyles>
+        </div>
     );
 }

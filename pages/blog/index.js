@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
-import { Listing3ColStyles } from '../../components/Listings3Col.styled';
 import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
 
@@ -30,7 +28,7 @@ export async function getStaticProps(context) {
 }
 
 export default function BlogListing({ blogPosts }) {
-  
+
   // Sort blog posts by Date in descending order (latest first)
   const sortedBlogPosts = [...blogPosts].sort((a, b) => {
     const dateA = new Date(a.attributes.Date);
@@ -48,22 +46,17 @@ export default function BlogListing({ blogPosts }) {
         <meta property="og:description" content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground" />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
-        <main>
-          <h1>Cocktail Blog Posts and Articles</h1>
-        
-        <Listing3ColStyles className="blog-container">
+      <main>
+        <h1>Cocktail Blog Posts and Articles</h1>
+
         {sortedBlogPosts.map((blogPost, index) => (
-              <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
-                <BlogListingCard  blogPost={blogPost} />
-              </Link>
-            ))}
-            <div className="listing-card"></div>
-        </Listing3ColStyles>
-            
-          
-        </main>
-      </ContentWrapperConstrainedStyles>
+          <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
+            <BlogListingCard blogPost={blogPost} />
+          </Link>
+        ))}
+        <div className="listing-card"></div>
+      </main>
+
     </ContentWrapper>
   );
 }

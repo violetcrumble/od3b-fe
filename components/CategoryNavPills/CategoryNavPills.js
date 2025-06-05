@@ -1,10 +1,8 @@
-
-import { CategoryNavPillsStyles } from "./CategoryNavPills.styled";
 import Link from 'next/link';
 
 export default function CategoryNavPills(props) {
 
-    return <CategoryNavPillsStyles>
+    return <div>
         <Link href="/cocktail-recipes">All Cocktails</Link>
         <Link href="/cocktail-recipes?category=mezcal" className={props.cocktailCategory === "mezcal" && "active"}>Mezcal Cocktails</Link>
         <Link href="/cocktail-recipes?category=tequila" className={props.cocktailCategory === "tequila" && "active"}>Tequila Cocktails</Link>
@@ -14,5 +12,5 @@ export default function CategoryNavPills(props) {
         <Link href="/cocktail-recipes?category=gin" className={props.cocktailCategory === "gin" && "active"}>Gin Cocktails</Link>
         <Link href="/cocktail-recipes?category=vodka" className={props.cocktailCategory === "vodka" && "active"}>Vodka Cocktails</Link>
 
-    </CategoryNavPillsStyles>;
+    </div>;
 }

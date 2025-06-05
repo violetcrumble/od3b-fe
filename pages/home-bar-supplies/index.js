@@ -2,9 +2,6 @@ import { useState } from 'react';
 import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
-import { Listing4ColStyles } from '../../components/Listings4Col.styled';
-import { ContentWrapperConstrainedStyles } from '../../components/ContentWrapperConstrained.styled';
-import { HomeBarSuppliesStyles } from '../../components/homeBarSupples.styled';
 import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
 
 const URL = process.env.STRAPIBASEURL;

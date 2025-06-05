@@ -1,12 +1,9 @@
-import React from 'react';
 import Image from 'next/image';
-
-import { RecipeListingCardStyles } from './RecipeListingCard.styled';
 
 export default function RecipeListingCard(props) {
     return (
 
-        <RecipeListingCardStyles>
+        <div>
 
             {props.recipe.attributes.PhotoMain.data[0] &&
                 props.recipe.attributes.PhotoMain.data[0].attributes.url ?
@@ -31,7 +28,7 @@ export default function RecipeListingCard(props) {
             <div className="recipe-info">
                 <h3>{props.recipe.attributes.title}</h3>
             </div>
-        </RecipeListingCardStyles>
+        </div>
 
     );
 }
