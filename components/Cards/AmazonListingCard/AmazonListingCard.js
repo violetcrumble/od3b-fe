@@ -13,9 +13,9 @@ export default function AmazonListingCard(props) {
       <div className="product-pic">
       {props.amazonPhotoURL && <Image 
           alt={props.productName}
-          layout="fill"
-          objectFit="contain"
           border="0" 
+          width="100"
+          height="100"
           src={props.amazonPhotoURL} />}
         
         {/* <img src={`https://ir-na.amazon-adsystem.com/e/ir?t=onedrinkthree-20&language=en_US&l=li2&o=1&a=${props.amazonASIN}`} width="1" height="1" border="0" alt="" /> */}

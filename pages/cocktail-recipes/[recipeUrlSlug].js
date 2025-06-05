@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -92,14 +91,12 @@ export default function Recipe({ recipe }) {
                         <Image
                           src={recipe.videoThumbnail.data.attributes.url}
                           alt={recipe.videoThumbnail.data.attributes.alternativeText ? recipe.videoThumbnail.data.attributes.alternativeText : recipe.title}
-                          layout="responsive"
                           width="590"
                           height="332"
                         />
                         <Image
                           src={videoOverlayGraphic.src}
                           alt=""
-                          layout="responsive"
                           width="590"
                           height="332"
                         />
@@ -113,7 +110,6 @@ export default function Recipe({ recipe }) {
                     <div className="mobile-recipe-pic-container"><Image
                       src={recipe.PhotoMain.data[0].attributes.url}
                       alt={recipe.PhotoMain.data[0].attributes.alternativeText ? recipe.PhotoMain.data[0].attributes.alternativeText : recipe.title}
-                      layout="responsive"
                       width="300"
                       height="300"
                       className="mobile-recipe-image"
@@ -150,7 +146,6 @@ export default function Recipe({ recipe }) {
             <Image
               src={recipe.PhotoMain.data[0].attributes.url}
               alt={recipe.PhotoMain.data[0].attributes.alternativeText ? recipe.PhotoMain.data[0].attributes.alternativeText : recipe.title}
-              layout="responsive"
               width="700"
               height="700"
             />
@@ -160,7 +155,6 @@ export default function Recipe({ recipe }) {
             <Image
               src={recipe.PhotoMain.data[1].attributes.url}
               alt={recipe.PhotoMain.data[1].attributes.alternativeText ? recipe.PhotoMain.data[1].attributes.alternativeText : recipe.title}
-              layout="responsive"
               width="700"
               height="700"
             />
@@ -171,7 +165,6 @@ export default function Recipe({ recipe }) {
             <Image
               src={recipe.PhotoPinterest.data.attributes.url}
               alt={recipe.PhotoPinterest.data.attributes.alternativeText}
-              layout="responsive"
               width="500"
               height="775"
             />

@@ -17,7 +17,6 @@ export default function BlogListingCard(props) {
                 <Image
                     src={props.blogPost.attributes.ListingCardImage.data.attributes.url}
                     alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption}
-                    layout="responsive"
                     width="500"
                     height="500"
                 />
@@ -27,7 +26,6 @@ export default function BlogListingCard(props) {
                     <Image
                         src="/pic-not-available.gif"
                         alt="Image not Available"
-                        layout="responsive"
                         width="500"
                         height="500"
                     />

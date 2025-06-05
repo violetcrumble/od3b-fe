@@ -7,6 +7,7 @@ import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills
 import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 import { toTitleCase } from '../../utils/toTitleCase.js';
 import { GET_ALL_RECIPES } from '../../graphql/queries.js';
+import ContentWrapper from '../../components/ContentWrapper.js';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -48,7 +49,7 @@ export default function Recipes({ recipes }) {
   }, [category, recipes]);
 
   return (
-    <div>
+    <ContentWrapper>
       <Head>
         <title>
           Cocktail Underground - {cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'}
@@ -86,6 +87,6 @@ export default function Recipes({ recipes }) {
         ))}
 
       </main>
-    </div>
+    </ContentWrapper>
   );
 }

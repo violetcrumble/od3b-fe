@@ -10,7 +10,6 @@ export default function RecipeListingCard(props) {
                 <Image
                     src={props.recipe.attributes.PhotoMain.data[0].attributes.url}
                     alt={props.recipe.attributes.title}
-                    layout="responsive"
                     width="500"
                     height="500"
                 />
@@ -19,7 +18,6 @@ export default function RecipeListingCard(props) {
                     <Image
                         src="/pic-not-available.gif"
                         alt="Image not Available"
-                        layout="responsive"
                         width="500"
                         height="500"
                     />
