@@ -16,8 +16,6 @@ export default function Friends() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <ContentWrapperConstrainedStyles>
-                <FriendsStyles>
                     <h1>Friends of Cocktail Underground - Our Favorite Cocktail Content Creators</h1>
 
                     <p>Check out some of my favorite cocktail content creators and influencers!</p>
@@ -72,9 +70,7 @@ export default function Friends() {
                         <div className='listing-card listing-card-ph'>&nbsp;</div>
                     </div>
 
-                </FriendsStyles>
-
-            </ContentWrapperConstrainedStyles>
+           
         </ContentWrapper>
     );
 }

@@ -69,8 +69,7 @@ export default function Products({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ContentWrapperConstrainedStyles>
-        <HomeBarSuppliesStyles>
+     
           <h1>Home Bar Supplies</h1>
           <p>This site contains product affiliate links. We may receive a commission if you make a purchase after clicking on one of these links.</p>
 
@@ -110,7 +109,6 @@ export default function Products({ products }) {
             </div>
           </div>
 
-          <Listing4ColStyles>
             {filteredProducts.map((product, index) => (
               <AmazonListingCard
                 key={index}
@@ -122,9 +120,7 @@ export default function Products({ products }) {
               />
             ))}
             {filteredProducts.length !== Math.floor(filteredProducts.length / 4) && <><div className="listing-card"></div><div className="listing-card"></div></>}
-          </Listing4ColStyles>
-        </HomeBarSuppliesStyles>
-      </ContentWrapperConstrainedStyles>
+
     </ContentWrapper>
   );
 }
