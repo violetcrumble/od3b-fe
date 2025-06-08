@@ -52,7 +52,7 @@ export default function Recipes({ recipes }) {
     <ContentWrapper>
       <Head>
         <title>
-          Cocktail Underground - {cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'}
+          {`Cocktail Underground - ${cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'}`}
         </title>
         <meta
           name="description"
@@ -63,8 +63,8 @@ export default function Recipes({ recipes }) {
         <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
 
-      <main>
-        <h1>
+      <main className="constrained-content">
+        <h1 className="text-brand-purple">
           Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}
         </h1>
 
@@ -75,6 +75,7 @@ export default function Recipes({ recipes }) {
           filterRecipesByCategory={filterRecipesByCategory}
         />
 
+        <div className="listings-3-col">
         {filteredRecipes.map((recipe, index) => (
           <Link
             className="listing-card"
@@ -85,6 +86,7 @@ export default function Recipes({ recipes }) {
             <RecipeListingCard recipe={recipe} />
           </Link>
         ))}
+        </div>
 
       </main>
     </ContentWrapper>

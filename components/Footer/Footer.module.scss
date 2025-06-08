@@ -1,11 +1,9 @@
-// Temporary replacements for theme variables
-$brand-primary-light: #e486f4;
-$gray-darker: #414141;
-$breakpoint-md: 768px;
+@use 'styles/colors';
+@use 'styles/grids';
 
 .footer {
-  background-color: #000;
-  color: #fff;
+  background-color: colors.$black;
+  color: colors.$white;
   padding: 20px;
 
   .footer-grid-main {
@@ -17,11 +15,10 @@ $breakpoint-md: 768px;
           margin-bottom: 10px;
 
           a {
-            color: $brand-primary-light;
+            color: colors.$brand-purple-400;
           }
         }
       }
-      border-bottom: solid 1px $gray-darker;
       padding: 10px 0;
     }
 
@@ -43,7 +40,7 @@ $breakpoint-md: 768px;
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@media (min-width: grids.$breakpoint-md) {
   .footer {
     .footer-grid-main {
       display: flex;

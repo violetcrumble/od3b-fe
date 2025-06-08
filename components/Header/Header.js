@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <Link href="/">
-        <Image src="/logo-skull-only.svg" alt="" width="72" height="95" className={styles.logo} />
+        <Image src="/logo-skull-only.svg" alt="" width="65" height="85" className={styles.logo} />
         <div className={styles['logo-text']}>Cocktail Underground</div>
       </Link>
       <NavMenu />

@@ -1,0 +1,25 @@
+@use 'styles/colors';
+
+.category-nav-pills {
+  margin-bottom: 44px;
+
+  a {
+    display: inline-block;
+    background-color: colors.$brand-teal-100;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+      cursor: pointer;
+      background-color: colors.$brand-orange-200;
+    }
+
+    &.active {
+      background-color: colors.$brand-orange-400;
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './HeroImage.module.scss';
@@ -7,13 +6,13 @@ import heroBanner from '../../public/hero5.jpg';
 export default function HeroImage() {
   return (
     <div className={styles.hero}>
-      <div className={styles.imageWrapper}>
+      <div>
         <Image
           priority
           src={heroBanner}
           fill
           style={{ objectFit: 'cover', objectPosition: 'center' }}
-          alt="hero image example"
+          alt="Ranch Water Cocktail"
         />
       </div>
 

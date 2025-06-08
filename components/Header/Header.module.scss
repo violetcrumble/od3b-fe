@@ -1,5 +1,7 @@
+@use 'styles/colors';
+
 .header {
-  background-color: #000;
+  background-color: colors.$black;
   box-sizing: border-box;
   width: 100%;
   position: relative;
@@ -13,13 +15,13 @@
   }
 
   .logo-text {
-    color: #fff;
+    color: colors.$white;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
     vertical-align: middle;
+    margin-left: 8px;
   }
 }
-

@@ -1,0 +1,7 @@
+@use 'styles/colors';
+
+.home-page {
+  h1 {
+    color: colors.$brand-teal;
+  }
+}

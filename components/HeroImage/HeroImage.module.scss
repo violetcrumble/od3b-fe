@@ -1,18 +1,13 @@
-// Temporary replacements for theme variables
-$brand-tertiary: #fe5242;
-$breakpoint-md: 768px;
+@use 'styles/colors';
+@use 'styles/grids';
 
 .hero {
   position: relative;
   width: 100%;
 
-  .imageWrapper {
-    z-index: -1;
-  }
-
   .heroContent {
     position: relative;
-    margin: 0 20px;
+    border-top: solid 1px transparent;
 
     h3 {
       color: #fff;
@@ -21,12 +16,8 @@ $breakpoint-md: 768px;
       padding: 50px 0 0 0;
     }
 
-    a {
-      color: #fff;
-    }
-
     .youtube-button {
-      background-color: $brand-tertiary;
+      background-color: colors.$brand-orange;
       color: white;
       text-decoration: none;
       padding: 10px;
@@ -37,18 +28,19 @@ $breakpoint-md: 768px;
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@media (min-width: grids.$breakpoint-md) {
   .hero {
     height: 60vh;
 
     .heroContent {
       max-width: 780px;
-      top: 150px;
+      top: 90px;
       text-align: center;
       margin: 0 auto;
 
       h3 {
         font-size: 56px;
+        font-weight: bold;
         padding: 0;
       }
     }

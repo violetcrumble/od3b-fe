@@ -1,0 +1,188 @@
+// Grayscale
+$white: #ffffff;
+$gray-lighter: #efefef;
+$gray: #9c9c9c;
+$gray-darker: #414141;
+$black: #000000;
+
+// Brand Purple
+$brand-purple: #8a13a4;
+$brand-purple-900: #3b0c46;
+$brand-purple-800: #4f0f5e;
+$brand-purple-700: #631275;
+$brand-purple-600: #76148d;
+$brand-purple-500: #8a17a4;
+$brand-purple-400: #a243b8;
+$brand-purple-300: #ba6fcb;
+$brand-purple-200: #d29bdf;
+$brand-purple-100: #eac7f2;
+
+// Brand Teal
+$brand-teal: #155e65;
+$brand-teal-900: #072427;
+$brand-teal-800: #0b3337;
+$brand-teal-700: #0e4146;
+$brand-teal-600: #125056;
+$brand-teal-500: #155e65;
+$brand-teal-400: #3a8289;
+$brand-teal-300: #5ea7ae;
+$brand-teal-200: #83cbd2;
+$brand-teal-100: #a7eff6;
+$brand-teal-50: #c8faff;
+
+// Brand Seafoam
+$brand-seafoam: #6ce3ed;
+$brand-seafoam-900: #1d6e77;
+$brand-seafoam-800: #318b95;
+$brand-seafoam-700: #45a9b2;
+$brand-seafoam-600: #58c6d0;
+$brand-seafoam-500: #6ce3ed;
+$brand-seafoam-400: #80e7f0;
+$brand-seafoam-300: #95ecf3;
+$brand-seafoam-200: #a9f0f6;
+$brand-seafoam-100: #bdf4f9;
+
+// Brand Orange
+$brand-orange: #f95242;
+$brand-orange-900: #9a2a1d;
+$brand-orange-800: #b23426;
+$brand-orange-700: #ca3e30;
+$brand-orange-600: #e14839;
+$brand-orange-500: #f95242;
+$brand-orange-400: #fa7568;
+$brand-orange-300: #fb978e;
+$brand-orange-200: #fdbab3;
+$brand-orange-100: #fedcd9;
+
+// --- Utility Classes ---
+// Use classes like bg-brand-purple-400, text-brand-orange, bg-gray-darker, etc., directly in your markup for quick color application.
+
+// Grayscale
+.bg-white {
+  background-color: $white !important;
+}
+.bg-gray-lighter {
+  background-color: $gray-lighter !important;
+}
+.bg-gray {
+  background-color: $gray !important;
+}
+.bg-gray-darker {
+  background-color: $gray-darker !important;
+}
+.bg-black {
+  background-color: $black !important;
+}
+
+.text-white {
+  color: $white !important;
+}
+.text-gray-lighter {
+  color: $gray-lighter !important;
+}
+.text-gray {
+  color: $gray !important;
+}
+.text-gray-darker {
+  color: $gray-darker !important;
+}
+.text-black {
+  color: $black !important;
+}
+
+// Brand Purple
+@each $name,
+  $color
+    in (
+      'brand-purple': $brand-purple,
+      'brand-purple-900': $brand-purple-900,
+      'brand-purple-800': $brand-purple-800,
+      'brand-purple-700': $brand-purple-700,
+      'brand-purple-600': $brand-purple-600,
+      'brand-purple-500': $brand-purple-500,
+      'brand-purple-400': $brand-purple-400,
+      'brand-purple-300': $brand-purple-300,
+      'brand-purple-200': $brand-purple-200,
+      'brand-purple-100': $brand-purple-100
+    )
+{
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+// Brand Teal
+@each $name,
+  $color
+    in (
+      'brand-teal': $brand-teal,
+      'brand-teal-900': $brand-teal-900,
+      'brand-teal-800': $brand-teal-800,
+      'brand-teal-700': $brand-teal-700,
+      'brand-teal-600': $brand-teal-600,
+      'brand-teal-500': $brand-teal-500,
+      'brand-teal-400': $brand-teal-400,
+      'brand-teal-300': $brand-teal-300,
+      'brand-teal-200': $brand-teal-200,
+      'brand-teal-100': $brand-teal-100,
+      'brand-teal-50': $brand-teal-50
+    )
+{
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+// Brand Seafoam
+@each $name,
+  $color
+    in (
+      'brand-seafoam': $brand-seafoam,
+      'brand-seafoam-900': $brand-seafoam-900,
+      'brand-seafoam-800': $brand-seafoam-800,
+      'brand-seafoam-700': $brand-seafoam-700,
+      'brand-seafoam-600': $brand-seafoam-600,
+      'brand-seafoam-500': $brand-seafoam-500,
+      'brand-seafoam-400': $brand-seafoam-400,
+      'brand-seafoam-300': $brand-seafoam-300,
+      'brand-seafoam-200': $brand-seafoam-200,
+      'brand-seafoam-100': $brand-seafoam-100
+    )
+{
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+// Brand Orange
+@each $name,
+  $color
+    in (
+      'brand-orange': $brand-orange,
+      'brand-orange-900': $brand-orange-900,
+      'brand-orange-800': $brand-orange-800,
+      'brand-orange-700': $brand-orange-700,
+      'brand-orange-600': $brand-orange-600,
+      'brand-orange-500': $brand-orange-500,
+      'brand-orange-400': $brand-orange-400,
+      'brand-orange-300': $brand-orange-300,
+      'brand-orange-200': $brand-orange-200,
+      'brand-orange-100': $brand-orange-100
+    )
+{
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  .text-#{$name} {
+    color: $color !important;
+  }
+}

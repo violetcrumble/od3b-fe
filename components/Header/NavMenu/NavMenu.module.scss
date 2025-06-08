@@ -1,3 +1,5 @@
+@use 'styles/colors';
+
 .menu {
   margin: 0;
   padding: 0;
@@ -7,11 +9,12 @@
 
 .top-level-menu-item a {
   display: block;
-  padding: 20px 20px;
+  padding: 12px;
+  font-size: 16px;
   text-decoration: none;
-  color: white;
+  color: colors.$white;
   &:hover {
-    color: #e486f4; // replaced ${themeColors.brandColorPrimaryLight}
+    color: colors.$brand-purple;
   }
 }
 
@@ -30,7 +33,7 @@
 }
 
 .menu-icon .navicon {
-  background: #fff;
+  background: colors.$white;
   display: block;
   height: 2px;
   position: relative;
@@ -40,7 +43,7 @@
 
 .menu-icon .navicon:before,
 .menu-icon .navicon:after {
-  background: #fff;
+  background: colors.$white;
   content: '';
   display: block;
   height: 100%;
@@ -84,9 +87,11 @@
 
 .sub-menu {
   position: relative;
+  z-index: 10;
+  background-color: colors.$black;
 }
 
-@media (min-width: 768px) { // replaced ${breakpoints.md}
+@media (min-width: 768px) {
   .top-level-menu-item {
     float: left;
     margin-top: 22px;
@@ -102,7 +107,6 @@
   .sub-menu {
     list-style: none;
     overflow: hidden;
-    background-color: #222; // replaced ${themeColors.baseColor}
     position: absolute;
     margin-left: 10px;
     padding-inline-start: 0;
