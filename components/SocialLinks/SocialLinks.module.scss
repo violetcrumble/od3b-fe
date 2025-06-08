@@ -1,0 +1,17 @@
+// Temporary variable replacement
+$breakpoint-md: 768px;
+
+.social-links {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    display: inline;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    min-width: 250px;
+    padding: 10px 20px;
+  }
+}

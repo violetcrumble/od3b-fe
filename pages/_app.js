@@ -1,5 +1,6 @@
 import { montserrat } from '../utils/fonts';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
   return (

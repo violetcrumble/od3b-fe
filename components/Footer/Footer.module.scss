@@ -1,0 +1,61 @@
+// Temporary replacements for theme variables
+$brand-primary-light: #e486f4;
+$gray-darker: #414141;
+$breakpoint-md: 768px;
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+
+  .footer-grid-main {
+    .footer-nav {
+      ul {
+        list-style-type: none;
+
+        li {
+          margin-bottom: 10px;
+
+          a {
+            color: $brand-primary-light;
+          }
+        }
+      }
+      border-bottom: solid 1px $gray-darker;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: block;
+      width: 100px;
+      padding: 10px 20px;
+      margin: 0 auto;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .footer-social-copy {
+    text-align: center;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .footer {
+    .footer-grid-main {
+      display: flex;
+
+      .footer-nav {
+        border-bottom: 0;
+        padding: 0;
+      }
+    }
+    .footer-social-copy {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

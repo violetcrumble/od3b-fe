@@ -1,0 +1,25 @@
+.header {
+  background-color: #000;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .logo-text {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+}
+
