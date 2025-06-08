@@ -1,4 +1,3 @@
-// Temporary breakpoint variables
 $breakpoint-xs: 0;
 $breakpoint-sm: 600px;
 $breakpoint-md: 900px;
@@ -7,12 +6,13 @@ $breakpoint-xl: 1536px;
 
 .constrained-content {
   max-width: 1440px;
-  margin: 0 auto;
-  max-width: 1440px;
   width: 90%;
   margin: 0 auto;
 }
 
+// =======================
+// 3 Column Grid Styles
+// =======================
 .listings-3-col {
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +36,38 @@ $breakpoint-xl: 1536px;
   @media (min-width: $breakpoint-md) {
     .listing-card {
       width: 29%;
+    }
+  }
+}
+
+// =======================
+// 4 Column Grid Styles
+// =======================
+.listings-4-col {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .listing-card {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    .listing-card {
+      width: 48%;
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    .listing-card {
+      width: 31%;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    .listing-card {
+      width: 23%;
     }
   }
 }

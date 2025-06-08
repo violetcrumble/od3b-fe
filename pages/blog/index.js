@@ -28,7 +28,6 @@ export async function getStaticProps(context) {
 }
 
 export default function BlogListing({ blogPosts }) {
-
   // Sort blog posts by Date in descending order (latest first)
   const sortedBlogPosts = [...blogPosts].sort((a, b) => {
     const dateA = new Date(a.attributes.Date);
@@ -40,23 +39,30 @@ export default function BlogListing({ blogPosts }) {
     <ContentWrapper>
       <Head>
         <title>Cocktail Underground - Cocktail Blog Posts and Cocktail Articles</title>
-        <meta name="description" content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground" />
+        <meta
+          name="description"
+          content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
+        />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
-        <meta property="og:description" content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground" />
+        <meta
+          property="og:description"
+          content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
+        />
       </Head>
 
-      <main>
-        <h1>Cocktail Blog Posts and Articles</h1>
+      <main className="constrained-content">
+        <h1 className="text-brand-purple">Cocktail Blog Posts and Articles</h1>
+        <div className="listings-3-col">
+          {sortedBlogPosts.map((blogPost, index) => (
+            <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
+              <BlogListingCard blogPost={blogPost} />
+            </Link>
+          ))}
 
-        {sortedBlogPosts.map((blogPost, index) => (
-          <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
-            <BlogListingCard blogPost={blogPost} />
-          </Link>
-        ))}
-        <div className="listing-card"></div>
+          <div className="listing-card"></div>
+        </div>
       </main>
-
     </ContentWrapper>
   );
 }

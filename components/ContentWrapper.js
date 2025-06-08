@@ -5,9 +5,9 @@ export default function ContentWrapper({ children }) {
   return (
     <>
       <Header />
-      
+
       {children}
-      
+
       <Footer />
     </>
   );
