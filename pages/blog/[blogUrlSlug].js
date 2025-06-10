@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
-import styles from './BlogPost.module.scss';
+import styles from '../../styles/pages/BlogPost.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
 

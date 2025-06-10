@@ -1,10 +1,22 @@
 @use 'styles/colors';
+@use 'styles/grids';
+
+.nav-menu {
+  position: absolute;
+  background-color: colors.$black;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
 
 .menu {
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
 
 .top-level-menu-item a {
@@ -17,13 +29,6 @@
     color: colors.$brand-purple;
   }
 }
-
-.menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
-}
-
 .menu-icon {
   cursor: pointer;
   float: right;
@@ -91,10 +96,13 @@
   background-color: colors.$black;
 }
 
-@media (min-width: 768px) {
+@media (min-width: grids.$breakpoint-lg) {
+  .nav-menu {
+    margin-top: 24px;
+  }
+
   .top-level-menu-item {
     float: left;
-    margin-top: 22px;
   }
   .menu {
     clear: none;

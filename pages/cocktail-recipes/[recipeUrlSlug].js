@@ -8,7 +8,7 @@ import Markdown from 'react-markdown';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import { sendGTMEvent } from '@next/third-parties/google';
 import videoOverlayGraphic from '../../public/video-overlay.gif';
-import styles from './Recipe.module.scss';
+import styles from '../../styles/pages/Recipe.module.scss';
 // import shareIcon from '../../public/icons/share.svg';
 // import printIcon from '../../public/icons/printer.svg';
 

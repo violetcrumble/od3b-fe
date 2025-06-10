@@ -11,14 +11,17 @@
   text-align: center;
 
   h6 {
-    margin: 0;
+    margin: 0 0 8px 0;
   }
 
-  .product-name {
-    height: 75px;
-  }
   .product-pic {
-    height: 110px;
+    position: relative;
+    width: 100px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 20px auto;
+    img {
+      object-fit: contain;
+    }
   }
 
   a:link,
