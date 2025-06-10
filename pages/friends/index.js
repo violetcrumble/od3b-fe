@@ -6,7 +6,7 @@ import gnome from '../../public/friends/gnome.jpeg';
 import mybartender from '../../public/friends/mybartender.jpg';
 import subourbondad from '../../public/friends/subourbondad.gif';
 import waxseal from '../../public/friends/waxseal.jpg';
-import styles from './Friends.module.scss';
+import styles from '../../styles/pages/Friends.module.scss';
 
 export default function Friends() {
   return (
