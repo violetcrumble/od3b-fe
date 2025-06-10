@@ -52,7 +52,9 @@ export default function Recipes({ recipes }) {
     <ContentWrapper>
       <Head>
         <title>
-          {`Cocktail Underground - ${cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'}`}
+          {`Cocktail Underground - ${
+            cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'
+          }`}
         </title>
         <meta
           name="description"
@@ -76,18 +78,17 @@ export default function Recipes({ recipes }) {
         />
 
         <div className="listings-3-col">
-        {filteredRecipes.map((recipe, index) => (
-          <Link
-            className="listing-card"
-            key={index}
-            href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-            rel="canonical"
-          >
-            <RecipeListingCard recipe={recipe} />
-          </Link>
-        ))}
+          {filteredRecipes.map((recipe, index) => (
+            <Link
+              className="listing-card"
+              key={index}
+              href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+              rel="canonical"
+            >
+              <RecipeListingCard recipe={recipe} />
+            </Link>
+          ))}
         </div>
-
       </main>
     </ContentWrapper>
   );

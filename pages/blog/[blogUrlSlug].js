@@ -4,17 +4,21 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
+import styles from './BlogPost.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
 
 const client = new ApolloClient({
   uri: `${URL}/graphql`,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 export default function BlogPost({ blogPost }) {
-  const formattedDate = new Date(blogPost.Date).toLocaleString('en-us', { month: 'long', year: 'numeric', day: 'numeric' })
-
+  const formattedDate = new Date(blogPost.Date).toLocaleString('en-us', {
+    month: 'long',
+    year: 'numeric',
+    day: 'numeric',
+  });
 
   function addBlogJsonLd() {
     return {
@@ -22,7 +26,11 @@ export default function BlogPost({ blogPost }) {
       "@context": "https://schema.org/",
       "@type": "BlogPosting",
       "name": "${blogPost.Title}",
-      "thumbnail": "${blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes ? blogPost.ListingCardImage.data.attributes.url : "/pic-not-available.gif"}",
+      "thumbnail": "${
+        blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes
+          ? blogPost.ListingCardImage.data.attributes.url
+          : '/pic-not-available.gif'
+      }",
       "articleBody": "${blogPost.BlogPostBody}",
       "keywords": "${blogPost.seoKeywords}",
       "description": "${blogPost.TextPreviewSnippet}",
@@ -41,62 +49,65 @@ export default function BlogPost({ blogPost }) {
 
   return (
     <ContentWrapper>
-
       <Head>
         <title>{blogPost.Title}</title>
         <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
-        <meta property="og:image" content={blogPost.ogImage.data && blogPost.ogImage.data.attributes ? blogPost.ogImage.data.attributes.url : "/pic-not-available.gif"} />
-        <meta property="og:url" content={`https://www.cocktailunderground.com/blog/` + blogPost.urlSlug} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={addBlogJsonLd()}
-          key="blogpost-jsonld"
+        <meta
+          property="og:image"
+          content={
+            blogPost.ogImage.data && blogPost.ogImage.data.attributes
+              ? blogPost.ogImage.data.attributes.url
+              : '/pic-not-available.gif'
+          }
         />
+        <meta property="og:url" content={`https://www.cocktailunderground.com/blog/` + blogPost.urlSlug} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={addBlogJsonLd()} key="blogpost-jsonld" />
       </Head>
 
-      <div className="breadcrumb">
-        <Link href="/">Home</Link>&nbsp;:&nbsp;
-        <Link href="/blog/">Articles</Link>&nbsp;:&nbsp;
-        {blogPost.Title}</div>
+      <div className={`${styles['blog-post-page']} constrained-content`}>
+        <div className="breadcrumb">
+          <Link href="/">Home</Link>&nbsp;:&nbsp;
+          <Link href="/blog/">Articles</Link>&nbsp;:&nbsp;
+          {blogPost.Title}
+        </div>
 
-      <h1>{blogPost.Title}</h1>
-      <p>{blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}</p>
-      <Markdown>{blogPost.BlogPostBody}</Markdown>
-
-
+        <h1 className="text-brand-purple">{blogPost.Title}</h1>
+        <p>
+          {blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}
+        </p>
+        <Markdown>{blogPost.BlogPostBody}</Markdown>
+      </div>
     </ContentWrapper>
-  )
+  );
 }
 
 export async function getStaticPaths() {
-
   const { data } = await client.query({ query: GET_ALL_BLOG_SLUGS });
 
   const paths = data.blogPosts.data.map((blogPost) => {
-    return { params: { blogUrlSlug: blogPost.attributes.urlSlug } }
+    return { params: { blogUrlSlug: blogPost.attributes.urlSlug } };
   });
 
   return {
     paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
-
   const { data } = await client.query({
     query: GET_BLOG_POST,
-    variables: { urlSlug: params.blogUrlSlug }
+    variables: { urlSlug: params.blogUrlSlug },
   });
 
   const attrs = data.blogPosts.data[0].attributes;
 
   return {
     props: {
-      blogPost: attrs
-    }
-  }
+      blogPost: attrs,
+    },
+  };
 }

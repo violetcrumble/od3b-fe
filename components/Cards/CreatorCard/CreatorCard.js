@@ -5,8 +5,8 @@ import Markdown from 'react-markdown';
 export default function CreatorCard(props) {
   return (
     <div className={`${styles['creator-card']} listing-card`}>
-      <h2>{props.name}</h2>
-      <p>
+      <h4>{props.name}</h4>
+      <p className={`${styles['socials']}`}>
         <a href={props.youTubeURL} target="_blank" rel="noopener noreferrer">
           YouTube
         </a>
@@ -34,7 +34,7 @@ export default function CreatorCard(props) {
         )}
       </p>
 
-      <div className="creator-info">
+      <div className={`${styles['creator-info']}`}>
         <div>
           <Markdown>{props.bio}</Markdown>
         </div>

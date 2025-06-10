@@ -9,6 +9,8 @@ import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonLi
 import { sendGTMEvent } from '@next/third-parties/google';
 import videoOverlayGraphic from '../../public/video-overlay.gif';
 import styles from './Recipe.module.scss';
+// import shareIcon from '../../public/icons/share.svg';
+// import printIcon from '../../public/icons/printer.svg';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -62,13 +64,27 @@ export default function Recipe({ recipe }) {
           {recipe.title}
         </div>
 
-        <h1 className="text-brand-purple">{recipe.title} Recipe</h1>
+        <div className={`${styles['recipe-header']}`}>
+          <h1 className="text-brand-purple">{recipe.title} Recipe</h1>
+          {/* <div className={`${styles['recipe-share-buttons']}`}>
+            <div className={`${styles['print-button']}`}>
+              <Image priority src={printIcon} alt="Print" height={24} width={24} />
+              print
+            </div>
+            <div className={`${styles['share-button']}`}>
+              <Image priority src={shareIcon} alt="Share" height={24} width={24} />
+              share
+            </div>
+          </div> */}
+        </div>
+        {/* end recipe header */}
 
         <div className={`${styles['recipe-page-col-container']}`}>
           <div className={`${styles['recipe-page-col-1']}`}>
-            <h3 className="text-brand-teal">{recipe.title} Ingredients</h3>
-
-            <Markdown>{recipe.ingredients}</Markdown>
+            <h3 className={`${styles['recipe-ingredients-heading']} text-teal`}>{recipe.title} Ingredients</h3>
+            <div className={`${styles['recipe-ingredients']}`}>
+              <Markdown>{recipe.ingredients}</Markdown>
+            </div>
 
             {/* show video thumbnail with overlay if we have it */}
             {recipe.YouTubeLink && recipe.videoThumbnail.data && recipe.videoThumbnail.data.attributes.url && (

@@ -8,4 +8,23 @@
   position: relative;
   box-sizing: border-box;
   padding: 20px;
+
+  .socials {
+    margin: 0;
+  }
+
+  a,
+  h4 {
+    color: colors.$brand-teal;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .creator-info {
+    display: flex;
+    justify-content: space-between;
+  }
 }

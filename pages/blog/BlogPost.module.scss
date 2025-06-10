@@ -1,0 +1,15 @@
+@use 'styles/colors';
+
+.blog-post-page {
+  padding-top: 40px;
+  h2,
+  h3 {
+    color: colors.$brand-teal;
+  }
+  p {
+    max-width: 1000px;
+  }
+  img {
+    width: 100%;
+  }
+}

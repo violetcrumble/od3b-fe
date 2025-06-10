@@ -20,11 +20,13 @@ export default function BlogListingCard(props) {
       {props.blogPost.attributes.ListingCardImage.data &&
       props.blogPost.attributes.ListingCardImage.data.attributes.url ? (
         <div className={styles.imageWrapper}>
-          <Image
-            src={props.blogPost.attributes.ListingCardImage.data.attributes.url}
-            alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption}
-            fill
-          />
+          <div className={styles.imageWrapper}>
+            <Image
+              src={props.blogPost.attributes.ListingCardImage.data.attributes.url}
+              alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption}
+              fill
+            />
+          </div>
         </div>
       ) : (
         <div className={styles.imageWrapper}>
