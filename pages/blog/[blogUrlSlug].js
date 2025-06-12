@@ -74,7 +74,7 @@ export default function BlogPost({ blogPost }) {
           {blogPost.Title}
         </div>
 
-        <h1 className="text-brand-purple">{blogPost.Title}</h1>
+        <h3 className="text-brand-purple">{blogPost.Title}</h3>
         <p>
           {blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}
         </p>

@@ -7,13 +7,7 @@ export default function HeroImage() {
   return (
     <div className={styles.hero}>
       <div>
-        <Image
-          priority
-          src={heroBanner}
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-          alt="Ranch Water Cocktail"
-        />
+        <Image priority src={heroBanner} fill className={styles.heroImg} alt="Ranch Water Cocktail" />
       </div>
 
       <div className={styles.heroContent}>
