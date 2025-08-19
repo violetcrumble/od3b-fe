@@ -14,7 +14,7 @@ export default function HomePage({ recipes }) {
         <p>
           Looking for something beyond a tequila sunrise? Whether you want the combination of tequila, lime juice, and
           orange liqueur in a margarita or you&apos;re in the mood for a crisp, refreshing ranch water, we&apos;re sure
-          to have a <a href="/cocktail-recipes?category=tequila">tequila cocktail</a> for you!
+          to have a <Link href="/cocktail-recipes?category=tequila">tequila cocktail</Link> for you!
         </p>
         <div className="listings-3-col">
           {filterRecipesByCategory('tequila', recipes)
@@ -36,7 +36,7 @@ export default function HomePage({ recipes }) {
         <h1 className="text-brand-teal">Whiskey Recipes</h1>
         <p>
           From classic bourbon old fashioneds to equal parts bangers like the paper plane, there&apos;s a{' '}
-          <a href="/cocktail-recipes?category=whiskey">whiskey cocktail recipe</a> here for you.
+          <Link href="/cocktail-recipes?category=whiskey">whiskey cocktail recipe</Link> here for you.
         </p>
         <div className="listings-3-col">
           {filterRecipesByCategory('whiskey', recipes)
@@ -58,7 +58,7 @@ export default function HomePage({ recipes }) {
         <h1 className="text-brand-teal">Rum Cocktail Recipes</h1>
         <p>
           From tiki classics to espresso martini riffs, we have some great{' '}
-          <a href="/cocktail-recipes?category=rum">rum recipes</a>!
+          <Link href="/cocktail-recipes?category=rum">rum recipes</Link>!
         </p>
         <div className="listings-3-col">
           {filterRecipesByCategory('rum', recipes)
