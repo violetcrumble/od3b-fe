@@ -10,14 +10,17 @@ $breakpoint-xl: 1536px;
   margin: 0 auto;
 }
 
+.listings-3-col,
+.listings-4-col {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 // =======================
 // 3 Column Grid Styles
 // =======================
 .listings-3-col {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
   a {
     text-decoration: none;
   }
@@ -44,10 +47,6 @@ $breakpoint-xl: 1536px;
 // 4 Column Grid Styles
 // =======================
 .listings-4-col {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
   .listing-card {
     margin-bottom: 30px;
     width: 100%;
