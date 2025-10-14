@@ -31,7 +31,6 @@ export default function HomePage({ recipes }) {
             ))}
         </div>
       </div>
-
       <div className="constrained-content">
         <h1 className="text-brand-teal">Whiskey Recipes</h1>
         <p>
