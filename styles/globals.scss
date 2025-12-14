@@ -1,6 +1,6 @@
-@use 'typography.scss';
-@use 'colors.scss';
-@use 'grids.scss';
+@use './typography.scss';
+@use './colors.scss';
+@use './grids.scss';
 
 body {
   background-color: colors.$gray-lighter;

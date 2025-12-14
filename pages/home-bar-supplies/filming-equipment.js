@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
 
 const URL = process.env.STRAPIBASEURL;
 
