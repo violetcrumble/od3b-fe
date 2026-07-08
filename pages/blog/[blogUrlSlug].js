@@ -73,7 +73,6 @@ export default function BlogPost({ blogPost }) {
           <Link href="/blog/">Articles</Link>&nbsp;:&nbsp;
           {blogPost.Title}
         </div>
-
         <h3 className="text-brand-purple">{blogPost.Title}</h3>
         <p>
           {blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}
