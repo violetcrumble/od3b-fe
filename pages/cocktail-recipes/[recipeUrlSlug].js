@@ -152,7 +152,6 @@ export default function Recipe({ recipe }) {
                 </Link>
               </>
             )}
-
             {recipe.RecipeIntro && (
               <div className="recipe-intro">
                 <Markdown>{recipe.RecipeIntro}</Markdown>
