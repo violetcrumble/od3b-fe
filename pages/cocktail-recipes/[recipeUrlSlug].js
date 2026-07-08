@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { GET_ALL_RECIPE_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
@@ -15,7 +15,7 @@ import styles from '../../styles/pages/Recipe.module.scss';
 const URL = process.env.STRAPIBASEURL;
 
 const client = new ApolloClient({
-  uri: `${URL}/graphql`,
+  link: new HttpLink({ uri: `${URL}/graphql` }),
   cache: new InMemoryCache(),
 });
 

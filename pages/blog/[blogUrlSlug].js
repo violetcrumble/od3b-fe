@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
@@ -9,7 +9,7 @@ import styles from '../../styles/pages/BlogPost.module.scss';
 const URL = process.env.STRAPIBASEURL;
 
 const client = new ApolloClient({
-  uri: `${URL}/graphql`,
+  link: new HttpLink({ uri: `${URL}/graphql` }),
   cache: new InMemoryCache(),
 });
 

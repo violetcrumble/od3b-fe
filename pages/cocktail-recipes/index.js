@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -35,18 +34,8 @@ export async function getStaticProps() {
 export default function Recipes({ recipes }) {
   const router = useRouter();
   const { category } = router.query; // Get the category from the URL
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
-  const [cocktailCategory, setCocktailCategory] = useState(category || '');
-
-  useEffect(() => {
-    if (category) {
-      setCocktailCategory(category);
-      setFilteredRecipes(filterRecipesByCategory(category, recipes));
-    } else {
-      setCocktailCategory('');
-      setFilteredRecipes(recipes);
-    }
-  }, [category, recipes]);
+  const cocktailCategory = category || '';
+  const filteredRecipes = category ? filterRecipesByCategory(category, recipes) : recipes;
 
   return (
     <ContentWrapper>
@@ -70,12 +59,7 @@ export default function Recipes({ recipes }) {
           Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}
         </h1>
 
-        <CategoryNavPills
-          recipes={recipes}
-          cocktailCategory={cocktailCategory}
-          setFilteredRecipes={setFilteredRecipes}
-          filterRecipesByCategory={filterRecipesByCategory}
-        />
+        <CategoryNavPills recipes={recipes} cocktailCategory={cocktailCategory} />
 
         <div className="listings-3-col">
           {filteredRecipes.map((recipe) => (

@@ -7,28 +7,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "format": "npx prettier --write ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "format": "npx prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
-    "@next/third-parties": "^16.0.10",
-    "@wyw-in-js/babel-preset": "^0.6.0",
-    "graphql": "^16.5.0",
-    "next": "^16.0.10",
-    "sass": "^1.89.1"
+    "@apollo/client": "^3.14.1",
+    "@next/third-parties": "^16.2.10",
+    "graphql": "^16.14.2",
+    "next": "^16.2.10",
+    "sass": "^1.101.0"
   },
   "devDependencies": {
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.15",
-    "husky": "^8.0.3",
-    "prettier": "^3.0.2",
-    "pretty-quick": "^3.1.3",
-    "react-markdown": "^9.0.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.10",
+    "husky": "^9.1.7",
+    "prettier": "^3.9.4",
+    "pretty-quick": "^4.2.2",
+    "react-markdown": "^9.1.0",
     "react-youtube": "^10.1.0"
   }
 }
