@@ -210,9 +210,9 @@ export default function Recipe({ recipe }) {
                   {recipe &&
                     recipe.relatedProducts &&
                     recipe.relatedProducts.data &&
-                    recipe.relatedProducts.data.map((product, index) => (
+                    recipe.relatedProducts.data.map((product) => (
                       <AmazonListingCard
-                        key={index}
+                        key={product.attributes.AmazonASIN}
                         productName={product.attributes.ProductName}
                         productCategory={product.attributes.ProductCategory}
                         amazonLink={product.attributes.AmazonLink}

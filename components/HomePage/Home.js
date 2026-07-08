@@ -19,10 +19,10 @@ export default function HomePage({ recipes }) {
         <div className="listings-3-col">
           {filterRecipesByCategory('tequila', recipes)
             .slice(0, 3)
-            .map((recipe, index) => (
+            .map((recipe) => (
               <Link
                 className="listing-card"
-                key={index}
+                key={recipe.attributes.recipeUrlSlug}
                 href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
                 rel="canonical"
               >
@@ -40,10 +40,10 @@ export default function HomePage({ recipes }) {
         <div className="listings-3-col">
           {filterRecipesByCategory('whiskey', recipes)
             .slice(0, 3)
-            .map((recipe, index) => (
+            .map((recipe) => (
               <Link
                 className="listing-card"
-                key={index}
+                key={recipe.attributes.recipeUrlSlug}
                 href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
                 rel="canonical"
               >
@@ -62,10 +62,10 @@ export default function HomePage({ recipes }) {
         <div className="listings-3-col">
           {filterRecipesByCategory('rum', recipes)
             .slice(0, 3)
-            .map((recipe, index) => (
+            .map((recipe) => (
               <Link
                 className="listing-card"
-                key={index}
+                key={recipe.attributes.recipeUrlSlug}
                 href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
                 rel="canonical"
               >

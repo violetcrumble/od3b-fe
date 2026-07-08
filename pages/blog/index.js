@@ -54,8 +54,13 @@ export default function BlogListing({ blogPosts }) {
       <main className="constrained-content">
         <h1 className="text-brand-purple">Cocktail Blog Posts and Articles</h1>
         <div className="listings-3-col">
-          {sortedBlogPosts.map((blogPost, index) => (
-            <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
+          {sortedBlogPosts.map((blogPost) => (
+            <Link
+              className="listing-card"
+              key={blogPost.attributes.urlSlug}
+              href={`/blog/${blogPost.attributes.urlSlug}`}
+              rel="canonical"
+            >
               <BlogListingCard blogPost={blogPost} />
             </Link>
           ))}

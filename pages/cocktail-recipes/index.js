@@ -78,10 +78,10 @@ export default function Recipes({ recipes }) {
         />
 
         <div className="listings-3-col">
-          {filteredRecipes.map((recipe, index) => (
+          {filteredRecipes.map((recipe) => (
             <Link
               className="listing-card"
-              key={index}
+              key={recipe.attributes.recipeUrlSlug}
               href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
               rel="canonical"
             >

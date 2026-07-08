@@ -105,9 +105,9 @@ export default function Products({ products }) {
         </div>
 
         <div className="listings-4-col">
-          {filteredProducts.map((product, index) => (
+          {filteredProducts.map((product) => (
             <AmazonListingCard
-              key={index}
+              key={product.attributes.AmazonASIN}
               productName={product.attributes.ProductName}
               productCategory={product.attributes.ProductCategory}
               amazonLink={product.attributes.AmazonLink}
