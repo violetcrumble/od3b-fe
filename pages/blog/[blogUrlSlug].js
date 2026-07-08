@@ -63,6 +63,7 @@ export default function BlogPost({ blogPost }) {
               : '/pic-not-available.gif'
           }
         />
+
         <meta property="og:url" content={`https://www.cocktailunderground.com/blog/` + blogPost.urlSlug} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addBlogJsonLd()} key="blogpost-jsonld" />
       </Head>
