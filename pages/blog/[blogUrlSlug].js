@@ -46,7 +46,6 @@ export default function BlogPost({ blogPost }) {
   `,
     };
   }
-
   return (
     <ContentWrapper>
       <Head>
