@@ -1,68 +1,51 @@
 // pages/sitemap.xml.js
 
-const URL = "https://cocktailunderground.com";
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
+import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS } from '../graphql/queries';
 
-function generateSiteMap(posts) {
+const URL = 'https://www.cocktailunderground.com';
+const STRAPI_URL = process.env.STRAPIBASEURL;
+
+const client = new ApolloClient({
+  link: new HttpLink({ uri: `${STRAPI_URL}/graphql` }),
+  cache: new InMemoryCache(),
+});
+
+const STATIC_PATHS = [
+  'cocktail-recipes',
+  'blog',
+  'home-bar-supplies',
+  'home-bar-supplies/filming-equipment',
+  'friends',
+];
+
+function generateSiteMap(recipeSlugs, blogSlugs) {
+  const urls = [
+    URL,
+    ...STATIC_PATHS.map((path) => `${URL}/${path}`),
+    ...recipeSlugs.map((slug) => `${URL}/cocktail-recipes/${slug}`),
+    ...blogSlugs.map((slug) => `${URL}/blog/${slug}`),
+  ];
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>${URL}</loc>
-       <loc>${URL}/cocktail-recipes</loc>
-       <loc>${URL}/cocktail-recipes/naked-and-famous-cocktail</loc>
-       <loc>${URL}/cocktail-recipes/paper-plane-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/how-to-make-a-mai-tai</loc>
-       <loc>${URL}/cocktail-recipes/root-beer-rye-old-fashioned</loc>
-       <loc>${URL}/cocktail-recipes/aperol-spritz-recipe</loc>
-       <loc>${URL}/cocktail-recipes/old-fashioned-recipe</loc>
-       <loc>${URL}/cocktail-recipes/halloween-blood-bag-margarita</loc>
-       <loc>${URL}/cocktail-recipes/negroni-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/nirvana-baby-spencer-elden-drink</loc>
-       <loc>${URL}/cocktail-recipes/mint-julep-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/old-pal-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/rumchata-pumpkin-pie-martini</loc>
-       <loc>${URL}/cocktail-recipes/spicy-margarita-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/whiskey-sour-recipe</loc>
-       <loc>${URL}/cocktail-recipes/buzz-button-cocktail-white-lady</loc>
-       <loc>${URL}/cocktail-recipes/bag-in-the-aisle-old-forester</loc>
-       <loc>${URL}/cocktail-recipes/espresso-martini-recipe</loc>
-       <loc>${URL}/cocktail-recipes/white-russian-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/verbena-buzz-button-cocktail</loc>
-       <loc>${URL}/cocktail-recipes/old-pal-cocktail-recipe</loc>
-       <loc>${URL}/cocktail-recipes/painkiller</loc>
-       <loc>${URL}/cocktail-recipes/rock-and-rye-sour</loc>
-       <loc>${URL}/cocktail-recipes/irish-maid</loc>
-       <loc>${URL}/cocktail-recipes/suffering-bastard-tiki-drink</loc>
-       <loc>${URL}/cocktail-recipes/licor-43-mini-beer-shot</loc>
-       <loc>${URL}/cocktail-recipes/lavender-gin-sour</loc>
-       <loc>${URL}/cocktail-recipes/matcha-yuzu-gin-sour</loc>
-       <loc>${URL}/cocktail-recipes/benchmark-bonded-cheerwine-old-fashioned</loc>
-       <loc>${URL}/cocktail-recipes/tequila-espresso-martini</loc>
-       <loc>${URL}/cocktail-recipes/pink-lady</loc>
-       <loc>${URL}/cocktail-recipes/singapore-sling</loc>
-       <loc>${URL}/cocktail-recipes/french-blonde</loc>
-       <loc>${URL}/cocktail-recipes/passionfruit-daiquiri-cachaca</loc>
-       <loc>${URL}/cocktail-recipes/saturn-gin-tiki</loc>
-       <loc>${URL}/cocktail-recipes/passion-fruit-margarita-chinola</loc>
-       <loc>${URL}/cocktail-recipes/junction-35-bam-bam-vodka-fruity-pebbles</loc>
-       <loc>${URL}/cocktail-recipes/buzz-button-toothache-plant-mojito</loc>
-       <loc>${URL}/cocktail-recipes/mai-tai-with-cachaca</loc>
-       <loc>${URL}/cocktail-recipes/caipirinha-cocktail-recipe-cachaca-cocktail</loc>
-       <loc>${URL}/blog</loc>
-       <loc>${URL}/blog/best-bars-pigeon-forge-tennessee</loc>
-       <loc>${URL}/home-bar-supplies</loc>
-       <loc>${URL}/friends</loc>
-     </url>
-   </urlset>
- `;
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((url) => `  <url>\n    <loc>${url}</loc>\n  </url>`).join('\n')}
+</urlset>
+`;
 }
 
 export async function getServerSideProps({ res }) {
+  const [recipesResult, blogResult] = await Promise.all([
+    client.query({ query: GET_ALL_RECIPE_SLUGS }),
+    client.query({ query: GET_ALL_BLOG_SLUGS }),
+  ]);
 
-  // Generate the XML sitemap with the blog data
-  const sitemap = generateSiteMap();
+  const recipeSlugs = recipesResult.data.recipes.data.map((recipe) => recipe.attributes.recipeUrlSlug);
+  const blogSlugs = blogResult.data.blogPosts.data.map((blogPost) => blogPost.attributes.urlSlug);
 
-  res.setHeader("Content-Type", "text/xml");
-  // Send the XML to the browser
+  const sitemap = generateSiteMap(recipeSlugs, blogSlugs);
+
+  res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);
   res.end();
 
