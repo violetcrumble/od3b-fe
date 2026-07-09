@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 import { toTitleCase } from '../../utils/toTitleCase.js';
 import { GET_ALL_RECIPES } from '../../graphql/queries.js';
 import ContentWrapper from '../../components/ContentWrapper.js';
+import styles from '../../styles/pages/CocktailRecipes.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -37,6 +39,12 @@ export default function Recipes({ recipes }) {
   const cocktailCategory = category || '';
   const filteredRecipes = category ? filterRecipesByCategory(category, recipes) : recipes;
 
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const visibleRecipes = filteredRecipes.filter((recipe) =>
+    recipe.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <ContentWrapper>
       <Head>
@@ -61,8 +69,18 @@ export default function Recipes({ recipes }) {
 
         <CategoryNavPills recipes={recipes} cocktailCategory={cocktailCategory} />
 
+        <div className={styles['recipe-controls']}>
+          <input
+            type="search"
+            placeholder="Search recipes..."
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            aria-label="Search recipes"
+          />
+        </div>
+
         <div className="listings-3-col">
-          {filteredRecipes.map((recipe) => (
+          {visibleRecipes.map((recipe) => (
             <Link
               className="listing-card"
               key={recipe.attributes.recipeUrlSlug}
