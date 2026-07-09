@@ -2,13 +2,15 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { GET_ALL_RECIPE_SLUGS, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
+import { GET_ALL_RECIPE_SLUGS, GET_ALL_RECIPE_SUMMARIES, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
+import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import { sendGTMEvent } from '@next/third-parties/google';
 import videoOverlayGraphic from '../../public/video-overlay.gif';
 import getArticle from '../../utils/getArticle';
+import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import styles from '../../styles/pages/Recipe.module.scss';
 // import shareIcon from '../../public/icons/share.svg';
 // import printIcon from '../../public/icons/printer.svg';
@@ -20,7 +22,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export default function Recipe({ recipe }) {
+export default function Recipe({ recipe, relatedRecipes }) {
   function addRecipeJsonLd() {
     const jsonLd = {
       '@context': 'https://schema.org/',
@@ -237,6 +239,24 @@ export default function Recipe({ recipe }) {
           {/* end column 2 */}
         </div>
         {/* end col container */}
+
+        {relatedRecipes.length > 0 && (
+          <div className={`${styles['related-recipes']}`}>
+            <h2 className="text-brand-teal">You Might Also Like</h2>
+            <div className="listings-3-col">
+              {relatedRecipes.map((related) => (
+                <Link
+                  className="listing-card"
+                  key={related.attributes.recipeUrlSlug}
+                  href={`/cocktail-recipes/${related.attributes.recipeUrlSlug}`}
+                  rel="canonical"
+                >
+                  <RecipeListingCard recipe={related} />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </ContentWrapper>
   );
@@ -263,9 +283,19 @@ export async function getStaticProps({ params }) {
 
   const attrs = data.recipes.data[0].attributes;
 
+  const allRecipesRes = await fetch(`${URL}/graphql`, {
+    method: 'post',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ query: GET_ALL_RECIPE_SUMMARIES }),
+  });
+  const allRecipesData = await allRecipesRes.json();
+
+  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes.data);
+
   return {
     props: {
       recipe: attrs,
+      relatedRecipes,
     },
   };
 }
