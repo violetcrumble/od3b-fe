@@ -107,7 +107,7 @@ export default function Products({ products }) {
         <div className="listings-4-col">
           {filteredProducts.map((product) => (
             <AmazonListingCard
-              key={product.attributes.AmazonASIN}
+              key={product.id}
               productName={product.attributes.ProductName}
               productCategory={product.attributes.ProductCategory}
               amazonLink={product.attributes.AmazonLink}

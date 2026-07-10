@@ -10,11 +10,17 @@ export default function RecipeListingCard(props) {
             src={props.recipe.attributes.PhotoMain.data[0].attributes.url}
             alt={`${props.recipe.attributes.title} Cocktail Recipe`}
             fill
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"
           />
         </div>
       ) : (
         <div className="no-pic">
-          <Image src="/pic-not-available.gif" alt="Image not Available" fill />
+          <Image
+            src="/pic-not-available.gif"
+            alt="Image not Available"
+            fill
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"
+          />
         </div>
       )}
 

@@ -482,6 +482,7 @@ const GET_INDIVIDUAL_RECIPE = gql`
 const GET_AMAZON_PRODUCTS = `
 query {products(pagination: { limit: 300 }) {
   data {
+    id
     attributes {
       AmazonLink
       AmazonASIN

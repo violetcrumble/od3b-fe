@@ -25,12 +25,18 @@ export default function BlogListingCard(props) {
               src={props.blogPost.attributes.ListingCardImage.data.attributes.url}
               alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption}
               fill
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"
             />
           </div>
         </div>
       ) : (
         <div className="imageWrapper">
-          <Image src="/pic-not-available.gif" alt="Image not Available" fill />
+          <Image
+            src="/pic-not-available.gif"
+            alt="Image not Available"
+            fill
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"
+          />
         </div>
       )}
 
