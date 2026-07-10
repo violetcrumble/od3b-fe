@@ -427,6 +427,7 @@ const GET_INDIVIDUAL_RECIPE = gql`
           recipeUrlSlug
           YouTubeLink
           youTubeID
+          videoUploadDate
           spirits {
             data {
               attributes {

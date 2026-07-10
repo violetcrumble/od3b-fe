@@ -32,21 +32,31 @@ export default function Recipe({ recipe, relatedRecipes }) {
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',
       description: recipe.recipebody,
+      recipeInstructions: recipe.recipebody,
+      prepTime: 'PT5M',
+      cookTime: 'PT0M',
       keywords: recipe.keywords
         ? recipe.keywords
         : 'cocktail recipes, easy cocktails to make at home, alcoholic drink recipes',
       recipeCategory: 'Cocktail',
       video: recipe.YouTubeLink
         ? {
+            '@type': 'VideoObject',
             name: `How to make ${getArticle(recipe.title)} ${recipe.title}`,
             description: recipe.recipebody,
             contentUrl: recipe.YouTubeLink,
+            ...(recipe.videoUploadDate && {
+              uploadDate: recipe.videoUploadDate,
+            }),
             ...(recipe.videoThumbnail.data && {
               thumbnailUrl: recipe.videoThumbnail.data.attributes.url,
             }),
           }
         : undefined,
-      author: 'Cocktail Underground',
+      author: {
+        '@type': 'Organization',
+        name: 'Cocktail Underground',
+      },
     };
     return { __html: JSON.stringify(jsonLd) };
   }
