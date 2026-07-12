@@ -1,7 +1,16 @@
 @use '../../styles/colors';
 
 .blog-post-page {
+  display: flex;
+  justify-content: space-between;
   padding-top: 40px;
+
+  .sidebar {
+    width: 30%;
+  }
+  .blog-post-content {
+    width: 66%;
+  }
   h2,
   h3 {
     color: colors.$brand-teal;

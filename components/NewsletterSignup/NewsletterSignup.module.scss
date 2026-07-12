@@ -27,27 +27,6 @@
     border-radius: 10px;
     font-size: 1rem;
   }
-
-  button {
-    background: linear-gradient(90deg, colors.$brand-orange-900 0%, colors.$brand-orange 100%);
-    color: colors.$white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-
-    &:hover:not(:disabled),
-    &:focus:not(:disabled) {
-      background: linear-gradient(90deg, colors.$brand-orange-800 0%, colors.$brand-orange-400 100%);
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  }
 }
 
 .success {

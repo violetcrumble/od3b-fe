@@ -251,6 +251,8 @@ export default function Recipe({ recipe, relatedRecipes }) {
         </div>
         {/* end col container */}
 
+        <NewsletterSignup />
+
         {relatedRecipes.length > 0 && (
           <div className={`${styles['related-recipes']}`}>
             <h2 className="text-brand-teal">You Might Also Like</h2>
@@ -268,8 +270,6 @@ export default function Recipe({ recipe, relatedRecipes }) {
             </div>
           </div>
         )}
-
-        <NewsletterSignup />
       </div>
     </ContentWrapper>
   );

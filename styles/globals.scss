@@ -17,3 +17,17 @@ body {
     object-fit: cover;
   }
 }
+
+button {
+  background-color: colors.$brand-teal;
+  color: colors.$white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$brand-teal-700;
+  }
+}
