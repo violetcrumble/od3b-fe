@@ -17,23 +17,50 @@ export default function Footer() {
 
         <div className={`${styles['footer-main-nav']} ${styles['footer-nav']}`}>
           <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/cocktail-recipes">Cocktail Recipes</Link></li>
-            <li><Link href="/blog">Articles</Link></li>
-            <li><Link href="/home-bar-supplies">Home Bar Supplies</Link></li>
-            <li><Link href="/friends">Our Friends</Link></li>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes">Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/thc-drinks">THC Drinks</Link>
+            </li>
+            <li>
+              <Link href="/blog">Articles</Link>
+            </li>
+            <li>
+              <Link href="/home-bar-supplies">Home Bar Supplies</Link>
+            </li>
+            <li>
+              <Link href="/friends">Our Friends</Link>
+            </li>
           </ul>
         </div>
 
         <div className={`${styles['footer-recipe-nav']} ${styles['footer-nav']}`}>
           <ul>
-            <li><Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link></li>
-            <li><Link href="/cocktail-recipes?category=mezcal">Mezcal Cocktail Recipes</Link></li>
-            <li><Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link></li>
-            <li><Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link></li>
-            <li><Link href="/cocktail-recipes?category=cachaça">Cachaça Cocktail Recipes</Link></li>
-            <li><Link href="/cocktail-recipes?category=gin">Gin Cocktail Recipes</Link></li>
-            <li><Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link></li>
+            <li>
+              <Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=mezcal">Mezcal Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=cachaça">Cachaça Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=gin">Gin Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link>
+            </li>
           </ul>
         </div>
       </div>

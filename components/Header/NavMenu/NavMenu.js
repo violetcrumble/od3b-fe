@@ -9,9 +9,6 @@ export default function NavMenu() {
         <span className={styles.navicon}></span>
       </label>
       <ul className={styles.menu}>
-        <li className={styles['top-level-menu-item']}>
-          <Link href="/">Home</Link>
-        </li>
         <li className={`${styles['top-level-menu-item']} ${styles['cocktail-recipes-top-menu']}`}>
           <Link href="/cocktail-recipes">Cocktail Recipes</Link>
           <ul className={styles['sub-menu']}>
@@ -37,6 +34,9 @@ export default function NavMenu() {
               <Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link>
             </li>
           </ul>
+        </li>
+        <li className={styles['top-level-menu-item']}>
+          <Link href="/thc-drinks">THC Drinks</Link>
         </li>
         <li className={styles['top-level-menu-item']}>
           <Link href="/blog">Articles</Link>
