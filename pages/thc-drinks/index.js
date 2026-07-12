@@ -2,33 +2,44 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
-import { GET_ALL_THC_RECIPES } from '../../graphql/queries';
+import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
+import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
+import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS } from '../../graphql/queries';
+import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
+import THC_REVIEW_SLUGS from '../../utils/thcReviewSlugs';
 import styles from '../../styles/pages/THC.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
 
 export async function getStaticProps() {
-  const fetchParams = {
+  const fetchParams = (query) => ({
     method: 'post',
     headers: {
       'content-type': 'application/json',
     },
-    body: JSON.stringify({
-      query: GET_ALL_THC_RECIPES,
-    }),
-  };
+    body: JSON.stringify({ query }),
+  });
 
-  const res = await fetch(`${URL}/graphql`, fetchParams);
-  const data = await res.json();
+  const [recipesRes, blogRes] = await Promise.all([
+    fetch(`${URL}/graphql`, fetchParams(GET_ALL_THC_RECIPES)),
+    fetch(`${URL}/graphql`, fetchParams(GET_ALL_BLOG_POSTS)),
+  ]);
+  const data = await recipesRes.json();
+  const blogData = await blogRes.json();
+
+  const guides = blogData.data.blogPosts.data.filter((post) => THC_GUIDE_SLUGS.includes(post.attributes.urlSlug));
+  const reviews = blogData.data.blogPosts.data.filter((post) => THC_REVIEW_SLUGS.includes(post.attributes.urlSlug));
 
   return {
     props: {
       recipes: data.data.recipes.data.slice(0, 3),
+      guides,
+      reviews,
     },
   };
 }
 
-export default function THCMain({ recipes }) {
+export default function THCMain({ recipes, guides, reviews }) {
   return (
     <ContentWrapper>
       <Head>
@@ -60,32 +71,51 @@ export default function THCMain({ recipes }) {
           <button>View All THC Recipes</button>
         </Link>
 
+        <hr></hr>
+
         <h2 className="text-brand-teal">THC Drink Reviews</h2>
-        <ul>
-          <li>
-            <Link href="/blog/crescent-9-thc-seltzer">Crescent 9 THC Seltzer Review</Link>
-          </li>
-          <li>
-            <Link href="/blog/is-willies-remedy-legal-thc-drinks-explained">Is Willie&apos;s Remedy Legal?</Link>
-          </li>
-        </ul>
+        <div className="listings-3-col">
+          {reviews.map((review) => (
+            <Link
+              className="listing-card"
+              key={review.attributes.urlSlug}
+              href={`/blog/${review.attributes.urlSlug}`}
+              rel="canonical"
+            >
+              <BlogListingCard blogPost={review} />
+            </Link>
+          ))}
+          <div className="listing-card"></div>
+        </div>
         <Link href="/thc-drinks/reviews">
           <button>View All THC Reviews</button>
         </Link>
 
-        {/* Guides and Answers section - revisit later
-        <h2 className="text-brand-teal">THC Guides and Answers</h2>
-        <ul>
-          <li>THC drinks versus alcohol</li>
-          <li>Do THC drinks cause hangovers?</li>
-          <li>Can you mix THC and alcohol?</li>
-          <li>2 mg versus 5 mg versus 10 mg</li>
-          <li>Are THC drinks legal?</li>
-        </ul>
-        <Link href="/thc-drinks/guides">
-          <button>View All THC Guides</button>
-        </Link>
-        */}
+        <hr></hr>
+
+        {/* Renders only once guide posts are published in Strapi */}
+        {guides.length > 0 && (
+          <>
+            <h2 className="text-brand-teal">THC Guides and Answers</h2>
+            <div className="listings-3-col">
+              {guides.map((guide) => (
+                <Link
+                  className="listing-card"
+                  key={guide.attributes.urlSlug}
+                  href={`/blog/${guide.attributes.urlSlug}`}
+                  rel="canonical"
+                >
+                  <BlogListingCard blogPost={guide} />
+                </Link>
+              ))}
+            </div>
+            <Link href="/thc-drinks/guides">
+              <button>View All THC Guides</button>
+            </Link>
+          </>
+        )}
+
+        <NewsletterSignup />
 
         <p className={styles['legal-note']}>
           Safety and legal note: THC products are intended for adults 21 and older. Effects vary by person and product.

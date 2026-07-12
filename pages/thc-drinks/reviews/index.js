@@ -2,12 +2,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../../components/ContentWrapper';
 import BlogListingCard from '../../../components/Cards/BlogListingCard/BlogListingCard';
+import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_BLOG_POSTS } from '../../../graphql/queries';
+import THC_REVIEW_SLUGS from '../../../utils/thcReviewSlugs';
 import styles from '../../../styles/pages/THC.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
-
-const THC_REVIEW_SLUGS = ['crescent-9-thc-seltzer', 'is-willies-remedy-legal-thc-drinks-explained'];
 
 export async function getStaticProps() {
   const fetchParams = {
@@ -63,6 +63,9 @@ export default function THCReviews({ reviews }) {
               <BlogListingCard blogPost={review} />
             </Link>
           ))}
+          <div className="listing-card">
+            <NewsletterSignup />
+          </div>
         </div>
       </div>
     </ContentWrapper>

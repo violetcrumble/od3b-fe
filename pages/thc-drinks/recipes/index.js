@@ -4,6 +4,7 @@ import ContentWrapper from '../../../components/ContentWrapper';
 import RecipeListingCard from '../../../components/Cards/RecipeListingCard/RecipeListingCard';
 import { GET_ALL_THC_RECIPES } from '../../../graphql/queries';
 import styles from '../../../styles/pages/THC.module.scss';
+import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -63,6 +64,8 @@ export default function THCRecipes({ recipes }) {
             </Link>
           ))}
         </div>
+
+        <NewsletterSignup />
       </div>
     </ContentWrapper>
   );
