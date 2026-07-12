@@ -14,6 +14,9 @@ const client = new ApolloClient({
 const STATIC_PATHS = [
   'cocktail-recipes',
   'blog',
+  'thc-drinks',
+  'thc-drinks/recipes',
+  'thc-drinks/reviews',
   'home-bar-supplies',
   'home-bar-supplies/filming-equipment',
   'friends',
