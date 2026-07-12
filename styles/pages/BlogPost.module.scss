@@ -1,16 +1,9 @@
 @use '../../styles/colors';
+@use '../../styles/grids';
 
 .blog-post-page {
-  display: flex;
-  justify-content: space-between;
   padding-top: 40px;
 
-  .sidebar {
-    width: 30%;
-  }
-  .blog-post-content {
-    width: 66%;
-  }
   h2,
   h3 {
     color: colors.$brand-teal;
@@ -34,6 +27,18 @@
       max-width: 100%;
       float: none;
       margin: 0 0 16px;
+    }
+  }
+
+  @media (min-width: grids.$breakpoint-md) {
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+      width: 30%;
+    }
+    .blog-post-content {
+      width: 66%;
     }
   }
 }

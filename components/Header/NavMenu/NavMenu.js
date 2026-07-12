@@ -13,6 +13,9 @@ export default function NavMenu() {
           <Link href="/cocktail-recipes">Cocktail Recipes</Link>
           <ul className={styles['sub-menu']}>
             <li>
+              <Link href="/cocktail-recipes?category=thc">THC Cocktail Recipes</Link>
+            </li>
+            <li>
               <Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link>
             </li>
             <li>

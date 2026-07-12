@@ -41,6 +41,9 @@ export default function Footer() {
         <div className={`${styles['footer-recipe-nav']} ${styles['footer-nav']}`}>
           <ul>
             <li>
+              <Link href="/cocktail-recipes?category=thc">THC Drink Recipes</Link>
+            </li>
+            <li>
               <Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link>
             </li>
             <li>

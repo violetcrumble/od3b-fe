@@ -413,6 +413,55 @@ query {
   }
 `;
 
+const GET_ALL_THC_RECIPE_SLUGS = gql`
+  query {
+    recipes(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
+      data {
+        attributes {
+          recipeUrlSlug
+          spirits {
+            data {
+              attributes {
+                spirit
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const GET_ALL_THC_RECIPES = `
+query {
+  recipes(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
+    data {
+      attributes {
+        title
+        ingredients
+        recipebody
+        recipeUrlSlug
+        spirits {
+          data {
+            attributes {
+              spirit
+            }
+          }
+        }
+        PhotoMain {
+          data {
+            attributes {
+              url
+              caption
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+`;
+
 const GET_INDIVIDUAL_RECIPE = gql`
   query ($recipeUrlSlug: String!) {
     recipes(filters: { recipeUrlSlug: { eq: $recipeUrlSlug } }) {
@@ -603,6 +652,8 @@ export {
   GET_ALL_GIN_RECIPES,
   GET_ALL_VODKA_RECIPE_SLUGS,
   GET_ALL_VODKA_RECIPES,
+  GET_ALL_THC_RECIPE_SLUGS,
+  GET_ALL_THC_RECIPES,
   GET_INDIVIDUAL_RECIPE,
   GET_AMAZON_PRODUCTS,
   GET_ALL_BLOG_SLUGS,

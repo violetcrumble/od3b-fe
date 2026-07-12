@@ -23,7 +23,9 @@ export default function BlogListingCard(props) {
           <div className="imageWrapper">
             <Image
               src={props.blogPost.attributes.ListingCardImage.data.attributes.url}
-              alt={props.blogPost.attributes.ListingCardImage.data.attributes.caption}
+              alt={
+                props.blogPost.attributes.ListingCardImage.data.attributes.caption || props.blogPost.attributes.Title
+              }
               fill
               sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"
             />

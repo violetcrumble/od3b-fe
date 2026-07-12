@@ -12,6 +12,12 @@ import styles from '../../styles/pages/CocktailRecipes.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
 
+const CATEGORY_LABEL_OVERRIDES = { thc: 'THC' };
+
+function categoryLabel(category) {
+  return CATEGORY_LABEL_OVERRIDES[category] || toTitleCase(category);
+}
+
 export async function getStaticProps() {
   const fetchParams = {
     method: 'post',
@@ -50,7 +56,7 @@ export default function Recipes({ recipes }) {
       <Head>
         <title>
           {`Cocktail Underground - ${
-            cocktailCategory ? `${toTitleCase(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'
+            cocktailCategory ? `${categoryLabel(cocktailCategory)} Cocktail Recipes` : 'Cocktail Recipes'
           }`}
         </title>
         <meta
@@ -64,7 +70,7 @@ export default function Recipes({ recipes }) {
 
       <main className="constrained-content">
         <h1 className="text-brand-purple">
-          Cocktail Recipes {cocktailCategory && `with ${toTitleCase(cocktailCategory)}`}
+          Cocktail Recipes {cocktailCategory && `with ${categoryLabel(cocktailCategory)}`}
         </h1>
 
         <CategoryNavPills recipes={recipes} cocktailCategory={cocktailCategory} />

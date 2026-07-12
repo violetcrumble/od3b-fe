@@ -1,8 +1,34 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import ContentWrapper from '../../../components/ContentWrapper';
+import RecipeListingCard from '../../../components/Cards/RecipeListingCard/RecipeListingCard';
+import { GET_ALL_THC_RECIPES } from '../../../graphql/queries';
 import styles from '../../../styles/pages/THC.module.scss';
 
-export default function THCMain() {
+const URL = process.env.STRAPIBASEURL;
+
+export async function getStaticProps() {
+  const fetchParams = {
+    method: 'post',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: GET_ALL_THC_RECIPES,
+    }),
+  };
+
+  const res = await fetch(`${URL}/graphql`, fetchParams);
+  const data = await res.json();
+
+  return {
+    props: {
+      recipes: data.data.recipes.data,
+    },
+  };
+}
+
+export default function THCRecipes({ recipes }) {
   return (
     <ContentWrapper>
       <Head>
@@ -11,6 +37,11 @@ export default function THCMain() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${styles['thc-page']} constrained-content`}>
+        <div className="breadcrumb">
+          <Link href="/">Home</Link>&nbsp;:&nbsp;
+          <Link href="/thc-drinks">THC Drinks</Link>&nbsp;:&nbsp; Recipes
+        </div>
+
         <h1 className="text-brand-purple">THC Drink Recipes</h1>
 
         <p>
@@ -19,6 +50,19 @@ export default function THCMain() {
           guidance for keeping the final drink balanced rather than merely pouring juice on top of a canned seltzer and
           hoping for enlightenment.
         </p>
+
+        <div className="listings-3-col">
+          {recipes.map((recipe, index) => (
+            <Link
+              className="listing-card"
+              key={recipe.attributes.recipeUrlSlug}
+              href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+              rel="canonical"
+            >
+              <RecipeListingCard recipe={recipe} priority={index === 0} />
+            </Link>
+          ))}
+        </div>
       </div>
     </ContentWrapper>
   );

@@ -23,6 +23,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const markdownLinkComponents = {
+  a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />,
+};
+
 export default function Recipe({ recipe, relatedRecipes }) {
   function addRecipeJsonLd() {
     const jsonLd = {
@@ -102,7 +106,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
           <div className={`${styles['recipe-page-col-1']}`}>
             <h3 className={`${styles['recipe-ingredients-heading']} text-teal`}>{recipe.title} Ingredients</h3>
             <div className={`${styles['recipe-ingredients']}`}>
-              <Markdown>{recipe.ingredients}</Markdown>
+              <Markdown components={markdownLinkComponents}>{recipe.ingredients}</Markdown>
             </div>
 
             {/* show video thumbnail with overlay if we have it */}
@@ -175,7 +179,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
             )}
             {recipe.RecipeIntro && (
               <div className="recipe-intro">
-                <Markdown>{recipe.RecipeIntro}</Markdown>
+                <Markdown components={markdownLinkComponents}>{recipe.RecipeIntro}</Markdown>
               </div>
             )}
           </div>
