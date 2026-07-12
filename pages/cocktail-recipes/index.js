@@ -80,14 +80,14 @@ export default function Recipes({ recipes }) {
         </div>
 
         <div className="listings-3-col">
-          {visibleRecipes.map((recipe) => (
+          {visibleRecipes.map((recipe, index) => (
             <Link
               className="listing-card"
               key={recipe.attributes.recipeUrlSlug}
               href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
               rel="canonical"
             >
-              <RecipeListingCard recipe={recipe} />
+              <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>
           ))}
         </div>

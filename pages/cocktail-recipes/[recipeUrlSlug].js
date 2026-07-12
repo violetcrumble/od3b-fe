@@ -48,9 +48,9 @@ export default function Recipe({ recipe, relatedRecipes }) {
             ...(recipe.videoUploadDate && {
               uploadDate: recipe.videoUploadDate,
             }),
-            ...(recipe.videoThumbnail.data && {
-              thumbnailUrl: recipe.videoThumbnail.data.attributes.url,
-            }),
+            thumbnailUrl: recipe.videoThumbnail.data
+              ? recipe.videoThumbnail.data.attributes.url
+              : recipe.PhotoMain.data[0].attributes.url,
           }
         : undefined,
       author: {

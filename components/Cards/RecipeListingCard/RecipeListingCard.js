@@ -11,6 +11,7 @@ export default function RecipeListingCard(props) {
             alt={`${props.recipe.attributes.title} Cocktail Recipe`}
             fill
             sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"
+            priority={props.priority}
           />
         </div>
       ) : (
