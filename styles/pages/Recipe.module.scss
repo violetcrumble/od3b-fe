@@ -78,7 +78,7 @@
   }
 
   .recipe-page-col-2 img {
-    margin-bottom: 40px;
+    display: none;
   }
 
   .related-recipes {
@@ -100,9 +100,16 @@
 
       .recipe-page-col-1 {
         width: 55%;
+        img.mobile-recipe-image {
+          display: none;
+        }
       }
       .recipe-page-col-2 {
         width: 35%;
+        img {
+          margin-bottom: 40px;
+          display: block;
+        }
       }
     }
   }

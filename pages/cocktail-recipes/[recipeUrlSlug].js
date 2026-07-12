@@ -153,7 +153,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                   }
                   width="487"
                   height="487"
-                  className="mobile-recipe-image"
+                  className={styles['mobile-recipe-image']}
                   style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
                 />
               </div>
@@ -209,6 +209,8 @@ export default function Recipe({ recipe, relatedRecipes }) {
               />
             )}
 
+            <NewsletterSignup />
+
             {recipe.PhotoPinterest.data && recipe.PhotoPinterest.data.attributes.url && (
               <Image
                 src={recipe.PhotoPinterest.data.attributes.url}
@@ -250,8 +252,6 @@ export default function Recipe({ recipe, relatedRecipes }) {
           {/* end column 2 */}
         </div>
         {/* end col container */}
-
-        <NewsletterSignup />
 
         {relatedRecipes.length > 0 && (
           <div className={`${styles['related-recipes']}`}>
