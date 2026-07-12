@@ -1,0 +1,60 @@
+@use '../../styles/colors';
+
+.newsletter-signup {
+  background-color: colors.$brand-teal-50;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 40px 0;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  input {
+    flex: 1 1 240px;
+    padding: 10px;
+    border: 1px solid colors.$brand-teal-100;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  button {
+    background: linear-gradient(90deg, colors.$brand-orange-900 0%, colors.$brand-orange 100%);
+    color: colors.$white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background: linear-gradient(90deg, colors.$brand-orange-800 0%, colors.$brand-orange-400 100%);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.success {
+  color: colors.$brand-teal;
+  font-weight: bold;
+}
+
+.error {
+  color: colors.$brand-orange-900;
+}

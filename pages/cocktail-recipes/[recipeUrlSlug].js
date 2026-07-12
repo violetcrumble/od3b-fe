@@ -11,6 +11,7 @@ import { sendGTMEvent } from '@next/third-parties/google';
 import videoOverlayGraphic from '../../public/video-overlay.gif';
 import getArticle from '../../utils/getArticle';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
+import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import styles from '../../styles/pages/Recipe.module.scss';
 // import shareIcon from '../../public/icons/share.svg';
 // import printIcon from '../../public/icons/printer.svg';
@@ -267,6 +268,8 @@ export default function Recipe({ recipe, relatedRecipes }) {
             </div>
           </div>
         )}
+
+        <NewsletterSignup />
       </div>
     </ContentWrapper>
   );

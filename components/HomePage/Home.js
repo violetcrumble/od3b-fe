@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import HeroImage from '../HeroImage/HeroImage';
 import RecipeListingCard from '../Cards/RecipeListingCard/RecipeListingCard.js';
+import NewsletterSignup from '../NewsletterSignup/NewsletterSignup';
 import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 import styles from './Home.module.scss';
 
@@ -73,6 +74,10 @@ export default function HomePage({ recipes }) {
               </Link>
             ))}
         </div>
+      </div>
+
+      <div className="constrained-content">
+        <NewsletterSignup />
       </div>
     </div>
   );
