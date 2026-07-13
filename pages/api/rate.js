@@ -7,6 +7,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  if (!URL || !TOKEN) {
+    console.error(
+      `Missing config: STRAPIBASEURL=${URL ? 'set' : 'MISSING'}, STRAPI_API_TOKEN=${TOKEN ? 'set' : 'MISSING'}`,
+    );
+    return res.status(500).json({ error: 'Rating service is not configured' });
+  }
+
   const { slug, rating, previousRating } = req.body;
 
   if (!slug || typeof slug !== 'string' || !/^[a-z0-9-]+$/.test(slug)) {
@@ -25,6 +32,8 @@ export default async function handler(req, res) {
       { headers: { Authorization: `Bearer ${TOKEN}` } },
     );
     if (!lookupRes.ok) {
+      const detail = await lookupRes.text().catch(() => '');
+      console.error(`Strapi lookup failed: ${lookupRes.status} ${lookupRes.statusText} — ${detail}`);
       return res.status(502).json({ error: 'Could not look up recipe' });
     }
     const lookup = await lookupRes.json();
@@ -51,6 +60,8 @@ export default async function handler(req, res) {
       body: JSON.stringify({ data: { ratingCount, ratingTotal } }),
     });
     if (!updateRes.ok) {
+      const detail = await updateRes.text().catch(() => '');
+      console.error(`Strapi update failed: ${updateRes.status} ${updateRes.statusText} — ${detail}`);
       return res.status(502).json({ error: 'Could not save rating' });
     }
 
