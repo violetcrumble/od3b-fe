@@ -6,6 +6,7 @@ const GET_ALL_RECIPE_SLUGS = gql`
       data {
         attributes {
           recipeUrlSlug
+          updatedAt
         }
       }
     }
@@ -551,6 +552,7 @@ const GET_ALL_BLOG_SLUGS = gql`
       data {
         attributes {
           urlSlug
+          updatedAt
         }
       }
     }
@@ -590,6 +592,7 @@ const GET_BLOG_POST = gql`
         attributes {
           Title
           Date
+          updatedAt
           seoKeywords
           seoDescription
           ogImage {

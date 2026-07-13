@@ -1,9 +1,15 @@
 h1 {
   font-size: 48px;
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 h2 {
   font-size: 40px;
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 h3 {

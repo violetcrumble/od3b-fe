@@ -3,6 +3,7 @@ import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
+import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/HomeBarSupplies.module.scss'; // <-- Import SCSS module
 
 const URL = process.env.STRAPIBASEURL;
@@ -69,6 +70,7 @@ export default function Products({ products }) {
           content="If you need home bar supplies like cocktail mixing glasses, cocktail shakers, bitters, syrups or juices, check out some links to my favorite bar products."
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/home-bar-supplies`} />
       </Head>
 
       <div className={`constrained-content ${styles['home-bar-supplies-page']}`}>

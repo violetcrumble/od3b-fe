@@ -8,6 +8,7 @@ import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
 import { toTitleCase } from '../../utils/toTitleCase.js';
 import { GET_ALL_RECIPES } from '../../graphql/queries.js';
 import ContentWrapper from '../../components/ContentWrapper.js';
+import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/CocktailRecipes.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
@@ -51,6 +52,10 @@ export default function Recipes({ recipes }) {
     recipe.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
+  const canonicalUrl = `${SITE_URL}/cocktail-recipes${
+    cocktailCategory ? `?category=${encodeURIComponent(cocktailCategory)}` : ''
+  }`;
+
   return (
     <ContentWrapper>
       <Head>
@@ -64,6 +69,7 @@ export default function Recipes({ recipes }) {
           content="Cocktail Underground - How to make craft cocktails at home and how to find the best bars"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="Cocktail Underground - Cocktail Recipes" />
         <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
@@ -91,7 +97,6 @@ export default function Recipes({ recipes }) {
               className="listing-card"
               key={recipe.attributes.recipeUrlSlug}
               href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-              rel="canonical"
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>

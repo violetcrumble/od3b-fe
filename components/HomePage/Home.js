@@ -25,7 +25,6 @@ export default function HomePage({ recipes }) {
                 className="listing-card"
                 key={recipe.attributes.recipeUrlSlug}
                 href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-                rel="canonical"
               >
                 <RecipeListingCard recipe={recipe} />
               </Link>
@@ -46,7 +45,6 @@ export default function HomePage({ recipes }) {
                 className="listing-card"
                 key={recipe.attributes.recipeUrlSlug}
                 href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-                rel="canonical"
               >
                 <RecipeListingCard recipe={recipe} />
               </Link>
@@ -68,7 +66,6 @@ export default function HomePage({ recipes }) {
                 className="listing-card"
                 key={recipe.attributes.recipeUrlSlug}
                 href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-                rel="canonical"
               >
                 <RecipeListingCard recipe={recipe} />
               </Link>

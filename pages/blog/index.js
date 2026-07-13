@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
+import SITE_URL from '../../utils/siteUrl';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -44,6 +45,7 @@ export default function BlogListing({ blogPosts }) {
           content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/blog`} />
         <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
         <meta
           property="og:description"
@@ -59,7 +61,6 @@ export default function BlogListing({ blogPosts }) {
               className="listing-card"
               key={blogPost.attributes.urlSlug}
               href={`/blog/${blogPost.attributes.urlSlug}`}
-              rel="canonical"
             >
               <BlogListingCard blogPost={blogPost} />
             </Link>

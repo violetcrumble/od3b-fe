@@ -13,6 +13,8 @@ import getArticle from '../../utils/getArticle';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import RecipeRating from '../../components/RecipeRating/RecipeRating';
+import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
+import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/Recipe.module.scss';
 // import shareIcon from '../../public/icons/share.svg';
 // import printIcon from '../../public/icons/printer.svg';
@@ -81,6 +83,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={`How to make ${getArticle(recipe.title)} ${recipe.title} cocktail at home`} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/cocktail-recipes/${recipe.recipeUrlSlug}`} />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
         <meta
           property="og:description"
@@ -88,6 +91,15 @@ export default function Recipe({ recipe, relatedRecipes }) {
         />
         <meta property="og:image" content={recipe.PhotoMain.data[0].attributes.url} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addRecipeJsonLd()} key="recipe-jsonld" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={getBreadcrumbJsonLd([
+            { name: 'Home', url: '/' },
+            { name: 'Cocktail Recipes', url: '/cocktail-recipes' },
+            { name: recipe.title },
+          ])}
+          key="breadcrumb-jsonld"
+        />
       </Head>
 
       <div className={`${styles['recipe-page']} constrained-content`}>
@@ -282,7 +294,6 @@ export default function Recipe({ recipe, relatedRecipes }) {
                   className="listing-card"
                   key={related.attributes.recipeUrlSlug}
                   href={`/cocktail-recipes/${related.attributes.recipeUrlSlug}`}
-                  rel="canonical"
                 >
                   <RecipeListingCard recipe={related} />
                 </Link>

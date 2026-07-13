@@ -5,6 +5,8 @@ import RecipeListingCard from '../../../components/Cards/RecipeListingCard/Recip
 import { GET_ALL_THC_RECIPES } from '../../../graphql/queries';
 import styles from '../../../styles/pages/THC.module.scss';
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
+import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
+import SITE_URL from '../../../utils/siteUrl';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -36,6 +38,16 @@ export default function THCRecipes({ recipes }) {
         <title>THC Drink Recipes and Cannabis Cocktails | Cocktail Underground</title>
         <meta name="description" content="THC Drinks" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/thc-drinks/recipes`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={getBreadcrumbJsonLd([
+            { name: 'Home', url: '/' },
+            { name: 'THC Drinks', url: '/thc-drinks' },
+            { name: 'Recipes' },
+          ])}
+          key="breadcrumb-jsonld"
+        />
       </Head>
       <div className={`${styles['thc-page']} constrained-content`}>
         <div className="breadcrumb">
@@ -58,7 +70,6 @@ export default function THCRecipes({ recipes }) {
               className="listing-card"
               key={recipe.attributes.recipeUrlSlug}
               href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-              rel="canonical"
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>

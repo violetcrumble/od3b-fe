@@ -4,6 +4,8 @@ import ContentWrapper from '../../../components/ContentWrapper';
 import BlogListingCard from '../../../components/Cards/BlogListingCard/BlogListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../../graphql/queries';
 import THC_GUIDE_SLUGS from '../../../utils/thcGuideSlugs';
+import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
+import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/THC.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
@@ -38,6 +40,16 @@ export default function THCGuides({ guides }) {
         <title>Cocktail Underground - THC Drinks - Guides</title>
         <meta name="description" content="THC Drinks" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/thc-drinks/guides`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={getBreadcrumbJsonLd([
+            { name: 'Home', url: '/' },
+            { name: 'THC Drinks', url: '/thc-drinks' },
+            { name: 'Guides' },
+          ])}
+          key="breadcrumb-jsonld"
+        />
       </Head>
       <div className={`${styles['thc-page']} constrained-content`}>
         <div className="breadcrumb">
@@ -54,12 +66,7 @@ export default function THCGuides({ guides }) {
 
         <div className="listings-3-col">
           {guides.map((guide) => (
-            <Link
-              className="listing-card"
-              key={guide.attributes.urlSlug}
-              href={`/blog/${guide.attributes.urlSlug}`}
-              rel="canonical"
-            >
+            <Link className="listing-card" key={guide.attributes.urlSlug} href={`/blog/${guide.attributes.urlSlug}`}>
               <BlogListingCard blogPost={guide} />
             </Link>
           ))}

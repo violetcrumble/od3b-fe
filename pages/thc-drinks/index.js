@@ -7,6 +7,7 @@ import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup
 import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS } from '../../graphql/queries';
 import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
 import THC_REVIEW_SLUGS from '../../utils/thcReviewSlugs';
+import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/THC.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
@@ -46,6 +47,7 @@ export default function THCMain({ recipes, guides, reviews }) {
         <title>Cocktail Underground - THC Drinks</title>
         <meta name="description" content="THC Drinks" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/thc-drinks`} />
       </Head>
       <div className={`${styles['thc-page']} constrained-content`}>
         <h1 className="text-brand-purple">THC Drinks, Recipes and Reviews</h1>
@@ -61,7 +63,6 @@ export default function THCMain({ recipes, guides, reviews }) {
               className="listing-card"
               key={recipe.attributes.recipeUrlSlug}
               href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-              rel="canonical"
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>
@@ -76,12 +77,7 @@ export default function THCMain({ recipes, guides, reviews }) {
         <h2 className="text-brand-teal">THC Drink Reviews</h2>
         <div className="listings-3-col">
           {reviews.map((review) => (
-            <Link
-              className="listing-card"
-              key={review.attributes.urlSlug}
-              href={`/blog/${review.attributes.urlSlug}`}
-              rel="canonical"
-            >
+            <Link className="listing-card" key={review.attributes.urlSlug} href={`/blog/${review.attributes.urlSlug}`}>
               <BlogListingCard blogPost={review} />
             </Link>
           ))}
@@ -103,7 +99,6 @@ export default function THCMain({ recipes, guides, reviews }) {
                   className="listing-card"
                   key={guide.attributes.urlSlug}
                   href={`/blog/${guide.attributes.urlSlug}`}
-                  rel="canonical"
                 >
                   <BlogListingCard blogPost={guide} />
                 </Link>

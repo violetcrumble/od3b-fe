@@ -6,6 +6,8 @@ import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
+import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
+import SITE_URL from '../../utils/siteUrl';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -21,31 +23,30 @@ export default function BlogPost({ blogPost }) {
     day: 'numeric',
   });
 
+  const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;
+
   function addBlogJsonLd() {
-    return {
-      __html: `{
-      "@context": "https://schema.org/",
-      "@type": "BlogPosting",
-      "name": "${blogPost.Title}",
-      "thumbnail": "${
+    const jsonLd = {
+      '@context': 'https://schema.org/',
+      '@type': 'BlogPosting',
+      name: blogPost.Title,
+      thumbnail:
         blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes
           ? blogPost.ListingCardImage.data.attributes.url
-          : '/pic-not-available.gif'
-      }",
-      "articleBody": "${blogPost.BlogPostBody}",
-      "keywords": "${blogPost.seoKeywords}",
-      "description": "${blogPost.TextPreviewSnippet}",
-      "datePublished": "${blogPost.Date}",
-      "dateCreated": "${blogPost.Date}",
-      "dateModified": "${blogPost.Date}",
-      "genre":["SEO","JSON-LD"],
-      "author": {
-        "@type": "Person",
-        "name": "${blogPost.blog_authors.data[0].attributes.AuthorName}"
-      }
-    }
-  `,
+          : '/pic-not-available.gif',
+      articleBody: blogPost.BlogPostBody,
+      keywords: blogPost.seoKeywords,
+      description: blogPost.TextPreviewSnippet,
+      datePublished: blogPost.Date,
+      dateCreated: blogPost.Date,
+      dateModified: blogPost.updatedAt || blogPost.Date,
+      genre: ['SEO', 'JSON-LD'],
+      author: {
+        '@type': 'Person',
+        name: blogPost.blog_authors.data[0].attributes.AuthorName,
+      },
     };
+    return { __html: JSON.stringify(jsonLd) };
   }
   return (
     <ContentWrapper>
@@ -53,6 +54,7 @@ export default function BlogPost({ blogPost }) {
         <title>{blogPost.Title}</title>
         <meta name="description" content={blogPost.TextPreviewSnippet} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
         <meta
@@ -64,8 +66,17 @@ export default function BlogPost({ blogPost }) {
           }
         />
 
-        <meta property="og:url" content={`https://www.cocktailunderground.com/blog/` + blogPost.urlSlug} />
+        <meta property="og:url" content={canonicalUrl} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addBlogJsonLd()} key="blogpost-jsonld" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={getBreadcrumbJsonLd([
+            { name: 'Home', url: '/' },
+            { name: 'Articles', url: '/blog' },
+            { name: blogPost.Title },
+          ])}
+          key="breadcrumb-jsonld"
+        />
       </Head>
 
       <div className={`${styles['blog-post-page']} constrained-content`}>

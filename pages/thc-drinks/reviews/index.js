@@ -5,6 +5,8 @@ import BlogListingCard from '../../../components/Cards/BlogListingCard/BlogListi
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_BLOG_POSTS } from '../../../graphql/queries';
 import THC_REVIEW_SLUGS from '../../../utils/thcReviewSlugs';
+import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
+import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/THC.module.scss';
 
 const URL = process.env.STRAPIBASEURL;
@@ -39,6 +41,16 @@ export default function THCReviews({ reviews }) {
         <title>Cocktail Underground - THC Drinks - Reviews</title>
         <meta name="description" content="THC Drinks" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/thc-drinks/reviews`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={getBreadcrumbJsonLd([
+            { name: 'Home', url: '/' },
+            { name: 'THC Drinks', url: '/thc-drinks' },
+            { name: 'Reviews' },
+          ])}
+          key="breadcrumb-jsonld"
+        />
       </Head>
       <div className={`${styles['thc-page']} constrained-content`}>
         <div className="breadcrumb">
@@ -54,12 +66,7 @@ export default function THCReviews({ reviews }) {
 
         <div className="listings-3-col">
           {reviews.map((review) => (
-            <Link
-              className="listing-card"
-              key={review.attributes.urlSlug}
-              href={`/blog/${review.attributes.urlSlug}`}
-              rel="canonical"
-            >
+            <Link className="listing-card" key={review.attributes.urlSlug} href={`/blog/${review.attributes.urlSlug}`}>
               <BlogListingCard blogPost={review} />
             </Link>
           ))}
