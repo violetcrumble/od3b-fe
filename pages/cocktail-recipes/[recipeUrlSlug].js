@@ -12,6 +12,7 @@ import videoOverlayGraphic from '../../public/video-overlay.gif';
 import getArticle from '../../utils/getArticle';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
+import RecipeRating from '../../components/RecipeRating/RecipeRating';
 import styles from '../../styles/pages/Recipe.module.scss';
 // import shareIcon from '../../public/icons/share.svg';
 // import printIcon from '../../public/icons/printer.svg';
@@ -62,6 +63,15 @@ export default function Recipe({ recipe, relatedRecipes }) {
         '@type': 'Organization',
         name: 'Cocktail Underground',
       },
+      ...(recipe.ratingCount > 0 && {
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: Number((recipe.ratingTotal / recipe.ratingCount).toFixed(1)),
+          ratingCount: recipe.ratingCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
+      }),
     };
     return { __html: JSON.stringify(jsonLd) };
   }
@@ -101,6 +111,12 @@ export default function Recipe({ recipe, relatedRecipes }) {
           </div> */}
         </div>
         {/* end recipe header */}
+
+        <RecipeRating
+          slug={recipe.recipeUrlSlug}
+          initialCount={recipe.ratingCount || 0}
+          initialTotal={recipe.ratingTotal || 0}
+        />
 
         <div className={`${styles['recipe-page-col-container']}`}>
           <div className={`${styles['recipe-page-col-1']}`}>

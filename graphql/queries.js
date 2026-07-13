@@ -477,6 +477,8 @@ const GET_INDIVIDUAL_RECIPE = gql`
           YouTubeLink
           youTubeID
           videoUploadDate
+          ratingCount
+          ratingTotal
           spirits {
             data {
               attributes {
