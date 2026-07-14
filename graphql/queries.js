@@ -470,6 +470,7 @@ const GET_INDIVIDUAL_RECIPE = gql`
         attributes {
           title
           keywords
+          seoDescription
           RecipeIntro
           ingredients
           cocktailIngredients
