@@ -20,7 +20,7 @@ export default function FilmingEquipment() {
         />
       </Head>
 
-      <main className="constrained-content">
+      <div className="constrained-content">
         <h1 className="text-brand-purple">Vlogging Equipment</h1>
 
         <ul>
@@ -60,7 +60,7 @@ export default function FilmingEquipment() {
             </a>
           </li>
         </ul>
-      </main>
+      </div>
     </ContentWrapper>
   );
 }

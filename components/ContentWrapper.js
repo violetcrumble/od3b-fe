@@ -6,7 +6,7 @@ export default function ContentWrapper({ children }) {
     <>
       <Header />
 
-      {children}
+      <main>{children}</main>
 
       <Footer />
     </>

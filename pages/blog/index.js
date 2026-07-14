@@ -53,7 +53,7 @@ export default function BlogListing({ blogPosts }) {
         />
       </Head>
 
-      <main className="constrained-content">
+      <div className="constrained-content">
         <h1 className="text-brand-purple">Cocktail Blog Posts and Articles</h1>
         <div className="listings-3-col">
           {sortedBlogPosts.map((blogPost) => (
@@ -68,7 +68,7 @@ export default function BlogListing({ blogPosts }) {
 
           <div className="listing-card"></div>
         </div>
-      </main>
+      </div>
     </ContentWrapper>
   );
 }

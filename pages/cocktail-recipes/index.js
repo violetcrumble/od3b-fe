@@ -74,7 +74,7 @@ export default function Recipes({ recipes }) {
         <meta property="og:description" content="How to make craft cocktails at home" />
       </Head>
 
-      <main className="constrained-content">
+      <div className="constrained-content">
         <h1 className="text-brand-purple">
           Cocktail Recipes {cocktailCategory && `with ${categoryLabel(cocktailCategory)}`}
         </h1>
@@ -102,7 +102,7 @@ export default function Recipes({ recipes }) {
             </Link>
           ))}
         </div>
-      </main>
+      </div>
     </ContentWrapper>
   );
 }

@@ -158,6 +158,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                     style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
                     width="1200"
                     height="675"
+                    sizes="(min-width: 1600px) 800px, (min-width: 768px) 50vw, 90vw"
                   />
                   <Image
                     src={videoOverlayGraphic.src}
@@ -166,6 +167,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                     width="1200"
                     height="675"
                     className={`${styles['video-overlay']}`}
+                    sizes="(min-width: 1600px) 800px, (min-width: 768px) 50vw, 90vw"
                   />
                 </Link>
                 <br />
@@ -190,6 +192,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                   height="487"
                   className={styles['mobile-recipe-image']}
                   style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                  sizes="90vw"
                 />
               </div>
             )}
@@ -228,6 +231,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                 width="487"
                 height="487"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
             {recipe.PhotoMain.data[1] && recipe.PhotoMain.data[1].attributes.url && (
@@ -241,6 +245,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                 width="487"
                 height="487"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
 
@@ -253,6 +258,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                 width="256"
                 height="370"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
 
