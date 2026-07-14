@@ -56,6 +56,21 @@ export default function THCMain({ recipes, guides, reviews }) {
           reviews, dosage guides, and practical answers about hemp-derived THC beverages.
         </p>
 
+        <h2 className="text-brand-teal">THC Drink Reviews</h2>
+        <div className="listings-3-col">
+          {reviews.map((review) => (
+            <Link className="listing-card" key={review.attributes.urlSlug} href={`/blog/${review.attributes.urlSlug}`}>
+              <BlogListingCard blogPost={review} />
+            </Link>
+          ))}
+          <div className="listing-card"></div>
+        </div>
+        <Link href="/thc-drinks/reviews">
+          <button>View All THC Reviews</button>
+        </Link>
+
+        <hr></hr>
+
         <h2 className="text-brand-teal">THC Recipes</h2>
         <div className="listings-3-col">
           {recipes.map((recipe, index) => (
@@ -70,21 +85,6 @@ export default function THCMain({ recipes, guides, reviews }) {
         </div>
         <Link href="/thc-drinks/recipes">
           <button>View All THC Recipes</button>
-        </Link>
-
-        <hr></hr>
-
-        <h2 className="text-brand-teal">THC Drink Reviews</h2>
-        <div className="listings-3-col">
-          {reviews.map((review) => (
-            <Link className="listing-card" key={review.attributes.urlSlug} href={`/blog/${review.attributes.urlSlug}`}>
-              <BlogListingCard blogPost={review} />
-            </Link>
-          ))}
-          <div className="listing-card"></div>
-        </div>
-        <Link href="/thc-drinks/reviews">
-          <button>View All THC Reviews</button>
         </Link>
 
         <hr></hr>
