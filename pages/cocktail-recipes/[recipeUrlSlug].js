@@ -135,7 +135,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
 
         <div className={`${styles['recipe-page-col-container']}`}>
           <div className={`${styles['recipe-page-col-1']}`}>
-            <h3 className={`${styles['recipe-ingredients-heading']} text-teal`}>{recipe.title} Ingredients</h3>
+            <h2 className={`${styles['recipe-ingredients-heading']} text-teal`}>{recipe.title} Ingredients</h2>
             <div className={`${styles['recipe-ingredients']}`}>
               <Markdown components={markdownLinkComponents}>{recipe.ingredients}</Markdown>
             </div>
@@ -174,9 +174,9 @@ export default function Recipe({ recipe, relatedRecipes }) {
               </div>
             )}
 
-            <h3 className="text-brand-teal">
+            <h2 className={`${styles['recipe-body-heading']} text-brand-teal`}>
               How to make {getArticle(recipe.title)} {recipe.title}
-            </h3>
+            </h2>
             <Markdown>{recipe.recipebody}</Markdown>
 
             {recipe.PhotoMain.data[0] && recipe.PhotoMain.data[0].attributes.url && (
