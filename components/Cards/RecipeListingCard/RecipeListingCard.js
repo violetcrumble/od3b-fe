@@ -26,7 +26,7 @@ export default function RecipeListingCard(props) {
       )}
 
       <div className={styles.recipeInfo}>
-        <h6>{props.recipe.attributes.title}</h6>
+        <h3>{props.recipe.attributes.title}</h3>
       </div>
     </div>
   );

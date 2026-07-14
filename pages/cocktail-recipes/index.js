@@ -91,6 +91,8 @@ export default function Recipes({ recipes }) {
           />
         </div>
 
+        <h2 className="sr-only">Recipes</h2>
+
         <div className="listings-3-col">
           {visibleRecipes.map((recipe, index) => (
             <Link

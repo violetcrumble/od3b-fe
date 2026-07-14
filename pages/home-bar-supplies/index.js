@@ -106,6 +106,8 @@ export default function Products({ products }) {
           </div>
         </div>
 
+        <h2 className="sr-only">Products</h2>
+
         <div className="listings-4-col">
           {filteredProducts.map((product) => (
             <AmazonListingCard

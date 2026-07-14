@@ -6,12 +6,13 @@ export default function BlogListingCard(props) {
     month: 'long',
     year: 'numeric',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
   return (
     <div className={styles['blog-listing-card']}>
       <div className="byline-date">
-        <h5>{props.blogPost.attributes.Title}</h5>
+        <h3>{props.blogPost.attributes.Title}</h3>
         <p className="text-black">
           {props.blogPost.attributes.blog_authors.data[0].attributes.AuthorName} | {formattedDate}
         </p>

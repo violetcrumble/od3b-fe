@@ -11,7 +11,7 @@ export default function HomePage({ recipes }) {
       <HeroImage />
 
       <div className="constrained-content">
-        <h1 className="text-brand-teal">Tequila Recipes</h1>
+        <h2 className="text-brand-teal">Tequila Recipes</h2>
         <p>
           Looking for something beyond a tequila sunrise? Whether you want the combination of tequila, lime juice, and
           orange liqueur in a margarita or you&apos;re in the mood for a crisp, refreshing ranch water, we&apos;re sure
@@ -32,7 +32,7 @@ export default function HomePage({ recipes }) {
         </div>
       </div>
       <div className="constrained-content">
-        <h1 className="text-brand-teal">Whiskey Recipes</h1>
+        <h2 className="text-brand-teal">Whiskey Recipes</h2>
         <p>
           From classic bourbon old fashioneds to equal parts bangers like the paper plane, there&apos;s a{' '}
           <Link href="/cocktail-recipes?category=whiskey">whiskey cocktail recipe</Link> here for you.
@@ -53,7 +53,7 @@ export default function HomePage({ recipes }) {
       </div>
 
       <div className="constrained-content">
-        <h1 className="text-brand-teal">Rum Cocktail Recipes</h1>
+        <h2 className="text-brand-teal">Rum Cocktail Recipes</h2>
         <p>
           From tiki classics to espresso martini riffs, we have some great{' '}
           <Link href="/cocktail-recipes?category=rum">rum recipes</Link>!

@@ -55,6 +55,7 @@ export default function BlogListing({ blogPosts }) {
 
       <div className="constrained-content">
         <h1 className="text-brand-purple">Cocktail Blog Posts and Articles</h1>
+        <h2 className="sr-only">Articles</h2>
         <div className="listings-3-col">
           {sortedBlogPosts.map((blogPost) => (
             <Link

@@ -4,7 +4,7 @@ import styles from './AmazonListingCard.module.scss';
 export default function AmazonListingCard(props) {
   return (
     <div className={`${styles['amazon-listing-card']} listing-card`}>
-      <h6 className={`${styles['product-name']} text-brand-teal`}>{props.productName}</h6>
+      <h3 className={`${styles['product-name']} text-brand-teal`}>{props.productName}</h3>
 
       <div className={`${styles['product-pic']}`}>
         {props.amazonPhotoURL && (

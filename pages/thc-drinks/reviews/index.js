@@ -64,6 +64,8 @@ export default function THCReviews({ reviews }) {
           Honest reviews of hemp-derived THC drinks and seltzers, including flavor notes, dose, and price comparisons.
         </p>
 
+        <h2 className="sr-only">Reviews</h2>
+
         <div className="listings-3-col">
           {reviews.map((review) => (
             <Link className="listing-card" key={review.attributes.urlSlug} href={`/blog/${review.attributes.urlSlug}`}>

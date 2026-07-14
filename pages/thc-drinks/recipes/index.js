@@ -64,6 +64,8 @@ export default function THCRecipes({ recipes }) {
           hoping for enlightenment.
         </p>
 
+        <h2 className="sr-only">Recipes</h2>
+
         <div className="listings-3-col">
           {recipes.map((recipe, index) => (
             <Link

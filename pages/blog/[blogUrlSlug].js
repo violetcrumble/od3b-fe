@@ -21,6 +21,7 @@ export default function BlogPost({ blogPost }) {
     month: 'long',
     year: 'numeric',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;

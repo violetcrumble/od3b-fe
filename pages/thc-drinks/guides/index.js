@@ -64,6 +64,8 @@ export default function THCGuides({ guides }) {
           against alcohol. Written from actual testing, not press releases.
         </p>
 
+        <h2 className="sr-only">Guides</h2>
+
         <div className="listings-3-col">
           {guides.map((guide) => (
             <Link className="listing-card" key={guide.attributes.urlSlug} href={`/blog/${guide.attributes.urlSlug}`}>
