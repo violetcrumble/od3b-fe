@@ -30,6 +30,14 @@ body {
   border: 0;
 }
 
+a:link {
+  color: colors.$brand-teal;
+}
+
+a:visited {
+  color: colors.$brand-teal-700;
+}
+
 button {
   background-color: colors.$brand-teal;
   color: colors.$white;

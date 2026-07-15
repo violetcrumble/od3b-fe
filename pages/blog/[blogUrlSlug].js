@@ -6,6 +6,7 @@ import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
+import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../utils/siteUrl';
 
@@ -95,6 +96,7 @@ export default function BlogPost({ blogPost }) {
         </div>
 
         <div className={`${styles['sidebar']}`}>
+          <ThcAffiliateCTAs campaign={blogPost.urlSlug} />
           <NewsletterSignup />
         </div>
       </div>
