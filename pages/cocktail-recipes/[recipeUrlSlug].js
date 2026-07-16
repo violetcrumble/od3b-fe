@@ -10,6 +10,7 @@ import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeLi
 import { sendGTMEvent } from '@next/third-parties/google';
 import videoOverlayGraphic from '../../public/video-overlay.gif';
 import getArticle from '../../utils/getArticle';
+import cloudinaryOptimize from '../../utils/cloudinaryOptimize';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import RecipeRating from '../../components/RecipeRating/RecipeRating';
@@ -36,7 +37,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
       '@context': 'https://schema.org/',
       '@type': 'Recipe',
       name: recipe.title,
-      image: [recipe.PhotoMain.data[0].attributes.url],
+      image: [cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)],
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',
       description: recipe.recipebody,
@@ -56,9 +57,11 @@ export default function Recipe({ recipe, relatedRecipes }) {
             ...(recipe.videoUploadDate && {
               uploadDate: recipe.videoUploadDate,
             }),
-            thumbnailUrl: recipe.videoThumbnail.data
-              ? recipe.videoThumbnail.data.attributes.url
-              : recipe.PhotoMain.data[0].attributes.url,
+            thumbnailUrl: cloudinaryOptimize(
+              recipe.videoThumbnail.data
+                ? recipe.videoThumbnail.data.attributes.url
+                : recipe.PhotoMain.data[0].attributes.url,
+            ),
           }
         : undefined,
       author: {
@@ -92,7 +95,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
           property="og:description"
           content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
-        <meta property="og:image" content={recipe.PhotoMain.data[0].attributes.url} />
+        <meta property="og:image" content={cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addRecipeJsonLd()} key="recipe-jsonld" />
         <script
           type="application/ld+json"
@@ -149,7 +152,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
                   target="_blank"
                 >
                   <Image
-                    src={recipe.videoThumbnail.data.attributes.url}
+                    src={cloudinaryOptimize(recipe.videoThumbnail.data.attributes.url)}
                     alt={
                       recipe.videoThumbnail.data.attributes.alternativeText
                         ? recipe.videoThumbnail.data.attributes.alternativeText
@@ -183,7 +186,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
             {recipe.PhotoMain.data[0] && recipe.PhotoMain.data[0].attributes.url && (
               <div className="mobile-recipe-pic-container">
                 <Image
-                  src={recipe.PhotoMain.data[0].attributes.url}
+                  src={cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)}
                   alt={
                     recipe.PhotoMain.data[0].attributes.alternativeText
                       ? recipe.PhotoMain.data[0].attributes.alternativeText
@@ -223,7 +226,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
           <div className={`${styles['recipe-page-col-2']}`}>
             {recipe.PhotoMain.data[0] && recipe.PhotoMain.data[0].attributes.url && (
               <Image
-                src={recipe.PhotoMain.data[0].attributes.url}
+                src={cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)}
                 alt={
                   recipe.PhotoMain.data[0].attributes.alternativeText
                     ? recipe.PhotoMain.data[0].attributes.alternativeText
@@ -237,7 +240,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
             )}
             {recipe.PhotoMain.data[1] && recipe.PhotoMain.data[1].attributes.url && (
               <Image
-                src={recipe.PhotoMain.data[1].attributes.url}
+                src={cloudinaryOptimize(recipe.PhotoMain.data[1].attributes.url)}
                 alt={
                   recipe.PhotoMain.data[1].attributes.alternativeText
                     ? recipe.PhotoMain.data[1].attributes.alternativeText
@@ -254,7 +257,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
 
             {recipe.PhotoPinterest.data && recipe.PhotoPinterest.data.attributes.url && (
               <Image
-                src={recipe.PhotoPinterest.data.attributes.url}
+                src={cloudinaryOptimize(recipe.PhotoPinterest.data.attributes.url)}
                 alt={recipe.PhotoPinterest.data.attributes.alternativeText}
                 width="256"
                 height="370"
