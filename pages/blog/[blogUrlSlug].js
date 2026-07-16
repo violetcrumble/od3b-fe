@@ -32,10 +32,11 @@ export default function BlogPost({ blogPost }) {
       '@context': 'https://schema.org/',
       '@type': 'BlogPosting',
       name: blogPost.Title,
-      thumbnail:
+      image: [
         blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes
           ? blogPost.ListingCardImage.data.attributes.url
-          : '/pic-not-available.gif',
+          : `${SITE_URL}/pic-not-available.gif`,
+      ],
       articleBody: blogPost.BlogPostBody,
       keywords: blogPost.seoKeywords,
       description: blogPost.TextPreviewSnippet,
@@ -64,7 +65,7 @@ export default function BlogPost({ blogPost }) {
           content={
             blogPost.ogImage.data && blogPost.ogImage.data.attributes
               ? blogPost.ogImage.data.attributes.url
-              : '/pic-not-available.gif'
+              : `${SITE_URL}/pic-not-available.gif`
           }
         />
 
