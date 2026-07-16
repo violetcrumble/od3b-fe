@@ -27,7 +27,11 @@ export default function HomePage({ recipes, thcRecipes, latestRecipe }) {
                   key={recipe.attributes.recipeUrlSlug}
                   href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
                 >
-                  <RecipeListingCard recipe={recipe} priority={index === 0} />
+                  <RecipeListingCard
+                    recipe={recipe}
+                    priority={index === 0}
+                    sizes="(max-width: 599px) 90vw, (max-width: 899px) 45vw, (max-width: 1599px) 30vw, 460px"
+                  />
                 </Link>
               ))}
             </div>
@@ -37,7 +41,10 @@ export default function HomePage({ recipes, thcRecipes, latestRecipe }) {
             <div className={styles['latest-recipe-panel']}>
               <h2 className="text-brand-teal">Latest Recipe</h2>
               <Link className="listing-card" href={`/cocktail-recipes/${latestRecipe.attributes.recipeUrlSlug}`}>
-                <RecipeListingCard recipe={latestRecipe} />
+                <RecipeListingCard
+                  recipe={latestRecipe}
+                  sizes="(max-width: 899px) 85vw, (max-width: 1599px) 25vw, 410px"
+                />
               </Link>
               <div className={styles['centered-cta']}>
                 <Link href="/cocktail-recipes">
