@@ -50,7 +50,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
       video: recipe.YouTubeLink
         ? {
             '@type': 'VideoObject',
-            name: `How to make ${getArticle(recipe.title)} ${recipe.title}`,
+            name: `How to make ${getArticle(recipe.title)}${recipe.title}`,
             description: recipe.recipebody,
             contentUrl: recipe.YouTubeLink,
             ...(recipe.videoUploadDate && {
@@ -83,14 +83,14 @@ export default function Recipe({ recipe, relatedRecipes }) {
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta
           name="description"
-          content={recipe.seoDescription || `How to make ${getArticle(recipe.title)} ${recipe.title} cocktail at home`}
+          content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/cocktail-recipes/${recipe.recipeUrlSlug}`} />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
         <meta
           property="og:description"
-          content={recipe.seoDescription || `How to make ${getArticle(recipe.title)} ${recipe.title} cocktail at home`}
+          content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
         <meta property="og:image" content={recipe.PhotoMain.data[0].attributes.url} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addRecipeJsonLd()} key="recipe-jsonld" />
@@ -175,7 +175,8 @@ export default function Recipe({ recipe, relatedRecipes }) {
             )}
 
             <h2 className={`${styles['recipe-body-heading']} text-brand-teal`}>
-              How to make {getArticle(recipe.title)} {recipe.title}
+              How to make {getArticle(recipe.title)}
+              {recipe.title}
             </h2>
             <Markdown>{recipe.recipebody}</Markdown>
 

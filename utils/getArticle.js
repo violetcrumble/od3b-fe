@@ -1,3 +1,5 @@
 export default function getArticle(word) {
-  return /^[aeiou]/i.test(word.trim()) ? 'an' : 'a';
+  const trimmed = word.trim();
+  if (/^(the|a|an)\s/i.test(trimmed)) return '';
+  return /^[aeiou]/i.test(trimmed) ? 'an ' : 'a ';
 }
