@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+    locales: ['en'],
+    defaultLocale: 'en',
   },
   images: {
     remotePatterns: [
@@ -26,6 +26,32 @@ const nextConfig = {
         pathname: '/onedrinkthreebars/image/**',
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'onedrinkthreebars.com',
+          },
+        ],
+        destination: 'https://www.cocktailunderground.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.onedrinkthreebars.com',
+          },
+        ],
+        destination: 'https://www.cocktailunderground.com/:path*',
+        permanent: true,
+      },
+    ];
   },
 };
 

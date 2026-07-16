@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.cocktailunderground.com/sitemap.xml
+Sitemap: https://www.cocktailunderground.com/sitemap.xml
