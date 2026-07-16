@@ -1,0 +1,36 @@
+@use '../../styles/colors';
+
+.about-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: colors.$brand-orange-100;
+  border-radius: 14px;
+  padding: 26px 28px;
+  flex-wrap: wrap;
+}
+
+.photo {
+  flex: 0 0 auto;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+}
+
+.content {
+  flex: 1 1 200px;
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: colors.$brand-orange-900;
+  margin: 0 0 6px;
+}
+
+.heading {
+  margin: 0 0 8px;
+  color: colors.$brand-orange-900;
+}

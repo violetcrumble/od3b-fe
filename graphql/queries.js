@@ -463,6 +463,28 @@ query {
   }
 `;
 
+const GET_LATEST_RECIPES = `
+query {
+  recipes(pagination: { limit: 5 }, sort: "createdAt:desc") {
+    data {
+      attributes {
+        title
+        recipeUrlSlug
+        createdAt
+        PhotoMain {
+          data {
+            attributes {
+              url
+              caption
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
 const GET_INDIVIDUAL_RECIPE = gql`
   query ($recipeUrlSlug: String!) {
     recipes(filters: { recipeUrlSlug: { eq: $recipeUrlSlug } }) {
@@ -660,6 +682,7 @@ export {
   GET_ALL_VODKA_RECIPES,
   GET_ALL_THC_RECIPE_SLUGS,
   GET_ALL_THC_RECIPES,
+  GET_LATEST_RECIPES,
   GET_INDIVIDUAL_RECIPE,
   GET_AMAZON_PRODUCTS,
   GET_ALL_BLOG_SLUGS,

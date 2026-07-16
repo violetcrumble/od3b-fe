@@ -2,74 +2,60 @@ import Link from 'next/link';
 import HeroImage from '../HeroImage/HeroImage';
 import RecipeListingCard from '../Cards/RecipeListingCard/RecipeListingCard.js';
 import NewsletterSignup from '../NewsletterSignup/NewsletterSignup';
-import filterRecipesByCategory from '../../utils/filterRecipesByCategory.js';
+import CategoryNavPills from '../CategoryNavPills/CategoryNavPills';
+import AboutSection from '../AboutSection/AboutSection';
 import styles from './Home.module.scss';
 
-export default function HomePage({ recipes }) {
+export default function HomePage({ recipes, thcRecipes, latestRecipe }) {
   return (
     <div className={styles['home-page']}>
       <HeroImage />
 
       <div className="constrained-content">
-        <h2 className="text-brand-teal">Tequila Recipes</h2>
-        <p>
-          Looking for something beyond a tequila sunrise? Whether you want the combination of tequila, lime juice, and
-          orange liqueur in a margarita or you&apos;re in the mood for a crisp, refreshing ranch water, we&apos;re sure
-          to have a <Link href="/cocktail-recipes?category=tequila">tequila cocktail</Link> for you!
-        </p>
-        <div className="listings-3-col">
-          {filterRecipesByCategory('tequila', recipes)
-            .slice(0, 3)
-            .map((recipe) => (
-              <Link
-                className="listing-card"
-                key={recipe.attributes.recipeUrlSlug}
-                href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-              >
-                <RecipeListingCard recipe={recipe} />
+        <div className={styles['thc-grid']}>
+          <div className={styles['thc-panel']}>
+            <h2 className="text-brand-purple">THC Drinks</h2>
+            <p className={styles['intro-text']}>
+              Curious about THC drinks but not sure where to begin? We test THC cocktail recipes, THC seltzers, and more
+              so you don&apos;t have to guess. Explore our <Link href="/thc-drinks">THC drinks hub</Link> or check out
+              all of our <Link href="/thc-drinks/recipes">THC cocktail recipes</Link>.
+            </p>
+            <div className={styles['thc-recipe-cards']}>
+              {thcRecipes.map((recipe, index) => (
+                <Link
+                  className="listing-card"
+                  key={recipe.attributes.recipeUrlSlug}
+                  href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+                >
+                  <RecipeListingCard recipe={recipe} priority={index === 0} />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {latestRecipe && (
+            <div className={styles['latest-recipe-panel']}>
+              <h2 className="text-brand-teal">Latest Recipe</h2>
+              <Link className="listing-card" href={`/cocktail-recipes/${latestRecipe.attributes.recipeUrlSlug}`}>
+                <RecipeListingCard recipe={latestRecipe} />
               </Link>
-            ))}
-        </div>
-      </div>
-      <div className="constrained-content">
-        <h2 className="text-brand-teal">Whiskey Recipes</h2>
-        <p>
-          From classic bourbon old fashioneds to equal parts bangers like the paper plane, there&apos;s a{' '}
-          <Link href="/cocktail-recipes?category=whiskey">whiskey cocktail recipe</Link> here for you.
-        </p>
-        <div className="listings-3-col">
-          {filterRecipesByCategory('whiskey', recipes)
-            .slice(0, 3)
-            .map((recipe) => (
-              <Link
-                className="listing-card"
-                key={recipe.attributes.recipeUrlSlug}
-                href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-              >
-                <RecipeListingCard recipe={recipe} />
-              </Link>
-            ))}
+              <div className={styles['centered-cta']}>
+                <Link href="/cocktail-recipes">
+                  <button>View All Recipes</button>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
       <div className="constrained-content">
-        <h2 className="text-brand-teal">Rum Cocktail Recipes</h2>
-        <p>
-          From tiki classics to espresso martini riffs, we have some great{' '}
-          <Link href="/cocktail-recipes?category=rum">rum recipes</Link>!
-        </p>
-        <div className="listings-3-col">
-          {filterRecipesByCategory('rum', recipes)
-            .slice(0, 3)
-            .map((recipe) => (
-              <Link
-                className="listing-card"
-                key={recipe.attributes.recipeUrlSlug}
-                href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
-              >
-                <RecipeListingCard recipe={recipe} />
-              </Link>
-            ))}
+        <div className={styles['browse-about-grid']}>
+          <div className={styles['browse-panel']}>
+            <h2 className="text-brand-teal">Browse Cocktails by Spirit</h2>
+            <CategoryNavPills />
+          </div>
+          <AboutSection />
         </div>
       </div>
 
