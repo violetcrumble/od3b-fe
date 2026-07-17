@@ -709,10 +709,7 @@ const GET_REVIEW = gql`
           pros
           cons
           price
-          priceLabel
           buyUrl
-          buyLabel
-          whereToBuy
           seoKeywords
           seoDescription
           listingCardImage {
