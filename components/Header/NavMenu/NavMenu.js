@@ -25,6 +25,9 @@ export default function NavMenu() {
               <Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link>
             </li>
             <li>
+              <Link href="/cocktail-recipes?category=cognac">Cognac Cocktail Recipes</Link>
+            </li>
+            <li>
               <Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link>
             </li>
             <li>

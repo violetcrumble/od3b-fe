@@ -30,6 +30,12 @@ export default function CategoryNavPills(props) {
         Whiskey Cocktails
       </Link>
       <Link
+        href="/cocktail-recipes?category=cognac"
+        className={props.cocktailCategory === 'cognac' ? styles.active : undefined}
+      >
+        Cognac Cocktails
+      </Link>
+      <Link
         href="/cocktail-recipes?category=rum"
         className={props.cocktailCategory === 'rum' ? styles.active : undefined}
       >
