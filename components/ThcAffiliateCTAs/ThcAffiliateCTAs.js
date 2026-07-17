@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import affiliateLink from '../../utils/affiliateLink';
+import AffiliateCard from '../AffiliateCard/AffiliateCard';
 import styles from './ThcAffiliateCTAs.module.scss';
 
 const AFFILIATES = [
@@ -25,28 +24,18 @@ export default function ThcAffiliateCTAs({ campaign }) {
   return (
     <div className={styles['thc-ctas']}>
       {AFFILIATES.map((affiliate) => (
-        <div key={affiliate.name} className={styles['thc-cta-box']}>
-          <div className={styles['thc-cta-top']}>
-            <div className={styles['thc-cta-text']}>
-              <h3 className="text-brand-teal">{affiliate.name}</h3>
-              <p>{affiliate.blurb}</p>
-            </div>
-            <div className={styles['thc-cta-photo']}>
-              <Image src={affiliate.photoUrl} alt={affiliate.name} fill sizes="90px" />
-            </div>
-          </div>
-          <a
-            href={affiliateLink(affiliate.baseUrl, {
-              medium: 'blog_sidebar_cta',
-              campaign,
-              content: affiliate.name.toLowerCase().replace(/\s+/g, '_'),
-            })}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {affiliate.cta}
-          </a>
-        </div>
+        <AffiliateCard
+          key={affiliate.name}
+          name={affiliate.name}
+          photoUrl={affiliate.photoUrl}
+          buyUrl={affiliate.baseUrl}
+          buyLabel={affiliate.cta}
+          medium="blog_sidebar_cta"
+          campaign={campaign}
+          content={affiliate.name.toLowerCase().replace(/\s+/g, '_')}
+        >
+          <p className={styles.blurb}>{affiliate.blurb}</p>
+        </AffiliateCard>
       ))}
     </div>
   );

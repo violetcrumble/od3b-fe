@@ -1,17 +1,28 @@
 @use '../../styles/colors';
 
-.product-panel {
+.affiliate-card {
   background-color: colors.$white;
   border: 1px solid colors.$brand-teal-100;
   border-radius: 10px;
   padding: 20px;
-  margin: 0 0 20px;
+
+  .affiliate-card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 16px;
+  }
+
+  .affiliate-card-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 
   .photo {
     position: relative;
-    width: 100%;
+    width: 90px;
     aspect-ratio: 1 / 1;
-    margin: 0 0 16px;
+    flex: 0 0 auto;
 
     img {
       object-fit: contain;
@@ -21,16 +32,6 @@
   h3 {
     margin: 0 0 8px;
     font-size: 20px;
-  }
-
-  .price {
-    font-weight: bold;
-    margin: 0 0 4px;
-  }
-
-  .where-to-buy {
-    color: colors.$gray-darker;
-    margin: 0 0 16px;
   }
 
   a:link,

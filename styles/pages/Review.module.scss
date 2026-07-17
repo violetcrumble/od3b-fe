@@ -37,6 +37,15 @@
     font-size: 0.9rem;
   }
 
+  .product-panel {
+    margin: 0 0 20px;
+  }
+
+  .price {
+    font-weight: bold;
+    margin: 0;
+  }
+
   @media (min-width: grids.$breakpoint-md) {
     display: flex;
     justify-content: space-between;
