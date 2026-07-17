@@ -28,12 +28,16 @@ export async function getStaticProps() {
   const data = await recipesRes.json();
   const blogData = await blogRes.json();
 
-  const guides = blogData.data.blogPosts.data.filter((post) => THC_GUIDE_SLUGS.includes(post.attributes.urlSlug));
-  const reviews = blogData.data.blogPosts.data.filter((post) => THC_REVIEW_SLUGS.includes(post.attributes.urlSlug));
+  const guides = blogData.data.blogPosts_connection.data.filter((post) =>
+    THC_GUIDE_SLUGS.includes(post.attributes.urlSlug),
+  );
+  const reviews = blogData.data.blogPosts_connection.data.filter((post) =>
+    THC_REVIEW_SLUGS.includes(post.attributes.urlSlug),
+  );
 
   return {
     props: {
-      recipes: data.data.recipes.data.slice(0, 3),
+      recipes: data.data.recipes_connection.data.slice(0, 3),
       guides,
       reviews,
     },

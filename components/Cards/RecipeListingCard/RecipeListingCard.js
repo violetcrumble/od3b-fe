@@ -6,10 +6,11 @@ export default function RecipeListingCard(props) {
 
   return (
     <div className={styles['recipe-listing-card']}>
-      {props.recipe.attributes.PhotoMain.data[0] && props.recipe.attributes.PhotoMain.data[0].attributes.url ? (
+      {props.recipe.attributes.PhotoMain_connection.data[0] &&
+      props.recipe.attributes.PhotoMain_connection.data[0].attributes.url ? (
         <div className="imageWrapper">
           <Image
-            src={props.recipe.attributes.PhotoMain.data[0].attributes.url}
+            src={props.recipe.attributes.PhotoMain_connection.data[0].attributes.url}
             alt={`${props.recipe.attributes.title} Cocktail Recipe`}
             fill
             sizes={sizes}

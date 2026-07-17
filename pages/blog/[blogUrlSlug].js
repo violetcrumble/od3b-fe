@@ -33,8 +33,8 @@ export default function BlogPost({ blogPost }) {
       '@type': 'BlogPosting',
       name: blogPost.Title,
       image: [
-        blogPost.ListingCardImage.data && blogPost.ListingCardImage.data.attributes
-          ? blogPost.ListingCardImage.data.attributes.url
+        blogPost.ListingCardImage?.data && blogPost.ListingCardImage?.data.attributes
+          ? blogPost.ListingCardImage?.data.attributes.url
           : `${SITE_URL}/pic-not-available.gif`,
       ],
       articleBody: blogPost.BlogPostBody,
@@ -46,7 +46,7 @@ export default function BlogPost({ blogPost }) {
       genre: ['SEO', 'JSON-LD'],
       author: {
         '@type': 'Person',
-        name: blogPost.blog_authors.data[0].attributes.AuthorName,
+        name: blogPost.blog_authors_connection.data[0].attributes.AuthorName,
       },
     };
     return { __html: JSON.stringify(jsonLd) };
@@ -63,8 +63,8 @@ export default function BlogPost({ blogPost }) {
         <meta
           property="og:image"
           content={
-            blogPost.ogImage.data && blogPost.ogImage.data.attributes
-              ? blogPost.ogImage.data.attributes.url
+            blogPost.ogImage?.data && blogPost.ogImage?.data.attributes
+              ? blogPost.ogImage?.data.attributes.url
               : `${SITE_URL}/pic-not-available.gif`
           }
         />
@@ -91,7 +91,7 @@ export default function BlogPost({ blogPost }) {
           </div>
           <h3 className="text-brand-purple">{blogPost.Title}</h3>
           <p>
-            {blogPost.blog_authors.data[0].attributes.AuthorName} | {formattedDate}
+            {blogPost.blog_authors_connection.data[0].attributes.AuthorName} | {formattedDate}
           </p>
           <Markdown>{blogPost.BlogPostBody}</Markdown>
         </div>
@@ -108,7 +108,7 @@ export default function BlogPost({ blogPost }) {
 export async function getStaticPaths() {
   const { data } = await client.query({ query: GET_ALL_BLOG_SLUGS });
 
-  const paths = data.blogPosts.data.map((blogPost) => {
+  const paths = data.blogPosts_connection.data.map((blogPost) => {
     return { params: { blogUrlSlug: blogPost.attributes.urlSlug } };
   });
 
@@ -124,7 +124,7 @@ export async function getStaticProps({ params }) {
     variables: { urlSlug: params.blogUrlSlug },
   });
 
-  const attrs = data.blogPosts.data[0].attributes;
+  const attrs = data.blogPosts_connection.data[0].attributes;
 
   return {
     props: {

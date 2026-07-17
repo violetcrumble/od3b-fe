@@ -14,18 +14,18 @@ export default function BlogListingCard(props) {
       <div className="byline-date">
         <h3>{props.blogPost.attributes.Title}</h3>
         <p className="text-black">
-          {props.blogPost.attributes.blog_authors.data[0].attributes.AuthorName} | {formattedDate}
+          {props.blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName} | {formattedDate}
         </p>
       </div>
 
-      {props.blogPost.attributes.ListingCardImage.data &&
-      props.blogPost.attributes.ListingCardImage.data.attributes.url ? (
+      {props.blogPost.attributes.ListingCardImage?.data &&
+      props.blogPost.attributes.ListingCardImage?.data.attributes.url ? (
         <div className="imageWrapper">
           <div className="imageWrapper">
             <Image
-              src={props.blogPost.attributes.ListingCardImage.data.attributes.url}
+              src={props.blogPost.attributes.ListingCardImage?.data.attributes.url}
               alt={
-                props.blogPost.attributes.ListingCardImage.data.attributes.caption || props.blogPost.attributes.Title
+                props.blogPost.attributes.ListingCardImage?.data.attributes.caption || props.blogPost.attributes.Title
               }
               fill
               sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 29vw"

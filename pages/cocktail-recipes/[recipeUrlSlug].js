@@ -37,7 +37,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
       '@context': 'https://schema.org/',
       '@type': 'Recipe',
       name: recipe.title,
-      image: [cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)],
+      image: [cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)],
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',
       description: recipe.recipebody,
@@ -58,9 +58,9 @@ export default function Recipe({ recipe, relatedRecipes }) {
               uploadDate: recipe.videoUploadDate,
             }),
             thumbnailUrl: cloudinaryOptimize(
-              recipe.videoThumbnail.data
-                ? recipe.videoThumbnail.data.attributes.url
-                : recipe.PhotoMain.data[0].attributes.url,
+              recipe.videoThumbnail?.data
+                ? recipe.videoThumbnail?.data.attributes.url
+                : recipe.PhotoMain_connection.data[0].attributes.url,
             ),
           }
         : undefined,
@@ -95,7 +95,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
           property="og:description"
           content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
-        <meta property="og:image" content={cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)} />
+        <meta property="og:image" content={cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addRecipeJsonLd()} key="recipe-jsonld" />
         <script
           type="application/ld+json"
@@ -144,7 +144,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
             </div>
 
             {/* show video thumbnail with overlay if we have it */}
-            {recipe.YouTubeLink && recipe.videoThumbnail.data && recipe.videoThumbnail.data.attributes.url && (
+            {recipe.YouTubeLink && recipe.videoThumbnail?.data && recipe.videoThumbnail?.data.attributes.url && (
               <div className={`${styles['video-thumbnail-container']}`}>
                 <Link
                   href={recipe.YouTubeLink}
@@ -152,10 +152,10 @@ export default function Recipe({ recipe, relatedRecipes }) {
                   target="_blank"
                 >
                   <Image
-                    src={cloudinaryOptimize(recipe.videoThumbnail.data.attributes.url)}
+                    src={cloudinaryOptimize(recipe.videoThumbnail?.data.attributes.url)}
                     alt={
-                      recipe.videoThumbnail.data.attributes.alternativeText
-                        ? recipe.videoThumbnail.data.attributes.alternativeText
+                      recipe.videoThumbnail?.data.attributes.alternativeText
+                        ? recipe.videoThumbnail?.data.attributes.alternativeText
                         : recipe.title
                     }
                     style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
@@ -183,13 +183,13 @@ export default function Recipe({ recipe, relatedRecipes }) {
             </h2>
             <Markdown>{recipe.recipebody}</Markdown>
 
-            {recipe.PhotoMain.data[0] && recipe.PhotoMain.data[0].attributes.url && (
+            {recipe.PhotoMain_connection.data[0] && recipe.PhotoMain_connection.data[0].attributes.url && (
               <div className="mobile-recipe-pic-container">
                 <Image
-                  src={cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)}
+                  src={cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)}
                   alt={
-                    recipe.PhotoMain.data[0].attributes.alternativeText
-                      ? recipe.PhotoMain.data[0].attributes.alternativeText
+                    recipe.PhotoMain_connection.data[0].attributes.alternativeText
+                      ? recipe.PhotoMain_connection.data[0].attributes.alternativeText
                       : recipe.title
                   }
                   width="487"
@@ -202,7 +202,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
             )}
 
             {/* show button if no video thumbnail is uploaded */}
-            {recipe.YouTubeLink && !recipe.videoThumbnail.data && (
+            {recipe.YouTubeLink && !recipe.videoThumbnail?.data && (
               <>
                 <br />
                 <Link
@@ -224,12 +224,12 @@ export default function Recipe({ recipe, relatedRecipes }) {
           {/* end column 1 */}
 
           <div className={`${styles['recipe-page-col-2']}`}>
-            {recipe.PhotoMain.data[0] && recipe.PhotoMain.data[0].attributes.url && (
+            {recipe.PhotoMain_connection.data[0] && recipe.PhotoMain_connection.data[0].attributes.url && (
               <Image
-                src={cloudinaryOptimize(recipe.PhotoMain.data[0].attributes.url)}
+                src={cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)}
                 alt={
-                  recipe.PhotoMain.data[0].attributes.alternativeText
-                    ? recipe.PhotoMain.data[0].attributes.alternativeText
+                  recipe.PhotoMain_connection.data[0].attributes.alternativeText
+                    ? recipe.PhotoMain_connection.data[0].attributes.alternativeText
                     : recipe.title
                 }
                 width="487"
@@ -238,12 +238,12 @@ export default function Recipe({ recipe, relatedRecipes }) {
                 sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
-            {recipe.PhotoMain.data[1] && recipe.PhotoMain.data[1].attributes.url && (
+            {recipe.PhotoMain_connection.data[1] && recipe.PhotoMain_connection.data[1].attributes.url && (
               <Image
-                src={cloudinaryOptimize(recipe.PhotoMain.data[1].attributes.url)}
+                src={cloudinaryOptimize(recipe.PhotoMain_connection.data[1].attributes.url)}
                 alt={
-                  recipe.PhotoMain.data[1].attributes.alternativeText
-                    ? recipe.PhotoMain.data[1].attributes.alternativeText
+                  recipe.PhotoMain_connection.data[1].attributes.alternativeText
+                    ? recipe.PhotoMain_connection.data[1].attributes.alternativeText
                     : recipe.title
                 }
                 width="487"
@@ -255,10 +255,10 @@ export default function Recipe({ recipe, relatedRecipes }) {
 
             <NewsletterSignup />
 
-            {recipe.PhotoPinterest.data && recipe.PhotoPinterest.data.attributes.url && (
+            {recipe.PhotoPinterest?.data && recipe.PhotoPinterest?.data.attributes.url && (
               <Image
-                src={cloudinaryOptimize(recipe.PhotoPinterest.data.attributes.url)}
-                alt={recipe.PhotoPinterest.data.attributes.alternativeText}
+                src={cloudinaryOptimize(recipe.PhotoPinterest?.data.attributes.url)}
+                alt={recipe.PhotoPinterest?.data.attributes.alternativeText}
                 width="256"
                 height="370"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
@@ -266,7 +266,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
               />
             )}
 
-            {recipe.relatedProducts.data.length ? (
+            {recipe.relatedProducts_connection.data.length ? (
               <div>
                 <h2>Related Products</h2>
                 <p>
@@ -276,9 +276,9 @@ export default function Recipe({ recipe, relatedRecipes }) {
 
                 <div className={`${styles['related-product-cards']}`}>
                   {recipe &&
-                    recipe.relatedProducts &&
-                    recipe.relatedProducts.data &&
-                    recipe.relatedProducts.data.map((product) => (
+                    recipe.relatedProducts_connection &&
+                    recipe.relatedProducts_connection.data &&
+                    recipe.relatedProducts_connection.data.map((product) => (
                       <AmazonListingCard
                         key={product.attributes.AmazonASIN || product.attributes.ProductName}
                         productName={product.attributes.ProductName}
@@ -322,7 +322,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
 export async function getStaticPaths() {
   const { data } = await client.query({ query: GET_ALL_RECIPE_SLUGS });
 
-  const paths = data.recipes.data.map((recipe) => {
+  const paths = data.recipes_connection.data.map((recipe) => {
     return { params: { recipeUrlSlug: recipe.attributes.recipeUrlSlug } };
   });
 
@@ -338,7 +338,7 @@ export async function getStaticProps({ params }) {
     variables: { recipeUrlSlug: params.recipeUrlSlug },
   });
 
-  const attrs = data.recipes.data[0].attributes;
+  const attrs = data.recipes_connection.data[0].attributes;
 
   const allRecipesRes = await fetch(`${URL}/graphql`, {
     method: 'post',
@@ -347,7 +347,7 @@ export async function getStaticProps({ params }) {
   });
   const allRecipesData = await allRecipesRes.json();
 
-  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes.data);
+  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes_connection.data);
 
   return {
     props: {

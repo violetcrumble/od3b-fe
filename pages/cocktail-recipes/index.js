@@ -35,7 +35,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      recipes: data.data.recipes.data,
+      recipes: data.data.recipes_connection.data,
     },
   };
 }

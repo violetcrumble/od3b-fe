@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   try {
     const lookupRes = await fetch(
       `${URL}/api/recipes?filters[recipeUrlSlug][$eq]=${encodeURIComponent(slug)}&fields[0]=ratingCount&fields[1]=ratingTotal`,
-      { headers: { Authorization: `Bearer ${TOKEN}` } },
+      { headers: { Authorization: `Bearer ${TOKEN}`, 'Strapi-Response-Format': 'v4' } },
     );
     if (!lookupRes.ok) {
       const detail = await lookupRes.text().catch(() => '');
@@ -51,11 +51,12 @@ export default async function handler(req, res) {
     const ratingCount = isChange ? currentCount : currentCount + 1;
     const ratingTotal = Math.max(0, currentTotal + rating - (isChange ? previousRating : 0));
 
-    const updateRes = await fetch(`${URL}/api/recipes/${recipe.id}`, {
+    const updateRes = await fetch(`${URL}/api/recipes/${recipe.documentId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
         Authorization: `Bearer ${TOKEN}`,
+        'Strapi-Response-Format': 'v4',
       },
       body: JSON.stringify({ data: { ratingCount, ratingTotal } }),
     });

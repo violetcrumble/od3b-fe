@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_ALL_RECIPE_SLUGS = gql`
   query {
-    recipes(pagination: { limit: 300 }) {
+    recipes_connection(pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
@@ -15,19 +15,19 @@ const GET_ALL_RECIPE_SLUGS = gql`
 
 const GET_ALL_RECIPE_SUMMARIES = `
 query {
-  recipes(pagination: { limit: 300 }) {
+  recipes_connection(pagination: { limit: 300 }) {
     data {
       attributes {
         title
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -43,21 +43,21 @@ query {
 
 const GET_ALL_RECIPES = `
 query {
-  recipes(pagination: { limit: 300 }) {
+  recipes_connection(pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -73,11 +73,11 @@ query {
 
 const GET_ALL_TEQUILA_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "tequila" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "tequila" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -92,21 +92,21 @@ const GET_ALL_TEQUILA_RECIPE_SLUGS = gql`
 
 const GET_ALL_TEQUILA_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "tequila" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "tequila" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -122,11 +122,11 @@ query {
 
 const GET_ALL_MEZCAL_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "mezcal" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "mezcal" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -141,21 +141,21 @@ const GET_ALL_MEZCAL_RECIPE_SLUGS = gql`
 
 const GET_ALL_MEZCAL_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "mezcal" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "mezcal" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -171,11 +171,11 @@ query {
 
 const GET_ALL_WHISKEY_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "whiskey" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "whiskey" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -190,21 +190,21 @@ const GET_ALL_WHISKEY_RECIPE_SLUGS = gql`
 
 const GET_ALL_WHISKEY_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "whiskey" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "whiskey" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -220,11 +220,11 @@ query {
 
 const GET_ALL_RUM_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "rum" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "rum" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -239,21 +239,21 @@ const GET_ALL_RUM_RECIPE_SLUGS = gql`
 
 const GET_ALL_RUM_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "rum" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "rum" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -269,11 +269,11 @@ query {
 
 const GET_ALL_CACHACA_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "cachaça" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "cachaça" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -288,21 +288,21 @@ const GET_ALL_CACHACA_RECIPE_SLUGS = gql`
 
 const GET_ALL_CACHACA_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "cachaça" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "cachaça" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -318,11 +318,11 @@ query {
 
 const GET_ALL_GIN_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "gin" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "gin" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -337,21 +337,21 @@ const GET_ALL_GIN_RECIPE_SLUGS = gql`
 
 const GET_ALL_GIN_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "gin" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "gin" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -367,11 +367,11 @@ query {
 
 const GET_ALL_VODKA_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "vodka" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "vodka" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -386,21 +386,21 @@ const GET_ALL_VODKA_RECIPE_SLUGS = gql`
 
 const GET_ALL_VODKA_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "vodka" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "vodka" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {  
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -416,11 +416,11 @@ query {
 
 const GET_ALL_THC_RECIPE_SLUGS = gql`
   query {
-    recipes(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
+    recipes_connection(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
       data {
         attributes {
           recipeUrlSlug
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
@@ -435,21 +435,21 @@ const GET_ALL_THC_RECIPE_SLUGS = gql`
 
 const GET_ALL_THC_RECIPES = `
 query {
-  recipes(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
+  recipes_connection(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
     data {
       attributes {
         title
         ingredients
         recipebody
         recipeUrlSlug
-        spirits {
+        spirits_connection {
           data {
             attributes {
               spirit
             }
           }
         }
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -465,13 +465,13 @@ query {
 
 const GET_LATEST_RECIPES = `
 query {
-  recipes(pagination: { limit: 5 }, sort: "createdAt:desc") {
+  recipes_connection(pagination: { limit: 5 }, sort: "createdAt:desc") {
     data {
       attributes {
         title
         recipeUrlSlug
         createdAt
-        PhotoMain {
+        PhotoMain_connection {
           data {
             attributes {
               url
@@ -487,7 +487,7 @@ query {
 
 const GET_INDIVIDUAL_RECIPE = gql`
   query ($recipeUrlSlug: String!) {
-    recipes(filters: { recipeUrlSlug: { eq: $recipeUrlSlug } }) {
+    recipes_connection(filters: { recipeUrlSlug: { eq: $recipeUrlSlug } }) {
       data {
         attributes {
           title
@@ -503,14 +503,14 @@ const GET_INDIVIDUAL_RECIPE = gql`
           videoUploadDate
           ratingCount
           ratingTotal
-          spirits {
+          spirits_connection {
             data {
               attributes {
                 spirit
               }
             }
           }
-          PhotoMain {
+          PhotoMain_connection {
             data {
               attributes {
                 url
@@ -537,7 +537,7 @@ const GET_INDIVIDUAL_RECIPE = gql`
               }
             }
           }
-          relatedProducts {
+          relatedProducts_connection {
             data {
               attributes {
                 AmazonLink
@@ -555,7 +555,7 @@ const GET_INDIVIDUAL_RECIPE = gql`
 `;
 
 const GET_AMAZON_PRODUCTS = `
-query {products(pagination: { limit: 300 }) {
+query {products_connection(pagination: { limit: 300 }) {
   data {
     id
     attributes {
@@ -571,7 +571,7 @@ query {products(pagination: { limit: 300 }) {
 
 const GET_ALL_BLOG_SLUGS = gql`
   query {
-    blogPosts(pagination: { limit: 300 }) {
+    blogPosts_connection(pagination: { limit: 300 }) {
       data {
         attributes {
           urlSlug
@@ -582,7 +582,7 @@ const GET_ALL_BLOG_SLUGS = gql`
   }
 `;
 
-const GET_ALL_BLOG_POSTS = `{blogPosts(pagination: { limit: 300 }) {
+const GET_ALL_BLOG_POSTS = `{blogPosts_connection(pagination: { limit: 300 }) {
   data {
     attributes {
       urlSlug
@@ -597,7 +597,7 @@ const GET_ALL_BLOG_POSTS = `{blogPosts(pagination: { limit: 300 }) {
           }
         }
       }
-      blog_authors {
+      blog_authors_connection {
           data {
             attributes {
               AuthorName
@@ -610,7 +610,7 @@ const GET_ALL_BLOG_POSTS = `{blogPosts(pagination: { limit: 300 }) {
 
 const GET_BLOG_POST = gql`
   query ($urlSlug: String!) {
-    blogPosts(filters: { urlSlug: { eq: $urlSlug } }) {
+    blogPosts_connection(filters: { urlSlug: { eq: $urlSlug } }) {
       data {
         attributes {
           Title
@@ -636,7 +636,7 @@ const GET_BLOG_POST = gql`
               }
             }
           }
-          blog_authors {
+          blog_authors_connection {
             data {
               attributes {
                 AuthorName
@@ -652,7 +652,7 @@ const GET_BLOG_POST = gql`
 
 const GET_ALL_SPIRITS = gql`
   query ($urlSlug: String!) {
-    spirits {
+    spirits_connection {
       data {
         attributes {
           spirit

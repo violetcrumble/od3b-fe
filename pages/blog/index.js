@@ -23,7 +23,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      blogPosts: data.data.blogPosts.data,
+      blogPosts: data.data.blogPosts_connection.data,
     },
   };
 }

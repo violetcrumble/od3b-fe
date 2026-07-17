@@ -48,11 +48,11 @@ export async function getServerSideProps({ res }) {
     client.query({ query: GET_ALL_BLOG_SLUGS }),
   ]);
 
-  const recipes = recipesResult.data.recipes.data.map((recipe) => ({
+  const recipes = recipesResult.data.recipes_connection.data.map((recipe) => ({
     slug: recipe.attributes.recipeUrlSlug,
     updatedAt: recipe.attributes.updatedAt,
   }));
-  const blogPosts = blogResult.data.blogPosts.data.map((blogPost) => ({
+  const blogPosts = blogResult.data.blogPosts_connection.data.map((blogPost) => ({
     slug: blogPost.attributes.urlSlug,
     updatedAt: blogPost.attributes.updatedAt,
   }));

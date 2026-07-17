@@ -24,7 +24,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      products: data.data.products.data,
+      products: data.data.products_connection.data,
     },
   };
 }

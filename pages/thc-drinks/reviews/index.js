@@ -25,7 +25,9 @@ export async function getStaticProps() {
   const res = await fetch(`${URL}/graphql`, fetchParams);
   const data = await res.json();
 
-  const reviews = data.data.blogPosts.data.filter((post) => THC_REVIEW_SLUGS.includes(post.attributes.urlSlug));
+  const reviews = data.data.blogPosts_connection.data.filter((post) =>
+    THC_REVIEW_SLUGS.includes(post.attributes.urlSlug),
+  );
 
   return {
     props: {
