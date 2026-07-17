@@ -10,7 +10,6 @@ import ThcAffiliateCTAs from '../../../components/ThcAffiliateCTAs/ThcAffiliateC
 import ReviewRatingBadge from '../../../components/ReviewRatingBadge/ReviewRatingBadge';
 import ReviewVerdictBox from '../../../components/ReviewVerdictBox/ReviewVerdictBox';
 import ReviewProsCons from '../../../components/ReviewProsCons/ReviewProsCons';
-import AffiliateCard from '../../../components/AffiliateCard/AffiliateCard';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import cloudinaryOptimize from '../../../utils/cloudinaryOptimize';
 import SITE_URL from '../../../utils/siteUrl';
@@ -121,21 +120,6 @@ export default function Review({ review }) {
         </div>
 
         <div className={`${styles['sidebar']}`}>
-          <div className={styles['product-panel']}>
-            <AffiliateCard
-              name={review.productName}
-              photoUrl={listingImageUrl}
-              buyUrl={review.buyUrl}
-              buyLabel={review.buyLabel || 'Buy Now'}
-              medium="review_product_panel"
-              campaign={review.reviewUrlSlug}
-              content="buy_cta"
-            >
-              {(review.priceLabel || review.price) && (
-                <p className={styles.price}>{review.priceLabel || `$${review.price}`}</p>
-              )}
-            </AffiliateCard>
-          </div>
           <ThcAffiliateCTAs campaign={review.reviewUrlSlug} />
           <NewsletterSignup />
         </div>
