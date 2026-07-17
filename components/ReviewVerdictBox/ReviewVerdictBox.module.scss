@@ -1,0 +1,19 @@
+@use '../../styles/colors';
+
+.verdict-box {
+  background-color: colors.$white;
+  border: 1px solid colors.$brand-teal-100;
+  border-left: 4px solid colors.$brand-purple;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 0 24px;
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+  }
+
+  p {
+    margin: 0;
+  }
+}

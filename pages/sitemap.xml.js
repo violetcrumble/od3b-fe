@@ -1,7 +1,7 @@
 // pages/sitemap.xml.js
 
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS } from '../graphql/queries';
+import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS, GET_ALL_REVIEW_SLUGS } from '../graphql/queries';
 
 const URL = 'https://www.cocktailunderground.com';
 const STRAPI_URL = process.env.STRAPIBASEURL;
@@ -27,12 +27,13 @@ function urlEntry(loc, lastmod) {
   return `  <url>\n    <loc>${loc}</loc>\n${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}  </url>`;
 }
 
-function generateSiteMap(recipes, blogPosts) {
+function generateSiteMap(recipes, blogPosts, reviews) {
   const entries = [
     urlEntry(URL),
     ...STATIC_PATHS.map((path) => urlEntry(`${URL}/${path}`)),
     ...recipes.map((recipe) => urlEntry(`${URL}/cocktail-recipes/${recipe.slug}`, recipe.updatedAt)),
     ...blogPosts.map((post) => urlEntry(`${URL}/blog/${post.slug}`, post.updatedAt)),
+    ...reviews.map((review) => urlEntry(`${URL}/thc-drinks/reviews/${review.slug}`, review.updatedAt)),
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -43,9 +44,10 @@ ${entries.join('\n')}
 }
 
 export async function getServerSideProps({ res }) {
-  const [recipesResult, blogResult] = await Promise.all([
+  const [recipesResult, blogResult, reviewsResult] = await Promise.all([
     client.query({ query: GET_ALL_RECIPE_SLUGS }),
     client.query({ query: GET_ALL_BLOG_SLUGS }),
+    client.query({ query: GET_ALL_REVIEW_SLUGS }),
   ]);
 
   const recipes = recipesResult.data.recipes_connection.data.map((recipe) => ({
@@ -56,8 +58,12 @@ export async function getServerSideProps({ res }) {
     slug: blogPost.attributes.urlSlug,
     updatedAt: blogPost.attributes.updatedAt,
   }));
+  const reviews = reviewsResult.data.reviews_connection.data.map((review) => ({
+    slug: review.attributes.reviewUrlSlug,
+    updatedAt: review.attributes.updatedAt,
+  }));
 
-  const sitemap = generateSiteMap(recipes, blogPosts);
+  const sitemap = generateSiteMap(recipes, blogPosts, reviews);
 
   res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);

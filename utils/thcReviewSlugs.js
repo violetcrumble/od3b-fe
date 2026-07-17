@@ -1,10 +1,6 @@
-// Blog post slugs that make up the THC reviews section.
-// Add new review slugs here and they appear on /thc-drinks and /thc-drinks/reviews
-// once the post is published in Strapi (and the site is redeployed).
-const THC_REVIEW_SLUGS = [
-  'crescent-9-thc-seltzer',
-  'is-willies-remedy-legal-thc-drinks-explained',
-  'willies-remedy-review',
-];
+// Blog post slugs for THC reviews that haven't been migrated to the dedicated
+// `review` Strapi content type yet. Migrated reviews (e.g. crescent-9-thc-seltzer)
+// come from the reviews_connection query instead and are removed from this list.
+const THC_REVIEW_SLUGS = ['is-willies-remedy-legal-thc-drinks-explained', 'willies-remedy-review'];
 
 export default THC_REVIEW_SLUGS;

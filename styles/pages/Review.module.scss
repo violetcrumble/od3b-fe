@@ -1,0 +1,45 @@
+@use '../colors';
+@use '../grids';
+
+.review-page {
+  padding-top: 40px;
+
+  h2,
+  h3 {
+    color: colors.$brand-teal;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p {
+    max-width: 1000px;
+  }
+
+  img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+    float: right;
+    margin: 0 0 16px 24px;
+  }
+
+  @media screen and (max-width: 600px) {
+    img {
+      max-width: 100%;
+      float: none;
+      margin: 0 0 16px;
+    }
+  }
+
+  @media (min-width: grids.$breakpoint-md) {
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+      width: 30%;
+    }
+    .review-content {
+      width: 66%;
+    }
+  }
+}

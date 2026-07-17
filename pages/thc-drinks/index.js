@@ -3,8 +3,9 @@ import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
+import ReviewListingCard from '../../components/Cards/ReviewListingCard/ReviewListingCard';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
-import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS } from '../../graphql/queries';
+import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS, GET_ALL_REVIEWS } from '../../graphql/queries';
 import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
 import THC_REVIEW_SLUGS from '../../utils/thcReviewSlugs';
 import SITE_URL from '../../utils/siteUrl';
@@ -21,25 +22,30 @@ export async function getStaticProps() {
     body: JSON.stringify({ query }),
   });
 
-  const [recipesRes, blogRes] = await Promise.all([
+  const [recipesRes, blogRes, reviewsRes] = await Promise.all([
     fetch(`${URL}/graphql`, fetchParams(GET_ALL_THC_RECIPES)),
     fetch(`${URL}/graphql`, fetchParams(GET_ALL_BLOG_POSTS)),
+    fetch(`${URL}/graphql`, fetchParams(GET_ALL_REVIEWS)),
   ]);
   const data = await recipesRes.json();
   const blogData = await blogRes.json();
+  const reviewsData = await reviewsRes.json();
 
   const guides = blogData.data.blogPosts_connection.data.filter((post) =>
     THC_GUIDE_SLUGS.includes(post.attributes.urlSlug),
   );
-  const reviews = blogData.data.blogPosts_connection.data.filter((post) =>
-    THC_REVIEW_SLUGS.includes(post.attributes.urlSlug),
-  );
+  // Reviews already migrated to the dedicated `review` content type, plus the
+  // remaining ones still living as blog posts (see utils/thcReviewSlugs.js).
+  const migratedReviews = reviewsData.data.reviews_connection.data.map((review) => ({ type: 'review', review }));
+  const blogReviews = blogData.data.blogPosts_connection.data
+    .filter((post) => THC_REVIEW_SLUGS.includes(post.attributes.urlSlug))
+    .map((blogPost) => ({ type: 'blogReview', blogPost }));
 
   return {
     props: {
       recipes: data.data.recipes_connection.data.slice(0, 3),
       guides,
-      reviews,
+      reviews: [...migratedReviews, ...blogReviews],
     },
   };
 }
@@ -62,11 +68,25 @@ export default function THCMain({ recipes, guides, reviews }) {
 
         <h2 className="text-brand-teal">THC Drink Reviews</h2>
         <div className="listings-3-col">
-          {reviews.map((review) => (
-            <Link className="listing-card" key={review.attributes.urlSlug} href={`/blog/${review.attributes.urlSlug}`}>
-              <BlogListingCard blogPost={review} />
-            </Link>
-          ))}
+          {reviews.map((item) =>
+            item.type === 'review' ? (
+              <Link
+                className="listing-card"
+                key={item.review.attributes.reviewUrlSlug}
+                href={`/thc-drinks/reviews/${item.review.attributes.reviewUrlSlug}`}
+              >
+                <ReviewListingCard review={item.review} />
+              </Link>
+            ) : (
+              <Link
+                className="listing-card"
+                key={item.blogPost.attributes.urlSlug}
+                href={`/blog/${item.blogPost.attributes.urlSlug}`}
+              >
+                <BlogListingCard blogPost={item.blogPost} />
+              </Link>
+            ),
+          )}
           <div className="listing-card"></div>
         </div>
         <Link href="/thc-drinks/reviews">

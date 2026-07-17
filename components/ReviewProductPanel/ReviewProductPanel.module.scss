@@ -1,0 +1,52 @@
+@use '../../styles/colors';
+
+.product-panel {
+  background-color: colors.$white;
+  border: 1px solid colors.$brand-teal-100;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 0 20px;
+
+  .photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0 0 16px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+
+  .price {
+    font-weight: bold;
+    margin: 0 0 4px;
+  }
+
+  .where-to-buy {
+    color: colors.$gray-darker;
+    margin: 0 0 16px;
+  }
+
+  a:link,
+  a:visited {
+    display: block;
+    background-color: colors.$brand-purple;
+    color: colors.$white;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 24px;
+    font-weight: bold;
+  }
+
+  a:hover,
+  a:active {
+    background-color: colors.$brand-purple-300;
+  }
+}

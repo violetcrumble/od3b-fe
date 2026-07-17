@@ -1,0 +1,28 @@
+@use '../../styles/colors';
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+
+  .stars {
+    display: flex;
+  }
+
+  .star {
+    font-size: 28px;
+    line-height: 1;
+    color: colors.$gray;
+
+    &.filled {
+      color: colors.$brand-orange;
+    }
+  }
+
+  .score {
+    color: colors.$gray-darker;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}

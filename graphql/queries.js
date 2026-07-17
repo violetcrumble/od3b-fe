@@ -650,6 +650,111 @@ const GET_BLOG_POST = gql`
   }
 `;
 
+const GET_ALL_REVIEW_SLUGS = gql`
+  query {
+    reviews_connection(pagination: { limit: 300 }) {
+      data {
+        attributes {
+          reviewUrlSlug
+          updatedAt
+        }
+      }
+    }
+  }
+`;
+
+const GET_ALL_REVIEWS = `{reviews_connection(pagination: { limit: 300 }) {
+  data {
+    attributes {
+      reviewUrlSlug
+      title
+      productName
+      reviewDate
+      previewSnippet
+      rating
+      listingCardImage {
+        data {
+          attributes {
+            url
+            caption
+          }
+        }
+      }
+      review_authors_connection {
+        data {
+          attributes {
+            AuthorName
+          }
+        }
+      }
+    }
+  }
+}}`;
+
+const GET_REVIEW = gql`
+  query ($reviewUrlSlug: String!) {
+    reviews_connection(filters: { reviewUrlSlug: { eq: $reviewUrlSlug } }) {
+      data {
+        attributes {
+          title
+          productName
+          reviewUrlSlug
+          reviewDate
+          updatedAt
+          reviewBody
+          previewSnippet
+          verdict
+          rating
+          pros
+          cons
+          price
+          priceLabel
+          buyUrl
+          buyLabel
+          whereToBuy
+          seoKeywords
+          seoDescription
+          listingCardImage {
+            data {
+              attributes {
+                url
+                caption
+                alternativeText
+              }
+            }
+          }
+          ogImage {
+            data {
+              attributes {
+                url
+                caption
+              }
+            }
+          }
+          review_authors_connection {
+            data {
+              attributes {
+                AuthorName
+              }
+            }
+          }
+          relatedProducts_connection {
+            data {
+              attributes {
+                AmazonLink
+                AmazonASIN
+                AmazonPhotoURL
+                ProductName
+                ProductCategory
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 const GET_ALL_SPIRITS = gql`
   query ($urlSlug: String!) {
     spirits_connection {
@@ -689,4 +794,7 @@ export {
   GET_ALL_BLOG_POSTS,
   GET_BLOG_POST,
   GET_ALL_SPIRITS,
+  GET_ALL_REVIEW_SLUGS,
+  GET_ALL_REVIEWS,
+  GET_REVIEW,
 };

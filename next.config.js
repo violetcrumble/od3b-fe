@@ -51,6 +51,11 @@ const nextConfig = {
         destination: 'https://www.cocktailunderground.com/:path*',
         permanent: true,
       },
+      {
+        source: '/blog/crescent-9-thc-seltzer',
+        destination: '/thc-drinks/reviews/crescent-9-thc-seltzer',
+        permanent: true,
+      },
     ];
   },
 };
