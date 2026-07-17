@@ -6,7 +6,6 @@ import ListingCard from '../../components/Cards/ListingCard/ListingCard';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS, GET_ALL_REVIEWS } from '../../graphql/queries';
 import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
-import THC_REVIEW_SLUGS from '../../utils/thcReviewSlugs';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/THC.module.scss';
 
@@ -33,18 +32,12 @@ export async function getStaticProps() {
   const guides = blogData.data.blogPosts_connection.data.filter((post) =>
     THC_GUIDE_SLUGS.includes(post.attributes.urlSlug),
   );
-  // Reviews already migrated to the dedicated `review` content type, plus the
-  // remaining ones still living as blog posts (see utils/thcReviewSlugs.js).
-  const migratedReviews = reviewsData.data.reviews_connection.data.map((review) => ({ type: 'review', review }));
-  const blogReviews = blogData.data.blogPosts_connection.data
-    .filter((post) => THC_REVIEW_SLUGS.includes(post.attributes.urlSlug))
-    .map((blogPost) => ({ type: 'blogReview', blogPost }));
 
   return {
     props: {
       recipes: data.data.recipes_connection.data.slice(0, 3),
       guides,
-      reviews: [...migratedReviews, ...blogReviews],
+      reviews: reviewsData.data.reviews_connection.data,
     },
   };
 }
@@ -67,40 +60,23 @@ export default function THCMain({ recipes, guides, reviews }) {
 
         <h2 className="text-brand-teal">THC Drink Reviews</h2>
         <div className="listings-3-col">
-          {reviews.map((item) =>
-            item.type === 'review' ? (
-              <Link
-                className="listing-card"
-                key={item.review.attributes.reviewUrlSlug}
-                href={`/thc-drinks/reviews/${item.review.attributes.reviewUrlSlug}`}
-              >
-                <ListingCard
-                  title={item.review.attributes.title}
-                  authorName={item.review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
-                  date={item.review.attributes.reviewDate}
-                  imageUrl={item.review.attributes.listingCardImage?.data?.attributes.url}
-                  imageCaption={item.review.attributes.listingCardImage?.data?.attributes.caption}
-                  snippet={item.review.attributes.previewSnippet}
-                  rating={item.review.attributes.rating}
-                />
-              </Link>
-            ) : (
-              <Link
-                className="listing-card"
-                key={item.blogPost.attributes.urlSlug}
-                href={`/blog/${item.blogPost.attributes.urlSlug}`}
-              >
-                <ListingCard
-                  title={item.blogPost.attributes.Title}
-                  authorName={item.blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName}
-                  date={item.blogPost.attributes.Date}
-                  imageUrl={item.blogPost.attributes.ListingCardImage?.data?.attributes.url}
-                  imageCaption={item.blogPost.attributes.ListingCardImage?.data?.attributes.caption}
-                  snippet={item.blogPost.attributes.TextPreviewSnippet}
-                />
-              </Link>
-            ),
-          )}
+          {reviews.map((review) => (
+            <Link
+              className="listing-card"
+              key={review.attributes.reviewUrlSlug}
+              href={`/thc-drinks/reviews/${review.attributes.reviewUrlSlug}`}
+            >
+              <ListingCard
+                title={review.attributes.title}
+                authorName={review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
+                date={review.attributes.reviewDate}
+                imageUrl={review.attributes.listingCardImage?.data?.attributes.url}
+                imageCaption={review.attributes.listingCardImage?.data?.attributes.caption}
+                snippet={review.attributes.previewSnippet}
+                rating={review.attributes.rating}
+              />
+            </Link>
+          ))}
           <div className="listing-card"></div>
         </div>
         <Link href="/thc-drinks/reviews">

@@ -3,8 +3,7 @@ import Link from 'next/link';
 import ContentWrapper from '../../../components/ContentWrapper';
 import ListingCard from '../../../components/Cards/ListingCard/ListingCard';
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
-import { GET_ALL_BLOG_POSTS, GET_ALL_REVIEWS } from '../../../graphql/queries';
-import THC_REVIEW_SLUGS from '../../../utils/thcReviewSlugs';
+import { GET_ALL_REVIEWS } from '../../../graphql/queries';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/THC.module.scss';
@@ -12,31 +11,18 @@ import styles from '../../../styles/pages/THC.module.scss';
 const URL = process.env.STRAPIBASEURL;
 
 export async function getStaticProps() {
-  const fetchParams = (query) => ({
+  const res = await fetch(`${URL}/graphql`, {
     method: 'post',
     headers: {
       'content-type': 'application/json',
     },
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ query: GET_ALL_REVIEWS }),
   });
-
-  const [blogRes, reviewsRes] = await Promise.all([
-    fetch(`${URL}/graphql`, fetchParams(GET_ALL_BLOG_POSTS)),
-    fetch(`${URL}/graphql`, fetchParams(GET_ALL_REVIEWS)),
-  ]);
-  const blogData = await blogRes.json();
-  const reviewsData = await reviewsRes.json();
-
-  // Reviews already migrated to the dedicated `review` content type, plus the
-  // remaining ones still living as blog posts (see utils/thcReviewSlugs.js).
-  const migratedReviews = reviewsData.data.reviews_connection.data.map((review) => ({ type: 'review', review }));
-  const blogReviews = blogData.data.blogPosts_connection.data
-    .filter((post) => THC_REVIEW_SLUGS.includes(post.attributes.urlSlug))
-    .map((blogPost) => ({ type: 'blogReview', blogPost }));
+  const data = await res.json();
 
   return {
     props: {
-      reviews: [...migratedReviews, ...blogReviews],
+      reviews: data.data.reviews_connection.data,
     },
   };
 }
@@ -74,40 +60,23 @@ export default function THCReviews({ reviews }) {
         <h2 className="sr-only">Reviews</h2>
 
         <div className="listings-3-col">
-          {reviews.map((item) =>
-            item.type === 'review' ? (
-              <Link
-                className="listing-card"
-                key={item.review.attributes.reviewUrlSlug}
-                href={`/thc-drinks/reviews/${item.review.attributes.reviewUrlSlug}`}
-              >
-                <ListingCard
-                  title={item.review.attributes.title}
-                  authorName={item.review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
-                  date={item.review.attributes.reviewDate}
-                  imageUrl={item.review.attributes.listingCardImage?.data?.attributes.url}
-                  imageCaption={item.review.attributes.listingCardImage?.data?.attributes.caption}
-                  snippet={item.review.attributes.previewSnippet}
-                  rating={item.review.attributes.rating}
-                />
-              </Link>
-            ) : (
-              <Link
-                className="listing-card"
-                key={item.blogPost.attributes.urlSlug}
-                href={`/blog/${item.blogPost.attributes.urlSlug}`}
-              >
-                <ListingCard
-                  title={item.blogPost.attributes.Title}
-                  authorName={item.blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName}
-                  date={item.blogPost.attributes.Date}
-                  imageUrl={item.blogPost.attributes.ListingCardImage?.data?.attributes.url}
-                  imageCaption={item.blogPost.attributes.ListingCardImage?.data?.attributes.caption}
-                  snippet={item.blogPost.attributes.TextPreviewSnippet}
-                />
-              </Link>
-            ),
-          )}
+          {reviews.map((review) => (
+            <Link
+              className="listing-card"
+              key={review.attributes.reviewUrlSlug}
+              href={`/thc-drinks/reviews/${review.attributes.reviewUrlSlug}`}
+            >
+              <ListingCard
+                title={review.attributes.title}
+                authorName={review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
+                date={review.attributes.reviewDate}
+                imageUrl={review.attributes.listingCardImage?.data?.attributes.url}
+                imageCaption={review.attributes.listingCardImage?.data?.attributes.caption}
+                snippet={review.attributes.previewSnippet}
+                rating={review.attributes.rating}
+              />
+            </Link>
+          ))}
           <div className="listing-card">
             <NewsletterSignup />
           </div>
