@@ -704,6 +704,7 @@ const GET_REVIEW = gql`
           reviewBody
           previewSnippet
           verdict
+          disclaimer
           rating
           pros
           cons

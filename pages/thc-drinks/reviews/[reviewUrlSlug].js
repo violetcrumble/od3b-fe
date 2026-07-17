@@ -116,6 +116,8 @@ export default function Review({ review }) {
           <Markdown components={markdownLinkComponents}>{review.reviewBody}</Markdown>
 
           <ReviewProsCons pros={review.pros?.items || []} cons={review.cons?.items || []} />
+
+          {review.disclaimer && <p className={styles.disclaimer}>{review.disclaimer}</p>}
         </div>
 
         <div className={`${styles['sidebar']}`}>
