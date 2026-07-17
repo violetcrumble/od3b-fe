@@ -56,6 +56,11 @@ const nextConfig = {
         destination: '/thc-drinks/reviews/crescent-9-thc-seltzer',
         permanent: true,
       },
+      {
+        source: '/blog/willies-remedy-review',
+        destination: '/thc-drinks/reviews/willies-remedy-review',
+        permanent: true,
+      },
     ];
   },
 };
