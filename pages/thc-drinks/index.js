@@ -2,8 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
-import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
-import ReviewListingCard from '../../components/Cards/ReviewListingCard/ReviewListingCard';
+import ListingCard from '../../components/Cards/ListingCard/ListingCard';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS, GET_ALL_REVIEWS } from '../../graphql/queries';
 import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
@@ -75,7 +74,15 @@ export default function THCMain({ recipes, guides, reviews }) {
                 key={item.review.attributes.reviewUrlSlug}
                 href={`/thc-drinks/reviews/${item.review.attributes.reviewUrlSlug}`}
               >
-                <ReviewListingCard review={item.review} />
+                <ListingCard
+                  title={item.review.attributes.title}
+                  authorName={item.review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
+                  date={item.review.attributes.reviewDate}
+                  imageUrl={item.review.attributes.listingCardImage?.data?.attributes.url}
+                  imageCaption={item.review.attributes.listingCardImage?.data?.attributes.caption}
+                  snippet={item.review.attributes.previewSnippet}
+                  rating={item.review.attributes.rating}
+                />
               </Link>
             ) : (
               <Link
@@ -83,7 +90,14 @@ export default function THCMain({ recipes, guides, reviews }) {
                 key={item.blogPost.attributes.urlSlug}
                 href={`/blog/${item.blogPost.attributes.urlSlug}`}
               >
-                <BlogListingCard blogPost={item.blogPost} />
+                <ListingCard
+                  title={item.blogPost.attributes.Title}
+                  authorName={item.blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName}
+                  date={item.blogPost.attributes.Date}
+                  imageUrl={item.blogPost.attributes.ListingCardImage?.data?.attributes.url}
+                  imageCaption={item.blogPost.attributes.ListingCardImage?.data?.attributes.caption}
+                  snippet={item.blogPost.attributes.TextPreviewSnippet}
+                />
               </Link>
             ),
           )}
@@ -124,7 +138,14 @@ export default function THCMain({ recipes, guides, reviews }) {
                   key={guide.attributes.urlSlug}
                   href={`/blog/${guide.attributes.urlSlug}`}
                 >
-                  <BlogListingCard blogPost={guide} />
+                  <ListingCard
+                    title={guide.attributes.Title}
+                    authorName={guide.attributes.blog_authors_connection.data[0].attributes.AuthorName}
+                    date={guide.attributes.Date}
+                    imageUrl={guide.attributes.ListingCardImage?.data?.attributes.url}
+                    imageCaption={guide.attributes.ListingCardImage?.data?.attributes.caption}
+                    snippet={guide.attributes.TextPreviewSnippet}
+                  />
                 </Link>
               ))}
             </div>

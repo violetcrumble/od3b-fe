@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../../components/ContentWrapper';
-import BlogListingCard from '../../../components/Cards/BlogListingCard/BlogListingCard';
+import ListingCard from '../../../components/Cards/ListingCard/ListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../../graphql/queries';
 import THC_GUIDE_SLUGS from '../../../utils/thcGuideSlugs';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
@@ -71,7 +71,14 @@ export default function THCGuides({ guides }) {
         <div className="listings-3-col">
           {guides.map((guide) => (
             <Link className="listing-card" key={guide.attributes.urlSlug} href={`/blog/${guide.attributes.urlSlug}`}>
-              <BlogListingCard blogPost={guide} />
+              <ListingCard
+                title={guide.attributes.Title}
+                authorName={guide.attributes.blog_authors_connection.data[0].attributes.AuthorName}
+                date={guide.attributes.Date}
+                imageUrl={guide.attributes.ListingCardImage?.data?.attributes.url}
+                imageCaption={guide.attributes.ListingCardImage?.data?.attributes.caption}
+                snippet={guide.attributes.TextPreviewSnippet}
+              />
             </Link>
           ))}
         </div>

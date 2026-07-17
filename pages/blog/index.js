@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
+import ListingCard from '../../components/Cards/ListingCard/ListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
 import SITE_URL from '../../utils/siteUrl';
 
@@ -63,7 +63,14 @@ export default function BlogListing({ blogPosts }) {
               key={blogPost.attributes.urlSlug}
               href={`/blog/${blogPost.attributes.urlSlug}`}
             >
-              <BlogListingCard blogPost={blogPost} />
+              <ListingCard
+                title={blogPost.attributes.Title}
+                authorName={blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName}
+                date={blogPost.attributes.Date}
+                imageUrl={blogPost.attributes.ListingCardImage?.data?.attributes.url}
+                imageCaption={blogPost.attributes.ListingCardImage?.data?.attributes.caption}
+                snippet={blogPost.attributes.TextPreviewSnippet}
+              />
             </Link>
           ))}
 
