@@ -7,8 +7,6 @@ import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
-import { sendGTMEvent } from '@next/third-parties/google';
-import videoOverlayGraphic from '../../public/video-overlay.gif';
 import getArticle from '../../utils/getArticle';
 import cloudinaryOptimize from '../../utils/cloudinaryOptimize';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
@@ -31,7 +29,19 @@ const markdownLinkComponents = {
   a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />,
 };
 
+// Multiple recipes often share one video at different timestamps (?t=137 or ?t=183s).
+function getYouTubeStartSeconds(youTubeLink) {
+  if (!youTubeLink) return null;
+  const match = youTubeLink.match(/[?&]t=(\d+)/);
+  return match ? parseInt(match[1], 10) : null;
+}
+
 export default function Recipe({ recipe, relatedRecipes }) {
+  const youTubeStartSeconds = getYouTubeStartSeconds(recipe.YouTubeLink);
+  const youTubeEmbedUrl = recipe.youTubeID
+    ? `https://www.youtube-nocookie.com/embed/${recipe.youTubeID}${youTubeStartSeconds ? `?start=${youTubeStartSeconds}` : ''}`
+    : null;
+
   function addRecipeJsonLd() {
     const jsonLd = {
       '@context': 'https://schema.org/',
@@ -54,6 +64,7 @@ export default function Recipe({ recipe, relatedRecipes }) {
             name: `How to make ${getArticle(recipe.title)}${recipe.title}`,
             description: recipe.recipebody,
             contentUrl: recipe.YouTubeLink,
+            ...(youTubeEmbedUrl && { embedUrl: youTubeEmbedUrl }),
             ...(recipe.videoUploadDate && {
               uploadDate: recipe.videoUploadDate,
             }),
@@ -143,37 +154,16 @@ export default function Recipe({ recipe, relatedRecipes }) {
               <Markdown components={markdownLinkComponents}>{recipe.ingredients}</Markdown>
             </div>
 
-            {/* show video thumbnail with overlay if we have it */}
-            {recipe.YouTubeLink && recipe.videoThumbnail?.data && recipe.videoThumbnail?.data.attributes.url && (
-              <div className={`${styles['video-thumbnail-container']}`}>
-                <Link
-                  href={recipe.YouTubeLink}
-                  onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
-                  target="_blank"
-                >
-                  <Image
-                    src={cloudinaryOptimize(recipe.videoThumbnail?.data.attributes.url)}
-                    alt={
-                      recipe.videoThumbnail?.data.attributes.alternativeText
-                        ? recipe.videoThumbnail?.data.attributes.alternativeText
-                        : recipe.title
-                    }
-                    style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-                    width="1200"
-                    height="675"
-                    sizes="(min-width: 1600px) 800px, (min-width: 768px) 50vw, 90vw"
-                  />
-                  <Image
-                    src={videoOverlayGraphic.src}
-                    alt=""
-                    style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-                    width="1200"
-                    height="675"
-                    className={`${styles['video-overlay']}`}
-                    sizes="(min-width: 1600px) 800px, (min-width: 768px) 50vw, 90vw"
-                  />
-                </Link>
-                <br />
+            {/* real embedded player, not a link-out — required for Google video indexing */}
+            {youTubeEmbedUrl && (
+              <div className={`${styles['video-embed-container']}`}>
+                <iframe
+                  src={youTubeEmbedUrl}
+                  title={`How to make ${getArticle(recipe.title)}${recipe.title}`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             )}
 
@@ -201,20 +191,6 @@ export default function Recipe({ recipe, relatedRecipes }) {
               </div>
             )}
 
-            {/* show button if no video thumbnail is uploaded */}
-            {recipe.YouTubeLink && !recipe.videoThumbnail?.data && (
-              <>
-                <br />
-                <Link
-                  className="youtube-button"
-                  href={recipe.YouTubeLink}
-                  onClick={() => sendGTMEvent({ event: 'conversion', value: recipe.title })}
-                  target="_blank"
-                >
-                  Watch YouTube Video
-                </Link>
-              </>
-            )}
             {recipe.RecipeIntro && (
               <div className="recipe-intro">
                 <Markdown components={markdownLinkComponents}>{recipe.RecipeIntro}</Markdown>
