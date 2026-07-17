@@ -1,5 +1,5 @@
-@use 'styles/colors';
-@use 'styles/grids';
+@use '../../styles/colors';
+@use '../../styles/grids';
 
 .footer {
   background-color: colors.$black;

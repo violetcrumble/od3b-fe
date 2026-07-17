@@ -1,0 +1,39 @@
+@use '../../styles/colors';
+
+.newsletter-signup {
+  background-color: colors.$brand-teal-50;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 40px 0;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  input {
+    flex: 1 1 240px;
+    padding: 10px;
+    border: 1px solid colors.$brand-teal-100;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+}
+
+.success {
+  color: colors.$brand-teal;
+  font-weight: bold;
+}
+
+.error {
+  color: colors.$brand-orange-900;
+}

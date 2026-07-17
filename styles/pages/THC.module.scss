@@ -1,0 +1,19 @@
+@use '../../styles/colors';
+
+.thc-page {
+  padding-top: 40px;
+
+  h2 {
+    margin-top: 40px;
+  }
+
+  button {
+    margin: 16px 0 8px;
+  }
+
+  .legal-note {
+    margin-top: 40px;
+    color: colors.$gray-darker;
+    font-size: 0.9rem;
+  }
+}

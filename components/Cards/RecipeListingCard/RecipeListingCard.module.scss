@@ -1,4 +1,4 @@
-@use 'styles/colors';
+@use '../../../styles/colors';
 
 .recipe-listing-card {
   box-shadow:
@@ -13,9 +13,10 @@
   text-decoration: none;
 
   .recipeInfo {
-    h6 {
+    h3 {
       color: colors.$brand-teal;
       margin: 16px 0;
+      font-size: 20px;
     }
   }
 }

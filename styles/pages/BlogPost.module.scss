@@ -1,7 +1,9 @@
-@use 'styles/colors';
+@use '../../styles/colors';
+@use '../../styles/grids';
 
 .blog-post-page {
   padding-top: 40px;
+
   h2,
   h3 {
     color: colors.$brand-teal;
@@ -12,7 +14,32 @@
   p {
     max-width: 1000px;
   }
+
   img {
-    width: 100%;
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+    float: right;
+    margin: 0 0 16px 24px;
+  }
+
+  @media screen and (max-width: 600px) {
+    img {
+      max-width: 100%;
+      float: none;
+      margin: 0 0 16px;
+    }
+  }
+
+  @media (min-width: grids.$breakpoint-md) {
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+      width: 30%;
+    }
+    .blog-post-content {
+      width: 66%;
+    }
   }
 }

@@ -4,12 +4,18 @@ import styles from './AmazonListingCard.module.scss';
 export default function AmazonListingCard(props) {
   return (
     <div className={`${styles['amazon-listing-card']} listing-card`}>
-      <h6 className={`${styles['product-name']} text-brand-teal`}>{props.productName}</h6>
+      <h3 className={`${styles['product-name']} text-brand-teal`}>{props.productName}</h3>
 
       <div className={`${styles['product-pic']}`}>
         {props.amazonPhotoURL && (
           <div className="imageWrapper">
-            <Image alt={props.productName} border="0" fill src={props.amazonPhotoURL} />
+            <Image
+              alt={props.productName}
+              border="0"
+              fill
+              sizes="(max-width: 600px) 100vw, (max-width: 900px) 48vw, 30vw"
+              src={props.amazonPhotoURL}
+            />
           </div>
         )}
         {/* <img src={`https://ir-na.amazon-adsystem.com/e/ir?t=onedrinkthree-20&language=en_US&l=li2&o=1&a=${props.amazonASIN}`} width="1" height="1" border="0" alt="" /> */}

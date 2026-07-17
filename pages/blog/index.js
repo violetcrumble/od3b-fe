@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
+import ListingCard from '../../components/Cards/ListingCard/ListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
+import SITE_URL from '../../utils/siteUrl';
 
 const URL = process.env.STRAPIBASEURL;
 
@@ -22,7 +23,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      blogPosts: data.data.blogPosts.data,
+      blogPosts: data.data.blogPosts_connection.data,
     },
   };
 }
@@ -44,6 +45,7 @@ export default function BlogListing({ blogPosts }) {
           content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/blog`} />
         <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
         <meta
           property="og:description"
@@ -51,18 +53,30 @@ export default function BlogListing({ blogPosts }) {
         />
       </Head>
 
-      <main className="constrained-content">
+      <div className="constrained-content">
         <h1 className="text-brand-purple">Cocktail Blog Posts and Articles</h1>
+        <h2 className="sr-only">Articles</h2>
         <div className="listings-3-col">
-          {sortedBlogPosts.map((blogPost, index) => (
-            <Link className="listing-card" key={index} href={`/blog/${blogPost.attributes.urlSlug}`} rel="canonical">
-              <BlogListingCard blogPost={blogPost} />
+          {sortedBlogPosts.map((blogPost) => (
+            <Link
+              className="listing-card"
+              key={blogPost.attributes.urlSlug}
+              href={`/blog/${blogPost.attributes.urlSlug}`}
+            >
+              <ListingCard
+                title={blogPost.attributes.Title}
+                authorName={blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName}
+                date={blogPost.attributes.Date}
+                imageUrl={blogPost.attributes.ListingCardImage?.data?.attributes.url}
+                imageCaption={blogPost.attributes.ListingCardImage?.data?.attributes.caption}
+                snippet={blogPost.attributes.TextPreviewSnippet}
+              />
             </Link>
           ))}
 
           <div className="listing-card"></div>
         </div>
-      </main>
+      </div>
     </ContentWrapper>
   );
 }

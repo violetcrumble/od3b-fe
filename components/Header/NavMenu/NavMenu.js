@@ -9,12 +9,12 @@ export default function NavMenu() {
         <span className={styles.navicon}></span>
       </label>
       <ul className={styles.menu}>
-        <li className={styles['top-level-menu-item']}>
-          <Link href="/">Home</Link>
-        </li>
         <li className={`${styles['top-level-menu-item']} ${styles['cocktail-recipes-top-menu']}`}>
           <Link href="/cocktail-recipes">Cocktail Recipes</Link>
           <ul className={styles['sub-menu']}>
+            <li>
+              <Link href="/cocktail-recipes?category=thc">THC Cocktail Recipes</Link>
+            </li>
             <li>
               <Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link>
             </li>
@@ -23,6 +23,9 @@ export default function NavMenu() {
             </li>
             <li>
               <Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link>
+            </li>
+            <li>
+              <Link href="/cocktail-recipes?category=cognac">Cognac Cocktail Recipes</Link>
             </li>
             <li>
               <Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link>
@@ -37,6 +40,9 @@ export default function NavMenu() {
               <Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link>
             </li>
           </ul>
+        </li>
+        <li className={styles['top-level-menu-item']}>
+          <Link href="/thc-drinks">THC Drinks</Link>
         </li>
         <li className={styles['top-level-menu-item']}>
           <Link href="/blog">Articles</Link>

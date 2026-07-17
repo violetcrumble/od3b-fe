@@ -1,0 +1,39 @@
+@use '../../styles/colors';
+
+.recipe-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .stars {
+    display: flex;
+  }
+
+  .star {
+    background: none;
+    border: none;
+    padding: 0 2px;
+    font-size: 28px;
+    line-height: 1;
+    color: colors.$gray;
+    cursor: pointer;
+
+    &.filled {
+      color: colors.$brand-orange;
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  .summary {
+    color: colors.$gray-darker;
+    font-size: 0.9rem;
+  }
+}

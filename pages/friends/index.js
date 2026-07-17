@@ -7,6 +7,7 @@ import mybartender from '../../public/friends/mybartender.jpg';
 import subourbondad from '../../public/friends/subourbondad.gif';
 import waxseal from '../../public/friends/waxseal.jpg';
 import styles from '../../styles/pages/Friends.module.scss';
+import SITE_URL from '../../utils/siteUrl';
 
 export default function Friends() {
   return (
@@ -15,6 +16,7 @@ export default function Friends() {
         <title>Cocktail Underground - The Best Cocktail Content Creators</title>
         <meta name="description" content="Friends of Cocktail Underground" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={`${SITE_URL}/friends`} />
       </Head>
       <div className={`${styles['friends-page']} constrained-content`}>
         <h1 className="text-brand-purple">Friends of Cocktail Underground</h1>

@@ -1,28 +1,26 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
-import BlogListingCard from '../../components/Cards/BlogListingCard/BlogListingCard';
+import SITE_URL from '../../utils/siteUrl';
 
-const URL = process.env.STRAPIBASEURL;
-
-export default function BlogListing({ blogPosts }) {
+export default function FilmingEquipment() {
   return (
     <ContentWrapper>
       <Head>
-        <title>Cocktail Underground - Cocktail Blog Posts and Cocktail Articles</title>
+        <title>Cocktail Underground - Vlogging and Filming Equipment</title>
         <meta
           name="description"
-          content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
+          content="The cameras, lighting, mics, and teleprompter gear I use to film Cocktail Underground videos."
         />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
+        <link rel="canonical" href={`${SITE_URL}/home-bar-supplies/filming-equipment`} />
+        <meta property="og:title" content="Cocktail Underground - Vlogging and Filming Equipment" />
         <meta
           property="og:description"
-          content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
+          content="The cameras, lighting, mics, and teleprompter gear I use to film Cocktail Underground videos."
         />
       </Head>
 
-      <main className="constrained-content">
+      <div className="constrained-content">
         <h1 className="text-brand-purple">Vlogging Equipment</h1>
 
         <ul>
@@ -62,7 +60,7 @@ export default function BlogListing({ blogPosts }) {
             </a>
           </li>
         </ul>
-      </main>
+      </div>
     </ContentWrapper>
   );
 }
