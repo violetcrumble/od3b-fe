@@ -19,14 +19,14 @@ const CATEGORY_CONTENT = {
     metaDescription:
       'Real tequila cocktail recipes tested and filmed at home — margaritas, palomas, and more, with exact measurements.',
     intro:
-      "Tequila's the one spirit almost every home bar already has, and it's capable of a lot more than a margarita. These are the tequila cocktails we've actually made on camera, exact measurements included — from classic margaritas and palomas to a few weirder ones worth trying.",
+      "Tequila's the one spirit almost every home bar already has, and it's capable of a lot more than a margarita. These are the tequila cocktails we've actually made on camera, exact measurements included, from classic margaritas and palomas to a few weirder ones worth trying.",
   },
   vodka: {
     title: 'Vodka Cocktail Recipes',
     h1: 'Vodka Cocktail Recipes',
     metaDescription: 'Real vodka cocktail recipes tested and filmed at home, with exact measurements.',
     intro:
-      "Vodka gets a bad rap as the \"flavorless\" spirit, but that's exactly what makes it a blank canvas — it lets whatever else is in the glass do the talking. Here's every vodka cocktail we've built and filmed, real recipes with real measurements.",
+      'Vodka gets a bad rap as the "flavorless" spirit, but that\'s exactly what makes it a blank canvas: it lets whatever else is in the glass do the talking. These are the vodka cocktails we\'ve built and filmed, real recipes with real measurements.',
   },
   rum: {
     title: 'Rum Cocktail Recipes',
@@ -41,14 +41,14 @@ const CATEGORY_CONTENT = {
     metaDescription:
       'Real whiskey and whisky cocktail recipes tested and filmed at home, from the Old Fashioned on up.',
     intro:
-      "Whiskey — or whisky, depending who's pouring — is the backbone of some of the most iconic cocktails ever made, the Old Fashioned chief among them. Here's every whiskey cocktail we've built on camera, with real measurements, not guesses.",
+      "Whiskey, or whisky depending who's pouring, is the backbone of some of the most iconic cocktails ever made, the Old Fashioned chief among them. These are the whiskey cocktails we've built on camera, with real measurements, not guesses.",
   },
   gin: {
     title: 'Gin Cocktail Recipes',
     h1: 'Gin Cocktail Recipes',
     metaDescription: 'Real gin cocktail recipes tested and filmed at home, with exact measurements.',
     intro:
-      "Gin's botanical, herbal edge makes it one of the most versatile spirits behind the bar — equally at home in a classic martini or something a lot weirder. These are the gin cocktails we've actually made and filmed, exact recipes included.",
+      "Gin's botanical, herbal edge makes it one of the most versatile spirits behind the bar, equally at home in a classic martini or something a lot weirder. These are the gin cocktails we've actually made and filmed, exact recipes included.",
   },
   mezcal: {
     title: 'Mezcal Drinks & Cocktails',
@@ -56,14 +56,14 @@ const CATEGORY_CONTENT = {
     metaDescription:
       'Real mezcal cocktail recipes — smoky, agave-forward drinks tested and filmed at home, with exact measurements.',
     intro:
-      "Mezcal's smokier, funkier cousin-of-tequila reputation is well earned, and it rewards drinks that let that character show instead of hiding it. Here's every mezcal drink we've built and filmed, real recipes included.",
+      "Mezcal and tequila are both distilled from agave, but they're made differently. Tequila can only come from blue Weber agave, cooked in industrial ovens for a clean, sweet base. Mezcal can be made from dozens of agave varieties and is traditionally roasted in earthen pits lined with lava rock, which is where its signature smokiness comes from. These are the mezcal drinks we've built and filmed, real recipes included.",
   },
   cognac: {
     title: 'Cognac Drinks & Cocktails',
     h1: 'Cognac Drinks & Cocktails',
     metaDescription: 'Real cognac cocktail recipes tested and filmed at home, from the Sidecar to the Vieux Carré.',
     intro:
-      "Cognac doesn't show up in home bars nearly as often as it should — it's the backbone of genuine classics like the Sidecar and the Vieux Carré, not just a sipping spirit. Here's every cognac cocktail we've made and filmed, exact recipes included.",
+      "Cognac doesn't show up in home bars nearly as often as it should. It's the backbone of genuine classics like the Sidecar and the Vieux Carré, not just a sipping spirit. These are the cognac cocktails we've made and filmed, exact recipes included.",
   },
   cachaça: {
     title: 'Caipirinha & Cachaça Cocktail Recipes',
@@ -71,15 +71,20 @@ const CATEGORY_CONTENT = {
     metaDescription:
       "Caipirinha and other cachaça cocktail recipes — Brazil's signature spirit, tested and filmed at home with exact measurements.",
     intro:
-      "Cachaça is Brazil's answer to rum, and its signature cocktail — the caipirinha — deserves way more attention outside Brazil than it gets. Here's every cachaça drink we've built and filmed, caipirinhas included.",
+      "Cachaça is Brazil's answer to rum, and its signature cocktail, the caipirinha, deserves way more attention outside Brazil than it gets. These are the cachaça drinks we've built and filmed, caipirinhas included.",
   },
   thc: {
     title: 'THC Cocktail Recipes',
     h1: 'THC Drink Recipes',
     metaDescription:
       'THC cocktail recipes made with hemp-derived THC drinks — real recipes, tested and filmed, dosage notes included.',
-    intro:
-      'These are cocktails built around hemp-derived THC drinks instead of alcohol — same real bartending technique, different spirit entirely. Every recipe here has exact measurements; check our THC Drinks hub for reviews and dosage guides too.',
+    intro: (
+      <>
+        These are cocktails built around hemp-derived THC drinks instead of alcohol, real bartending technique applied
+        to a different kind of spirit. Check out our <Link href="/thc-drinks">THC Drinks hub</Link> for reviews and
+        dosage guides too.
+      </>
+    ),
   },
 };
 
@@ -139,7 +144,7 @@ export default function CategoryRecipes({ categorySlug, recipes }) {
         />
       </Head>
 
-      <div className="constrained-content">
+      <div className={`${styles['category-page']} constrained-content`}>
         <div className="breadcrumb">
           <Link href="/">Home</Link>&nbsp;:&nbsp;
           <Link href="/cocktail-recipes">Cocktail Recipes</Link>&nbsp;:&nbsp;
