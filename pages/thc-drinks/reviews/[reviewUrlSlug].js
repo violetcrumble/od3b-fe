@@ -48,6 +48,13 @@ export default function Review({ review }) {
         '@type': 'Product',
         name: review.productName,
         image: [listingImageUrl ? cloudinaryOptimize(listingImageUrl) : `${SITE_URL}/pic-not-available.gif`],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: review.rating,
+          reviewCount: 1,
+          bestRating: 5,
+          worstRating: 1,
+        },
         ...(review.price && {
           offers: { '@type': 'Offer', price: review.price, priceCurrency: 'USD', url: review.buyUrl },
         }),
