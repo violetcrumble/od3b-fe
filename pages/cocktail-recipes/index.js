@@ -52,9 +52,11 @@ export default function Recipes({ recipes }) {
     recipe.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  const canonicalUrl = `${SITE_URL}/cocktail-recipes${
-    cocktailCategory ? `?category=${encodeURIComponent(cocktailCategory)}` : ''
-  }`;
+  // Category filtering happens client-side only (same static HTML is served
+  // regardless of the ?category= query string), so the canonical must always
+  // point at the base URL — letting it vary by category caused the canonical
+  // tag to flip after hydration, which Google flagged as an unstable signal.
+  const canonicalUrl = `${SITE_URL}/cocktail-recipes`;
 
   return (
     <ContentWrapper>
