@@ -13,31 +13,31 @@ export default function NavMenu() {
           <Link href="/cocktail-recipes">Cocktail Recipes</Link>
           <ul className={styles['sub-menu']}>
             <li>
-              <Link href="/cocktail-recipes?category=thc">THC Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/thc">THC Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/tequila">Tequila Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=mezcal">Mezcal Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/mezcal">Mezcal Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/whiskey">Whiskey Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=cognac">Cognac Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/cognac">Cognac Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/rum">Rum Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=cachaça">Cachaça Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/cachaça">Cachaça Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=gin">Gin Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/gin">Gin Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/vodka">Vodka Cocktail Recipes</Link>
             </li>
           </ul>
         </li>
