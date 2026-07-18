@@ -13,6 +13,15 @@ const client = new ApolloClient({
 
 const STATIC_PATHS = [
   'cocktail-recipes',
+  'cocktail-recipes/category/tequila',
+  'cocktail-recipes/category/vodka',
+  'cocktail-recipes/category/rum',
+  'cocktail-recipes/category/whiskey',
+  'cocktail-recipes/category/gin',
+  'cocktail-recipes/category/mezcal',
+  'cocktail-recipes/category/cognac',
+  'cocktail-recipes/category/cachaça',
+  'cocktail-recipes/category/thc',
   'blog',
   'thc-drinks',
   'thc-drinks/recipes',

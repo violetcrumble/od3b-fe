@@ -41,31 +41,31 @@ export default function Footer() {
         <div className={`${styles['footer-recipe-nav']} ${styles['footer-nav']}`}>
           <ul>
             <li>
-              <Link href="/cocktail-recipes?category=thc">THC Drink Recipes</Link>
+              <Link href="/cocktail-recipes/category/thc">THC Drink Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=tequila">Tequila Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/tequila">Tequila Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=mezcal">Mezcal Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/mezcal">Mezcal Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=whiskey">Whiskey Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/whiskey">Whiskey Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=cognac">Cognac Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/cognac">Cognac Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=rum">Rum Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/rum">Rum Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=cachaça">Cachaça Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/cachaça">Cachaça Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=gin">Gin Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/gin">Gin Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes?category=vodka">Vodka Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/vodka">Vodka Cocktail Recipes</Link>
             </li>
           </ul>
         </div>
