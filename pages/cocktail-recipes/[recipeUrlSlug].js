@@ -2,15 +2,23 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { GET_ALL_RECIPE_SLUGS, GET_ALL_RECIPE_SUMMARIES, GET_INDIVIDUAL_RECIPE } from '../../graphql/queries';
+import {
+  GET_ALL_RECIPE_SLUGS,
+  GET_ALL_RECIPE_SUMMARIES,
+  GET_INDIVIDUAL_RECIPE,
+  GET_ALL_AFFILIATE_PARTNERS,
+} from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
+import markdownLinkComponents from '../../utils/markdownLinkComponents';
+import { linkifyAffiliateIngredients, selectRecipeAffiliates } from '../../utils/affiliateIngredients';
 import getArticle from '../../utils/getArticle';
 import cloudinaryOptimize from '../../utils/cloudinaryOptimize';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
+import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
 import RecipeRating from '../../components/RecipeRating/RecipeRating';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../utils/siteUrl';
@@ -25,10 +33,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const markdownLinkComponents = {
-  a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />,
-};
-
 // Multiple recipes often share one video at different timestamps (?t=137 or ?t=183s).
 function getYouTubeStartSeconds(youTubeLink) {
   if (!youTubeLink) return null;
@@ -36,7 +40,7 @@ function getYouTubeStartSeconds(youTubeLink) {
   return match ? parseInt(match[1], 10) : null;
 }
 
-export default function Recipe({ recipe, relatedRecipes }) {
+export default function Recipe({ recipe, relatedRecipes, affiliates }) {
   const youTubeStartSeconds = getYouTubeStartSeconds(recipe.YouTubeLink);
   const youTubeEmbedUrl = recipe.youTubeID
     ? `https://www.youtube-nocookie.com/embed/${recipe.youTubeID}${youTubeStartSeconds ? `?start=${youTubeStartSeconds}` : ''}`
@@ -151,7 +155,11 @@ export default function Recipe({ recipe, relatedRecipes }) {
           <div className={`${styles['recipe-page-col-1']}`}>
             <h2 className={`${styles['recipe-ingredients-heading']} text-teal`}>{recipe.title} Ingredients</h2>
             <div className={`${styles['recipe-ingredients']}`}>
-              <Markdown components={markdownLinkComponents}>{recipe.ingredients}</Markdown>
+              <Markdown components={markdownLinkComponents}>
+                {affiliates?.length
+                  ? linkifyAffiliateIngredients(recipe.ingredients, affiliates, recipe.recipeUrlSlug)
+                  : recipe.ingredients}
+              </Markdown>
             </div>
 
             {/* real embedded player, not a link-out — required for Google video indexing */}
@@ -228,6 +236,8 @@ export default function Recipe({ recipe, relatedRecipes }) {
                 sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
+
+            <ThcAffiliateCTAs affiliates={affiliates} campaign={recipe.recipeUrlSlug} />
 
             <NewsletterSignup />
 
@@ -308,6 +318,22 @@ export async function getStaticPaths() {
   };
 }
 
+// The summaries list is identical for every recipe page, but getStaticProps runs
+// once per page. Caching the promise at module level means each build worker
+// fetches it once instead of hammering Strapi ~70 times per build (which has
+// OOM-crashed the Heroku dyno mid-build more than once).
+let recipeSummariesPromise = null;
+function getAllRecipeSummaries() {
+  if (!recipeSummariesPromise) {
+    recipeSummariesPromise = fetch(`${URL}/graphql`, {
+      method: 'post',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ query: GET_ALL_RECIPE_SUMMARIES }),
+    }).then((res) => res.json());
+  }
+  return recipeSummariesPromise;
+}
+
 export async function getStaticProps({ params }) {
   const { data } = await client.query({
     query: GET_INDIVIDUAL_RECIPE,
@@ -316,19 +342,27 @@ export async function getStaticProps({ params }) {
 
   const attrs = data.recipes_connection.data[0].attributes;
 
-  const allRecipesRes = await fetch(`${URL}/graphql`, {
-    method: 'post',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ query: GET_ALL_RECIPE_SUMMARIES }),
-  });
-  const allRecipesData = await allRecipesRes.json();
+  const allRecipesData = await getAllRecipeSummaries();
 
   const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes_connection.data);
+
+  // THC recipes get affiliate CTA boxes in the sidebar; other spirits don't,
+  // since the partner lineup is all THC brands. Each recipe shows only the
+  // partner whose product it actually uses; if no partner matches (e.g. a
+  // Willie's Remedy recipe, where we have no affiliate program), show all.
+  const isThcRecipe = attrs.spirits_connection.data.some((spirit) => spirit.attributes.spirit === 'thc');
+  let affiliates = [];
+  if (isThcRecipe) {
+    const affiliatesResult = await client.query({ query: GET_ALL_AFFILIATE_PARTNERS });
+    const allPartners = affiliatesResult.data.affiliatePartners_connection.data.map((partner) => partner.attributes);
+    affiliates = selectRecipeAffiliates(attrs, allPartners);
+  }
 
   return {
     props: {
       recipe: attrs,
       relatedRecipes,
+      affiliates,
     },
   };
 }

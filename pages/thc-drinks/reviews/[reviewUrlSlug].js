@@ -11,7 +11,7 @@ import ReviewRatingBadge from '../../../components/Review/ReviewRatingBadge/Revi
 import ReviewVerdictBox from '../../../components/Review/ReviewVerdictBox/ReviewVerdictBox';
 import ReviewProsCons from '../../../components/Review/ReviewProsCons/ReviewProsCons';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
-import { AFFILIATE_LINK_PATTERN } from '../../../utils/affiliateLink';
+import markdownLinkComponents from '../../../utils/markdownLinkComponents';
 import cloudinaryOptimize from '../../../utils/cloudinaryOptimize';
 import SITE_URL from '../../../utils/siteUrl';
 
@@ -21,16 +21,6 @@ const client = new ApolloClient({
   link: new HttpLink({ uri: `${URL}/graphql` }),
   cache: new InMemoryCache(),
 });
-
-const markdownLinkComponents = {
-  a: ({ node, ...props }) => (
-    <a
-      {...props}
-      target="_blank"
-      rel={AFFILIATE_LINK_PATTERN.test(props.href || '') ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
-    />
-  ),
-};
 
 export default function Review({ review, affiliates }) {
   const formattedDate = new Date(review.reviewDate).toLocaleString('en-us', {
