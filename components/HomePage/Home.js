@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import HeroImage from '../HeroImage/HeroImage';
 import RecipeListingCard from '../Cards/RecipeListingCard/RecipeListingCard.js';
-import NewsletterSignup from '../NewsletterSignup/NewsletterSignup';
 import CategoryNavPills from '../CategoryNavPills/CategoryNavPills';
 import AboutSection from '../AboutSection/AboutSection';
 import styles from './Home.module.scss';
@@ -64,10 +63,6 @@ export default function HomePage({ recipes, thcRecipes, latestRecipe }) {
           </div>
           <AboutSection />
         </div>
-      </div>
-
-      <div className="constrained-content">
-        <NewsletterSignup />
       </div>
     </div>
   );
