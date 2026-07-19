@@ -23,6 +23,45 @@
     margin: 0 0 16px 24px;
   }
 
+  // Each section starts below the previous section's floated image, so posts
+  // with an image per section read as tidy blocks instead of overlapping floats.
+  .blog-post-content h2,
+  .blog-post-content h3,
+  .blog-post-content hr {
+    clear: both;
+  }
+
+  // Alternate image sides down the page (1st right, 2nd left, ...). Browsers
+  // without :nth-child(... of ...) support keep everything floated right.
+  .blog-post-content :nth-child(even of p:has(> img)) img {
+    float: left;
+    margin: 0 24px 16px 0;
+  }
+
+  // An image placed BEFORE a section heading belongs to that section: the
+  // image clears the previous section, and the heading + text wrap beside it.
+  .blog-post-content p:has(> img) {
+    clear: both;
+  }
+  .blog-post-content p:has(> img) + h2 {
+    clear: none;
+  }
+
+  // Hairline divider + breathing room between sections. The divider sits above
+  // whichever element starts the section: the image for image-first magazine
+  // blocks, otherwise the heading.
+  .blog-post-content h2,
+  .blog-post-content p:has(> img):has(+ h2) {
+    border-top: 1px solid colors.$brand-teal-100;
+    padding-top: 28px;
+    margin-top: 28px;
+  }
+  .blog-post-content p:has(> img) + h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
   @media screen and (max-width: 600px) {
     .blog-post-content img {
       max-width: 100%;
