@@ -11,6 +11,7 @@ import ReviewRatingBadge from '../../../components/Review/ReviewRatingBadge/Revi
 import ReviewVerdictBox from '../../../components/Review/ReviewVerdictBox/ReviewVerdictBox';
 import ReviewProsCons from '../../../components/Review/ReviewProsCons/ReviewProsCons';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
+import { AFFILIATE_LINK_PATTERN } from '../../../utils/affiliateLink';
 import cloudinaryOptimize from '../../../utils/cloudinaryOptimize';
 import SITE_URL from '../../../utils/siteUrl';
 
@@ -22,7 +23,13 @@ const client = new ApolloClient({
 });
 
 const markdownLinkComponents = {
-  a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />,
+  a: ({ node, ...props }) => (
+    <a
+      {...props}
+      target="_blank"
+      rel={AFFILIATE_LINK_PATTERN.test(props.href || '') ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
+    />
+  ),
 };
 
 export default function Review({ review, affiliates }) {
@@ -43,7 +50,8 @@ export default function Review({ review, affiliates }) {
       '@context': 'https://schema.org/',
       '@type': 'Review',
       name: review.title,
-      reviewBody: review.verdict,
+      // Verdict may contain markdown links; structured data wants plain text.
+      reviewBody: review.verdict.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1'),
       itemReviewed: {
         '@type': 'Product',
         name: review.productName,

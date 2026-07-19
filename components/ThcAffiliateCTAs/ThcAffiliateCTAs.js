@@ -14,9 +14,11 @@ export default function ThcAffiliateCTAs({ affiliates, campaign }) {
               <h3 className="text-brand-teal">{affiliate.name}</h3>
               <p>{affiliate.blurb}</p>
             </div>
-            <div className={styles['thc-cta-photo']}>
-              <Image src={affiliate.photoUrl} alt={affiliate.name} fill sizes="90px" />
-            </div>
+            {affiliate.photoUrl && (
+              <div className={styles['thc-cta-photo']}>
+                <Image src={affiliate.photoUrl} alt={affiliate.name} fill sizes="104px" />
+              </div>
+            )}
           </div>
           <a
             href={affiliateLink(affiliate.baseUrl, {

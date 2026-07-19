@@ -7,6 +7,7 @@ import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
+import { AFFILIATE_LINK_PATTERN } from '../../utils/affiliateLink';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../utils/siteUrl';
 
@@ -16,6 +17,17 @@ const client = new ApolloClient({
   link: new HttpLink({ uri: `${URL}/graphql` }),
   cache: new InMemoryCache(),
 });
+
+// Affiliate links in post bodies open in a new tab and carry rel="sponsored";
+// all other links keep the default in-page behavior.
+const markdownLinkComponents = {
+  a: ({ node, ...props }) =>
+    AFFILIATE_LINK_PATTERN.test(props.href || '') ? (
+      <a {...props} target="_blank" rel="sponsored noopener noreferrer" />
+    ) : (
+      <a {...props} />
+    ),
+};
 
 export default function BlogPost({ blogPost, affiliates }) {
   const formattedDate = new Date(blogPost.Date).toLocaleString('en-us', {
@@ -93,7 +105,7 @@ export default function BlogPost({ blogPost, affiliates }) {
           <p>
             {blogPost.blog_authors_connection.data[0].attributes.AuthorName} | {formattedDate}
           </p>
-          <Markdown>{blogPost.BlogPostBody}</Markdown>
+          <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
         </div>
 
         <div className={`${styles['sidebar']}`}>

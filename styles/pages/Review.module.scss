@@ -15,7 +15,7 @@
     max-width: 1000px;
   }
 
-  img {
+  .review-content img {
     max-width: 45%;
     height: auto;
     border-radius: 8px;
@@ -24,7 +24,7 @@
   }
 
   @media screen and (max-width: 600px) {
-    img {
+    .review-content img {
       max-width: 100%;
       float: none;
       margin: 0 0 16px;
