@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST } from '../../graphql/queries';
+import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST, GET_ALL_AFFILIATE_PARTNERS } from '../../graphql/queries';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
@@ -17,7 +17,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export default function BlogPost({ blogPost }) {
+export default function BlogPost({ blogPost, affiliates }) {
   const formattedDate = new Date(blogPost.Date).toLocaleString('en-us', {
     month: 'long',
     year: 'numeric',
@@ -97,7 +97,7 @@ export default function BlogPost({ blogPost }) {
         </div>
 
         <div className={`${styles['sidebar']}`}>
-          <ThcAffiliateCTAs campaign={blogPost.urlSlug} />
+          <ThcAffiliateCTAs affiliates={affiliates} campaign={blogPost.urlSlug} />
           <NewsletterSignup />
         </div>
       </div>
@@ -119,16 +119,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { data } = await client.query({
-    query: GET_BLOG_POST,
-    variables: { urlSlug: params.blogUrlSlug },
-  });
+  const [{ data }, affiliatesResult] = await Promise.all([
+    client.query({
+      query: GET_BLOG_POST,
+      variables: { urlSlug: params.blogUrlSlug },
+    }),
+    client.query({ query: GET_ALL_AFFILIATE_PARTNERS }),
+  ]);
 
   const attrs = data.blogPosts_connection.data[0].attributes;
+  const affiliates = affiliatesResult.data.affiliatePartners_connection.data.map((partner) => partner.attributes);
 
   return {
     props: {
       blogPost: attrs,
+      affiliates,
     },
   };
 }

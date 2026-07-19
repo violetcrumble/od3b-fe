@@ -765,6 +765,22 @@ const GET_ALL_SPIRITS = gql`
   }
 `;
 
+const GET_ALL_AFFILIATE_PARTNERS = gql`
+  query {
+    affiliatePartners_connection(sort: "displayOrder:asc", pagination: { limit: 50 }) {
+      data {
+        attributes {
+          name
+          blurb
+          baseUrl
+          cta
+          photoUrl
+        }
+      }
+    }
+  }
+`;
+
 export {
   GET_ALL_RECIPE_SLUGS,
   GET_ALL_RECIPES,
@@ -795,4 +811,5 @@ export {
   GET_ALL_REVIEW_SLUGS,
   GET_ALL_REVIEWS,
   GET_REVIEW,
+  GET_ALL_AFFILIATE_PARTNERS,
 };

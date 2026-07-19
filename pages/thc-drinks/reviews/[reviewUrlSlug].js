@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { GET_ALL_REVIEW_SLUGS, GET_REVIEW } from '../../../graphql/queries';
+import { GET_ALL_REVIEW_SLUGS, GET_REVIEW, GET_ALL_AFFILIATE_PARTNERS } from '../../../graphql/queries';
 import ContentWrapper from '../../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import styles from '../../../styles/pages/Review.module.scss';
@@ -25,7 +25,7 @@ const markdownLinkComponents = {
   a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />,
 };
 
-export default function Review({ review }) {
+export default function Review({ review, affiliates }) {
   const formattedDate = new Date(review.reviewDate).toLocaleString('en-us', {
     month: 'long',
     year: 'numeric',
@@ -127,7 +127,7 @@ export default function Review({ review }) {
         </div>
 
         <div className={`${styles['sidebar']}`}>
-          <ThcAffiliateCTAs campaign={review.reviewUrlSlug} />
+          <ThcAffiliateCTAs affiliates={affiliates} campaign={review.reviewUrlSlug} />
           <NewsletterSignup />
         </div>
       </div>
@@ -149,16 +149,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { data } = await client.query({
-    query: GET_REVIEW,
-    variables: { reviewUrlSlug: params.reviewUrlSlug },
-  });
+  const [{ data }, affiliatesResult] = await Promise.all([
+    client.query({
+      query: GET_REVIEW,
+      variables: { reviewUrlSlug: params.reviewUrlSlug },
+    }),
+    client.query({ query: GET_ALL_AFFILIATE_PARTNERS }),
+  ]);
 
   const attrs = data.reviews_connection.data[0].attributes;
+  const affiliates = affiliatesResult.data.affiliatePartners_connection.data.map((partner) => partner.attributes);
 
   return {
     props: {
       review: attrs,
+      affiliates,
     },
   };
 }
