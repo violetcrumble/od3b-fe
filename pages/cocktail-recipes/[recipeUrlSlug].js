@@ -41,6 +41,12 @@ function getYouTubeStartSeconds(youTubeLink) {
 }
 
 export default function Recipe({ recipe, relatedRecipes, affiliates }) {
+  // Related Products is Amazon-only: THC partner products are promoted via the
+  // affiliate CTA boxes and ingredient links instead, not listed twice.
+  const amazonProducts = recipe.relatedProducts_connection.data.filter((product) =>
+    /amazon\.com|amzn\.to/.test(product.attributes.AmazonLink || ''),
+  );
+
   const youTubeStartSeconds = getYouTubeStartSeconds(recipe.YouTubeLink);
   const youTubeEmbedUrl = recipe.youTubeID
     ? `https://www.youtube-nocookie.com/embed/${recipe.youTubeID}${youTubeStartSeconds ? `?start=${youTubeStartSeconds}` : ''}`
@@ -252,7 +258,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               />
             )}
 
-            {recipe.relatedProducts_connection.data.length ? (
+            {amazonProducts.length ? (
               <div>
                 <h2>Related Products</h2>
                 <p>
@@ -261,19 +267,16 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
                 </p>
 
                 <div className={`${styles['related-product-cards']}`}>
-                  {recipe &&
-                    recipe.relatedProducts_connection &&
-                    recipe.relatedProducts_connection.data &&
-                    recipe.relatedProducts_connection.data.map((product) => (
-                      <AmazonListingCard
-                        key={product.attributes.AmazonASIN || product.attributes.ProductName}
-                        productName={product.attributes.ProductName}
-                        productCategory={product.attributes.ProductCategory}
-                        amazonLink={product.attributes.AmazonLink}
-                        amazonASIN={product.attributes.AmazonASIN}
-                        amazonPhotoURL={product.attributes.AmazonPhotoURL}
-                      />
-                    ))}
+                  {amazonProducts.map((product) => (
+                    <AmazonListingCard
+                      key={product.attributes.AmazonASIN || product.attributes.ProductName}
+                      productName={product.attributes.ProductName}
+                      productCategory={product.attributes.ProductCategory}
+                      amazonLink={product.attributes.AmazonLink}
+                      amazonASIN={product.attributes.AmazonASIN}
+                      amazonPhotoURL={product.attributes.AmazonPhotoURL}
+                    />
+                  ))}
                 </div>
               </div>
             ) : (
