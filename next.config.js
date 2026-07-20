@@ -6,6 +6,8 @@ const nextConfig = {
     defaultLocale: 'en',
   },
   images: {
+    loader: 'custom',
+    loaderFile: './image-loader.js',
     remotePatterns: [
       {
         protocol: 'https',

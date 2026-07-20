@@ -190,7 +190,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
             {recipe.PhotoMain_connection.data[0] && recipe.PhotoMain_connection.data[0].attributes.url && (
               <div className="mobile-recipe-pic-container">
                 <Image
-                  src={cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)}
+                  src={recipe.PhotoMain_connection.data[0].attributes.url}
                   alt={
                     recipe.PhotoMain_connection.data[0].attributes.alternativeText
                       ? recipe.PhotoMain_connection.data[0].attributes.alternativeText
@@ -216,7 +216,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
           <div className={`${styles['recipe-page-col-2']}`}>
             {recipe.PhotoMain_connection.data[0] && recipe.PhotoMain_connection.data[0].attributes.url && (
               <Image
-                src={cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)}
+                src={recipe.PhotoMain_connection.data[0].attributes.url}
                 alt={
                   recipe.PhotoMain_connection.data[0].attributes.alternativeText
                     ? recipe.PhotoMain_connection.data[0].attributes.alternativeText
@@ -230,7 +230,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
             )}
             {recipe.PhotoMain_connection.data[1] && recipe.PhotoMain_connection.data[1].attributes.url && (
               <Image
-                src={cloudinaryOptimize(recipe.PhotoMain_connection.data[1].attributes.url)}
+                src={recipe.PhotoMain_connection.data[1].attributes.url}
                 alt={
                   recipe.PhotoMain_connection.data[1].attributes.alternativeText
                     ? recipe.PhotoMain_connection.data[1].attributes.alternativeText
@@ -249,7 +249,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 
             {recipe.PhotoPinterest?.data && recipe.PhotoPinterest?.data.attributes.url && (
               <Image
-                src={cloudinaryOptimize(recipe.PhotoPinterest?.data.attributes.url)}
+                src={recipe.PhotoPinterest?.data.attributes.url}
                 alt={recipe.PhotoPinterest?.data.attributes.alternativeText}
                 width="256"
                 height="370"
