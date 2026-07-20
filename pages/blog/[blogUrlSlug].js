@@ -90,7 +90,7 @@ export default function BlogPost({ blogPost, affiliates }) {
             <Link href="/blog/">Articles</Link>&nbsp;:&nbsp;
             {blogPost.Title}
           </div>
-          <h3 className="text-brand-purple">{blogPost.Title}</h3>
+          <h1 className="text-brand-purple">{blogPost.Title}</h1>
           <p>
             {blogPost.blog_authors[0].AuthorName} | {formattedDate}
           </p>
