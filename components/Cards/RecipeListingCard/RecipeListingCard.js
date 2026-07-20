@@ -6,12 +6,11 @@ export default function RecipeListingCard(props) {
 
   return (
     <div className={styles['recipe-listing-card']}>
-      {props.recipe.attributes.PhotoMain_connection.data[0] &&
-      props.recipe.attributes.PhotoMain_connection.data[0].attributes.url ? (
+      {props.recipe.PhotoMain?.[0]?.url ? (
         <div className="imageWrapper">
           <Image
-            src={props.recipe.attributes.PhotoMain_connection.data[0].attributes.url}
-            alt={`${props.recipe.attributes.title} Cocktail Recipe`}
+            src={props.recipe.PhotoMain[0].url}
+            alt={`${props.recipe.title} Cocktail Recipe`}
             fill
             sizes={sizes}
             priority={props.priority}
@@ -24,7 +23,7 @@ export default function RecipeListingCard(props) {
       )}
 
       <div className={styles.recipeInfo}>
-        <h3>{props.recipe.attributes.title}</h3>
+        <h3>{props.recipe.title}</h3>
       </div>
     </div>
   );

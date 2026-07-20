@@ -29,15 +29,13 @@ export async function getStaticProps() {
   const blogData = await blogRes.json();
   const reviewsData = await reviewsRes.json();
 
-  const guides = blogData.data.blogPosts_connection.data.filter((post) =>
-    THC_GUIDE_SLUGS.includes(post.attributes.urlSlug),
-  );
+  const guides = blogData.data.blogPosts.filter((post) => THC_GUIDE_SLUGS.includes(post.urlSlug));
 
   return {
     props: {
-      recipes: data.data.recipes_connection.data.slice(0, 3),
+      recipes: data.data.recipes.slice(0, 3),
       guides,
-      reviews: reviewsData.data.reviews_connection.data,
+      reviews: reviewsData.data.reviews,
     },
   };
 }
@@ -63,17 +61,17 @@ export default function THCMain({ recipes, guides, reviews }) {
           {reviews.map((review) => (
             <Link
               className="listing-card"
-              key={review.attributes.reviewUrlSlug}
-              href={`/thc-drinks/reviews/${review.attributes.reviewUrlSlug}`}
+              key={review.reviewUrlSlug}
+              href={`/thc-drinks/reviews/${review.reviewUrlSlug}`}
             >
               <ListingCard
-                title={review.attributes.title}
-                authorName={review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
-                date={review.attributes.reviewDate}
-                imageUrl={review.attributes.listingCardImage?.data?.attributes.url}
-                imageCaption={review.attributes.listingCardImage?.data?.attributes.caption}
-                snippet={review.attributes.previewSnippet}
-                rating={review.attributes.rating}
+                title={review.title}
+                authorName={review.review_authors[0]?.AuthorName}
+                date={review.reviewDate}
+                imageUrl={review.listingCardImage?.url}
+                imageCaption={review.listingCardImage?.caption}
+                snippet={review.previewSnippet}
+                rating={review.rating}
               />
             </Link>
           ))}
@@ -90,8 +88,8 @@ export default function THCMain({ recipes, guides, reviews }) {
           {recipes.map((recipe, index) => (
             <Link
               className="listing-card"
-              key={recipe.attributes.recipeUrlSlug}
-              href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+              key={recipe.recipeUrlSlug}
+              href={`/cocktail-recipes/${recipe.recipeUrlSlug}`}
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>
@@ -109,18 +107,14 @@ export default function THCMain({ recipes, guides, reviews }) {
             <h2 className="text-brand-teal">THC Guides and Answers</h2>
             <div className="listings-3-col">
               {guides.map((guide) => (
-                <Link
-                  className="listing-card"
-                  key={guide.attributes.urlSlug}
-                  href={`/blog/${guide.attributes.urlSlug}`}
-                >
+                <Link className="listing-card" key={guide.urlSlug} href={`/blog/${guide.urlSlug}`}>
                   <ListingCard
-                    title={guide.attributes.Title}
-                    authorName={guide.attributes.blog_authors_connection.data[0].attributes.AuthorName}
-                    date={guide.attributes.Date}
-                    imageUrl={guide.attributes.ListingCardImage?.data?.attributes.url}
-                    imageCaption={guide.attributes.ListingCardImage?.data?.attributes.caption}
-                    snippet={guide.attributes.TextPreviewSnippet}
+                    title={guide.Title}
+                    authorName={guide.blog_authors[0].AuthorName}
+                    date={guide.Date}
+                    imageUrl={guide.ListingCardImage?.url}
+                    imageCaption={guide.ListingCardImage?.caption}
+                    snippet={guide.TextPreviewSnippet}
                   />
                 </Link>
               ))}

@@ -103,7 +103,7 @@ export async function getStaticProps({ params }) {
   });
   const data = await res.json();
 
-  const recipes = filterRecipesByCategory(params.categorySlug, data.data.recipes_connection.data);
+  const recipes = filterRecipesByCategory(params.categorySlug, data.data.recipes);
 
   return {
     props: {
@@ -117,9 +117,7 @@ export default function CategoryRecipes({ categorySlug, recipes }) {
   const [searchTerm, setSearchTerm] = useState('');
   const content = CATEGORY_CONTENT[categorySlug];
 
-  const visibleRecipes = recipes.filter((recipe) =>
-    recipe.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const visibleRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const canonicalUrl = `${SITE_URL}/cocktail-recipes/category/${categorySlug}`;
 
@@ -172,8 +170,8 @@ export default function CategoryRecipes({ categorySlug, recipes }) {
           {visibleRecipes.map((recipe, index) => (
             <Link
               className="listing-card"
-              key={recipe.attributes.recipeUrlSlug}
-              href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+              key={recipe.recipeUrlSlug}
+              href={`/cocktail-recipes/${recipe.recipeUrlSlug}`}
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>

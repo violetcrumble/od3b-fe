@@ -26,7 +26,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      recipes: data.data.recipes_connection.data,
+      recipes: data.data.recipes,
     },
   };
 }
@@ -70,8 +70,8 @@ export default function THCRecipes({ recipes }) {
           {recipes.map((recipe, index) => (
             <Link
               className="listing-card"
-              key={recipe.attributes.recipeUrlSlug}
-              href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+              key={recipe.recipeUrlSlug}
+              href={`/cocktail-recipes/${recipe.recipeUrlSlug}`}
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>

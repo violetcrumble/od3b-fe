@@ -24,7 +24,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      products: data.data.products_connection.data,
+      products: data.data.products,
     },
   };
 }
@@ -38,7 +38,7 @@ export default function Products({ products }) {
     if (category === 'all_products') {
       setFilteredProducts(products);
     } else {
-      setFilteredProducts(products.filter((element) => element.attributes.ProductCategory == category));
+      setFilteredProducts(products.filter((element) => element.ProductCategory == category));
     }
   }
 
@@ -111,12 +111,12 @@ export default function Products({ products }) {
         <div className="listings-4-col">
           {filteredProducts.map((product) => (
             <AmazonListingCard
-              key={product.id}
-              productName={product.attributes.ProductName}
-              productCategory={product.attributes.ProductCategory}
-              amazonLink={product.attributes.AmazonLink}
-              amazonASIN={product.attributes.AmazonASIN}
-              amazonPhotoURL={product.attributes.AmazonPhotoURL}
+              key={product.documentId}
+              productName={product.ProductName}
+              productCategory={product.ProductCategory}
+              amazonLink={product.AmazonLink}
+              amazonASIN={product.AmazonASIN}
+              amazonPhotoURL={product.AmazonPhotoURL}
             />
           ))}
           {filteredProducts.length !== Math.floor(filteredProducts.length / 4) && (

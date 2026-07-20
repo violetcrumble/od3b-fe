@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   try {
     const lookupRes = await fetch(
       `${URL}/api/recipes?filters[recipeUrlSlug][$eq]=${encodeURIComponent(slug)}&fields[0]=ratingCount&fields[1]=ratingTotal`,
-      { headers: { Authorization: `Bearer ${TOKEN}`, 'Strapi-Response-Format': 'v4' } },
+      { headers: { Authorization: `Bearer ${TOKEN}` } },
     );
     if (!lookupRes.ok) {
       const detail = await lookupRes.text().catch(() => '');
@@ -42,8 +42,8 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: 'Recipe not found' });
     }
 
-    const currentCount = recipe.attributes.ratingCount || 0;
-    const currentTotal = recipe.attributes.ratingTotal || 0;
+    const currentCount = recipe.ratingCount || 0;
+    const currentTotal = recipe.ratingTotal || 0;
 
     // A change (previousRating set) swaps the old vote for the new one without
     // adding to the count; falls back to a fresh vote if there's nothing to change.
@@ -56,7 +56,6 @@ export default async function handler(req, res) {
       headers: {
         'content-type': 'application/json',
         Authorization: `Bearer ${TOKEN}`,
-        'Strapi-Response-Format': 'v4',
       },
       body: JSON.stringify({ data: { ratingCount, ratingTotal } }),
     });

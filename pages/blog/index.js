@@ -23,7 +23,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      blogPosts: data.data.blogPosts_connection.data,
+      blogPosts: data.data.blogPosts,
     },
   };
 }
@@ -31,8 +31,8 @@ export async function getStaticProps(context) {
 export default function BlogListing({ blogPosts }) {
   // Sort blog posts by Date in descending order (latest first)
   const sortedBlogPosts = [...blogPosts].sort((a, b) => {
-    const dateA = new Date(a.attributes.Date);
-    const dateB = new Date(b.attributes.Date);
+    const dateA = new Date(a.Date);
+    const dateB = new Date(b.Date);
     return dateB - dateA; // Descending order
   });
 
@@ -58,18 +58,14 @@ export default function BlogListing({ blogPosts }) {
         <h2 className="sr-only">Articles</h2>
         <div className="listings-3-col">
           {sortedBlogPosts.map((blogPost) => (
-            <Link
-              className="listing-card"
-              key={blogPost.attributes.urlSlug}
-              href={`/blog/${blogPost.attributes.urlSlug}`}
-            >
+            <Link className="listing-card" key={blogPost.urlSlug} href={`/blog/${blogPost.urlSlug}`}>
               <ListingCard
-                title={blogPost.attributes.Title}
-                authorName={blogPost.attributes.blog_authors_connection.data[0].attributes.AuthorName}
-                date={blogPost.attributes.Date}
-                imageUrl={blogPost.attributes.ListingCardImage?.data?.attributes.url}
-                imageCaption={blogPost.attributes.ListingCardImage?.data?.attributes.caption}
-                snippet={blogPost.attributes.TextPreviewSnippet}
+                title={blogPost.Title}
+                authorName={blogPost.blog_authors[0].AuthorName}
+                date={blogPost.Date}
+                imageUrl={blogPost.ListingCardImage?.url}
+                imageCaption={blogPost.ListingCardImage?.caption}
+                snippet={blogPost.TextPreviewSnippet}
               />
             </Link>
           ))}

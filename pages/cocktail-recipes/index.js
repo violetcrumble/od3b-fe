@@ -26,7 +26,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      recipes: data.data.recipes_connection.data,
+      recipes: data.data.recipes,
     },
   };
 }
@@ -34,9 +34,7 @@ export async function getStaticProps() {
 export default function Recipes({ recipes }) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const visibleRecipes = recipes.filter((recipe) =>
-    recipe.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const visibleRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <ContentWrapper>
@@ -73,8 +71,8 @@ export default function Recipes({ recipes }) {
           {visibleRecipes.map((recipe, index) => (
             <Link
               className="listing-card"
-              key={recipe.attributes.recipeUrlSlug}
-              href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+              key={recipe.recipeUrlSlug}
+              href={`/cocktail-recipes/${recipe.recipeUrlSlug}`}
             >
               <RecipeListingCard recipe={recipe} priority={index === 0} />
             </Link>

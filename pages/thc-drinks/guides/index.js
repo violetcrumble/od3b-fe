@@ -24,9 +24,7 @@ export async function getStaticProps() {
   const res = await fetch(`${URL}/graphql`, fetchParams);
   const data = await res.json();
 
-  const guides = data.data.blogPosts_connection.data.filter((post) =>
-    THC_GUIDE_SLUGS.includes(post.attributes.urlSlug),
-  );
+  const guides = data.data.blogPosts.filter((post) => THC_GUIDE_SLUGS.includes(post.urlSlug));
 
   return {
     props: {
@@ -70,14 +68,14 @@ export default function THCGuides({ guides }) {
 
         <div className="listings-3-col">
           {guides.map((guide) => (
-            <Link className="listing-card" key={guide.attributes.urlSlug} href={`/blog/${guide.attributes.urlSlug}`}>
+            <Link className="listing-card" key={guide.urlSlug} href={`/blog/${guide.urlSlug}`}>
               <ListingCard
-                title={guide.attributes.Title}
-                authorName={guide.attributes.blog_authors_connection.data[0].attributes.AuthorName}
-                date={guide.attributes.Date}
-                imageUrl={guide.attributes.ListingCardImage?.data?.attributes.url}
-                imageCaption={guide.attributes.ListingCardImage?.data?.attributes.caption}
-                snippet={guide.attributes.TextPreviewSnippet}
+                title={guide.Title}
+                authorName={guide.blog_authors[0].AuthorName}
+                date={guide.Date}
+                imageUrl={guide.ListingCardImage?.url}
+                imageCaption={guide.ListingCardImage?.caption}
+                snippet={guide.TextPreviewSnippet}
               />
             </Link>
           ))}

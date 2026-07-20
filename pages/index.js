@@ -25,15 +25,13 @@ export async function getStaticProps(context) {
   const thcData = await thcRecipesRes.json();
   const latestData = await latestRecipesRes.json();
 
-  const thcRecipes = shuffleArray(thcData.data.recipes_connection.data).slice(0, 2);
-  const thcSlugs = thcRecipes.map((recipe) => recipe.attributes.recipeUrlSlug);
-  const latestRecipe = latestData.data.recipes_connection.data.find(
-    (recipe) => !thcSlugs.includes(recipe.attributes.recipeUrlSlug),
-  );
+  const thcRecipes = shuffleArray(thcData.data.recipes).slice(0, 2);
+  const thcSlugs = thcRecipes.map((recipe) => recipe.recipeUrlSlug);
+  const latestRecipe = latestData.data.recipes.find((recipe) => !thcSlugs.includes(recipe.recipeUrlSlug));
 
   return {
     props: {
-      recipes: data.data.recipes_connection.data,
+      recipes: data.data.recipes,
       thcRecipes,
       latestRecipe: latestRecipe || null,
     },

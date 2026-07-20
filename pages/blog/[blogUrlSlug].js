@@ -44,11 +44,7 @@ export default function BlogPost({ blogPost, affiliates }) {
       '@context': 'https://schema.org/',
       '@type': 'BlogPosting',
       name: blogPost.Title,
-      image: [
-        blogPost.ListingCardImage?.data && blogPost.ListingCardImage?.data.attributes
-          ? blogPost.ListingCardImage?.data.attributes.url
-          : `${SITE_URL}/pic-not-available.gif`,
-      ],
+      image: [blogPost.ListingCardImage?.url || `${SITE_URL}/pic-not-available.gif`],
       articleBody: blogPost.BlogPostBody,
       keywords: blogPost.seoKeywords,
       description: blogPost.TextPreviewSnippet,
@@ -58,7 +54,7 @@ export default function BlogPost({ blogPost, affiliates }) {
       genre: ['SEO', 'JSON-LD'],
       author: {
         '@type': 'Person',
-        name: blogPost.blog_authors_connection.data[0].attributes.AuthorName,
+        name: blogPost.blog_authors[0].AuthorName,
       },
     };
     return { __html: JSON.stringify(jsonLd) };
@@ -72,14 +68,7 @@ export default function BlogPost({ blogPost, affiliates }) {
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
-        <meta
-          property="og:image"
-          content={
-            blogPost.ogImage?.data && blogPost.ogImage?.data.attributes
-              ? blogPost.ogImage?.data.attributes.url
-              : `${SITE_URL}/pic-not-available.gif`
-          }
-        />
+        <meta property="og:image" content={blogPost.ogImage?.url || `${SITE_URL}/pic-not-available.gif`} />
 
         <meta property="og:url" content={canonicalUrl} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addBlogJsonLd()} key="blogpost-jsonld" />
@@ -103,7 +92,7 @@ export default function BlogPost({ blogPost, affiliates }) {
           </div>
           <h3 className="text-brand-purple">{blogPost.Title}</h3>
           <p>
-            {blogPost.blog_authors_connection.data[0].attributes.AuthorName} | {formattedDate}
+            {blogPost.blog_authors[0].AuthorName} | {formattedDate}
           </p>
           <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
         </div>
@@ -120,8 +109,8 @@ export default function BlogPost({ blogPost, affiliates }) {
 export async function getStaticPaths() {
   const { data } = await client.query({ query: GET_ALL_BLOG_SLUGS });
 
-  const paths = data.blogPosts_connection.data.map((blogPost) => {
-    return { params: { blogUrlSlug: blogPost.attributes.urlSlug } };
+  const paths = data.blogPosts.map((blogPost) => {
+    return { params: { blogUrlSlug: blogPost.urlSlug } };
   });
 
   return {
@@ -139,8 +128,8 @@ export async function getStaticProps({ params }) {
     client.query({ query: GET_ALL_AFFILIATE_PARTNERS }),
   ]);
 
-  const attrs = data.blogPosts_connection.data[0].attributes;
-  const affiliates = affiliatesResult.data.affiliatePartners_connection.data.map((partner) => partner.attributes);
+  const attrs = data.blogPosts[0];
+  const affiliates = affiliatesResult.data.affiliatePartners;
 
   return {
     props: {

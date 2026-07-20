@@ -59,17 +59,17 @@ export async function getServerSideProps({ res }) {
     client.query({ query: GET_ALL_REVIEW_SLUGS }),
   ]);
 
-  const recipes = recipesResult.data.recipes_connection.data.map((recipe) => ({
-    slug: recipe.attributes.recipeUrlSlug,
-    updatedAt: recipe.attributes.updatedAt,
+  const recipes = recipesResult.data.recipes.map((recipe) => ({
+    slug: recipe.recipeUrlSlug,
+    updatedAt: recipe.updatedAt,
   }));
-  const blogPosts = blogResult.data.blogPosts_connection.data.map((blogPost) => ({
-    slug: blogPost.attributes.urlSlug,
-    updatedAt: blogPost.attributes.updatedAt,
+  const blogPosts = blogResult.data.blogPosts.map((blogPost) => ({
+    slug: blogPost.urlSlug,
+    updatedAt: blogPost.updatedAt,
   }));
-  const reviews = reviewsResult.data.reviews_connection.data.map((review) => ({
-    slug: review.attributes.reviewUrlSlug,
-    updatedAt: review.attributes.updatedAt,
+  const reviews = reviewsResult.data.reviews.map((review) => ({
+    slug: review.reviewUrlSlug,
+    updatedAt: review.updatedAt,
   }));
 
   const sitemap = generateSiteMap(recipes, blogPosts, reviews);

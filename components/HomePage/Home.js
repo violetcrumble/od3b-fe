@@ -23,8 +23,8 @@ export default function HomePage({ recipes, thcRecipes, latestRecipe }) {
               {thcRecipes.map((recipe, index) => (
                 <Link
                   className="listing-card"
-                  key={recipe.attributes.recipeUrlSlug}
-                  href={`/cocktail-recipes/${recipe.attributes.recipeUrlSlug}`}
+                  key={recipe.recipeUrlSlug}
+                  href={`/cocktail-recipes/${recipe.recipeUrlSlug}`}
                 >
                   <RecipeListingCard
                     recipe={recipe}
@@ -39,7 +39,7 @@ export default function HomePage({ recipes, thcRecipes, latestRecipe }) {
           {latestRecipe && (
             <div className={styles['latest-recipe-panel']}>
               <h2 className="text-brand-teal">Latest Recipe</h2>
-              <Link className="listing-card" href={`/cocktail-recipes/${latestRecipe.attributes.recipeUrlSlug}`}>
+              <Link className="listing-card" href={`/cocktail-recipes/${latestRecipe.recipeUrlSlug}`}>
                 <RecipeListingCard
                   recipe={latestRecipe}
                   sizes="(max-width: 899px) 85vw, (max-width: 1599px) 25vw, 410px"

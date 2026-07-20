@@ -31,9 +31,9 @@ export default function Review({ review, affiliates }) {
   });
 
   const canonicalUrl = `${SITE_URL}/thc-drinks/reviews/${review.reviewUrlSlug}`;
-  const authorName = review.review_authors_connection.data[0]?.attributes.AuthorName || 'Cocktail Underground';
-  const listingImageUrl = review.listingCardImage?.data?.attributes.url;
-  const ogImageUrl = review.ogImage?.data?.attributes.url || listingImageUrl;
+  const authorName = review.review_authors[0]?.AuthorName || 'Cocktail Underground';
+  const listingImageUrl = review.listingCardImage?.url;
+  const ogImageUrl = review.ogImage?.url || listingImageUrl;
 
   function addReviewJsonLd() {
     const jsonLd = {
@@ -136,8 +136,8 @@ export default function Review({ review, affiliates }) {
 export async function getStaticPaths() {
   const { data } = await client.query({ query: GET_ALL_REVIEW_SLUGS });
 
-  const paths = data.reviews_connection.data.map((review) => {
-    return { params: { reviewUrlSlug: review.attributes.reviewUrlSlug } };
+  const paths = data.reviews.map((review) => {
+    return { params: { reviewUrlSlug: review.reviewUrlSlug } };
   });
 
   return {
@@ -155,8 +155,8 @@ export async function getStaticProps({ params }) {
     client.query({ query: GET_ALL_AFFILIATE_PARTNERS }),
   ]);
 
-  const attrs = data.reviews_connection.data[0].attributes;
-  const affiliates = affiliatesResult.data.affiliatePartners_connection.data.map((partner) => partner.attributes);
+  const attrs = data.reviews[0];
+  const affiliates = affiliatesResult.data.affiliatePartners;
 
   return {
     props: {

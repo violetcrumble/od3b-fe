@@ -22,7 +22,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      reviews: data.data.reviews_connection.data,
+      reviews: data.data.reviews,
     },
   };
 }
@@ -63,17 +63,17 @@ export default function THCReviews({ reviews }) {
           {reviews.map((review) => (
             <Link
               className="listing-card"
-              key={review.attributes.reviewUrlSlug}
-              href={`/thc-drinks/reviews/${review.attributes.reviewUrlSlug}`}
+              key={review.reviewUrlSlug}
+              href={`/thc-drinks/reviews/${review.reviewUrlSlug}`}
             >
               <ListingCard
-                title={review.attributes.title}
-                authorName={review.attributes.review_authors_connection.data[0]?.attributes.AuthorName}
-                date={review.attributes.reviewDate}
-                imageUrl={review.attributes.listingCardImage?.data?.attributes.url}
-                imageCaption={review.attributes.listingCardImage?.data?.attributes.caption}
-                snippet={review.attributes.previewSnippet}
-                rating={review.attributes.rating}
+                title={review.title}
+                authorName={review.review_authors[0]?.AuthorName}
+                date={review.reviewDate}
+                imageUrl={review.listingCardImage?.url}
+                imageCaption={review.listingCardImage?.caption}
+                snippet={review.previewSnippet}
+                rating={review.rating}
               />
             </Link>
           ))}

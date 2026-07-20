@@ -43,8 +43,8 @@ function getYouTubeStartSeconds(youTubeLink) {
 export default function Recipe({ recipe, relatedRecipes, affiliates }) {
   // Related Products is Amazon-only: THC partner products are promoted via the
   // affiliate CTA boxes and ingredient links instead, not listed twice.
-  const amazonProducts = recipe.relatedProducts_connection.data.filter((product) =>
-    /amazon\.com|amzn\.to/.test(product.attributes.AmazonLink || ''),
+  const amazonProducts = recipe.relatedProducts.filter((product) =>
+    /amazon\.com|amzn\.to/.test(product.AmazonLink || ''),
   );
 
   const youTubeStartSeconds = getYouTubeStartSeconds(recipe.YouTubeLink);
@@ -57,7 +57,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
       '@context': 'https://schema.org/',
       '@type': 'Recipe',
       name: recipe.title,
-      image: [cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)],
+      image: [cloudinaryOptimize(recipe.PhotoMain[0].url)],
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',
       description: recipe.recipebody,
@@ -79,9 +79,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               uploadDate: recipe.videoUploadDate,
             }),
             thumbnailUrl: cloudinaryOptimize(
-              recipe.videoThumbnail?.data
-                ? recipe.videoThumbnail?.data.attributes.url
-                : recipe.PhotoMain_connection.data[0].attributes.url,
+              recipe.videoThumbnail ? recipe.videoThumbnail.url : recipe.PhotoMain[0].url,
             ),
           }
         : undefined,
@@ -116,7 +114,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
           property="og:description"
           content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
-        <meta property="og:image" content={cloudinaryOptimize(recipe.PhotoMain_connection.data[0].attributes.url)} />
+        <meta property="og:image" content={cloudinaryOptimize(recipe.PhotoMain[0].url)} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addRecipeJsonLd()} key="recipe-jsonld" />
         <script
           type="application/ld+json"
@@ -187,15 +185,11 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
             </h2>
             <Markdown>{recipe.recipebody}</Markdown>
 
-            {recipe.PhotoMain_connection.data[0] && recipe.PhotoMain_connection.data[0].attributes.url && (
+            {recipe.PhotoMain?.[0]?.url && (
               <div className="mobile-recipe-pic-container">
                 <Image
-                  src={recipe.PhotoMain_connection.data[0].attributes.url}
-                  alt={
-                    recipe.PhotoMain_connection.data[0].attributes.alternativeText
-                      ? recipe.PhotoMain_connection.data[0].attributes.alternativeText
-                      : recipe.title
-                  }
+                  src={recipe.PhotoMain[0].url}
+                  alt={recipe.PhotoMain[0].alternativeText ? recipe.PhotoMain[0].alternativeText : recipe.title}
                   width="487"
                   height="487"
                   className={styles['mobile-recipe-image']}
@@ -214,28 +208,20 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
           {/* end column 1 */}
 
           <div className={`${styles['recipe-page-col-2']}`}>
-            {recipe.PhotoMain_connection.data[0] && recipe.PhotoMain_connection.data[0].attributes.url && (
+            {recipe.PhotoMain?.[0]?.url && (
               <Image
-                src={recipe.PhotoMain_connection.data[0].attributes.url}
-                alt={
-                  recipe.PhotoMain_connection.data[0].attributes.alternativeText
-                    ? recipe.PhotoMain_connection.data[0].attributes.alternativeText
-                    : recipe.title
-                }
+                src={recipe.PhotoMain[0].url}
+                alt={recipe.PhotoMain[0].alternativeText ? recipe.PhotoMain[0].alternativeText : recipe.title}
                 width="487"
                 height="487"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
                 sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
-            {recipe.PhotoMain_connection.data[1] && recipe.PhotoMain_connection.data[1].attributes.url && (
+            {recipe.PhotoMain?.[1]?.url && (
               <Image
-                src={recipe.PhotoMain_connection.data[1].attributes.url}
-                alt={
-                  recipe.PhotoMain_connection.data[1].attributes.alternativeText
-                    ? recipe.PhotoMain_connection.data[1].attributes.alternativeText
-                    : recipe.title
-                }
+                src={recipe.PhotoMain[1].url}
+                alt={recipe.PhotoMain[1].alternativeText ? recipe.PhotoMain[1].alternativeText : recipe.title}
                 width="487"
                 height="487"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
@@ -247,10 +233,10 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 
             <NewsletterSignup />
 
-            {recipe.PhotoPinterest?.data && recipe.PhotoPinterest?.data.attributes.url && (
+            {recipe.PhotoPinterest?.url && (
               <Image
-                src={recipe.PhotoPinterest?.data.attributes.url}
-                alt={recipe.PhotoPinterest?.data.attributes.alternativeText}
+                src={recipe.PhotoPinterest.url}
+                alt={recipe.PhotoPinterest.alternativeText}
                 width="256"
                 height="370"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
@@ -269,12 +255,12 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
                 <div className={`${styles['related-product-cards']}`}>
                   {amazonProducts.map((product) => (
                     <AmazonListingCard
-                      key={product.attributes.AmazonASIN || product.attributes.ProductName}
-                      productName={product.attributes.ProductName}
-                      productCategory={product.attributes.ProductCategory}
-                      amazonLink={product.attributes.AmazonLink}
-                      amazonASIN={product.attributes.AmazonASIN}
-                      amazonPhotoURL={product.attributes.AmazonPhotoURL}
+                      key={product.AmazonASIN || product.ProductName}
+                      productName={product.ProductName}
+                      productCategory={product.ProductCategory}
+                      amazonLink={product.AmazonLink}
+                      amazonASIN={product.AmazonASIN}
+                      amazonPhotoURL={product.AmazonPhotoURL}
                     />
                   ))}
                 </div>
@@ -294,8 +280,8 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               {relatedRecipes.map((related) => (
                 <Link
                   className="listing-card"
-                  key={related.attributes.recipeUrlSlug}
-                  href={`/cocktail-recipes/${related.attributes.recipeUrlSlug}`}
+                  key={related.recipeUrlSlug}
+                  href={`/cocktail-recipes/${related.recipeUrlSlug}`}
                 >
                   <RecipeListingCard recipe={related} />
                 </Link>
@@ -311,8 +297,8 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 export async function getStaticPaths() {
   const { data } = await client.query({ query: GET_ALL_RECIPE_SLUGS });
 
-  const paths = data.recipes_connection.data.map((recipe) => {
-    return { params: { recipeUrlSlug: recipe.attributes.recipeUrlSlug } };
+  const paths = data.recipes.map((recipe) => {
+    return { params: { recipeUrlSlug: recipe.recipeUrlSlug } };
   });
 
   return {
@@ -343,22 +329,21 @@ export async function getStaticProps({ params }) {
     variables: { recipeUrlSlug: params.recipeUrlSlug },
   });
 
-  const attrs = data.recipes_connection.data[0].attributes;
+  const attrs = data.recipes[0];
 
   const allRecipesData = await getAllRecipeSummaries();
 
-  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes_connection.data);
+  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes);
 
   // THC recipes get affiliate CTA boxes in the sidebar; other spirits don't,
   // since the partner lineup is all THC brands. Each recipe shows only the
   // partner whose product it actually uses; if no partner matches (e.g. a
   // Willie's Remedy recipe, where we have no affiliate program), show all.
-  const isThcRecipe = attrs.spirits_connection.data.some((spirit) => spirit.attributes.spirit === 'thc');
+  const isThcRecipe = attrs.spirits.some((spirit) => spirit.spirit === 'thc');
   let affiliates = [];
   if (isThcRecipe) {
     const affiliatesResult = await client.query({ query: GET_ALL_AFFILIATE_PARTNERS });
-    const allPartners = affiliatesResult.data.affiliatePartners_connection.data.map((partner) => partner.attributes);
-    affiliates = selectRecipeAffiliates(attrs, allPartners);
+    affiliates = selectRecipeAffiliates(attrs, affiliatesResult.data.affiliatePartners);
   }
 
   return {
