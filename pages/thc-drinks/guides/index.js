@@ -3,28 +3,16 @@ import Link from 'next/link';
 import ContentWrapper from '../../../components/ContentWrapper';
 import ListingCard from '../../../components/Cards/ListingCard/ListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../../graphql/queries';
+import { strapiQueryCached } from '../../../utils/strapiQuery';
 import THC_GUIDE_SLUGS from '../../../utils/thcGuideSlugs';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/THC.module.scss';
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps() {
-  const fetchParams = {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: GET_ALL_BLOG_POSTS,
-    }),
-  };
+  const data = await strapiQueryCached(GET_ALL_BLOG_POSTS);
 
-  const res = await fetch(`${URL}/graphql`, fetchParams);
-  const data = await res.json();
-
-  const guides = data.data.blogPosts.filter((post) => THC_GUIDE_SLUGS.includes(post.urlSlug));
+  const guides = data.blogPosts.filter((post) => THC_GUIDE_SLUGS.includes(post.urlSlug));
 
   return {
     props: {

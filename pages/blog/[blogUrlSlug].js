@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST, GET_ALL_AFFILIATE_PARTNERS } from '../../graphql/queries';
+import { strapiQuery, strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
@@ -10,13 +10,6 @@ import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs
 import { AFFILIATE_LINK_PATTERN } from '../../utils/affiliateLink';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../utils/siteUrl';
-
-const URL = process.env.STRAPIBASEURL;
-
-const client = new ApolloClient({
-  link: new HttpLink({ uri: `${URL}/graphql` }),
-  cache: new InMemoryCache(),
-});
 
 // Affiliate links in post bodies open in a new tab and carry rel="sponsored";
 // all other links keep the default in-page behavior.
@@ -107,7 +100,7 @@ export default function BlogPost({ blogPost, affiliates }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await client.query({ query: GET_ALL_BLOG_SLUGS });
+  const data = await strapiQuery(GET_ALL_BLOG_SLUGS);
 
   const paths = data.blogPosts.map((blogPost) => {
     return { params: { blogUrlSlug: blogPost.urlSlug } };
@@ -120,16 +113,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const [{ data }, affiliatesResult] = await Promise.all([
-    client.query({
-      query: GET_BLOG_POST,
-      variables: { urlSlug: params.blogUrlSlug },
-    }),
-    client.query({ query: GET_ALL_AFFILIATE_PARTNERS }),
+  const [data, affiliatesData] = await Promise.all([
+    strapiQuery(GET_BLOG_POST, { urlSlug: params.blogUrlSlug }),
+    strapiQueryCached(GET_ALL_AFFILIATE_PARTNERS),
   ]);
 
   const attrs = data.blogPosts[0];
-  const affiliates = affiliatesResult.data.affiliatePartners;
+  const affiliates = affiliatesData.affiliatePartners;
 
   return {
     props: {

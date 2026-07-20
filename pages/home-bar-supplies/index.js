@@ -3,28 +3,16 @@ import Head from 'next/head';
 import ContentWrapper from '../../components/ContentWrapper';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
+import { strapiQuery } from '../../utils/strapiQuery';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/HomeBarSupplies.module.scss'; // <-- Import SCSS module
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps(context) {
-  const fetchParams = {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: GET_AMAZON_PRODUCTS,
-    }),
-  };
-
-  const res = await fetch(`${URL}/graphql`, fetchParams);
-  const data = await res.json();
+  const data = await strapiQuery(GET_AMAZON_PRODUCTS);
 
   return {
     props: {
-      products: data.data.products,
+      products: data.products,
     },
   };
 }

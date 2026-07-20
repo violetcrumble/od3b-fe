@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import {
   GET_ALL_RECIPE_SLUGS,
   GET_ALL_RECIPE_SUMMARIES,
   GET_INDIVIDUAL_RECIPE,
   GET_ALL_AFFILIATE_PARTNERS,
 } from '../../graphql/queries';
+import { strapiQuery, strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
@@ -25,13 +25,6 @@ import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/Recipe.module.scss';
 // import shareIcon from '../../public/icons/share.svg';
 // import printIcon from '../../public/icons/printer.svg';
-
-const URL = process.env.STRAPIBASEURL;
-
-const client = new ApolloClient({
-  link: new HttpLink({ uri: `${URL}/graphql` }),
-  cache: new InMemoryCache(),
-});
 
 // Multiple recipes often share one video at different timestamps (?t=137 or ?t=183s).
 function getYouTubeStartSeconds(youTubeLink) {
@@ -295,7 +288,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await client.query({ query: GET_ALL_RECIPE_SLUGS });
+  const data = await strapiQuery(GET_ALL_RECIPE_SLUGS);
 
   const paths = data.recipes.map((recipe) => {
     return { params: { recipeUrlSlug: recipe.recipeUrlSlug } };
@@ -307,33 +300,14 @@ export async function getStaticPaths() {
   };
 }
 
-// The summaries list is identical for every recipe page, but getStaticProps runs
-// once per page. Caching the promise at module level means each build worker
-// fetches it once instead of hammering Strapi ~70 times per build (which has
-// OOM-crashed the Heroku dyno mid-build more than once).
-let recipeSummariesPromise = null;
-function getAllRecipeSummaries() {
-  if (!recipeSummariesPromise) {
-    recipeSummariesPromise = fetch(`${URL}/graphql`, {
-      method: 'post',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ query: GET_ALL_RECIPE_SUMMARIES }),
-    }).then((res) => res.json());
-  }
-  return recipeSummariesPromise;
-}
-
 export async function getStaticProps({ params }) {
-  const { data } = await client.query({
-    query: GET_INDIVIDUAL_RECIPE,
-    variables: { recipeUrlSlug: params.recipeUrlSlug },
-  });
+  const data = await strapiQuery(GET_INDIVIDUAL_RECIPE, { recipeUrlSlug: params.recipeUrlSlug });
 
   const attrs = data.recipes[0];
 
-  const allRecipesData = await getAllRecipeSummaries();
+  const allRecipesData = await strapiQueryCached(GET_ALL_RECIPE_SUMMARIES);
 
-  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.data.recipes);
+  const relatedRecipes = getRelatedRecipes(attrs, allRecipesData.recipes);
 
   // THC recipes get affiliate CTA boxes in the sidebar; other spirits don't,
   // since the partner lineup is all THC brands. Each recipe shows only the
@@ -342,8 +316,8 @@ export async function getStaticProps({ params }) {
   const isThcRecipe = attrs.spirits.some((spirit) => spirit.spirit === 'thc');
   let affiliates = [];
   if (isThcRecipe) {
-    const affiliatesResult = await client.query({ query: GET_ALL_AFFILIATE_PARTNERS });
-    affiliates = selectRecipeAffiliates(attrs, affiliatesResult.data.affiliatePartners);
+    const affiliatesData = await strapiQueryCached(GET_ALL_AFFILIATE_PARTNERS);
+    affiliates = selectRecipeAffiliates(attrs, affiliatesData.affiliatePartners);
   }
 
   return {

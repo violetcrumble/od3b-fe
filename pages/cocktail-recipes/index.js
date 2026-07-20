@@ -4,29 +4,17 @@ import Link from 'next/link';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
 import { GET_ALL_RECIPES } from '../../graphql/queries.js';
+import { strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper.js';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/CocktailRecipes.module.scss';
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps() {
-  const fetchParams = {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: GET_ALL_RECIPES,
-    }),
-  };
-
-  const res = await fetch(`${URL}/graphql`, fetchParams);
-  const data = await res.json();
+  const data = await strapiQueryCached(GET_ALL_RECIPES);
 
   return {
     props: {
-      recipes: data.data.recipes,
+      recipes: data.recipes,
     },
   };
 }

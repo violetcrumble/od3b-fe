@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client';
-
-const GET_ALL_RECIPE_SLUGS = gql`
+const GET_ALL_RECIPE_SLUGS = `
   query {
     recipes(pagination: { limit: 300 }) {
       recipeUrlSlug
@@ -75,7 +73,7 @@ query {
 }
 `;
 
-const GET_INDIVIDUAL_RECIPE = gql`
+const GET_INDIVIDUAL_RECIPE = `
   query ($recipeUrlSlug: String!) {
     recipes(filters: { recipeUrlSlug: { eq: $recipeUrlSlug } }) {
       title
@@ -133,7 +131,7 @@ query {
 }
 `;
 
-const GET_ALL_BLOG_SLUGS = gql`
+const GET_ALL_BLOG_SLUGS = `
   query {
     blogPosts(pagination: { limit: 300 }) {
       urlSlug
@@ -158,7 +156,7 @@ const GET_ALL_BLOG_POSTS = `{
   }
 }`;
 
-const GET_BLOG_POST = gql`
+const GET_BLOG_POST = `
   query ($urlSlug: String!) {
     blogPosts(filters: { urlSlug: { eq: $urlSlug } }) {
       Title
@@ -184,7 +182,7 @@ const GET_BLOG_POST = gql`
   }
 `;
 
-const GET_ALL_REVIEW_SLUGS = gql`
+const GET_ALL_REVIEW_SLUGS = `
   query {
     reviews(pagination: { limit: 300 }) {
       reviewUrlSlug
@@ -211,7 +209,7 @@ const GET_ALL_REVIEWS = `{
   }
 }`;
 
-const GET_REVIEW = gql`
+const GET_REVIEW = `
   query ($reviewUrlSlug: String!) {
     reviews(filters: { reviewUrlSlug: { eq: $reviewUrlSlug } }) {
       title
@@ -253,7 +251,7 @@ const GET_REVIEW = gql`
   }
 `;
 
-const GET_ALL_AFFILIATE_PARTNERS = gql`
+const GET_ALL_AFFILIATE_PARTNERS = `
   query {
     affiliatePartners(sort: "displayOrder:asc", pagination: { limit: 50 }) {
       name

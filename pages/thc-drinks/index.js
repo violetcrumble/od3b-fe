@@ -5,37 +5,25 @@ import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeLi
 import ListingCard from '../../components/Cards/ListingCard/ListingCard';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS, GET_ALL_REVIEWS } from '../../graphql/queries';
+import { strapiQueryCached } from '../../utils/strapiQuery';
 import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/THC.module.scss';
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps() {
-  const fetchParams = (query) => ({
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({ query }),
-  });
-
-  const [recipesRes, blogRes, reviewsRes] = await Promise.all([
-    fetch(`${URL}/graphql`, fetchParams(GET_ALL_THC_RECIPES)),
-    fetch(`${URL}/graphql`, fetchParams(GET_ALL_BLOG_POSTS)),
-    fetch(`${URL}/graphql`, fetchParams(GET_ALL_REVIEWS)),
+  const [data, blogData, reviewsData] = await Promise.all([
+    strapiQueryCached(GET_ALL_THC_RECIPES),
+    strapiQueryCached(GET_ALL_BLOG_POSTS),
+    strapiQueryCached(GET_ALL_REVIEWS),
   ]);
-  const data = await recipesRes.json();
-  const blogData = await blogRes.json();
-  const reviewsData = await reviewsRes.json();
 
-  const guides = blogData.data.blogPosts.filter((post) => THC_GUIDE_SLUGS.includes(post.urlSlug));
+  const guides = blogData.blogPosts.filter((post) => THC_GUIDE_SLUGS.includes(post.urlSlug));
 
   return {
     props: {
-      recipes: data.data.recipes.slice(0, 3),
+      recipes: data.recipes.slice(0, 3),
       guides,
-      reviews: reviewsData.data.reviews,
+      reviews: reviewsData.reviews,
     },
   };
 }

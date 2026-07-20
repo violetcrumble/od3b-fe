@@ -4,25 +4,17 @@ import ContentWrapper from '../../../components/ContentWrapper';
 import ListingCard from '../../../components/Cards/ListingCard/ListingCard';
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_REVIEWS } from '../../../graphql/queries';
+import { strapiQueryCached } from '../../../utils/strapiQuery';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/THC.module.scss';
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps() {
-  const res = await fetch(`${URL}/graphql`, {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({ query: GET_ALL_REVIEWS }),
-  });
-  const data = await res.json();
+  const data = await strapiQueryCached(GET_ALL_REVIEWS);
 
   return {
     props: {
-      reviews: data.data.reviews,
+      reviews: data.reviews,
     },
   };
 }

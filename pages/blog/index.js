@@ -3,27 +3,15 @@ import Link from 'next/link';
 import ContentWrapper from '../../components/ContentWrapper';
 import ListingCard from '../../components/Cards/ListingCard/ListingCard';
 import { GET_ALL_BLOG_POSTS } from '../../graphql/queries';
+import { strapiQueryCached } from '../../utils/strapiQuery';
 import SITE_URL from '../../utils/siteUrl';
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps(context) {
-  const fetchParams = {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: GET_ALL_BLOG_POSTS,
-    }),
-  };
-
-  const res = await fetch(`${URL}/graphql`, fetchParams);
-  const data = await res.json();
+  const data = await strapiQueryCached(GET_ALL_BLOG_POSTS);
 
   return {
     props: {
-      blogPosts: data.data.blogPosts,
+      blogPosts: data.blogPosts,
     },
   };
 }

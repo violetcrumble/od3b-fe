@@ -6,11 +6,10 @@ import RecipeListingCard from '../../../components/Cards/RecipeListingCard/Recip
 import CategoryNavPills from '../../../components/CategoryNavPills/CategoryNavPills';
 import filterRecipesByCategory from '../../../utils/filterRecipesByCategory.js';
 import { GET_ALL_RECIPES } from '../../../graphql/queries.js';
+import { strapiQueryCached } from '../../../utils/strapiQuery';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/CocktailRecipes.module.scss';
-
-const URL = process.env.STRAPIBASEURL;
 
 const CATEGORY_CONTENT = {
   tequila: {
@@ -96,14 +95,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`${URL}/graphql`, {
-    method: 'post',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ query: GET_ALL_RECIPES }),
-  });
-  const data = await res.json();
+  const data = await strapiQueryCached(GET_ALL_RECIPES);
 
-  const recipes = filterRecipesByCategory(params.categorySlug, data.data.recipes);
+  const recipes = filterRecipesByCategory(params.categorySlug, data.recipes);
 
   return {
     props: {

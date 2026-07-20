@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { GET_ALL_REVIEW_SLUGS, GET_REVIEW, GET_ALL_AFFILIATE_PARTNERS } from '../../../graphql/queries';
+import { strapiQuery, strapiQueryCached } from '../../../utils/strapiQuery';
 import ContentWrapper from '../../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import styles from '../../../styles/pages/Review.module.scss';
@@ -14,13 +14,6 @@ import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import markdownLinkComponents from '../../../utils/markdownLinkComponents';
 import cloudinaryOptimize from '../../../utils/cloudinaryOptimize';
 import SITE_URL from '../../../utils/siteUrl';
-
-const URL = process.env.STRAPIBASEURL;
-
-const client = new ApolloClient({
-  link: new HttpLink({ uri: `${URL}/graphql` }),
-  cache: new InMemoryCache(),
-});
 
 export default function Review({ review, affiliates }) {
   const formattedDate = new Date(review.reviewDate).toLocaleString('en-us', {
@@ -134,7 +127,7 @@ export default function Review({ review, affiliates }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await client.query({ query: GET_ALL_REVIEW_SLUGS });
+  const data = await strapiQuery(GET_ALL_REVIEW_SLUGS);
 
   const paths = data.reviews.map((review) => {
     return { params: { reviewUrlSlug: review.reviewUrlSlug } };
@@ -147,16 +140,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const [{ data }, affiliatesResult] = await Promise.all([
-    client.query({
-      query: GET_REVIEW,
-      variables: { reviewUrlSlug: params.reviewUrlSlug },
-    }),
-    client.query({ query: GET_ALL_AFFILIATE_PARTNERS }),
+  const [data, affiliatesData] = await Promise.all([
+    strapiQuery(GET_REVIEW, { reviewUrlSlug: params.reviewUrlSlug }),
+    strapiQueryCached(GET_ALL_AFFILIATE_PARTNERS),
   ]);
 
   const attrs = data.reviews[0];
-  const affiliates = affiliatesResult.data.affiliatePartners;
+  const affiliates = affiliatesData.affiliatePartners;
 
   return {
     props: {

@@ -3,30 +3,18 @@ import Link from 'next/link';
 import ContentWrapper from '../../../components/ContentWrapper';
 import RecipeListingCard from '../../../components/Cards/RecipeListingCard/RecipeListingCard';
 import { GET_ALL_THC_RECIPES } from '../../../graphql/queries';
+import { strapiQueryCached } from '../../../utils/strapiQuery';
 import styles from '../../../styles/pages/THC.module.scss';
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 
-const URL = process.env.STRAPIBASEURL;
-
 export async function getStaticProps() {
-  const fetchParams = {
-    method: 'post',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: GET_ALL_THC_RECIPES,
-    }),
-  };
-
-  const res = await fetch(`${URL}/graphql`, fetchParams);
-  const data = await res.json();
+  const data = await strapiQueryCached(GET_ALL_THC_RECIPES);
 
   return {
     props: {
-      recipes: data.data.recipes,
+      recipes: data.recipes,
     },
   };
 }

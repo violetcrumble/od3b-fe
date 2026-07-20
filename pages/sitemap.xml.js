@@ -1,15 +1,9 @@
 // pages/sitemap.xml.js
 
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS, GET_ALL_REVIEW_SLUGS } from '../graphql/queries';
+import { strapiQuery } from '../utils/strapiQuery';
 
 const URL = 'https://www.cocktailunderground.com';
-const STRAPI_URL = process.env.STRAPIBASEURL;
-
-const client = new ApolloClient({
-  link: new HttpLink({ uri: `${STRAPI_URL}/graphql` }),
-  cache: new InMemoryCache(),
-});
 
 const STATIC_PATHS = [
   'cocktail-recipes',
@@ -53,21 +47,21 @@ ${entries.join('\n')}
 }
 
 export async function getServerSideProps({ res }) {
-  const [recipesResult, blogResult, reviewsResult] = await Promise.all([
-    client.query({ query: GET_ALL_RECIPE_SLUGS }),
-    client.query({ query: GET_ALL_BLOG_SLUGS }),
-    client.query({ query: GET_ALL_REVIEW_SLUGS }),
+  const [recipesData, blogData, reviewsData] = await Promise.all([
+    strapiQuery(GET_ALL_RECIPE_SLUGS),
+    strapiQuery(GET_ALL_BLOG_SLUGS),
+    strapiQuery(GET_ALL_REVIEW_SLUGS),
   ]);
 
-  const recipes = recipesResult.data.recipes.map((recipe) => ({
+  const recipes = recipesData.recipes.map((recipe) => ({
     slug: recipe.recipeUrlSlug,
     updatedAt: recipe.updatedAt,
   }));
-  const blogPosts = blogResult.data.blogPosts.map((blogPost) => ({
+  const blogPosts = blogData.blogPosts.map((blogPost) => ({
     slug: blogPost.urlSlug,
     updatedAt: blogPost.updatedAt,
   }));
-  const reviews = reviewsResult.data.reviews.map((review) => ({
+  const reviews = reviewsData.reviews.map((review) => ({
     slug: review.reviewUrlSlug,
     updatedAt: review.updatedAt,
   }));
