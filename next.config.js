@@ -8,6 +8,10 @@ const nextConfig = {
   images: {
     loader: 'custom',
     loaderFile: './image-loader.js',
+    // Largest rendered image on the site is ~500 CSS px (recipe sidebar), so
+    // 2x retina tops out around 1080. The defaults go to 3840, generating
+    // Cloudinary derivatives nobody downloads.
+    deviceSizes: [640, 750, 828, 1080, 1200],
     remotePatterns: [
       {
         protocol: 'https',
