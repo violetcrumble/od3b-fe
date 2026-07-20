@@ -36,7 +36,10 @@ export default function THCRecipes({ recipes }) {
     <ContentWrapper>
       <Head>
         <title>THC Drink Recipes and Cannabis Cocktails | Cocktail Underground</title>
-        <meta name="description" content="THC Drinks" />
+        <meta
+          name="description"
+          content="THC cocktail recipes made with hemp-derived drinks — real bartending technique, exact measurements, and THC dose notes for every drink."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/thc-drinks/recipes`} />
         <script

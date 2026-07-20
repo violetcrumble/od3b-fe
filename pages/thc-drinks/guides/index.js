@@ -38,7 +38,10 @@ export default function THCGuides({ guides }) {
     <ContentWrapper>
       <Head>
         <title>Cocktail Underground - THC Drinks - Guides</title>
-        <meta name="description" content="THC Drinks" />
+        <meta
+          name="description"
+          content="Practical guides to hemp-derived THC drinks: how much to drink, how they compare to alcohol, THC vs CBD, hangovers, and legality — from real testing."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/thc-drinks/guides`} />
         <script

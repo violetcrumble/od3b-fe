@@ -45,7 +45,10 @@ export default function THCMain({ recipes, guides, reviews }) {
     <ContentWrapper>
       <Head>
         <title>Cocktail Underground - THC Drinks</title>
-        <meta name="description" content="THC Drinks" />
+        <meta
+          name="description"
+          content="THC drinks explained: tested cocktail recipes, honest reviews of hemp-derived seltzers and tonics, and dosage guides to help you pour with confidence."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/thc-drinks`} />
       </Head>

@@ -43,7 +43,10 @@ export default function Home({ recipes, thcRecipes, latestRecipe }) {
     <ContentWrapper>
       <Head>
         <title>Cocktail Underground</title>
-        <meta name="description" content="Cocktail Underground" />
+        <meta
+          name="description"
+          content="Craft cocktail recipes tested and filmed at home — classic drinks, THC cocktails, honest product reviews, and home bar tips from Cocktail Underground."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={SITE_URL} />
       </Head>

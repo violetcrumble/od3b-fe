@@ -32,7 +32,10 @@ export default function THCReviews({ reviews }) {
     <ContentWrapper>
       <Head>
         <title>Cocktail Underground - THC Drinks - Reviews</title>
-        <meta name="description" content="THC Drinks" />
+        <meta
+          name="description"
+          content="Honest reviews of THC drinks and seltzers — flavor, dose, price, and lab-test checks for Willie's Remedy, Crescent 9, Artet, and more."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/thc-drinks/reviews`} />
         <script
