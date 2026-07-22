@@ -23,6 +23,12 @@
       color: colors.$brand-orange;
     }
 
+    // community average, shown before the visitor has rated — lighter so a
+    // full-orange hover preview still reads as "your" action
+    &.filled-average {
+      color: colors.$brand-orange-200;
+    }
+
     &:disabled {
       cursor: default;
     }

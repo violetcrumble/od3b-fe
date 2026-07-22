@@ -1,6 +1,7 @@
-// Matches affiliate destinations: Awin tracker links and direct programs
-// that use ?sld= (Crescent Canna) or ?ref= (Grind with Gratitude).
-export const AFFILIATE_LINK_PATTERN = /awin1\.com|[?&](sld|ref)=/;
+// Matches affiliate destinations: Awin tracker links, refr.cc referral links
+// (Mission Farms), and direct programs that use ?sld= (Crescent Canna) or
+// ?ref= (Grind with Gratitude).
+export const AFFILIATE_LINK_PATTERN = /awin1\.com|refr\.cc|[?&](sld|ref)=/;
 
 // Appends tracking params to an affiliate URL without disturbing any
 // params the affiliate program itself requires (e.g. ?sld= for Crescent Canna,

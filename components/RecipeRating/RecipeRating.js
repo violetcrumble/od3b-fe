@@ -58,7 +58,13 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
           <button
             key={value}
             type="button"
-            className={`${styles.star} ${value <= (hovered || myRating || Math.round(average)) ? styles.filled : ''}`}
+            className={`${styles.star} ${
+              value <= (hovered || myRating)
+                ? styles.filled
+                : !hovered && !myRating && value <= Math.round(average)
+                  ? styles['filled-average']
+                  : ''
+            }`}
             onClick={() => rate(value)}
             onMouseEnter={() => setHovered(value)}
             onMouseLeave={() => setHovered(0)}
@@ -77,7 +83,7 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
         {status === 'error' && 'Something went wrong — please try again.'}
         {(status === 'idle' || status === 'loading') &&
           (count > 0
-            ? `${average.toFixed(1)} (${count} rating${count === 1 ? '' : 's'})`
+            ? `${average.toFixed(1)} (${count} rating${count === 1 ? '' : 's'}) — tap a star to rate`
             : 'Be the first to rate this recipe')}
       </span>
     </div>
