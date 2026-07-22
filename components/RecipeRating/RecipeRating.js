@@ -8,10 +8,20 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
   const [total, setTotal] = useState(initialTotal || 0);
   const [hovered, setHovered] = useState(0);
   const [myRating, setMyRating] = useState(0);
-  const [status, setStatus] = useState('idle'); // idle | loading | grace | locked | already | error
+  const [status, setStatus] = useState('idle'); // idle | loading | grace | locked | already | rated | error
   const graceTimer = useRef(null);
 
   useEffect(() => () => clearTimeout(graceTimer.current), []);
+
+  // localStorage is only readable after hydration; 'rated' restores a past
+  // visit's vote so the widget doesn't pretend the visitor never rated
+  useEffect(() => {
+    const stored = parseInt(window.localStorage.getItem(`recipe-rating-${slug}`), 10);
+    if (stored >= 1 && stored <= 5) {
+      setMyRating(stored);
+      setStatus('rated');
+    }
+  }, [slug]);
 
   const average = count > 0 ? total / count : 0;
 
@@ -68,7 +78,7 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
             onClick={() => rate(value)}
             onMouseEnter={() => setHovered(value)}
             onMouseLeave={() => setHovered(0)}
-            disabled={status === 'loading' || status === 'locked'}
+            disabled={status === 'loading' || status === 'locked' || status === 'rated'}
             aria-label={`Rate ${value} star${value === 1 ? '' : 's'}`}
           >
             ★
@@ -80,6 +90,7 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
         {status === 'grace' && 'Thanks for rating! Tap a different star to change it.'}
         {status === 'locked' && 'Thanks for rating!'}
         {status === 'already' && 'You already rated this recipe.'}
+        {status === 'rated' && `You rated this recipe ${myRating} star${myRating === 1 ? '' : 's'}.`}
         {status === 'error' && 'Something went wrong — please try again.'}
         {(status === 'idle' || status === 'loading') &&
           (count > 0
