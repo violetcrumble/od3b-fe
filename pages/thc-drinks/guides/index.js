@@ -28,7 +28,7 @@ export default function THCGuides({ guides }) {
         <title>Cocktail Underground - THC Drinks - Guides</title>
         <meta
           name="description"
-          content="Practical guides to hemp-derived THC drinks: how much to drink, how they compare to alcohol, THC vs CBD, hangovers, and legality — from real testing."
+          content="Practical guides to hemp-derived THC drinks: how much to drink, how they compare to alcohol, THC vs CBD, hangovers, and legality, all from real testing."
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/thc-drinks/guides`} />
@@ -51,7 +51,7 @@ export default function THCGuides({ guides }) {
         <h1 className="text-brand-purple">THC Guides</h1>
 
         <p>
-          Practical answers about hemp-derived THC drinks — what they feel like, how to dose them, and how they stack up
+          Practical answers about hemp-derived THC drinks: what they feel like, how to dose them, and how they stack up
           against alcohol. Written from actual testing, not press releases.
         </p>
 

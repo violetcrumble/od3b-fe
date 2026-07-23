@@ -12,8 +12,8 @@ export default function AboutSection() {
           Since 2021, I&apos;ve been testing cocktail recipes and THC drinks from my home bar,{' '}
           <a href="https://www.youtube.com/@CocktailUnderground" target="_blank" rel="noopener noreferrer">
             camera rolling the whole time
-          </a>{' '}
-          — everything here is something I&apos;ve actually made and tried myself.
+          </a>
+          . Everything here is something I&apos;ve actually made and tried myself.
         </p>
       </div>
     </div>

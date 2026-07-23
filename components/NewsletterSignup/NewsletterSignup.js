@@ -36,9 +36,7 @@ export default function NewsletterSignup() {
   return (
     <div className={styles['newsletter-signup']}>
       <h3 className="text-brand-teal">Get New Recipes in Your Inbox</h3>
-      <p>
-        Cocktail recipes, THC drink picks, and home bar finds — every two weeks, straight from Cocktail Underground.
-      </p>
+      <p>Cocktail recipes, THC drink picks, and home bar finds every two weeks, straight from Cocktail Underground.</p>
 
       {status === 'success' ? (
         <p className={styles.success}>You&apos;re in! Check your inbox to confirm your subscription.</p>

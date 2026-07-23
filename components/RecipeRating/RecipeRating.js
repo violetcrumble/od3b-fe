@@ -91,10 +91,10 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
         {status === 'locked' && 'Thanks for rating!'}
         {status === 'already' && 'You already rated this recipe.'}
         {status === 'rated' && `You rated this recipe ${myRating} star${myRating === 1 ? '' : 's'}.`}
-        {status === 'error' && 'Something went wrong — please try again.'}
+        {status === 'error' && 'Something went wrong. Please try again.'}
         {(status === 'idle' || status === 'loading') &&
           (count > 0
-            ? `${average.toFixed(1)} (${count} rating${count === 1 ? '' : 's'}) — tap a star to rate`
+            ? `${average.toFixed(1)} (${count} rating${count === 1 ? '' : 's'}). Tap a star to rate`
             : 'Be the first to rate this recipe')}
       </span>
     </div>

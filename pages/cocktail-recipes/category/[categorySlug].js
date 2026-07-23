@@ -16,7 +16,7 @@ const CATEGORY_CONTENT = {
     title: 'Tequila Cocktail Recipes',
     h1: 'Tequila Cocktail Recipes',
     metaDescription:
-      'Real tequila cocktail recipes tested and filmed at home — margaritas, palomas, and more, with exact measurements.',
+      'Real tequila cocktail recipes tested and filmed at home: margaritas, palomas, and more, with exact measurements.',
     intro:
       "Tequila's the one spirit almost every home bar already has, and it's capable of a lot more than a margarita. These are the tequila cocktails we've actually made on camera, exact measurements included, from classic margaritas and palomas to a few weirder ones worth trying.",
   },
@@ -53,7 +53,7 @@ const CATEGORY_CONTENT = {
     title: 'Mezcal Drinks & Cocktails',
     h1: 'Mezcal Drinks & Cocktails',
     metaDescription:
-      'Real mezcal cocktail recipes — smoky, agave-forward drinks tested and filmed at home, with exact measurements.',
+      'Real mezcal cocktail recipes: smoky, agave-forward drinks tested and filmed at home, with exact measurements.',
     intro:
       "Mezcal and tequila are both distilled from agave, but they're made differently. Tequila can only come from blue Weber agave, cooked in industrial ovens for a clean, sweet base. Mezcal can be made from dozens of agave varieties and is traditionally roasted in earthen pits lined with lava rock, which is where its signature smokiness comes from. These are the mezcal drinks we've built and filmed, real recipes included.",
   },
@@ -68,7 +68,7 @@ const CATEGORY_CONTENT = {
     title: 'Caipirinha & Cachaça Cocktail Recipes',
     h1: 'Caipirinha & Cachaça Cocktails',
     metaDescription:
-      "Caipirinha and other cachaça cocktail recipes — Brazil's signature spirit, tested and filmed at home with exact measurements.",
+      "Caipirinha and other cachaça cocktail recipes with Brazil's signature spirit, tested and filmed at home with exact measurements.",
     intro:
       "Cachaça is Brazil's answer to rum, and its signature cocktail, the caipirinha, deserves way more attention outside Brazil than it gets. These are the cachaça drinks we've built and filmed, caipirinhas included.",
   },
@@ -76,7 +76,7 @@ const CATEGORY_CONTENT = {
     title: 'THC Cocktail Recipes',
     h1: 'THC Drink Recipes',
     metaDescription:
-      'THC cocktail recipes made with hemp-derived THC drinks — real recipes, tested and filmed, dosage notes included.',
+      'THC cocktail recipes made with hemp-derived THC drinks: real recipes, tested and filmed, dosage notes included.',
     intro: (
       <>
         These are cocktails built around hemp-derived THC drinks instead of alcohol, real bartending technique applied
