@@ -104,6 +104,12 @@ export default function THCDiscounts({ partners }) {
                 <p className={styles['no-code']}>No code needed. Your discount is applied through our link.</p>
               )}
 
+              {partner.reviewUrl && (
+                <Link className={styles['review-link']} href={partner.reviewUrl}>
+                  Read our full {partner.name} review
+                </Link>
+              )}
+
               <a
                 className={styles['cta-link']}
                 href={affiliateLink(partner.baseUrl, {
@@ -116,12 +122,6 @@ export default function THCDiscounts({ partners }) {
               >
                 {partner.cta}
               </a>
-
-              {partner.reviewUrl && (
-                <Link className={styles['review-link']} href={partner.reviewUrl}>
-                  Read our full {partner.name} review
-                </Link>
-              )}
             </div>
           ))}
         </div>
