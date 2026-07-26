@@ -70,7 +70,7 @@
 }
 
 .menu-btn:checked ~ .menu {
-  max-height: 710px;
+  max-height: 950px;
 }
 
 .menu-btn:checked ~ .menu-icon .navicon {
@@ -120,7 +120,8 @@
     padding-inline-start: 0;
     display: none;
   }
-  .cocktail-recipes-top-menu {
+  .cocktail-recipes-top-menu,
+  .thc-drinks-top-menu {
     &:hover {
       .sub-menu {
         display: block;

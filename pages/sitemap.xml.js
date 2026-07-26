@@ -21,6 +21,7 @@ const STATIC_PATHS = [
   'thc-drinks/recipes',
   'thc-drinks/reviews',
   'thc-drinks/guides',
+  'thc-drinks/discounts',
   'home-bar-supplies',
   'home-bar-supplies/filming-equipment',
   'friends',

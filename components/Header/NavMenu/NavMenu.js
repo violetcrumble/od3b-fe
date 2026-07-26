@@ -41,8 +41,22 @@ export default function NavMenu() {
             </li>
           </ul>
         </li>
-        <li className={styles['top-level-menu-item']}>
+        <li className={`${styles['top-level-menu-item']} ${styles['thc-drinks-top-menu']}`}>
           <Link href="/thc-drinks">THC Drinks</Link>
+          <ul className={styles['sub-menu']}>
+            <li>
+              <Link href="/thc-drinks/reviews">THC Drink Reviews</Link>
+            </li>
+            <li>
+              <Link href="/thc-drinks/recipes">THC Drink Recipes</Link>
+            </li>
+            <li>
+              <Link href="/thc-drinks/guides">THC Guides</Link>
+            </li>
+            <li>
+              <Link href="/thc-drinks/discounts">THC Discount Codes</Link>
+            </li>
+          </ul>
         </li>
         <li className={styles['top-level-menu-item']}>
           <Link href="/blog">Articles</Link>

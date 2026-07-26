@@ -263,6 +263,23 @@ const GET_ALL_AFFILIATE_PARTNERS = `
   }
 `;
 
+// Kept separate from GET_ALL_AFFILIATE_PARTNERS so recipe/blog/review builds
+// don't depend on the discount fields existing in Strapi.
+const GET_AFFILIATE_DISCOUNTS = `
+  query {
+    affiliatePartners(sort: "displayOrder:asc", pagination: { limit: 50 }) {
+      name
+      blurb
+      baseUrl
+      cta
+      photoUrl
+      discountCode
+      discountDetails
+      reviewUrl
+    }
+  }
+`;
+
 export {
   GET_ALL_RECIPE_SLUGS,
   GET_ALL_RECIPES,
@@ -278,4 +295,5 @@ export {
   GET_ALL_REVIEWS,
   GET_REVIEW,
   GET_ALL_AFFILIATE_PARTNERS,
+  GET_AFFILIATE_DISCOUNTS,
 };

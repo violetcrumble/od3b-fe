@@ -1,0 +1,128 @@
+@use '../colors';
+@use '../grids';
+
+.discount-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 24px;
+
+  @media (min-width: grids.$breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: grids.$breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.discount-card {
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$white;
+  border: 1px solid colors.$brand-teal-100;
+  border-radius: 10px;
+  padding: 24px;
+
+  .discount-card-top {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0 0 16px;
+  }
+
+  .discount-card-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .discount-card-photo {
+    position: relative;
+    width: 104px;
+    aspect-ratio: 480 / 850;
+    flex: 0 0 auto;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+
+  .deal {
+    color: colors.$brand-teal;
+    font-weight: bold;
+    margin: 0 0 8px;
+  }
+
+  p {
+    margin: 0 0 8px;
+  }
+
+  .code-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+
+  .code {
+    border: 2px dashed colors.$brand-purple;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .copy-btn {
+    background-color: colors.$white;
+    color: colors.$brand-purple;
+    border: 1px solid colors.$brand-purple;
+    border-radius: 24px;
+    padding: 8px 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors.$brand-purple-100;
+    }
+  }
+
+  .no-code {
+    margin: 16px 0;
+    color: colors.$gray-darker;
+  }
+
+  .cta-link {
+    margin-top: auto;
+
+    &:link,
+    &:visited {
+      display: block;
+      background-color: colors.$brand-purple;
+      color: colors.$white;
+      text-decoration: none;
+      text-align: center;
+      padding: 12px;
+      border-radius: 24px;
+      font-weight: bold;
+    }
+
+    &:hover,
+    &:active {
+      background-color: colors.$brand-purple-300;
+    }
+  }
+
+  .review-link {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+  }
+}

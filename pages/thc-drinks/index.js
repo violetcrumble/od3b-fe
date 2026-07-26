@@ -74,6 +74,17 @@ export default function THCMain({ recipes, guides, reviews }) {
 
         <hr></hr>
 
+        <h2 className="text-brand-teal">THC Drink Discount Codes</h2>
+        <p>
+          Ready to try one? We keep a current list of discount codes for the THC drink brands we have reviewed, so you
+          can save on your first order.
+        </p>
+        <Link href="/thc-drinks/discounts">
+          <button>View All Discount Codes</button>
+        </Link>
+
+        <hr></hr>
+
         <h2 className="text-brand-teal">THC Recipes</h2>
         <div className="listings-3-col">
           {recipes.map((recipe, index) => (
