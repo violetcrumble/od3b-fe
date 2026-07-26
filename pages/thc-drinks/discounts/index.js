@@ -84,7 +84,9 @@ export default function THCDiscounts({ partners }) {
             <div key={partner.name} className={styles['discount-card']}>
               <div className={styles['discount-card-top']}>
                 <div className={styles['discount-card-text']}>
-                  <h2 className="text-brand-teal">{partner.name}</h2>
+                  <h2 className="text-brand-teal">
+                    {partner.name} {partner.discountCode ? 'Discount Code' : 'Discount'}
+                  </h2>
                   {partner.discountDetails && <p className={styles.deal}>{partner.discountDetails}</p>}
                   <p>{partner.blurb}</p>
                 </div>
