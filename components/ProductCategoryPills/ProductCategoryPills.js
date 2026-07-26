@@ -18,7 +18,6 @@ export default function ProductCategoryPills({ activeCategory = '' }) {
           {category.name}
         </Link>
       ))}
-      <Link href="/home-bar-supplies/filming-equipment">Filming Equipment</Link>
     </div>
   );
 }

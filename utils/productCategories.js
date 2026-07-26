@@ -81,15 +81,6 @@ const PRODUCT_CATEGORIES = [
     intro:
       'The non-boozy half of the drink matters just as much. Juices that hold up when the fruit bowl is empty, and teas for hot cocktails, syrups, and infusions.',
   },
-  {
-    slug: 'sober-curious',
-    dbValues: ['sober_curious'],
-    name: 'Sober Curious',
-    metaDescription:
-      'Non-alcoholic spirits and zero-proof options for great drinks without the booze. My picks for dry nights and sober-curious guests.',
-    intro:
-      'Skipping the alcohol should not mean skipping the good drink. These are my zero-proof picks for dry nights and thoughtful hosting.',
-  },
 ];
 
 export default PRODUCT_CATEGORIES;
