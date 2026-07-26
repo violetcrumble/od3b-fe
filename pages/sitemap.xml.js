@@ -2,6 +2,7 @@
 
 import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS, GET_ALL_REVIEW_SLUGS } from '../graphql/queries';
 import { strapiQuery } from '../utils/strapiQuery';
+import PRODUCT_CATEGORIES from '../utils/productCategories';
 
 const URL = 'https://www.cocktailunderground.com';
 
@@ -23,6 +24,7 @@ const STATIC_PATHS = [
   'thc-drinks/guides',
   'thc-drinks/discounts',
   'home-bar-supplies',
+  ...PRODUCT_CATEGORIES.map((category) => `home-bar-supplies/${category.slug}`),
   'home-bar-supplies/filming-equipment',
   'friends',
 ];
