@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import PRODUCT_CATEGORIES from '../../utils/productCategories';
-import styles from './ProductCategoryPills.module.scss';
+// Same pill styling as the recipe category nav, on purpose — restyle both there.
+import styles from '../CategoryNavPills/CategoryNavPills.module.scss';
 
 export default function ProductCategoryPills({ activeCategory = '' }) {
   return (
-    <div className={styles['product-category-pills']}>
+    <div className={styles['category-nav-pills']}>
       <Link href="/home-bar-supplies" className={activeCategory === '' ? styles.active : undefined}>
         All Supplies
       </Link>
