@@ -12,7 +12,7 @@ export default function Footer() {
       <div className={styles['footer-grid-main']}>
         <div className={styles['footer-brand']}>
           <Link href="/" className={styles.logo}>
-            <Image src="/logo-skull-only.svg" alt="" width="52" height="68" />
+            <Image src="/logo-skull-only.svg" alt="Cocktail Underground skull logo" width="52" height="68" />
             <span>Cocktail Underground</span>
           </Link>
         </div>
