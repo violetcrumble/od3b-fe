@@ -92,7 +92,7 @@ export default function THCDiscounts({ partners }) {
                 </div>
                 {partner.photoUrl && (
                   <div className={styles['discount-card-photo']}>
-                    <Image src={partner.photoUrl} alt={partner.name} fill sizes="104px" />
+                    <Image src={partner.photoUrl} alt={partner.name} fill sizes="84px" />
                   </div>
                 )}
               </div>

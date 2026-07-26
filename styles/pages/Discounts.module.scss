@@ -18,13 +18,13 @@
   background-color: colors.$white;
   border: 1px solid colors.$brand-teal-100;
   border-radius: 10px;
-  padding: 24px;
+  padding: 20px;
 
   .discount-card-top {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin: 0 0 16px;
+    gap: 16px;
+    margin: 0 0 8px;
   }
 
   .discount-card-text {
@@ -34,7 +34,7 @@
 
   .discount-card-photo {
     position: relative;
-    width: 104px;
+    width: 84px;
     aspect-ratio: 480 / 850;
     flex: 0 0 auto;
 
@@ -63,7 +63,7 @@
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
-    margin: 16px 0;
+    margin: 8px 0 16px;
   }
 
   .code {
@@ -91,7 +91,7 @@
   }
 
   .no-code {
-    margin: 16px 0;
+    margin: 8px 0 16px;
     color: colors.$gray-darker;
   }
 
