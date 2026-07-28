@@ -2,6 +2,7 @@
 // Add new guide slugs here and they appear on /thc-drinks and /thc-drinks/guides
 // once the post is published in Strapi (and the site is redeployed).
 const THC_GUIDE_SLUGS = [
+  'thc-drink-ban-november-2026',
   'best-thc-drinks',
   'do-thc-drinks-cause-hangovers',
   'weed-vs-alcohol-thc-drinks',
