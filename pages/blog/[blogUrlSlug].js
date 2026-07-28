@@ -9,6 +9,7 @@ import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
 import { AFFILIATE_LINK_PATTERN } from '../../utils/affiliateLink';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
+import Byline from '../../components/Byline/Byline';
 import SITE_URL from '../../utils/siteUrl';
 
 // Affiliate links in post bodies open in a new tab and carry rel="sponsored";
@@ -23,13 +24,6 @@ const markdownLinkComponents = {
 };
 
 export default function BlogPost({ blogPost, affiliates }) {
-  const formattedDate = new Date(blogPost.Date).toLocaleString('en-us', {
-    month: 'long',
-    year: 'numeric',
-    day: 'numeric',
-    timeZone: 'UTC',
-  });
-
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;
 
   function addBlogJsonLd() {
@@ -84,9 +78,7 @@ export default function BlogPost({ blogPost, affiliates }) {
             {blogPost.Title}
           </div>
           <h1 className="text-brand-purple">{blogPost.Title}</h1>
-          <p>
-            {blogPost.blog_authors[0].AuthorName} | {formattedDate}
-          </p>
+          <Byline authorName={blogPost.blog_authors[0].AuthorName} date={blogPost.Date} />
           <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
         </div>
 

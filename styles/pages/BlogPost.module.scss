@@ -15,7 +15,9 @@
     max-width: 1000px;
   }
 
-  .blog-post-content img {
+  // Image layout rules target only markdown-generated paragraphs (which are
+  // classless), so styled elements like the Byline component stay unaffected.
+  .blog-post-content p:not([class]) img {
     max-width: 45%;
     height: auto;
     border-radius: 8px;
@@ -33,17 +35,17 @@
 
   // Alternate image sides down the page (1st right, 2nd left, ...). Browsers
   // without :nth-child(... of ...) support keep everything floated right.
-  .blog-post-content :nth-child(even of p:has(> img)) img {
+  .blog-post-content :nth-child(even of p:not([class]):has(> img)) img {
     float: left;
     margin: 0 24px 16px 0;
   }
 
   // An image placed BEFORE a section heading belongs to that section: the
   // image clears the previous section, and the heading + text wrap beside it.
-  .blog-post-content p:has(> img) {
+  .blog-post-content p:not([class]):has(> img) {
     clear: both;
   }
-  .blog-post-content p:has(> img) + h2 {
+  .blog-post-content p:not([class]):has(> img) + h2 {
     clear: none;
   }
 
@@ -51,12 +53,12 @@
   // whichever element starts the section: the image for image-first magazine
   // blocks, otherwise the heading.
   .blog-post-content h2,
-  .blog-post-content p:has(> img):has(+ h2) {
+  .blog-post-content p:not([class]):has(> img):has(+ h2) {
     border-top: 1px solid colors.$brand-teal-100;
     padding-top: 28px;
     margin-top: 28px;
   }
-  .blog-post-content p:has(> img) + h2 {
+  .blog-post-content p:not([class]):has(> img) + h2 {
     border-top: none;
     padding-top: 0;
     margin-top: 0;

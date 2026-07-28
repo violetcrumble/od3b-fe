@@ -89,6 +89,9 @@ export default function Footer() {
             <li>
               <Link href="/thc-drinks/guides">THC Guides</Link>
             </li>
+            <li>
+              <Link href="/thc-drinks/discounts">THC Discount Codes</Link>
+            </li>
           </ul>
         </nav>
 

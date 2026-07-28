@@ -15,7 +15,9 @@
     max-width: 1000px;
   }
 
-  .review-content img {
+  // Image layout rules target only markdown-generated paragraphs (which are
+  // classless), so styled elements like the Byline component stay unaffected.
+  .review-content p:not([class]) img {
     max-width: 45%;
     height: auto;
     border-radius: 8px;
@@ -24,7 +26,7 @@
   }
 
   @media screen and (max-width: 600px) {
-    .review-content img {
+    .review-content p:not([class]) img {
       max-width: 100%;
       float: none;
       margin: 0 0 16px;

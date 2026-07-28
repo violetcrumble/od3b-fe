@@ -11,18 +11,12 @@ import ReviewRatingBadge from '../../../components/Review/ReviewRatingBadge/Revi
 import ReviewVerdictBox from '../../../components/Review/ReviewVerdictBox/ReviewVerdictBox';
 import ReviewProsCons from '../../../components/Review/ReviewProsCons/ReviewProsCons';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
+import Byline from '../../../components/Byline/Byline';
 import markdownLinkComponents from '../../../utils/markdownLinkComponents';
 import cloudinaryOptimize from '../../../utils/cloudinaryOptimize';
 import SITE_URL from '../../../utils/siteUrl';
 
 export default function Review({ review, affiliates }) {
-  const formattedDate = new Date(review.reviewDate).toLocaleString('en-us', {
-    month: 'long',
-    year: 'numeric',
-    day: 'numeric',
-    timeZone: 'UTC',
-  });
-
   const canonicalUrl = `${SITE_URL}/thc-drinks/reviews/${review.reviewUrlSlug}`;
   const authorName = review.review_authors[0]?.AuthorName || 'Cocktail Underground';
   const listingImageUrl = review.listingCardImage?.url;
@@ -103,9 +97,7 @@ export default function Review({ review, affiliates }) {
             {review.title}
           </div>
           <h1 className="text-brand-purple">{review.title}</h1>
-          <p>
-            {authorName} | {formattedDate}
-          </p>
+          <Byline authorName={authorName} date={review.reviewDate} />
 
           <ReviewRatingBadge rating={review.rating} />
           <ReviewVerdictBox verdict={review.verdict} />

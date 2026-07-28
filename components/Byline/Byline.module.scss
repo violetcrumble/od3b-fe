@@ -1,0 +1,17 @@
+@use '../../styles/colors';
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: colors.$gray-darker;
+
+  img {
+    border-radius: 50%;
+  }
+
+  .author {
+    font-weight: 600;
+  }
+}
