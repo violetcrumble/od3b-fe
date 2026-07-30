@@ -55,7 +55,11 @@ export default function BlogPost({ blogPost, affiliates }) {
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={blogPost.Title} />
         <meta property="og:description" content={blogPost.TextPreviewSnippet} />
-        <meta property="og:image" content={blogPost.ogImage?.url || `${SITE_URL}/pic-not-available.gif`} />
+        {/* Same fallback chain the review template uses: explicit ogImage, else the listing card image. */}
+        <meta
+          property="og:image"
+          content={blogPost.ogImage?.url || blogPost.ListingCardImage?.url || `${SITE_URL}/pic-not-available.gif`}
+        />
 
         <meta property="og:url" content={canonicalUrl} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addBlogJsonLd()} key="blogpost-jsonld" />
