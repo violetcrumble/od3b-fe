@@ -251,9 +251,16 @@ const GET_REVIEW = `
   }
 `;
 
+// Excludes discountsPageOnly partners (extra discount cards for a brand's
+// other product lines, e.g. Grind seltzers) so sidebars show one box per
+// brand. The or/null form keeps entries saved before the flag existed.
 const GET_ALL_AFFILIATE_PARTNERS = `
   query {
-    affiliatePartners(sort: "displayOrder:asc", pagination: { limit: 50 }) {
+    affiliatePartners(
+      sort: "displayOrder:asc"
+      pagination: { limit: 50 }
+      filters: { or: [{ discountsPageOnly: { eq: false } }, { discountsPageOnly: { null: true } }] }
+    ) {
       name
       blurb
       baseUrl
