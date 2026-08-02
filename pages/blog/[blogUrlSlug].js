@@ -25,6 +25,7 @@ const markdownLinkComponents = {
 
 export default function BlogPost({ blogPost, affiliates }) {
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;
+  const metaDescription = blogPost.seoDescription || blogPost.TextPreviewSnippet;
 
   function addBlogJsonLd() {
     const jsonLd = {
@@ -34,7 +35,7 @@ export default function BlogPost({ blogPost, affiliates }) {
       image: [blogPost.ListingCardImage?.url || `${SITE_URL}/pic-not-available.gif`],
       articleBody: blogPost.BlogPostBody,
       keywords: blogPost.seoKeywords,
-      description: blogPost.TextPreviewSnippet,
+      description: metaDescription,
       datePublished: blogPost.Date,
       dateCreated: blogPost.Date,
       dateModified: blogPost.updatedAt || blogPost.Date,
@@ -50,11 +51,11 @@ export default function BlogPost({ blogPost, affiliates }) {
     <ContentWrapper>
       <Head>
         <title>{blogPost.Title}</title>
-        <meta name="description" content={blogPost.TextPreviewSnippet} />
+        <meta name="description" content={metaDescription} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={blogPost.Title} />
-        <meta property="og:description" content={blogPost.TextPreviewSnippet} />
+        <meta property="og:description" content={metaDescription} />
         {/* Same fallback chain the review template uses: explicit ogImage, else the listing card image. */}
         <meta
           property="og:image"
