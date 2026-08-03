@@ -3,14 +3,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import CategoryNavPills from '../../components/CategoryNavPills/CategoryNavPills';
-import { GET_ALL_RECIPES } from '../../graphql/queries.js';
+import { GET_ALL_RECIPE_SUMMARIES } from '../../graphql/queries.js';
 import { strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper.js';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/CocktailRecipes.module.scss';
 
 export async function getStaticProps() {
-  const data = await strapiQueryCached(GET_ALL_RECIPES);
+  const data = await strapiQueryCached(GET_ALL_RECIPE_SUMMARIES);
 
   return {
     props: {

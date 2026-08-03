@@ -5,7 +5,7 @@ import ContentWrapper from '../../../components/ContentWrapper';
 import RecipeListingCard from '../../../components/Cards/RecipeListingCard/RecipeListingCard';
 import CategoryNavPills from '../../../components/CategoryNavPills/CategoryNavPills';
 import filterRecipesByCategory from '../../../utils/filterRecipesByCategory.js';
-import { GET_ALL_RECIPES } from '../../../graphql/queries.js';
+import { GET_ALL_RECIPE_SUMMARIES } from '../../../graphql/queries.js';
 import { strapiQueryCached } from '../../../utils/strapiQuery';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
@@ -95,7 +95,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await strapiQueryCached(GET_ALL_RECIPES);
+  const data = await strapiQueryCached(GET_ALL_RECIPE_SUMMARIES);
 
   const recipes = filterRecipesByCategory(params.categorySlug, data.recipes);
 

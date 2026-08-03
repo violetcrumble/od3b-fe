@@ -23,30 +23,10 @@ query {
 }
 `;
 
-const GET_ALL_RECIPES = `
-query {
-  recipes(pagination: { limit: 300 }) {
-    title
-    ingredients
-    recipebody
-    recipeUrlSlug
-    spirits {
-      spirit
-    }
-    PhotoMain {
-      url
-      caption
-    }
-  }
-}
-`;
-
 const GET_ALL_THC_RECIPES = `
 query {
   recipes(filters: { spirits: { spirit: { contains: "thc" } } }, pagination: { limit: 300 }) {
     title
-    ingredients
-    recipebody
     recipeUrlSlug
     spirits {
       spirit
@@ -289,7 +269,6 @@ const GET_AFFILIATE_DISCOUNTS = `
 
 export {
   GET_ALL_RECIPE_SLUGS,
-  GET_ALL_RECIPES,
   GET_ALL_RECIPE_SUMMARIES,
   GET_ALL_THC_RECIPES,
   GET_LATEST_RECIPES,
