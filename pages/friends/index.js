@@ -14,7 +14,10 @@ export default function Friends() {
     <ContentWrapper>
       <Head>
         <title>Cocktail Underground - The Best Cocktail Content Creators</title>
-        <meta name="description" content="Friends of Cocktail Underground" />
+        <meta
+          name="description"
+          content="Cocktail creators we love: YouTube channels, homemade bitters, custom cocktail design, and more friends of Cocktail Underground worth a follow."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/friends`} />
       </Head>

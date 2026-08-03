@@ -1,17 +1,15 @@
 import { AFFILIATE_LINK_PATTERN } from './affiliateLink';
 
-// react-markdown link renderer for content pages: every link opens in a new
-// tab, and affiliate links additionally carry rel="sponsored" per Google's
-// paid-link guidelines. (The blog template intentionally uses its own variant
-// that leaves non-affiliate links with default in-page behavior.)
+// react-markdown link renderer for content pages: affiliate links open in a
+// new tab and carry rel="sponsored" per Google's paid-link guidelines; all
+// other links keep the default in-page behavior.
 const markdownLinkComponents = {
-  a: ({ node, ...props }) => (
-    <a
-      {...props}
-      target="_blank"
-      rel={AFFILIATE_LINK_PATTERN.test(props.href || '') ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}
-    />
-  ),
+  a: ({ node, ...props }) =>
+    AFFILIATE_LINK_PATTERN.test(props.href || '') ? (
+      <a {...props} target="_blank" rel="sponsored noopener noreferrer" />
+    ) : (
+      <a {...props} />
+    ),
 };
 
 export default markdownLinkComponents;

@@ -7,21 +7,10 @@ import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
-import { AFFILIATE_LINK_PATTERN } from '../../utils/affiliateLink';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import Byline from '../../components/Byline/Byline';
 import SITE_URL from '../../utils/siteUrl';
-
-// Affiliate links in post bodies open in a new tab and carry rel="sponsored";
-// all other links keep the default in-page behavior.
-const markdownLinkComponents = {
-  a: ({ node, ...props }) =>
-    AFFILIATE_LINK_PATTERN.test(props.href || '') ? (
-      <a {...props} target="_blank" rel="sponsored noopener noreferrer" />
-    ) : (
-      <a {...props} />
-    ),
-};
+import markdownLinkComponents from '../../utils/markdownLinkComponents';
 
 export default function BlogPost({ blogPost, affiliates }) {
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;

@@ -30,14 +30,14 @@ export default function BlogListing({ blogPosts }) {
         <title>Cocktail Underground - Cocktail Blog Posts and Cocktail Articles</title>
         <meta
           name="description"
-          content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
+          content="Cocktail articles from Cocktail Underground: THC drink news and laws, drink guides, product picks, and stories from the home bar."
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/blog`} />
         <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
         <meta
           property="og:description"
-          content="Cocktail Underground - Visit the best bars and find the best cocktails with Cocktail Underground"
+          content="Cocktail articles from Cocktail Underground: THC drink news and laws, drink guides, product picks, and stories from the home bar."
         />
       </Head>
 
