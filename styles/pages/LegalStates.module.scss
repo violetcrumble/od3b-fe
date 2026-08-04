@@ -1,4 +1,5 @@
 @use '../colors';
+@use '../grids';
 
 // Status colors validated for color-vision safety against the white surface
 // (legal/restricted/banned separate under CVD simulation; gray is the
@@ -178,6 +179,14 @@ $status-unclear: colors.$gray;
     margin: 0 0 8px;
   }
 
+  .state-shipping {
+    margin: 0 0 8px;
+
+    p {
+      margin: 0;
+    }
+  }
+
   .state-meta {
     font-size: 0.8rem;
     color: colors.$gray-darker;
@@ -192,5 +201,17 @@ $status-unclear: colors.$gray;
     margin-top: 40px;
     color: colors.$gray-darker;
     font-size: 0.9rem;
+  }
+
+  @media (min-width: grids.$breakpoint-md) {
+    display: flex;
+    justify-content: space-between;
+
+    .sidebar {
+      width: 30%;
+    }
+    .legal-content {
+      width: 66%;
+    }
   }
 }
