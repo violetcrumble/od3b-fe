@@ -23,6 +23,7 @@ const STATIC_PATHS = [
   'thc-drinks/reviews',
   'thc-drinks/guides',
   'thc-drinks/discounts',
+  'thc-drinks/legal-states',
   'home-bar-supplies',
   ...PRODUCT_CATEGORIES.map((category) => `home-bar-supplies/${category.slug}`),
   'home-bar-supplies/filming-equipment',

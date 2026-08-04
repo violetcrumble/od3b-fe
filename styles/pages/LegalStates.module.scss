@@ -1,0 +1,196 @@
+@use '../colors';
+
+// Status colors validated for color-vision safety against the white surface
+// (legal/restricted/banned separate under CVD simulation; gray is the
+// intentionally neutral "unclear" status). Tiles always carry text labels so
+// color is never the only signal.
+$status-legal: #2f8f6b;
+$status-restricted: #d08b1f;
+$status-banned: #c93a2c;
+$status-unclear: colors.$gray;
+
+.legal-states-page {
+  padding-top: 40px;
+
+  .federal-callout {
+    border-left: 6px solid $status-banned;
+    background: colors.$gray-lighter;
+    padding: 16px 20px;
+    margin: 24px 0 32px;
+    border-radius: 4px;
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .state-picker {
+    margin: 24px 0 8px;
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    select {
+      font-size: 1rem;
+      padding: 10px 12px;
+      border: 1px solid colors.$gray;
+      border-radius: 4px;
+      min-width: 260px;
+      max-width: 100%;
+      background: colors.$white;
+    }
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin: 20px 0 12px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+  }
+
+  .tile-map {
+    display: grid;
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    gap: 4px;
+    max-width: 720px;
+    margin: 0 0 8px;
+  }
+
+  .tile {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.1s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.12);
+      outline: 2px solid colors.$brand-purple;
+      outline-offset: 1px;
+      z-index: 1;
+    }
+  }
+
+  .tile-spacer {
+    aspect-ratio: 1;
+  }
+
+  .status-legal {
+    background: $status-legal;
+    color: colors.$white;
+  }
+
+  .status-restricted {
+    background: $status-restricted;
+    color: colors.$black;
+  }
+
+  .status-banned {
+    background: $status-banned;
+    color: colors.$white;
+  }
+
+  .status-unclear {
+    background: $status-unclear;
+    color: colors.$black;
+  }
+
+  .map-note {
+    font-size: 0.85rem;
+    color: colors.$gray-darker;
+    margin-bottom: 32px;
+  }
+
+  .status-counts {
+    margin: 0 0 24px;
+    font-size: 0.95rem;
+  }
+
+  .state-section {
+    border-bottom: 1px solid colors.$gray-lighter;
+    padding: 20px 0;
+    scroll-margin-top: 90px;
+
+    h3 {
+      margin: 0 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    &.highlighted {
+      background: colors.$brand-purple-100;
+      border-radius: 6px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  .status-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .state-summary {
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .state-details {
+    margin: 0 0 8px;
+  }
+
+  .state-meta {
+    font-size: 0.8rem;
+    color: colors.$gray-darker;
+    margin: 0;
+
+    a {
+      color: colors.$brand-teal;
+    }
+  }
+
+  .disclaimer {
+    margin-top: 40px;
+    color: colors.$gray-darker;
+    font-size: 0.9rem;
+  }
+}

@@ -85,6 +85,17 @@ export default function THCMain({ recipes, guides, reviews }) {
 
         <hr></hr>
 
+        <h2 className="text-brand-teal">Are THC Drinks Legal in Your State?</h2>
+        <p>
+          Depends on the state, and the rules change constantly. Our 50-state map tracks where hemp THC drinks are sold
+          at regular stores, where they are dispensary-only, and where they are banned, with sources for every state.
+        </p>
+        <Link href="/thc-drinks/legal-states">
+          <button>Check Your State</button>
+        </Link>
+
+        <hr></hr>
+
         <h2 className="text-brand-teal">THC Recipes</h2>
         <div className="listings-3-col">
           {recipes.map((recipe, index) => (
