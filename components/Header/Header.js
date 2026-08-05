@@ -7,17 +7,19 @@ import styles from './Header.module.scss';
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Link href="/">
-        <Image
-          src="/logo-skull-only.svg"
-          alt="Cocktail Underground skull logo"
-          width="65"
-          height="85"
-          className={styles.logo}
-        />
-        <div className={styles['logo-text']}>Cocktail Underground</div>
-      </Link>
-      <NavMenu />
+      <div className={styles['header-inner']}>
+        <Link href="/">
+          <Image
+            src="/logo-skull-only.svg"
+            alt="Cocktail Underground skull logo"
+            width="65"
+            height="85"
+            className={styles.logo}
+          />
+          <div className={styles['logo-text']}>Cocktail Underground</div>
+        </Link>
+        <NavMenu />
+      </div>
     </header>
   );
 }

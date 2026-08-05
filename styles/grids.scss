@@ -4,6 +4,13 @@ $breakpoint-md: 900px;
 $breakpoint-lg: 1200px;
 $breakpoint-xl: 1536px;
 
+// Width at which the header switches from hamburger to full nav — lower than
+// $breakpoint-lg so common laptop widths get the real navigation. Between
+// $breakpoint-nav and $breakpoint-nav-full the skull alone carries the brand;
+// the wordmark + roomier nav spacing need $breakpoint-nav-full on the 90% grid.
+$breakpoint-nav: 1000px;
+$breakpoint-nav-full: 1280px;
+
 .constrained-content {
   max-width: 1440px;
   width: 90%;

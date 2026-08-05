@@ -29,6 +29,18 @@
     color: colors.$brand-purple;
   }
 }
+
+.top-level-menu-item > a.active {
+  color: colors.$brand-purple-300;
+  border-bottom: 2px solid colors.$brand-purple-300;
+}
+
+.chevron {
+  display: none;
+  font-size: 0.65em;
+  margin-left: 4px;
+  vertical-align: middle;
+}
 .menu-icon {
   cursor: pointer;
   float: right;
@@ -96,13 +108,18 @@
   background-color: colors.$black;
 }
 
-@media (min-width: grids.$breakpoint-lg) {
+@media (min-width: grids.$breakpoint-nav) {
+  // In the full-nav layout the menu sits in normal flow and flexbox centers
+  // it vertically; absolute positioning is only for the hamburger overlay.
   .nav-menu {
-    margin-top: 24px;
+    position: static;
   }
 
   .top-level-menu-item {
     float: left;
+  }
+  .top-level-menu-item a {
+    padding: 12px 8px;
   }
   .menu {
     clear: none;
@@ -122,10 +139,20 @@
   }
   .cocktail-recipes-top-menu,
   .thc-drinks-top-menu {
-    &:hover {
+    &:hover,
+    &:focus-within {
       .sub-menu {
         display: block;
       }
     }
+  }
+  .chevron {
+    display: inline;
+  }
+}
+
+@media (min-width: grids.$breakpoint-nav-full) {
+  .top-level-menu-item a {
+    padding: 12px;
   }
 }
