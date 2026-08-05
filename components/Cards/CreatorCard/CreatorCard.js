@@ -4,7 +4,7 @@ import Markdown from 'react-markdown';
 
 export default function CreatorCard(props) {
   return (
-    <div className={`${styles['creator-card']} listing-card`}>
+    <div id={props.id} className={`${styles['creator-card']} listing-card`}>
       <h4>{props.name}</h4>
       <p className={`${styles['socials']}`}>
         <a href={props.youTubeURL} target="_blank" rel="noopener noreferrer">
@@ -28,7 +28,7 @@ export default function CreatorCard(props) {
             {' '}
             |{' '}
             <a href={props.websiteURL} target="_blank" rel="noopener noreferrer">
-              {props.websiteURL}
+              {props.websiteURL.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
             </a>
           </>
         )}
@@ -40,7 +40,7 @@ export default function CreatorCard(props) {
         </div>
 
         <div className="creator-image-container">
-          <Image src={props.creatorImage.src} alt={props.name} width="100" height="100" />
+          <Image src={props.creatorImage.src} alt={props.name} width="150" height="150" />
         </div>
       </div>
     </div>

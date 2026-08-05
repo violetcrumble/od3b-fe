@@ -26,5 +26,26 @@
   .creator-info {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    :global(.creator-image-container) {
+      flex-shrink: 0;
+
+      img {
+        border-radius: 12px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      :global(.creator-image-container) img {
+        width: 100px;
+        height: auto;
+      }
+    }
   }
 }

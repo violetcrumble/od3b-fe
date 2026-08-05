@@ -46,6 +46,28 @@ $breakpoint-xl: 1536px;
 }
 
 // =======================
+// 2 Column Grid Styles
+// =======================
+.listings-2-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 5%;
+
+  a {
+    text-decoration: none;
+  }
+
+  .listing-card {
+    margin-bottom: 28px;
+    width: 100%;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// =======================
 // 4 Column Grid Styles
 // =======================
 .listings-4-col {
