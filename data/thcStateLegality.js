@@ -686,14 +686,18 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail, and the fight is not over.',
     details:
-      'Low-dose delta-9 drinks remain legal under TABC oversight, and the July 31, 2026 synthetic THC crackdown left compliant beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. The 2025 ban bill was vetoed, courts have been busy, and the situation stays volatile. Check back.',
+      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it, so the situation stays volatile. Check back.',
     shipping:
       'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.crescentcanna.com/?sld=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_inline&utm_campaign=legal-states&utm_content=texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
-    lastReviewed: '2026-08-04',
+    lastReviewed: '2026-08-05',
     sources: [
       {
         label: 'Texas Tribune on the 2026 rules',
         url: 'https://www.texastribune.org/2026/07/30/texas-thc-cannabis-ban-delta-9-8-marijuana/',
+      },
+      {
+        label: 'Houston Public Media on the industry lawsuit',
+        url: 'https://www.houstonpublicmedia.org/articles/news/business/2026/08/04/558590/texas-hemp-thc-lawsuit-ban-felony/',
       },
       {
         label: 'Crescent Canna Texas ordering guide',
