@@ -18,6 +18,12 @@ body {
   }
 }
 
+// Pages that open with a breadcrumb instead of an h1 need their own gap
+// below the site header; h1-first pages get theirs from the h1's margin.
+.breadcrumb {
+  margin-top: 24px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

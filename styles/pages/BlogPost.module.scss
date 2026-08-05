@@ -2,7 +2,9 @@
 @use '../../styles/grids';
 
 .blog-post-page {
-  padding-top: 40px;
+  .sidebar {
+    margin-top: 24px;
+  }
 
   h2,
   h3 {

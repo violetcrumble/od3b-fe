@@ -1,7 +1,8 @@
 @use '../../styles/colors';
 
 .category-page {
-  padding-top: 40px;
+  // Spacing under the header comes from the breadcrumb's global margin,
+  // kept consistent site-wide.
 }
 
 .recipe-controls {
