@@ -27,8 +27,8 @@ const THC_STATE_LEGALITY = [
     details:
       'HB 445 (2025) built a real framework: 21+, caps of 10mg per serving and 40mg per package, lab testing, and licensing through the ABC Board. Drinks that follow the rules are sold openly.',
     shipping:
-      'No. HB 445 banned online, mail-order, and direct-delivery hemp sales effective January 1, 2026. Buy in person at licensed retailers.',
-    lastReviewed: '2026-08-03',
+      'Officially no. HB 445 banned online, mail-order, and direct-delivery hemp sales effective January 1, 2026, so the legal route is in person at licensed retailers. In practice, some national brands still ship to Alabama; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
@@ -55,8 +55,9 @@ const THC_STATE_LEGALITY = [
     summary: 'Dispensary only.',
     details:
       'Arizona pushed intoxicating hemp products into its licensed cannabis system. You can buy THC drinks, just not at grocery or liquor stores.',
-    shipping: 'No. Hemp THC lives in the licensed cannabis system, so reputable brands will not ship here.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. The law routes hemp THC through licensed dispensaries, so mail order is not a legal sales channel. In practice, some national brands ship to Arizona anyway, and since recreational cannabis is legal here, an adult holding a THC drink is not the one at legal risk. The seller is.',
+    lastReviewed: '2026-08-08',
     sources: [{ label: 'BudPop 50-state guide', url: 'https://budpop.com/are-thc-drinks-legal-in-my-state/' }],
   },
   {
@@ -67,8 +68,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Act 629 (2023) banned intoxicating hemp products outside medical dispensaries, and Act 934 (2025) expanded the ban after court challenges. The state has seized thousands of products from retailers.',
     shipping:
-      'No. The ban covers mail order, and the state actively enforces it. Some out-of-state sites may still take your order; we do not recommend testing that.',
-    lastReviewed: '2026-08-03',
+      'No. The ban covers mail order, and the state actively enforces it. Some out-of-state sites will still take your order and ship it; we do not recommend testing that in a state that seizes product.',
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
@@ -346,8 +347,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Michigan set potency caps for hemp drinks back in 2021 (10mg per serving, 100mg per container) but routes sales through licensed marijuana retailers rather than ordinary stores.',
     shipping:
-      'No. Hemp drinks route through licensed marijuana retailers, which cannot mail THC. Out-of-state brands skip Michigan.',
-    lastReviewed: '2026-08-03',
+      'Officially no. Hemp drinks route through licensed marijuana retailers, which cannot mail THC. In practice, some out-of-state brands ship to Michigan anyway; with recreational cannabis legal here, that risk falls on the seller, not on you.',
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'CSG Midwest hemp products overview',
@@ -477,8 +478,8 @@ const THC_STATE_LEGALITY = [
     details:
       'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only.',
     shipping:
-      "No. New Jersey's 2026 law bans online sales of intoxicating hemp products outright. Licensed liquor stores and dispensaries are the only legal route.",
-    lastReviewed: '2026-08-03',
+      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline.",
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
@@ -511,8 +512,8 @@ const THC_STATE_LEGALITY = [
     details:
       'New York’s hemp rules allow drinks at no more than 1mg THC per serving and 10mg per package with a required 15:1 CBD-to-THC ratio, sold under a state license. Mainstream 5mg seltzers do not qualify, so the real product selection is thin.',
     shipping:
-      'Not meaningfully. Products above 1mg per serving cannot legally be sold to New Yorkers, online or off, so mainstream drinks are out either way.',
-    lastReviewed: '2026-08-03',
+      'Officially no for anything mainstream. Drinks above 1mg per serving cannot legally be sold to New Yorkers, online or off. In practice, some national brands ship standard 5mg and 10mg drinks into New York anyway; the sale is the illegal part, and that sits with the seller.',
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'NY OCM Part 114 regulations',
@@ -560,8 +561,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot.',
     shipping:
-      'No. Since March 20, 2026, THC beverages cannot be sold or shipped to Ohio consumers outside dispensaries.',
-    lastReviewed: '2026-08-03',
+      'Officially no. Since March 20, 2026, selling THC beverages to Ohio consumers outside dispensaries is illegal. In practice, some national brands are still shipping here months into the ban; that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',
@@ -593,8 +594,9 @@ const THC_STATE_LEGALITY = [
     summary: 'Dispensary only.',
     details:
       'Oregon banned intoxicating hemp products outside its regulated cannabis market. THC drinks are easy to find, but only in dispensaries.',
-    shipping: 'No. Dispensary-only, and dispensaries cannot mail THC. Reputable hemp brands skip Oregon.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. Oregon is dispensary-only, and dispensaries cannot mail THC. In practice, a few national hemp brands ship here anyway; with recreational cannabis long legal in Oregon, the legal exposure is theirs, not yours.',
+    lastReviewed: '2026-08-08',
     sources: [{ label: 'BudPop 50-state guide', url: 'https://budpop.com/are-thc-drinks-legal-in-my-state/' }],
   },
   {
@@ -743,8 +745,9 @@ const THC_STATE_LEGALITY = [
     summary: 'A 2mg package cap keeps real drinks out.',
     details:
       'Virginia caps hemp products at 2mg total THC per package unless they carry a 25:1 CBD-to-THC ratio, one of the strictest limits in the South. Mainstream THC drinks do not qualify.',
-    shipping: 'No. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel. In practice, some national brands ship here anyway; the cap regulates sellers, and they are the ones betting on it.',
+    lastReviewed: '2026-08-08',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
