@@ -6,6 +6,7 @@ import ContentWrapper from '../../../components/ContentWrapper';
 import ThcAffiliateCTAs from '../../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 import THC_STATE_LEGALITY, { FEDERAL_BAN } from '../../../data/thcStateLegality';
+import THC_STATE_GUIDES from '../../../data/thcStateGuides';
 import { GET_ALL_AFFILIATE_PARTNERS } from '../../../graphql/queries';
 import { strapiQueryCached } from '../../../utils/strapiQuery';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
@@ -44,6 +45,7 @@ const TILE_ROWS = [
 ];
 
 const statesByCode = Object.fromEntries(THC_STATE_LEGALITY.map((state) => [state.code, state]));
+const guidesByCode = Object.fromEntries(THC_STATE_GUIDES.map((guide) => [guide.code, guide]));
 
 export default function LegalStates({ affiliates }) {
   const [selectedCode, setSelectedCode] = useState('');
@@ -185,6 +187,13 @@ export default function LegalStates({ affiliates }) {
                   components={markdownLinkComponents}
                 >{`**Can you order it online?** ${state.shipping}`}</Markdown>
               </div>
+              {guidesByCode[state.code] && (
+                <p className={styles['state-guide-link']}>
+                  <Link href={`/thc-drinks/legal-states/${guidesByCode[state.code].slug}`}>
+                    Read our full {state.name} THC drinks guide
+                  </Link>
+                </p>
+              )}
               <p className={styles['state-meta']}>
                 Last reviewed {state.lastReviewed}. Source
                 {state.sources.length > 1 ? 's' : ''}:{' '}

@@ -58,7 +58,12 @@ const THC_STATE_LEGALITY = [
     shipping:
       'Officially no. The law routes hemp THC through licensed dispensaries, so mail order is not a legal sales channel. In practice, some national brands ship to Arizona anyway, and since recreational cannabis is legal here, an adult holding a THC drink is not the one at legal risk. The seller is.',
     lastReviewed: '2026-08-08',
-    sources: [{ label: 'BudPop 50-state guide', url: 'https://budpop.com/are-thc-drinks-legal-in-my-state/' }],
+    sources: [
+      {
+        label: 'Fennemore on the Arizona AG enforcement letters',
+        url: 'https://www.fennemorelaw.com/arizona-attorney-general-warns-sale-of-the-thc-infused-products-by-non-licensed-entities-is-illegal/',
+      },
+    ],
   },
   {
     code: 'AR',
