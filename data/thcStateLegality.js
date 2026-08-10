@@ -166,10 +166,18 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail with a 10mg serving cap.',
     details:
-      'Georgia regulates hemp beverages through the Department of Agriculture: 21+, 10mg per serving, testing and warning labels required. SB 33 (2026) would tighten the rules further, so watch this one.',
+      'Georgia regulates hemp beverages through the Department of Agriculture under SB 494: 21+, 10mg of delta-9 per 12oz serving, with testing and warning labels required. SB 33, signed May 11, 2026, tightened the definition of intoxicating cannabinoids and set a 0.3% total THC ceiling, but it left the beverage milligram caps where they were. SB 254, which would have cut drinks to 5mg per serving and confined sales to liquor stores, died in a House committee in March 2026. One local quirk: liquor stores are the one place in Georgia that cannot sell these, so look in convenience stores and hemp shops instead.',
     shipping: "Yes. Most national brands ship to Georgia, and compliant products carry the state's 10mg serving cap.",
-    lastReviewed: '2026-08-03',
+    lastReviewed: '2026-08-10',
     sources: [
+      {
+        label: 'Eversheds Sutherland on Georgia SB 33',
+        url: 'https://www.eversheds-sutherland.com/en/united-states/insights/georgia-passes-new-laws-regulating-hemp-and-medical-cannabis',
+      },
+      {
+        label: 'Georgia DOR bulletin on hemp in liquor stores',
+        url: 'https://dor.georgia.gov/document/document/atd-policy-bulletin-2025-01-overview-restriction-hemp-products-retail-package/download',
+      },
       {
         label: 'CSG South hemp beverage overview',
         url: 'https://csgsouth.org/policies/hemp-beverages-high-risk-or-high-reward/',
