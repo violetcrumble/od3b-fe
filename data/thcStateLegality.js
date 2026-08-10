@@ -14,7 +14,7 @@
 export const FEDERAL_BAN = {
   effectiveDate: 'November 12, 2026',
   summary:
-    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected.',
+    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. There is a partial reprieve in play as of August 2026: the Senate passed a stopgap funding bill on August 8 that would push most of these restrictions back to December 11, 2026. It is not law. The House is on recess and still has to pass it, and the president has to sign it, so November 12 remains the date to plan around.',
   postUrl: '/blog/thc-drink-ban-november-2026',
 };
 
@@ -131,15 +131,16 @@ const THC_STATE_LEGALITY = [
     code: 'DE',
     name: 'Delaware',
     status: 'restricted',
-    summary: 'Cannabis program only.',
+    summary: 'Cannabis program only, with liquor stores opening October 21.',
     details:
-      'Delaware has effectively banned intoxicating hemp THC products outside its cannabis program. Psychoactive products are regulated through marijuana laws, not hemp rules.',
-    shipping: 'No. With intoxicating hemp folded into the cannabis program, reputable brands skip Delaware shipping.',
-    lastReviewed: '2026-08-03',
+      'Delaware kept intoxicating hemp out of ordinary retail and inside its cannabis program. HB 373, signed July 23, 2026, changes that: licensed liquor stores and marijuana retailers can sell THC drinks to adults 21+, capped at 10mg of delta-9 per single-serving container and 60mg per package, and the THC has to be extracted from hemp rather than converted from other cannabinoids. Most of the law takes effect October 21, 2026, which gives the new market about three weeks before the federal date lands on it.',
+    shipping:
+      'No. Delaware law routes these drinks through licensed in-person retail, and reputable brands will not ship here.',
+    lastReviewed: '2026-08-10',
     sources: [
       {
-        label: 'Marijuana Herald 50-state status',
-        url: 'https://themarijuanaherald.com/2025/11/legal-status-of-hemp-derived-thc-products-in-all-50-states-november-2025/',
+        label: 'Marijuana Moment on Delaware HB 373',
+        url: 'https://www.marijuanamoment.net/delaware-governor-signs-bill-to-regulate-and-tax-hemp-thc-drinks/',
       },
     ],
   },
@@ -200,15 +201,20 @@ const THC_STATE_LEGALITY = [
     code: 'IL',
     name: 'Illinois',
     status: 'legal',
-    summary: 'Legal at retail today; a new law is waiting for a signature.',
+    summary: 'Legal at retail today, banned November 12, 2026.',
     details:
-      'Illinois has been one of the friendlier states for hemp drinks. SB 3222, passed in 2026 and awaiting the governor’s signature, would align state law with the new federal definition and push stronger products into the licensed cannabis system.',
-    shipping: 'Yes. National brands ship to Illinois freely, at least until the pending state law changes land.',
-    lastReviewed: '2026-08-03',
+      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line as the federal law, which pushes anything stronger into the licensed cannabis system.',
+    shipping:
+      'Yes, until November 12, 2026. After that the state cap ends ordinary sales, shipped or otherwise, on the same day the federal change lands.',
+    lastReviewed: '2026-08-10',
     sources: [
       {
-        label: 'CSG Midwest hemp products overview',
-        url: 'https://csgmidwest.org/2026/06/04/farm-bill-loophole-has-led-to-a-booming-industry-for-hemp-derived-products-and-a-mix-of-state-laws-a-new-federal-framework-is-coming-soon/',
+        label: 'Marijuana Moment on the signed bill',
+        url: 'https://www.marijuanamoment.net/illinois-governor-signs-bill-to-double-marijuana-possession-limit-restrict-hemp-thc-products-and-reform-rules-for-businesses/',
+      },
+      {
+        label: 'IDFPR SB 3222 fact sheet',
+        url: 'https://idfpr.illinois.gov/content/dam/soi/en/web/idfpr/forms/cannabis/sb-3222-fact-sheet.pdf',
       },
     ],
   },
@@ -384,9 +390,9 @@ const THC_STATE_LEGALITY = [
     status: 'banned',
     summary: 'Effectively banned.',
     details:
-      'There is no legal framework for hemp THC products, and a June 2025 attorney general opinion tightened the screws. A categorical beverage ban bill has also been in play. Do not count on finding drinks here.',
+      'There is no legal framework for hemp THC products, and a June 2025 attorney general opinion tightened the screws. SB 2645, which would have banned hemp, THC, and kratom beverages outright, died in committee in February 2026, but that changes nothing on the ground. Do not count on finding drinks here.',
     shipping: 'No. Effectively banned at retail and by mail alike.',
-    lastReviewed: '2026-08-03',
+    lastReviewed: '2026-08-10',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
@@ -564,14 +570,18 @@ const THC_STATE_LEGALITY = [
     status: 'banned',
     summary: 'Banned as of March 20, 2026.',
     details:
-      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot.',
+      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. One crack has opened since: on July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. That covers those ten plaintiffs, not the cooler at your corner store.',
     shipping:
-      'Officially no. Since March 20, 2026, selling THC beverages to Ohio consumers outside dispensaries is illegal. In practice, some national brands are still shipping here months into the ban; that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
-    lastReviewed: '2026-08-08',
+      'Officially no, outside the ten companies covered by the July 2026 injunction. Selling THC beverages to Ohio consumers is otherwise illegal, and some national brands are still shipping here months into the ban; that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
+    lastReviewed: '2026-08-10',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',
         url: 'https://ohiocapitaljournal.com/2026/03/20/new-ohio-law-banning-intoxicating-hemp-products-thc-and-cbd-beverages-takes-effect/',
+      },
+      {
+        label: 'Cannabis Business Times on the federal injunction',
+        url: 'https://www.cannabisbusinesstimes.com/us-states/ohio/news/15827739/federal-judge-grants-10-hemp-companies-tro-in-ohio',
       },
     ],
   },
@@ -641,16 +651,20 @@ const THC_STATE_LEGALITY = [
     code: 'SC',
     name: 'South Carolina',
     status: 'legal',
-    summary: 'Legal at retail today; a restrictive bill is in conference.',
+    summary: 'Legal at retail, and the bill that would have ended it died.',
     details:
-      'Hemp drinks are sold with little state regulation, but H.3924 (in conference committee as of spring 2026) would impose the 0.4mg total THC cap and could wipe out the current market. Enjoy it while it lasts.',
+      'Hemp drinks are sold here with almost no state regulation. H.3924 would have imposed the 0.4mg total THC cap, but the House rejected the conference report on June 25, 2026 and the bill died with the session. South Carolina stays one of the least regulated markets in the country, which cuts both ways.',
     shipping:
-      'Yes, for now. Brands ship to South Carolina freely, though the pending bill would end that along with retail.',
-    lastReviewed: '2026-08-03',
+      'Yes. Brands ship to South Carolina freely. The federal November date is the real deadline now, not anything coming out of the statehouse.',
+    lastReviewed: '2026-08-10',
     sources: [
       {
-        label: 'CSG South hemp beverage overview',
-        url: 'https://csgsouth.org/policies/hemp-beverages-high-risk-or-high-reward/',
+        label: 'SC Legislature bill history for H.3924',
+        url: 'https://www.scstatehouse.gov/sess126_2025-2026/bills/3924.htm',
+      },
+      {
+        label: 'Copper Dome Chronicle session wrap (August 2026)',
+        url: 'https://www.advocatususa.com/blog/copper-dome-chronicle-2026-session-overtime-week-13',
       },
     ],
   },
@@ -747,16 +761,20 @@ const THC_STATE_LEGALITY = [
     code: 'VA',
     name: 'Virginia',
     status: 'restricted',
-    summary: 'A 2mg package cap keeps real drinks out.',
+    summary: 'A 2mg package cap keeps real drinks out, and it gets stricter August 15.',
     details:
-      'Virginia caps hemp products at 2mg total THC per package unless they carry a 25:1 CBD-to-THC ratio, one of the strictest limits in the South. Mainstream THC drinks do not qualify.',
+      'Virginia caps hemp products at 2mg total THC per package, one of the strictest limits in the South. Starting August 15, 2026 the 25:1 CBD-to-THC ratio exception that let some products clear that cap goes away entirely, and hemp enforcement moves from the agriculture department to the Cannabis Control Authority the same month. Mainstream THC drinks did not qualify before and will not now.',
     shipping:
-      'Officially no. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel. In practice, some national brands ship here anyway; the cap regulates sellers, and they are the ones betting on it.',
-    lastReviewed: '2026-08-08',
+      'Officially no. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel, and the August 15 change closes the ratio workaround that a few products leaned on. In practice, some national brands ship here anyway; the cap regulates sellers, and they are the ones betting on it.',
+    lastReviewed: '2026-08-10',
     sources: [
       {
-        label: 'CSG South hemp beverage overview',
-        url: 'https://csgsouth.org/policies/hemp-beverages-high-risk-or-high-reward/',
+        label: 'Virginia Cannabis Control Authority on the new laws',
+        url: 'https://cca.virginia.gov/news/virginias-new-marijuana-and-hemp-laws-what-you-need-to-know',
+      },
+      {
+        label: 'Vicente LLP on the August 15 cap',
+        url: 'https://vicentellp.com/insights/virginias-2-mg-thc-cap-hits-august-15-what-hemp-operators-need-to-do-now/',
       },
     ],
   },
