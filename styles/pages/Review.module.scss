@@ -37,6 +37,10 @@
     font-size: 0.9rem;
   }
 
+  .sidebar {
+    margin-top: 24px;
+  }
+
   @media (min-width: grids.$breakpoint-md) {
     display: flex;
     justify-content: space-between;
