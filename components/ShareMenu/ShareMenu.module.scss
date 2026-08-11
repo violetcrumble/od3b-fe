@@ -1,0 +1,88 @@
+@use '../../styles/colors';
+
+.share-menu {
+  position: relative;
+  display: flex;
+
+  @media print {
+    display: none;
+  }
+
+  .share-button {
+    background-color: colors.$brand-orange;
+    color: colors.$white;
+    border: none;
+    border-radius: 0;
+    font: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 44px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors.$brand-purple;
+    }
+  }
+
+  .share-popup {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 10;
+    width: 300px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: colors.$brand-purple-900;
+    color: colors.$white;
+    font-weight: normal;
+    text-transform: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+
+    a,
+    a:link,
+    a:visited {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: colors.$white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .copy-link-row {
+      display: flex;
+      gap: 8px;
+
+      input {
+        flex: 1;
+        min-width: 0;
+        border: none;
+        padding: 8px;
+        font-size: 0.85rem;
+        color: colors.$gray-darker;
+      }
+
+      button {
+        background-color: colors.$brand-orange;
+        border-radius: 0;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: colors.$brand-orange-700;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+// Sitewide print rules only. Component- and page-specific print styling lives
+// in the relevant CSS module (module class names are hashed at build time, so
+// they can't be targeted from a plain stylesheet).
+@page {
+  margin: 0.5in;
+}
+
+@media print {
+  header,
+  footer,
+  .breadcrumb {
+    display: none;
+  }
+
+  body {
+    font-size: 10pt;
+  }
+
+  // typography.scss sizes p/ul explicitly, so inheriting from body isn't enough
+  p,
+  ul {
+    font-size: 10pt;
+  }
+}

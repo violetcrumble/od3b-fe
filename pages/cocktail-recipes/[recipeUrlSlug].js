@@ -23,8 +23,8 @@ import RecipeRating from '../../components/RecipeRating/RecipeRating';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/Recipe.module.scss';
-// import shareIcon from '../../public/icons/share.svg';
-// import printIcon from '../../public/icons/printer.svg';
+import printIcon from '../../public/icons/printer.svg';
+import ShareMenu from '../../components/ShareMenu/ShareMenu';
 
 // Multiple recipes often share one video at different timestamps (?t=137 or ?t=183s).
 function getYouTubeStartSeconds(youTubeLink) {
@@ -129,16 +129,17 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 
         <div className={`${styles['recipe-header']}`}>
           <h1 className="text-brand-purple">{recipe.title} Recipe</h1>
-          {/* <div className={`${styles['recipe-share-buttons']}`}>
-            <div className={`${styles['print-button']}`}>
-              <Image priority src={printIcon} alt="Print" height={24} width={24} />
+          <div className={`${styles['recipe-share-buttons']}`}>
+            <button type="button" className={`${styles['print-button']}`} onClick={() => window.print()}>
+              <Image priority src={printIcon} alt="" height={24} width={24} />
               print
-            </div>
-            <div className={`${styles['share-button']}`}>
-              <Image priority src={shareIcon} alt="Share" height={24} width={24} />
-              share
-            </div>
-          </div> */}
+            </button>
+            <ShareMenu
+              url={`${SITE_URL}/cocktail-recipes/${recipe.recipeUrlSlug}`}
+              title={`${recipe.title} cocktail recipe`}
+              image={cloudinaryOptimize(recipe.PhotoPinterest?.url || recipe.PhotoMain[0].url)}
+            />
+          </div>
         </div>
         {/* end recipe header */}
 
@@ -176,7 +177,9 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               How to make {getArticle(recipe.title)}
               {recipe.title}
             </h2>
-            <Markdown>{recipe.recipebody}</Markdown>
+            <div className={`${styles['recipe-body']}`}>
+              <Markdown>{recipe.recipebody}</Markdown>
+            </div>
 
             {recipe.PhotoMain?.[0]?.url && (
               <div className="mobile-recipe-pic-container">
@@ -187,7 +190,10 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
                   height="487"
                   className={styles['mobile-recipe-image']}
                   style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-                  sizes="90vw"
+                  // eager because this is also the print-page photo: on desktop it's
+                  // display:none, and a lazy hidden image never loads, printing blank
+                  loading="eager"
+                  sizes="(min-width: 768px) 500px, 90vw"
                 />
               </div>
             )}
