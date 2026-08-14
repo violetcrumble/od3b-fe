@@ -15,7 +15,7 @@ import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeLi
 import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import { linkifyAffiliateIngredients, selectRecipeAffiliates } from '../../utils/affiliateIngredients';
 import getArticle from '../../utils/getArticle';
-import cloudinaryOptimize from '../../utils/cloudinaryOptimize';
+import cloudinaryOptimize, { cloudinarySocialImage } from '../../utils/cloudinaryOptimize';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
@@ -107,7 +107,11 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
           property="og:description"
           content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
-        <meta property="og:image" content={cloudinaryOptimize(recipe.PhotoMain[0].url)} />
+        <meta property="og:image" content={cloudinarySocialImage(recipe.PhotoMain[0].url)} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Cocktail Underground" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" dangerouslySetInnerHTML={addRecipeJsonLd()} key="recipe-jsonld" />
         <script
           type="application/ld+json"
