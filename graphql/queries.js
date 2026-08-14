@@ -87,6 +87,9 @@ const GET_INDIVIDUAL_RECIPE = `
         caption
         alternativeText
       }
+      PhotoOGSocial {
+        url
+      }
       relatedProducts {
         AmazonLink
         AmazonASIN

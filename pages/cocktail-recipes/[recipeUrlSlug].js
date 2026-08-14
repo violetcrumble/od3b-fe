@@ -107,7 +107,10 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
           property="og:description"
           content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
         />
-        <meta property="og:image" content={cloudinarySocialImage(recipe.PhotoMain[0].url)} />
+        <meta
+          property="og:image"
+          content={cloudinarySocialImage(recipe.PhotoOGSocial?.url || recipe.PhotoMain[0].url)}
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Cocktail Underground" />
