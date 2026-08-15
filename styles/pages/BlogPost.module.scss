@@ -42,6 +42,15 @@
     margin: 0 24px 16px 0;
   }
 
+  // Bullet lists that wrap beside a floated image: without their own block
+  // formatting context the list box slides behind the float and the markers
+  // end up hugging the photo edge. overflow:hidden keeps the whole list beside
+  // the image, and the padding restores a readable marker inset.
+  .blog-post-content ul:not([class]) {
+    overflow: hidden;
+    padding-left: 1.6em;
+  }
+
   // An image placed BEFORE a section heading belongs to that section: the
   // image clears the previous section, and the heading + text wrap beside it.
   .blog-post-content p:not([class]):has(> img) {
