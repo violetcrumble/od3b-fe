@@ -27,7 +27,10 @@ export default function BlogPost({ blogPost, affiliates }) {
       description: metaDescription,
       datePublished: blogPost.Date,
       dateCreated: blogPost.Date,
-      dateModified: blogPost.updatedAt || blogPost.Date,
+      // lastUpdated is set by hand in Strapi for genuine content revisions. Strapi's own
+      // updatedAt is deliberately not used here: it bumps on any save, including migrations
+      // and image swaps, which would overstate freshness to Google.
+      dateModified: blogPost.lastUpdated || blogPost.Date,
       genre: ['SEO', 'JSON-LD'],
       author: {
         '@type': 'Person',
@@ -72,7 +75,11 @@ export default function BlogPost({ blogPost, affiliates }) {
             {blogPost.Title}
           </div>
           <h1 className="text-brand-purple">{blogPost.Title}</h1>
-          <Byline authorName={blogPost.blog_authors[0].AuthorName} date={blogPost.Date} />
+          <Byline
+            authorName={blogPost.blog_authors[0].AuthorName}
+            date={blogPost.Date}
+            updatedDate={blogPost.lastUpdated}
+          />
           <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
         </div>
 

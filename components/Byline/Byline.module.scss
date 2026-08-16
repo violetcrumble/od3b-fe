@@ -14,4 +14,13 @@
   .author {
     font-weight: 600;
   }
+
+  .updated {
+    font-weight: 600;
+
+    &::before {
+      content: '· ';
+      font-weight: 400;
+    }
+  }
 }

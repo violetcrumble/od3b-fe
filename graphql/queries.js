@@ -144,6 +144,7 @@ const GET_BLOG_POST = `
     blogPosts(filters: { urlSlug: { eq: $urlSlug } }) {
       Title
       Date
+      lastUpdated
       updatedAt
       seoKeywords
       seoDescription
