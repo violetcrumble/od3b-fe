@@ -200,6 +200,7 @@ const GET_REVIEW = `
       productName
       reviewUrlSlug
       reviewDate
+      lastUpdated
       updatedAt
       reviewBody
       previewSnippet

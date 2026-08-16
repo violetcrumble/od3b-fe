@@ -55,7 +55,9 @@ export default function Review({ review, affiliates }) {
         name: authorName,
       },
       datePublished: review.reviewDate,
-      dateModified: review.updatedAt || review.reviewDate,
+      // Hand-set in Strapi for genuine revisions. Strapi's updatedAt bumps on any save,
+      // so it would overstate freshness here the same way it did on blog posts.
+      dateModified: review.lastUpdated || review.reviewDate,
       publisher: { '@type': 'Organization', name: 'Cocktail Underground' },
     };
     return { __html: JSON.stringify(jsonLd) };
