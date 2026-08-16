@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import trackEvent from '../../utils/analytics';
 import styles from './ShareMenu.module.scss';
 import shareIcon from '../../public/icons/share.svg';
 import facebookIcon from '../../public/facebook.svg';
@@ -27,10 +28,17 @@ export default function ShareMenu({ url, title, image }) {
     };
   }, [open]);
 
+  // GA4's recommended `share` event, so the networks land in one report split
+  // by method rather than three separate custom events.
+  function trackShare(method) {
+    trackEvent('share', { method, item_id: url, page_path: window.location.pathname });
+  }
+
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
+      trackShare('copy_link');
       setTimeout(() => setCopied(false), 2000);
     } catch {
       // clipboard blocked; the visitor can still select the readonly input
@@ -49,6 +57,7 @@ export default function ShareMenu({ url, title, image }) {
             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackShare('facebook')}
           >
             <Image src={facebookIcon} alt="" height={24} width={24} />
             Share on Facebook
@@ -59,6 +68,7 @@ export default function ShareMenu({ url, title, image }) {
             }&description=${encodeURIComponent(title)}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackShare('pinterest')}
           >
             <Image src={pinterestIcon} alt="" height={24} width={24} />
             Pin on Pinterest

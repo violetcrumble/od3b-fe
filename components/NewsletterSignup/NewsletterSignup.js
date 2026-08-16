@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import trackEvent from '../../utils/analytics';
 import styles from './NewsletterSignup.module.scss';
 
 export default function NewsletterSignup() {
@@ -22,14 +23,25 @@ export default function NewsletterSignup() {
       if (!res.ok) {
         setStatus('error');
         setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        trackEvent('newsletter_signup_error', {
+          error_message: data.error || 'unknown',
+          page_path: window.location.pathname,
+        });
         return;
       }
 
       setStatus('success');
       setEmail('');
+      // Only a confirmed Beehiiv subscribe counts, so the event can be used as
+      // a conversion without inflating it with failed submits.
+      trackEvent('newsletter_signup', { page_path: window.location.pathname });
     } catch {
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again.');
+      trackEvent('newsletter_signup_error', {
+        error_message: 'network',
+        page_path: window.location.pathname,
+      });
     }
   }
 

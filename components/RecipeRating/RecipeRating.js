@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import trackEvent from '../../utils/analytics';
 import styles from './RecipeRating.module.scss';
 
 const GRACE_MS = 8000; // window to change a just-submitted rating (misclick insurance)
@@ -54,6 +55,9 @@ export default function RecipeRating({ slug, initialCount, initialTotal }) {
       setMyRating(value);
       window.localStorage.setItem(storageKey, String(value));
       setStatus('grace');
+      // is_change separates corrections made inside the grace window from
+      // first-time votes, so neither inflates the other.
+      trackEvent('recipe_rating', { recipe_slug: slug, rating: value, is_change: isChange });
       clearTimeout(graceTimer.current);
       graceTimer.current = setTimeout(() => setStatus('locked'), GRACE_MS);
     } catch {

@@ -21,6 +21,7 @@ import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
 import RecipeRating from '../../components/RecipeRating/RecipeRating';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
+import trackEvent from '../../utils/analytics';
 import SITE_URL from '../../utils/siteUrl';
 import styles from '../../styles/pages/Recipe.module.scss';
 import printIcon from '../../public/icons/printer.svg';
@@ -42,7 +43,9 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 
   const youTubeStartSeconds = getYouTubeStartSeconds(recipe.YouTubeLink);
   const youTubeEmbedUrl = recipe.youTubeID
-    ? `https://www.youtube-nocookie.com/embed/${recipe.youTubeID}${youTubeStartSeconds ? `?start=${youTubeStartSeconds}` : ''}`
+    ? `https://www.youtube-nocookie.com/embed/${recipe.youTubeID}?enablejsapi=1${
+        youTubeStartSeconds ? `&start=${youTubeStartSeconds}` : ''
+      }`
     : null;
 
   function addRecipeJsonLd() {
@@ -137,7 +140,14 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
         <div className={`${styles['recipe-header']}`}>
           <h1 className="text-brand-purple">{recipe.title} Recipe</h1>
           <div className={`${styles['recipe-share-buttons']}`}>
-            <button type="button" className={`${styles['print-button']}`} onClick={() => window.print()}>
+            <button
+              type="button"
+              className={`${styles['print-button']}`}
+              onClick={() => {
+                trackEvent('recipe_print', { recipe_slug: recipe.recipeUrlSlug });
+                window.print();
+              }}
+            >
               <Image priority src={printIcon} alt="" height={24} width={24} />
               print
             </button>
