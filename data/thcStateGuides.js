@@ -1,4 +1,4 @@
-sconst THC_STATE_GUIDES = [
+const THC_STATE_GUIDES = [
   {
     slug: 'arizona',
     code: 'AZ',
