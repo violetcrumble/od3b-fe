@@ -5,7 +5,6 @@ import ProductCategoryPills from '../../components/ProductCategoryPills/ProductC
 import { GET_AMAZON_PRODUCTS } from '../../graphql/queries';
 import { strapiQueryCached } from '../../utils/strapiQuery';
 import SITE_URL from '../../utils/siteUrl';
-import styles from '../../styles/pages/HomeBarSupplies.module.scss';
 
 export async function getStaticProps() {
   const data = await strapiQueryCached(GET_AMAZON_PRODUCTS);
@@ -30,7 +29,7 @@ export default function Products({ products }) {
         <link rel="canonical" href={`${SITE_URL}/home-bar-supplies`} />
       </Head>
 
-      <div className={`${styles['supplies-page']} constrained-content`}>
+      <div className="constrained-content">
         <h1 className="text-brand-purple">Home Bar Supplies</h1>
         <p>
           Everything here is gear I own or products I would buy again, organized by category so you can find what your

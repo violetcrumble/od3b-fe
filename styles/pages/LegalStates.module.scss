@@ -1,10 +1,6 @@
 @use '../colors';
 @use '../grids';
 
-// Status colors validated for color-vision safety against the white surface
-// (legal/restricted/banned separate under CVD simulation; gray is the
-// intentionally neutral "unclear" status). Tiles always carry text labels so
-// color is never the only signal.
 $status-legal: #2f8f6b;
 $status-restricted: #d08b1f;
 $status-banned: #c93a2c;

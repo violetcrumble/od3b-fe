@@ -2,8 +2,6 @@
 
 .newsletter-signup {
   background-color: colors.$brand-teal-50;
-  // Explicit text color so the box reads correctly on any background,
-  // including the black footer.
   color: colors.$brand-teal-900;
   border-radius: 10px;
   padding: 24px;

@@ -84,8 +84,6 @@
     margin-top: 40px;
   }
 
-  // Print layout: title banner, then ingredients boxed beside the photo,
-  // instructions full-width below, site attribution at the bottom.
   @media print {
     .recipe-header {
       display: block;
@@ -130,11 +128,6 @@
       columns: 1;
       border: 1.5pt solid colors.$brand-purple;
       padding: 10pt 12pt;
-
-      // font-size lives on the p, not the container: typography.scss sizes
-      // p explicitly, so an inherited container size never reaches the text.
-      // p:first-child restated because the base p:first-child { margin: 0 }
-      // outranks the plain p rule, running the first two ingredients together
       p,
       p:first-child {
         margin: 0 0 6pt;

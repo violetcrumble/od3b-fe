@@ -6,7 +6,6 @@ import shareIcon from '../../public/icons/share.svg';
 import facebookIcon from '../../public/facebook.svg';
 import pinterestIcon from '../../public/pinterest.svg';
 
-// url and title feed the networks' share dialogs; image becomes the Pinterest pin
 export default function ShareMenu({ url, title, image }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);

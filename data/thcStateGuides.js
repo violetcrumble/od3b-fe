@@ -1,11 +1,4 @@
-// Dedicated deep-dive guides for individual states, rendered at
-// /thc-drinks/legal-states/[slug]. The 50-state page keeps the short answer;
-// these pages carry the full story for states worth owning in search.
-// Body fields are markdown (blank line between paragraphs). Keep the shared
-// factual explainers here and let the main page entry stay short, so the two
-// pages never read as duplicates of each other.
-
-const THC_STATE_GUIDES = [
+sconst THC_STATE_GUIDES = [
   {
     slug: 'arizona',
     code: 'AZ',

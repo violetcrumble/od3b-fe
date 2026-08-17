@@ -1,9 +1,3 @@
-// State-by-state legality of hemp-derived THC drinks (delta-9 seltzers, tonics,
-// and spirits sold outside marijuana dispensaries). Reviewed state by state
-// against the sources listed on each entry; statuses reflect where things stood
-// on the lastReviewed date. This area of law is moving fast, so when a ban bill
-// passes or a court ruling lands, update the entry and its lastReviewed date.
-//
 // status values:
 //   legal      - you can buy real THC drinks at ordinary retail (caps may apply)
 //   restricted - only dispensaries/licensed channels, or caps so low that

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import PRODUCT_CATEGORIES from '../../utils/productCategories';
-// Same pill styling as the recipe category nav, on purpose — restyle both there.
 import styles from '../CategoryNavPills/CategoryNavPills.module.scss';
 
 export default function ProductCategoryPills({ activeCategory = '' }) {

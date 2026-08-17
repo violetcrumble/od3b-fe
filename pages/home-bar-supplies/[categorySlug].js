@@ -8,7 +8,6 @@ import { strapiQueryCached } from '../../utils/strapiQuery';
 import PRODUCT_CATEGORIES from '../../utils/productCategories';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../utils/siteUrl';
-import styles from '../../styles/pages/HomeBarSupplies.module.scss';
 
 export async function getStaticPaths() {
   return {
@@ -48,7 +47,7 @@ export default function ProductCategory({ category, products }) {
         />
       </Head>
 
-      <div className={`${styles['supplies-page']} constrained-content`}>
+      <div className="constrained-content">
         <div className="breadcrumb">
           <Link href="/">Home</Link>&nbsp;:&nbsp;
           <Link href="/home-bar-supplies">Home Bar Supplies</Link>&nbsp;:&nbsp; {category.name}

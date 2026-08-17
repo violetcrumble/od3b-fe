@@ -5,7 +5,6 @@
   .sidebar {
     margin-top: 24px;
   }
-
   h2,
   h3 {
     color: colors.$brand-teal;
@@ -16,9 +15,6 @@
   p {
     max-width: 1000px;
   }
-
-  // Image layout rules target only markdown-generated paragraphs (which are
-  // classless), so styled elements like the Byline component stay unaffected.
   .blog-post-content p:not([class]) img {
     max-width: 45%;
     height: auto;
@@ -26,43 +22,25 @@
     float: right;
     margin: 0 0 16px 24px;
   }
-
-  // Each section starts below the previous section's floated image, so posts
-  // with an image per section read as tidy blocks instead of overlapping floats.
   .blog-post-content h2,
   .blog-post-content h3,
   .blog-post-content hr {
     clear: both;
   }
-
-  // Alternate image sides down the page (1st right, 2nd left, ...). Browsers
-  // without :nth-child(... of ...) support keep everything floated right.
   .blog-post-content :nth-child(even of p:not([class]):has(> img)) img {
     float: left;
     margin: 0 24px 16px 0;
   }
-
-  // Bullet lists that wrap beside a floated image: without their own block
-  // formatting context the list box slides behind the float and the markers
-  // end up hugging the photo edge. overflow:hidden keeps the whole list beside
-  // the image, and the padding restores a readable marker inset.
   .blog-post-content ul:not([class]) {
     overflow: hidden;
     padding-left: 1.6em;
   }
-
-  // An image placed BEFORE a section heading belongs to that section: the
-  // image clears the previous section, and the heading + text wrap beside it.
   .blog-post-content p:not([class]):has(> img) {
     clear: both;
   }
   .blog-post-content p:not([class]):has(> img) + h2 {
     clear: none;
   }
-
-  // Hairline divider + breathing room between sections. The divider sits above
-  // whichever element starts the section: the image for image-first magazine
-  // blocks, otherwise the heading.
   .blog-post-content h2,
   .blog-post-content p:not([class]):has(> img):has(+ h2) {
     border-top: 1px solid colors.$brand-teal-100;
