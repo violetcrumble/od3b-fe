@@ -8,7 +8,7 @@
 export const FEDERAL_BAN = {
   effectiveDate: 'November 12, 2026',
   summary:
-    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. There is a partial reprieve in play as of August 2026: the Senate passed a stopgap funding bill on August 8 that would push most of these restrictions back to December 11, 2026. It is not law. The House is on recess and still has to pass it, and the president has to sign it, so November 12 remains the date to plan around.',
+    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. There is a partial reprieve in play as of August 2026: the Senate passed a stopgap funding bill on August 8 that would push most of these restrictions back to December 11, 2026. It is not law. The House passed its own funding bill in July with no hemp language in it at all, so the two chambers have to reconcile before anything reaches the president, and the House is out until late August. November 12 remains the date to plan around. Separately, two House members introduced the Beverage Regulatory Parity Act on August 10, which would carve hemp drinks out of the per-container limit and regulate them like alcohol. It was just introduced, so treat it as a proposal, not a rescue.',
   postUrl: '/blog/thc-drink-ban-november-2026',
 };
 
@@ -408,13 +408,18 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail today, banned November 12, 2026.',
     details:
-      'Missouri drinks are legal right now, but HB 2641 (signed April 2026) adopts the federal 0.4mg total THC cap on the same November 12, 2026 date as the federal change. Products must be off ordinary retail shelves by then.',
-    shipping: "Yes, until November 12, 2026, when the state's new 0.4mg cap ends ordinary sales, shipped or otherwise.",
-    lastReviewed: '2026-08-03',
+      'Missouri drinks are legal right now, but HB 2641 (signed April 2026) adopts the federal 0.4mg total THC cap on the same November 12, 2026 date as the federal change. Products must be off ordinary retail shelves by then. There is one wrinkle worth knowing: the Missouri law carves out beverages specifically, so if Congress passes the stopgap that delays the federal date to December 11, drinks get that extra month here while every other intoxicating hemp product still comes off the shelf on November 12. That carve-out only helps if the House acts, which it had not as of mid-August.',
+    shipping:
+      "Yes, until November 12, 2026, when the state's new 0.4mg cap ends ordinary sales, shipped or otherwise. If the federal delay becomes law, drinks specifically get until December 11.",
+    lastReviewed: '2026-08-17',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
         url: 'https://csgsouth.org/policies/hemp-beverages-high-risk-or-high-reward/',
+      },
+      {
+        label: 'KCUR on the Missouri ban and the federal stopgap',
+        url: 'https://www.kcur.org/politics-elections-and-government/2026-08-17/missouri-hemp-thc-drinks-ban-congress',
       },
     ],
   },
@@ -709,14 +714,18 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail, and the fight is not over.',
     details:
-      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it, so the situation stays volatile. Check back.',
+      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, which means the delta-8 and THCA side of this could move again. Low-dose delta-9 drinks were never part of the ban and are not part of that fight.',
     shipping:
       'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.crescentcanna.com/?sld=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_inline&utm_campaign=legal-states&utm_content=texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
-    lastReviewed: '2026-08-05',
+    lastReviewed: '2026-08-17',
     sources: [
       {
         label: 'Texas Tribune on the 2026 rules',
         url: 'https://www.texastribune.org/2026/07/30/texas-thc-cannabis-ban-delta-9-8-marijuana/',
+      },
+      {
+        label: 'Texas Tribune on the denied emergency motion',
+        url: 'https://www.texastribune.org/2026/08/10/texas-hemp-thc-ban-federal-court-emergency/',
       },
       {
         label: 'Houston Public Media on the industry lawsuit',
@@ -763,12 +772,12 @@ const THC_STATE_LEGALITY = [
     code: 'VA',
     name: 'Virginia',
     status: 'restricted',
-    summary: 'A 2mg package cap keeps real drinks out, and it gets stricter August 15.',
+    summary: 'A 2mg package cap keeps real drinks out, and it just got stricter.',
     details:
-      'Virginia caps hemp products at 2mg total THC per package, one of the strictest limits in the South. Starting August 15, 2026 the 25:1 CBD-to-THC ratio exception that let some products clear that cap goes away entirely, and hemp enforcement moves from the agriculture department to the Cannabis Control Authority the same month. Mainstream THC drinks did not qualify before and will not now.',
+      'Virginia caps hemp products at 2mg total THC per package, one of the strictest limits in the South. The 25:1 CBD-to-THC ratio exception that let some products clear that cap went away at midnight on August 15, 2026, and hemp enforcement moves from the agriculture department to the Cannabis Control Authority the same month. Seven hemp businesses sued to stop it and a federal judge denied them on August 14, finding they had shown neither a likely win on the merits nor irreparable harm, so the cap took effect on schedule. Mainstream THC drinks did not qualify before and they do not now.',
     shipping:
-      'Officially no. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel, and the August 15 change closes the ratio workaround that a few products leaned on. In practice, some national brands ship here anyway; the cap regulates sellers, and they are the ones betting on it.',
-    lastReviewed: '2026-08-10',
+      'Officially no. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel, and the August 15 change closed the ratio workaround that a few products leaned on. In practice, some national brands ship here anyway; the cap regulates sellers, and they are the ones betting on it.',
+    lastReviewed: '2026-08-17',
     sources: [
       {
         label: 'Virginia Cannabis Control Authority on the new laws',
@@ -777,6 +786,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Vicente LLP on the August 15 cap',
         url: 'https://vicentellp.com/insights/virginias-2-mg-thc-cap-hits-august-15-what-hemp-operators-need-to-do-now/',
+      },
+      {
+        label: 'WDBJ7 on the judge refusing to delay the law',
+        url: 'https://www.wdbj7.com/2026/08/14/virginia-implement-new-law-banning-hemp-sales-over-two-milligrams/',
       },
     ],
   },
