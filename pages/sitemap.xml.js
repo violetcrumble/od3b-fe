@@ -7,6 +7,10 @@ import THC_STATE_GUIDES from '../data/thcStateGuides';
 
 const URL = 'https://www.cocktailunderground.com';
 
+// Blog slugs that permanently redirect elsewhere (see redirects in next.config.js).
+// They must stay out of the sitemap, or Google reports them as "Page with redirect".
+const REDIRECTED_BLOG_SLUGS = new Set(['crescent-9-thc-seltzer', 'willies-remedy-review']);
+
 const STATIC_PATHS = [
   'cocktail-recipes',
   'cocktail-recipes/category/tequila',
@@ -63,10 +67,12 @@ export async function getServerSideProps({ res }) {
     slug: recipe.recipeUrlSlug,
     updatedAt: recipe.updatedAt,
   }));
-  const blogPosts = blogData.blogPosts.map((blogPost) => ({
-    slug: blogPost.urlSlug,
-    updatedAt: blogPost.updatedAt,
-  }));
+  const blogPosts = blogData.blogPosts
+    .filter((blogPost) => !REDIRECTED_BLOG_SLUGS.has(blogPost.urlSlug))
+    .map((blogPost) => ({
+      slug: blogPost.urlSlug,
+      updatedAt: blogPost.updatedAt,
+    }));
   const reviews = reviewsData.reviews.map((review) => ({
     slug: review.reviewUrlSlug,
     updatedAt: review.updatedAt,
