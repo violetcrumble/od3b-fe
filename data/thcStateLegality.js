@@ -8,7 +8,7 @@
 export const FEDERAL_BAN = {
   effectiveDate: 'November 12, 2026',
   summary:
-    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. There is a partial reprieve in play as of August 2026: the Senate passed a stopgap funding bill on August 8 that would push most of these restrictions back to December 11, 2026. It is not law. The House passed its own funding bill in July with no hemp language in it at all, so the two chambers have to reconcile before anything reaches the president, and the House is out until late August. November 12 remains the date to plan around. Separately, two House members introduced the Beverage Regulatory Parity Act on August 10, which would carve hemp drinks out of the per-container limit and regulate them like alcohol. It was just introduced, so treat it as a proposal, not a rescue.',
+    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. A partial reprieve is sitting in the House as of late August 2026: the Senate passed a stopgap funding bill (H.R. 6500) on August 8 by a vote of 90 to 6 that would push most of these restrictions back to December 11, 2026, a delay the White House asked for. Read the fine print, though. The extension would not cover cannabinoids the plant cannot produce on its own, so delta-8 and its lab-made cousins lose hemp status on November 12 either way. The House had not acted on the bill as of August 22 and comes back August 31 for a short week, with government funding due September 30. Until the House votes and the president signs, November 12 is the date to plan around. Separately, two House members introduced the Beverage Regulatory Parity Act (H.R. 10079) on August 10, which would carve hemp drinks out of the per-container limit, cap them at 5mg of THC per serving, and regulate them like alcohol under a three-tier system. It has bipartisan sponsors and backing from alcohol wholesalers and retailers, but it is still a proposal, not a rescue.',
   postUrl: '/blog/thc-drink-ban-november-2026',
 };
 
@@ -640,17 +640,25 @@ const THC_STATE_LEGALITY = [
   {
     code: 'RI',
     name: 'Rhode Island',
-    status: 'legal',
-    summary: 'Legal through licensed retailers, including liquor stores.',
+    status: 'restricted',
+    summary: 'Licensed retailers can sell them, capped at 1mg per serving.',
     details:
-      'Rhode Island has allowed licensed retailers, including bars, restaurants, and liquor stores, to sell hemp THC drinks since August 2024, with the Cannabis Control Commission working on permanent rules.',
+      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does.',
     shipping:
-      'Sort of. The licensed system is built around in-person retail; some national brands ship here anyway, but the store route is the clearly sanctioned one.',
-    lastReviewed: '2026-08-03',
+      "No, not for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here and reputable brands will not do it. The low-dose products that clear the cap are sold through the state's licensed retailers.",
+    lastReviewed: '2026-08-25',
     sources: [
       {
-        label: 'RI legislature S 3215 (2026)',
-        url: 'https://webserver.rilegislature.gov/BillText26/SenateText26/S3215.pdf',
+        label: 'Rhode Island Current on the CCC draft beverage rules',
+        url: 'https://rhodeislandcurrent.com/2026/02/02/cannabis-regulators-review-draft-restrictions-on-hemp-derived-thc-drinks/',
+      },
+      {
+        label: 'Rhode Island Current on the on-premise sales recommendation',
+        url: 'https://rhodeislandcurrent.com/2026/03/17/cannabis-regulators-back-ban-on-thc-drinks-in-ri-bars-and-restaurants/',
+      },
+      {
+        label: 'LegiScan bill history for RI S 3215 (2026)',
+        url: 'https://legiscan.com/RI/bill/S3215/2026',
       },
     ],
   },
@@ -714,11 +722,15 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail, and the fight is not over.',
     details:
-      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, which means the delta-8 and THCA side of this could move again. Low-dose delta-9 drinks were never part of the ban and are not part of that fight.',
+      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. Low-dose delta-9 drinks were never part of the ban and are not part of that fight.',
     shipping:
       'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.crescentcanna.com/?sld=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_inline&utm_campaign=legal-states&utm_content=texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
-    lastReviewed: '2026-08-17',
+    lastReviewed: '2026-08-25',
     sources: [
+      {
+        label: 'Insurance Journal on the August 21 retailer suit',
+        url: 'https://www.insurancejournal.com/news/southcentral/2026/08/21/882478.htm',
+      },
       {
         label: 'Texas Tribune on the 2026 rules',
         url: 'https://www.texastribune.org/2026/07/30/texas-thc-cannabis-ban-delta-9-8-marijuana/',
