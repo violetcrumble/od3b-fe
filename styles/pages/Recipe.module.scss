@@ -3,12 +3,15 @@
 .recipe-page {
   .recipe-header {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
 
     .recipe-share-buttons {
       display: flex;
       height: 44px;
-      margin-top: 40px;
+      margin-top: 0;
+      margin-bottom: 24px;
 
       .print-button {
         display: none;
@@ -50,7 +53,12 @@
   }
 
   .recipe-ingredients {
-    columns: 2;
+    columns: 200px 2;
+    column-gap: 24px;
+
+    p {
+      break-inside: avoid;
+    }
   }
   .recipe-ingredients p:first-child {
     margin: 0;
@@ -76,7 +84,10 @@
     }
   }
 
-  .recipe-page-col-2 img {
+  // direct children only: these are the recipe/Pinterest photos, which mobile
+  // shows from col 1 instead. Descendant images (affiliate CTA and Amazon card
+  // photos) have to keep showing.
+  .recipe-page-col-2 > img {
     display: none;
   }
 
@@ -180,7 +191,13 @@
 
   @media screen and (min-width: 768px) {
     .recipe-header {
+      flex-direction: row;
+      align-items: flex-start;
+
       .recipe-share-buttons {
+        margin-top: 40px;
+        margin-bottom: 0;
+
         .print-button {
           display: flex;
         }
