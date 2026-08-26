@@ -54,7 +54,9 @@
   }
 
   @media screen and (max-width: 600px) {
-    .blog-post-content img {
+    .blog-post-content img,
+    .blog-post-content p:not([class]) img,
+    .blog-post-content :nth-child(even of p:not([class]):has(> img)) img {
       max-width: 100%;
       float: none;
       margin: 0 0 16px;
