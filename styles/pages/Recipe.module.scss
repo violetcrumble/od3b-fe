@@ -1,4 +1,5 @@
 @use '../../styles/colors';
+@use '../../styles/affiliateLinks';
 
 .recipe-page {
   .recipe-header {
@@ -58,6 +59,10 @@
 
     p {
       break-inside: avoid;
+    }
+
+    a:global(.affiliate-link) {
+      @include affiliateLinks.affiliate-link;
     }
   }
   .recipe-ingredients p:first-child {
@@ -139,6 +144,10 @@
       columns: 1;
       border: 1.5pt solid colors.$brand-purple;
       padding: 10pt 12pt;
+
+      a:global(.affiliate-link) {
+        @include affiliateLinks.affiliate-link-reset;
+      }
       p,
       p:first-child {
         margin: 0 0 6pt;

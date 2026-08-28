@@ -1,5 +1,6 @@
 @use '../../styles/colors';
 @use '../../styles/grids';
+@use '../../styles/affiliateLinks';
 
 .blog-post-page {
   .sidebar {
@@ -34,6 +35,9 @@
   .blog-post-content ul:not([class]) {
     overflow: hidden;
     padding-left: 1.6em;
+  }
+  .blog-post-content a:global(.affiliate-link) {
+    @include affiliateLinks.affiliate-link;
   }
   .blog-post-content p:not([class]):has(> img) {
     clear: both;

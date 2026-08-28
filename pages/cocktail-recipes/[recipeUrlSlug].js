@@ -247,19 +247,6 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 
             <ThcAffiliateCTAs affiliates={affiliates} campaign={recipe.recipeUrlSlug} />
 
-            <NewsletterSignup />
-
-            {recipe.PhotoPinterest?.url && (
-              <Image
-                src={recipe.PhotoPinterest.url}
-                alt={recipe.PhotoPinterest.alternativeText}
-                width="256"
-                height="370"
-                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-                sizes="(min-width: 1600px) 500px, 35vw"
-              />
-            )}
-
             {amazonProducts.length ? (
               <div>
                 <h2>Related Products</h2>
@@ -283,6 +270,19 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               </div>
             ) : (
               ''
+            )}
+
+            <NewsletterSignup />
+
+            {recipe.PhotoPinterest?.url && (
+              <Image
+                src={recipe.PhotoPinterest.url}
+                alt={recipe.PhotoPinterest.alternativeText}
+                width="256"
+                height="370"
+                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                sizes="(min-width: 1600px) 500px, 35vw"
+              />
             )}
           </div>
           {/* end column 2 */}

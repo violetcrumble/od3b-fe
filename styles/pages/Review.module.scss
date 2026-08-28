@@ -1,5 +1,6 @@
 @use '../colors';
 @use '../grids';
+@use '../affiliateLinks';
 
 .review-page {
   h2,
@@ -11,6 +12,10 @@
   }
   p {
     max-width: 1000px;
+  }
+
+  a:global(.affiliate-link) {
+    @include affiliateLinks.affiliate-link;
   }
 
   // Image layout rules target only markdown-generated paragraphs (which are
