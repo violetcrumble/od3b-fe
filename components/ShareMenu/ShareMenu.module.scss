@@ -31,9 +31,14 @@
   .share-popup {
     position: absolute;
     top: calc(100% + 8px);
-    right: 0;
+    left: 0;
     z-index: 10;
-    width: 300px;
+    width: min(300px, 85vw);
+
+    @media (min-width: 768px) {
+      left: auto;
+      right: 0;
+    }
     padding: 16px;
     display: flex;
     flex-direction: column;

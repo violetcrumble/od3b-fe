@@ -280,8 +280,15 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
                 alt={recipe.PhotoPinterest.alternativeText}
                 width="256"
                 height="370"
-                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-                sizes="(min-width: 1600px) 500px, 35vw"
+                style={{
+                  objectFit: 'contain',
+                  width: '100%',
+                  maxWidth: '256px',
+                  height: 'auto',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+                sizes="256px"
               />
             )}
           </div>
