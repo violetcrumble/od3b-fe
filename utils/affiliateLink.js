@@ -1,8 +1,9 @@
-// Matches affiliate destinations: Awin tracker links, refr.cc referral links
-// (Mission Farms), Amazon Associates links (amzn.to short links or amazon.com
-// URLs carrying a ?tag= associate id), and direct programs that use ?sld=
-// (Crescent Canna) or ?ref= (Grind with Gratitude).
-export const AFFILIATE_LINK_PATTERN = /awin1\.com|refr\.cc|amzn\.to|amazon\.com\S*[?&]tag=|[?&](sld|ref)=/;
+// Matches affiliate destinations: Awin tracker links, Impact tracker links
+// (sjv.io, Mission Farms), refr.cc referral links (Mission Farms legacy),
+// Amazon Associates links (amzn.to short links or amazon.com URLs carrying a
+// ?tag= associate id), and direct programs that use ?sld= (Crescent Canna)
+// or ?ref= (Grind with Gratitude).
+export const AFFILIATE_LINK_PATTERN = /awin1\.com|sjv\.io|refr\.cc|amzn\.to|amazon\.com\S*[?&]tag=|[?&](sld|ref)=/;
 
 // Appends tracking params to an affiliate URL without disturbing any
 // params the affiliate program itself requires (e.g. ?sld= for Crescent Canna,
