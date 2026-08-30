@@ -9,12 +9,21 @@ import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSig
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 
+function slugHash(slug) {
+  let hash = 41;
+  for (let i = 0; i < slug.length; i += 1) {
+    hash = (hash * 31 + slug.charCodeAt(i)) % 4294967296;
+  }
+  return hash;
+}
+
 export async function getStaticProps() {
   const data = await strapiQueryCached(GET_ALL_THC_RECIPES);
+  const recipes = [...data.recipes].sort((a, b) => slugHash(a.recipeUrlSlug) - slugHash(b.recipeUrlSlug));
 
   return {
     props: {
-      recipes: data.recipes,
+      recipes,
     },
   };
 }
