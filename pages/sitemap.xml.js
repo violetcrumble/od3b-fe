@@ -34,6 +34,7 @@ const STATIC_PATHS = [
   ...PRODUCT_CATEGORIES.map((category) => `home-bar-supplies/${category.slug}`),
   'home-bar-supplies/filming-equipment',
   'friends',
+  'newsletter',
 ];
 
 function urlEntry(loc, lastmod) {
