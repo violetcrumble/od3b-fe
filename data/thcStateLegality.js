@@ -294,7 +294,7 @@ const THC_STATE_LEGALITY = [
     details:
       'Louisiana allows consumable hemp products at up to 5mg THC per serving, 21+, with testing and labeling enforced through the Office of Alcohol and Tobacco Control.',
     shipping:
-      'Yes, but only drinks with 5mg or less per serving. [Crescent Canna](https://www.crescentcanna.com/?sld=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_inline&utm_campaign=legal-states&utm_content=louisiana), for example, ships its 5mg products into Louisiana but not its stronger cans.',
+      'Yes, but only drinks with 5mg or less per serving. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_louisiana), for example, ships its 5mg products into Louisiana but not its stronger cans.',
     lastReviewed: '2026-08-03',
     sources: [
       {
@@ -732,7 +732,7 @@ const THC_STATE_LEGALITY = [
     details:
       'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. Low-dose delta-9 drinks were never part of the ban and are not part of that fight.',
     shipping:
-      'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.crescentcanna.com/?sld=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_inline&utm_campaign=legal-states&utm_content=texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
+      'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
     lastReviewed: '2026-08-25',
     sources: [
       {
