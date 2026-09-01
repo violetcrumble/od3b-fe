@@ -8,7 +8,7 @@
 export const FEDERAL_BAN = {
   effectiveDate: 'November 12, 2026',
   summary:
-    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. A partial reprieve is sitting in the House as of late August 2026: the Senate passed a stopgap funding bill (H.R. 6500) on August 8 by a vote of 90 to 6 that would push most of these restrictions back to December 11, 2026, a delay the White House asked for. Read the fine print, though. The extension would not cover cannabinoids the plant cannot produce on its own, so delta-8 and its lab-made cousins lose hemp status on November 12 either way. The House had not acted on the bill as of August 22 and comes back August 31 for a short week, with government funding due September 30. Until the House votes and the president signs, November 12 is the date to plan around. Separately, two House members introduced the Beverage Regulatory Parity Act (H.R. 10079) on August 10, which would carve hemp drinks out of the per-container limit, cap them at 5mg of THC per serving, and regulate them like alcohol under a three-tier system. It has bipartisan sponsors and backing from alcohol wholesalers and retailers, but it is still a proposal, not a rescue.',
+    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. A partial reprieve is sitting in the House as of late August 2026: the Senate passed a stopgap funding bill (H.R. 6500) on August 8 by a vote of 90 to 6 that would push most of these restrictions back to December 11, 2026, a delay the White House asked for. Read the fine print, though. The extension would not cover cannabinoids the plant cannot produce on its own, so delta-8 and its lab-made cousins lose hemp status on November 12 either way. The House still had not acted as of August 30. It returns August 31 for a short week, the hemp delay was not on its initial floor schedule, and House Republicans are split on whether to take it up at all, with Rep. Andy Harris saying publicly he intends to fight it. Government funding is due September 30. Until the House votes and the president signs, November 12 is the date to plan around. Separately, two House members introduced the Beverage Regulatory Parity Act (H.R. 10079) on August 10, which would carve hemp drinks out of the per-container limit, cap them at 5mg of THC per serving, and regulate them like alcohol under a three-tier system. It has picked up a few more cosponsors and has backing from alcohol wholesalers and retailers, but it has not had a committee vote, and it is still a proposal, not a rescue.',
   postUrl: '/blog/thc-drink-ban-november-2026',
 };
 
@@ -577,10 +577,10 @@ const THC_STATE_LEGALITY = [
     status: 'banned',
     summary: 'Banned as of March 20, 2026.',
     details:
-      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. One crack has opened since: on July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. That covers those ten plaintiffs, not the cooler at your corner store.',
+      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. The state has appealed to the Sixth Circuit and asked for the injunction to be put on hold, with no ruling reported as of late August. Read the fine print, though. These orders protect the companies named in them, not the cooler at your corner store, and a restraining order is a short-lived thing, so the list of who is covered can move with the docket.',
     shipping:
-      'Officially no, outside the ten companies covered by the July 2026 injunction. Selling THC beverages to Ohio consumers is otherwise illegal, and some national brands are still shipping here months into the ban; that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
-    lastReviewed: '2026-08-10',
+      'Officially no, outside the roughly two dozen companies named in those federal court orders, and that list is a moving target. Selling THC beverages to Ohio consumers is otherwise illegal, and some national brands are still shipping here months into the ban; that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
+    lastReviewed: '2026-08-31',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',
@@ -589,6 +589,14 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Cannabis Business Times on the federal injunction',
         url: 'https://www.cannabisbusinesstimes.com/us-states/ohio/news/15827739/federal-judge-grants-10-hemp-companies-tro-in-ohio',
+      },
+      {
+        label: 'Local 12 on the August 7 order covering Cincinnati breweries',
+        url: 'https://local12.com/news/local/cincinnati-breweries-fifty-west-rhinegeist-thc-beverage-sales-ohio-ban-intoxicating-hemp',
+      },
+      {
+        label: 'NBC4 on Seventh Son and the second restraining order',
+        url: 'https://www.nbc4i.com/news/politics/seventh-son-temporarily-allowed-to-sell-thc-drinks-in-ohio/',
       },
     ],
   },

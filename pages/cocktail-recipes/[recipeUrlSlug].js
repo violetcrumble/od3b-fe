@@ -53,7 +53,10 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
       '@context': 'https://schema.org/',
       '@type': 'Recipe',
       name: recipe.title,
-      image: [cloudinaryOptimize(recipe.PhotoMain[0].url)],
+      image: [
+        cloudinaryOptimize(recipe.PhotoMain[0].url),
+        ...(recipe.PhotoSchemaCrops || []).map((photo) => cloudinaryOptimize(photo.url)),
+      ],
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',
       description: recipe.recipebody,

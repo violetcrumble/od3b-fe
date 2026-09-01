@@ -90,6 +90,9 @@ const GET_INDIVIDUAL_RECIPE = `
       PhotoOGSocial {
         url
       }
+      PhotoSchemaCrops {
+        url
+      }
       relatedProducts {
         AmazonLink
         AmazonASIN
