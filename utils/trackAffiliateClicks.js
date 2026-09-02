@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
 import trackEvent from './analytics';
 
-// Every affiliate link on the site already carries rel="sponsored" (see
-// markdownLinkComponents, ThcAffiliateCTAs, AmazonListingCard, the discounts
-// page and filming-equipment). One delegated listener therefore covers every
-// placement without editing each component, and keeps covering links that only
-// exist inside Strapi markdown.
-//
-// Capture phase so a component's own onClick can't stop the event first.
+const AWIN_MERCHANT_DOMAINS = {
+  123264: 'artet.com',
+};
+
 export default function useAffiliateClickTracking() {
   useEffect(() => {
     function handleClick(event) {
@@ -20,15 +17,19 @@ export default function useAffiliateClickTracking() {
       } catch {
         return;
       }
+      let domain = url.hostname;
+      if (domain.endsWith('awin1.com')) {
+        try {
+          domain = new URL(url.searchParams.get('ued')).hostname;
+        } catch {
+          // awclick.php links carry no ued destination, only a merchant id
+          domain = AWIN_MERCHANT_DOMAINS[url.searchParams.get('mid')] || domain;
+        }
+      }
 
-      // affiliateLink() already stamps the placement onto the outbound URL:
-      // UTMs for most partners, a packed clickref for Awin (which strips UTMs),
-      // so the same fields line up with what Awin and the partner dashboards
-      // report. Hand-written links (amzn.to in filming-equipment) carry none of
-      // these, and report as empty rather than guessed.
       trackEvent('affiliate_click', {
         affiliate_url: link.href,
-        affiliate_domain: url.hostname,
+        affiliate_domain: domain,
         affiliate_placement: url.searchParams.get('utm_medium') || '',
         affiliate_campaign: url.searchParams.get('utm_campaign') || '',
         affiliate_partner: url.searchParams.get('utm_content') || '',
