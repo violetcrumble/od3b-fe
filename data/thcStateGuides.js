@@ -6,7 +6,7 @@ const THC_STATE_GUIDES = [
     metaDescription:
       'THC drinks are legal to possess in Arizona but sold only through dispensaries. What the law says, where to buy, and whether anyone ships here.',
     heading: 'Are THC Drinks Legal in Arizona?',
-    updated: '2026-08-08',
+    updated: '2026-09-03',
     quickAnswer:
       'Yes to drinking them, no to buying them at the corner store. Arizona treats every intoxicating THC product as marijuana, so THC drinks are legal for adults 21 and up but only sold through licensed dispensaries. No hemp brand has a legal way to ship here, though some do it anyway.',
     sections: [
@@ -23,8 +23,8 @@ const THC_STATE_GUIDES = [
         body: 'Officially, no. There is no legal channel for shipping THC drinks to an Arizona address, and dispensaries cannot mail product either.\n\nIn practice, some national hemp brands ship to Arizona anyway. If you are wondering whether you are the one breaking the law by ordering, the risk sits almost entirely with the seller: the AG letters target unlicensed sales, and adults 21 and up can legally possess far more THC under Prop 207 than any seltzer contains. Every brand maintains its own ship-to list, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word for your address.',
       },
       {
-        heading: 'The November 2026 federal ban',
-        body: 'The federal hemp redefinition lands November 12, 2026, capping hemp products at 0.4mg of total THC per container. That ends the hemp mail-order era nationally unless Congress passes a carve-out. Arizona dispensary drinks are unaffected, since they are sold under state marijuana law, not hemp law. We cover the whole picture in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
+        heading: 'The December 2026 federal ban',
+        body: 'The federal hemp redefinition caps hemp products at 0.4mg of total THC per container, and the date moved on September 3, 2026 when the president signed the funding bill carrying the delay. For drinks it now lands **December 11, 2026** rather than November 12. That ends the hemp mail-order era nationally. The delay is not blanket, though: delta-8, delta-10 and other cannabinoids the plant cannot produce on its own still lose hemp status on **November 12, 2026**, so if you buy those rather than naturally derived delta-9 drinks, your deadline is the earlier one. Arizona dispensary drinks are unaffected either way, since they are sold under state marijuana law, not hemp law. We cover the whole picture in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
       },
     ],
     faqs: [
@@ -67,7 +67,7 @@ const THC_STATE_GUIDES = [
     metaDescription:
       'Ohio banned retail THC drink sales on March 20, 2026. What SB 56 changed, why dispensaries cannot stock hemp brands, and whether anyone still ships here.',
     heading: 'Can You Still Buy THC Drinks in Ohio?',
-    updated: '2026-08-08',
+    updated: '2026-09-03',
     quickAnswer:
       'Not at the store. Since March 20, 2026, Ohio treats anything over 0.4mg of total THC per container as marijuana, which ended retail sales of hemp THC drinks statewide. Dispensaries cannot pick up the hemp brands either, so the drinks you used to grab at the bottle shop are off legal shelves entirely. Possession is still legal for adults 21 and up, and some national brands still ship here despite the ban.',
     sections: [
@@ -85,7 +85,7 @@ const THC_STATE_GUIDES = [
       },
       {
         heading: 'The federal ban makes Ohio the preview',
-        body: 'Ohio’s 0.4mg line is the same threshold the federal government adopted. The national version lands November 12, 2026, and unless Congress passes a carve-out, every state gets Ohio’s rules: hemp THC drinks gone from retail and mail order, dispensary drinks unaffected. Ohio just got there eight months early. The full picture is in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
+        body: 'Ohio’s 0.4mg line is the same threshold the federal government adopted. The national version for drinks lands **December 11, 2026**, pushed back from November 12 by the funding bill signed on September 3, 2026, and on that date every state gets Ohio’s rules: hemp THC drinks gone from retail and mail order, dispensary drinks unaffected. Products built on lab-made cannabinoids like delta-8 do not get that extra month and still lose hemp status on November 12. Ohio just got there eight months early either way. The full picture is in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
       },
     ],
     faqs: [
@@ -107,7 +107,7 @@ const THC_STATE_GUIDES = [
       {
         question: 'Will the Ohio THC drink ban be repealed?',
         answer:
-          'Unlikely soon. A repeal effort failed to make the ballot, and the federal ban arriving November 12, 2026 uses the same 0.4mg threshold, which locks the policy in nationally.',
+          'Unlikely soon. A repeal effort failed to make the ballot, and the federal ban uses the same 0.4mg threshold, which locks the policy in nationally. That federal deadline is now December 11, 2026 for drinks, moved back from November 12 by the spending bill signed on September 3, though products made with lab-derived cannabinoids such as delta-8 still lose hemp status on November 12.',
       },
     ],
     sources: [
@@ -128,9 +128,9 @@ const THC_STATE_GUIDES = [
     metaDescription:
       'Yes. Hemp THC drinks are legal at retail in Florida for adults 21 and up, and most brands ship here. What the law says and how long the window stays open.',
     heading: 'Are THC Drinks Legal in Florida?',
-    updated: '2026-08-08',
+    updated: '2026-09-03',
     quickAnswer:
-      'Yes. Florida sells hemp-derived THC drinks at ordinary retail to adults 21 and up, and it is one of the easiest states in the country to have them shipped to. The legislature keeps trying to tighten the rules and keeps failing, so for now the market runs wide open. The real deadline is federal: November 12, 2026.',
+      'Yes. Florida sells hemp-derived THC drinks at ordinary retail to adults 21 and up, and it is one of the easiest states in the country to have them shipped to. The legislature keeps trying to tighten the rules and keeps failing, so for now the market runs wide open. The real deadline is federal, and it moved on September 3, 2026: drinks now have until December 11, 2026, while delta-8 and other lab-made cannabinoids still end on November 12.',
     sections: [
       {
         heading: 'What Florida law actually says',
@@ -145,8 +145,8 @@ const THC_STATE_GUIDES = [
         body: 'Yes, freely. Florida is a standard ship-to state for essentially every national brand, and ordering online is as routine here as ordering wine. Ship-to lists do change without notice, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word for your address.',
       },
       {
-        heading: 'How long does this last? The November 2026 federal ban',
-        body: 'The federal hemp redefinition lands November 12, 2026, capping hemp products at 0.4mg of total THC per container. Unless Congress passes a carve-out, that ends retail and mail-order hemp THC drinks in Florida along with everywhere else, and Florida has no recreational marijuana system to absorb them; the state remains medical-only. If these drinks are part of your routine, we cover what the deadline means in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
+        heading: 'How long does this last? The December 2026 federal ban',
+        body: 'The federal hemp redefinition caps hemp products at 0.4mg of total THC per container, and for drinks it now lands **December 11, 2026**, a month later than the original November 12 date after the president signed the funding bill carrying the delay on September 3, 2026. That ends retail and mail-order hemp THC drinks in Florida along with everywhere else, and Florida has no recreational marijuana system to absorb them; the state remains medical-only, so there is no dispensary fallback here. Delta-8 and other cannabinoids the plant cannot make on its own were left out of the delay and still lose hemp status on **November 12, 2026**. If these drinks are part of your routine, we cover what the deadline means in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
       },
     ],
     faqs: [
@@ -168,7 +168,7 @@ const THC_STATE_GUIDES = [
       {
         question: 'Will THC drinks stay legal in Florida?',
         answer:
-          'The state keeps failing to pass new restrictions, so state law is stable. The real deadline is the federal ban on November 12, 2026, which caps hemp products at 0.4mg of total THC per container unless Congress passes a carve-out.',
+          'The state keeps failing to pass new restrictions, so state law is stable. The real deadline is federal, and it is now December 11, 2026 for drinks, moved back from November 12 by the spending bill signed on September 3. It caps hemp products at 0.4mg of total THC per container. Delta-8 and similar lab-made cannabinoids did not get the extra month and still end on November 12.',
       },
     ],
     sources: [
@@ -187,11 +187,11 @@ const THC_STATE_GUIDES = [
     code: 'IN',
     seoTitle: 'Are THC Drinks Legal in Indiana?',
     metaDescription:
-      'Yes. Delta-9 hemp drinks are legal in Indiana under the federal default and brands ship here. What the delta-8 legal fog means and what changes in November 2026.',
+      'Yes. Delta-9 hemp drinks are legal in Indiana under the federal default and brands ship here. What the delta-8 legal fog means and what changes in December 2026.',
     heading: 'Are THC Drinks Legal in Indiana?',
-    updated: '2026-08-08',
+    updated: '2026-09-03',
     quickAnswer:
-      'Yes. Indiana has no beverage-specific law, so hemp-derived delta-9 drinks under the federal 0.3% threshold are sold openly and shipped in freely. The legal fog you may have heard about is a delta-8 fight, not a delta-9 one, and it does not touch the seltzers on the shelf. The date that does: November 12, 2026.',
+      'Yes. Indiana has no beverage-specific law, so hemp-derived delta-9 drinks under the federal 0.3% threshold are sold openly and shipped in freely. The legal fog you may have heard about is a delta-8 fight, not a delta-9 one, and it does not touch the seltzers on the shelf. The date that does is December 11, 2026, moved back from November 12 by the spending bill signed on September 3. Delta-8 itself was left out of that delay and still ends on November 12.',
     sections: [
       {
         heading: 'What Indiana law actually says',
@@ -206,8 +206,8 @@ const THC_STATE_GUIDES = [
         body: 'Yes. Brands ship to Indiana under the same federal default that covers in-store sales, and it is a routine ship-to state for the national names. Ship-to lists change without notice, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word for your address.',
       },
       {
-        heading: 'The November 2026 federal ban',
-        body: 'The federal hemp redefinition lands November 12, 2026, capping hemp products at 0.4mg of total THC per container. Because Indiana leans entirely on the federal definition and has no marijuana program as a fallback, the ban would hit harder here than almost anywhere: no retail, no shipping, no dispensary alternative. Unless Congress passes a carve-out, Indiana goes from one of the easiest states to one of the hardest overnight. The full picture is in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
+        heading: 'The December 2026 federal ban',
+        body: 'The federal hemp redefinition caps hemp products at 0.4mg of total THC per container, and for drinks it now lands **December 11, 2026** rather than November 12, after the president signed the funding bill carrying the delay on September 3, 2026. Because Indiana leans entirely on the federal definition and has no marijuana program as a fallback, this hits harder here than almost anywhere: no retail, no shipping, no dispensary alternative. Indiana goes from one of the easiest states to one of the hardest overnight. The delta-8 products at the centre of Indiana’s long legal fight did not get the extra month and still lose hemp status on **November 12, 2026**. The full picture is in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
       },
     ],
     faqs: [

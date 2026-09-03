@@ -6,9 +6,9 @@
 //   unclear    - no clear framework; enforcement climate makes it a gray area
 
 export const FEDERAL_BAN = {
-  effectiveDate: 'November 12, 2026',
+  effectiveDate: 'December 11, 2026',
   summary:
-    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container, effective November 12, 2026. Almost every THC drink on the market is above that line, so unless Congress passes a carve-out, hemp THC drinks lose their federal legal basis on that date no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. A partial reprieve is sitting in the House as of late August 2026: the Senate passed a stopgap funding bill (H.R. 6500) on August 8 by a vote of 90 to 6 that would push most of these restrictions back to December 11, 2026, a delay the White House asked for. Read the fine print, though. The extension would not cover cannabinoids the plant cannot produce on its own, so delta-8 and its lab-made cousins lose hemp status on November 12 either way. The House still had not acted as of August 30. It returns August 31 for a short week, the hemp delay was not on its initial floor schedule, and House Republicans are split on whether to take it up at all, with Rep. Andy Harris saying publicly he intends to fight it. Government funding is due September 30. Until the House votes and the president signs, November 12 is the date to plan around. Separately, two House members introduced the Beverage Regulatory Parity Act (H.R. 10079) on August 10, which would carve hemp drinks out of the per-container limit, cap them at 5mg of THC per serving, and regulate them like alcohol under a three-tier system. It has picked up a few more cosponsors and has backing from alcohol wholesalers and retailers, but it has not had a committee vote, and it is still a proposal, not a rescue.',
+    'A federal law signed in November 2025 (P.L. 119-37, Section 781) redefines hemp to cap finished products at 0.4 milligrams of total THC per container. Almost every THC drink on the market is above that line, so hemp THC drinks lose their federal legal basis no matter what your state says. Dispensary drinks sold under state marijuana laws are not affected. The date moved on September 3, 2026, when the president signed H.R. 6500, the Continuing Appropriations and Extensions Act, 2027; the House passed it 370 to 48 on September 1 and the Senate 90 to 6 on August 8. It pushes most of the new hemp restrictions, including the 0.4mg per container cap and the total THC standard that counts THCA, from November 12 back to December 11, 2026. Read the fine print, because this is not a blanket delay. Products containing cannabinoids the plant cannot produce on its own do not get the extension, so delta-8, delta-10 and THC-O lose hemp status on November 12, 2026 exactly as originally scheduled. Naturally derived delta-9 drinks are the ones that got the extra month. Do not read December 11 as the start of another extension, either: the White House has signaled it does not intend to ask for more time, and the bills that would replace the cap with a real regulatory framework have not advanced. The Beverage Regulatory Parity Act (H.R. 10079), introduced August 10, would carve hemp drinks out of the per-container limit, cap them at 5mg of THC per serving, and regulate them like alcohol under a three-tier system. It has backing from alcohol wholesalers and retailers, but it has not had a committee vote, and it is still a proposal, not a rescue.',
   postUrl: '/blog/thc-drink-ban-november-2026',
 };
 
@@ -203,12 +203,12 @@ const THC_STATE_LEGALITY = [
     code: 'IL',
     name: 'Illinois',
     status: 'legal',
-    summary: 'Legal at retail today, banned November 12, 2026.',
+    summary: 'Legal at retail today, banned November 12, 2026. The federal delay does not help here.',
     details:
-      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line as the federal law, which pushes anything stronger into the licensed cannabis system.',
+      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line, which pushes anything stronger into the licensed cannabis system. This is the state to watch for the difference between the two dates. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. Plan on November 12 here even though most of the country now has until December 11.',
     shipping:
-      'Yes, until November 12, 2026. After that the state cap ends ordinary sales, shipped or otherwise, on the same day the federal change lands.',
-    lastReviewed: '2026-08-10',
+      'Yes, until November 12, 2026. After that the state cap ends ordinary sales, shipped or otherwise. Note that this is a month earlier than the federal deadline, because the Illinois date is set in state law and was not affected by the federal delay.',
+    lastReviewed: '2026-09-03',
     sources: [
       {
         label: 'Marijuana Moment on the signed bill',
@@ -406,12 +406,12 @@ const THC_STATE_LEGALITY = [
     code: 'MO',
     name: 'Missouri',
     status: 'legal',
-    summary: 'Legal at retail today, banned November 12, 2026.',
+    summary: 'Drinks legal until December 11, 2026. Other hemp THC products end November 12.',
     details:
-      'Missouri drinks are legal right now, but HB 2641 (signed April 2026) adopts the federal 0.4mg total THC cap on the same November 12, 2026 date as the federal change. Products must be off ordinary retail shelves by then. There is one wrinkle worth knowing: the Missouri law carves out beverages specifically, so if Congress passes the stopgap that delays the federal date to December 11, drinks get that extra month here while every other intoxicating hemp product still comes off the shelf on November 12. That carve-out only helps if the House acts, which it had not as of mid-August.',
+      'Missouri drinks are legal right now. HB 2641 (signed April 2026) adopts the federal 0.4mg total THC cap, and because the Missouri law carves out beverages specifically, Missouri tracks the federal date for drinks rather than fixing its own. That wrinkle now pays off: the federal delay signed on September 3, 2026 moved the drinks deadline to December 11, 2026, so Missouri beverages get the extra month too. Everything else intoxicating and hemp-derived still comes off the shelf on November 12, 2026, since the products made from cannabinoids the plant cannot produce on its own were left out of the delay entirely.',
     shipping:
-      "Yes, until November 12, 2026, when the state's new 0.4mg cap ends ordinary sales, shipped or otherwise. If the federal delay becomes law, drinks specifically get until December 11.",
-    lastReviewed: '2026-08-17',
+      'Yes, until December 11, 2026 for drinks, when the 0.4mg cap ends ordinary sales, shipped or otherwise. Non-beverage intoxicating hemp products lose their legal basis a month earlier, on November 12.',
+    lastReviewed: '2026-09-03',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
