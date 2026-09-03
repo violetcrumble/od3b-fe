@@ -81,6 +81,11 @@ export default function BlogPost({ blogPost, affiliates }) {
             updatedDate={blogPost.lastUpdated}
           />
           <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
+
+          <p className={styles.disclaimer}>
+            This site contains product affiliate links. We may receive a commission if you make a purchase after
+            clicking on one of these links.
+          </p>
         </div>
 
         <div className={`${styles['sidebar']}`}>

@@ -33,6 +33,11 @@ export default function Newsletter({ affiliates }) {
 
         <div className={styles['sidebar']}>
           <ThcAffiliateCTAs affiliates={affiliates} campaign="newsletter" />
+
+          <p className={styles.disclaimer}>
+            This site contains product affiliate links. We may receive a commission if you make a purchase after
+            clicking on one of these links.
+          </p>
         </div>
       </div>
     </ContentWrapper>

@@ -83,6 +83,12 @@
     }
   }
 
+  .disclaimer {
+    margin-top: 24px;
+    color: colors.$gray-darker;
+    font-size: 0.9rem;
+  }
+
   .related-product-cards {
     > div {
       margin-bottom: 40px;

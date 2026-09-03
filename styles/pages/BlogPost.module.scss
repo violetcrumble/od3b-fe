@@ -3,6 +3,12 @@
 @use '../../styles/affiliateLinks';
 
 .blog-post-page {
+  .disclaimer {
+    margin-top: 24px;
+    color: colors.$gray-darker;
+    font-size: 0.9rem;
+  }
+
   .sidebar {
     margin-top: 24px;
   }

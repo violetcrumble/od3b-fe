@@ -250,13 +250,14 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
 
             <ThcAffiliateCTAs affiliates={affiliates} campaign={recipe.recipeUrlSlug} />
 
+            <p className={styles.disclaimer}>
+              This site contains product affiliate links. We may receive a commission if you make a purchase after
+              clicking on one of these links.
+            </p>
+
             {amazonProducts.length ? (
               <div>
                 <h2>Related Products</h2>
-                <p>
-                  This site contains product affiliate links. We may receive a commission if you make a purchase after
-                  clicking on one of these links.
-                </p>
 
                 <div className={`${styles['related-product-cards']}`}>
                   {amazonProducts.map((product) => (
