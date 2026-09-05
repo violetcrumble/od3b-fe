@@ -165,6 +165,13 @@ const GET_BLOG_POST = `
         AuthorName
       }
       BlogPostBody
+      relatedProducts {
+        AmazonLink
+        AmazonASIN
+        AmazonPhotoURL
+        ProductName
+        ProductCategory
+      }
     }
   }
 `;

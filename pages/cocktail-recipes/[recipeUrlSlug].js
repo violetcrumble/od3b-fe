@@ -248,12 +248,12 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               />
             )}
 
-            <ThcAffiliateCTAs affiliates={affiliates} campaign={recipe.recipeUrlSlug} />
-
             <p className={styles.disclaimer}>
-              This site contains product affiliate links. We may receive a commission if you make a purchase after
-              clicking on one of these links.
+              Links marked with a cart icon, and the product links in the sidebar, are affiliate links. We may earn a
+              commission if you buy through one, at no extra cost to you.
             </p>
+
+            <ThcAffiliateCTAs affiliates={affiliates} campaign={recipe.recipeUrlSlug} />
 
             {amazonProducts.length ? (
               <div>

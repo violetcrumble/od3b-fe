@@ -12,6 +12,11 @@
   .sidebar {
     margin-top: 24px;
   }
+  .sidebar-products {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
   h2,
   h3 {
     color: colors.$brand-teal;

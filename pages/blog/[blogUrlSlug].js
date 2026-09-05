@@ -7,6 +7,7 @@ import Markdown from 'react-markdown';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
+import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import Byline from '../../components/Byline/Byline';
 import SITE_URL from '../../utils/siteUrl';
@@ -81,15 +82,29 @@ export default function BlogPost({ blogPost, affiliates }) {
             updatedDate={blogPost.lastUpdated}
           />
           <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
-
-          <p className={styles.disclaimer}>
-            This site contains product affiliate links. We may receive a commission if you make a purchase after
-            clicking on one of these links.
-          </p>
         </div>
 
         <div className={`${styles['sidebar']}`}>
-          <ThcAffiliateCTAs affiliates={affiliates} campaign={blogPost.urlSlug} />
+          <p className={styles.disclaimer}>
+            Links marked with a cart icon, and the product links in the sidebar, are affiliate links. We may earn a
+            commission if you buy through one, at no extra cost to you.
+          </p>
+          {blogPost.relatedProducts?.length ? (
+            <div className={styles['sidebar-products']}>
+              {blogPost.relatedProducts.map((product) => (
+                <AmazonListingCard
+                  key={product.AmazonASIN || product.ProductName}
+                  productName={product.ProductName}
+                  productCategory={product.ProductCategory}
+                  amazonLink={product.AmazonLink}
+                  amazonASIN={product.AmazonASIN}
+                  amazonPhotoURL={product.AmazonPhotoURL}
+                />
+              ))}
+            </div>
+          ) : (
+            <ThcAffiliateCTAs affiliates={affiliates} campaign={blogPost.urlSlug} />
+          )}
           <NewsletterSignup />
         </div>
       </div>
