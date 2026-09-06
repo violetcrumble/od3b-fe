@@ -65,23 +65,27 @@ const THC_STATE_GUIDES = [
     code: 'OH',
     seoTitle: 'Can You Still Buy THC Drinks in Ohio? The 2026 Ban Explained',
     metaDescription:
-      'Ohio banned retail THC drink sales on March 20, 2026. What SB 56 changed, why dispensaries cannot stock hemp brands, and whether anyone still ships here.',
+      'Ohio banned retail THC drink sales on March 20, 2026. What SB 56 changed, why dispensaries cannot stock hemp brands, and which brands a judge let back in.',
     heading: 'Can You Still Buy THC Drinks in Ohio?',
-    updated: '2026-09-03',
+    updated: '2026-09-06',
     quickAnswer:
-      'Not at the store. Since March 20, 2026, Ohio treats anything over 0.4mg of total THC per container as marijuana, which ended retail sales of hemp THC drinks statewide. Dispensaries cannot pick up the hemp brands either, so the drinks you used to grab at the bottle shop are off legal shelves entirely. Possession is still legal for adults 21 and up, and some national brands still ship here despite the ban.',
+      'Not at most stores. Since March 20, 2026, Ohio treats anything over 0.4mg of total THC per container as marijuana, which ended retail sales of hemp THC drinks statewide, and dispensaries cannot pick up the hemp brands either. The exception is a federal court case. Since September 4, 2026 a preliminary injunction lets a named list of brands, including four Ohio breweries and Crescent Canna, sell here again, and it protects anyone buying or holding their drinks. Possession is legal for adults 21 and up regardless, and some national brands outside that list still ship here despite the ban.',
     sections: [
       {
         heading: 'What Senate Bill 56 changed',
-        body: 'Governor DeWine signed SB 56 on December 19, 2025, and it took effect March 20, 2026. The law reclassifies any product with more than 0.4mg of total THC per container as marijuana, which sweeps in essentially every real THC drink. The governor vetoed a carve-out that would have spared beverages, and a repeal effort failed to make the ballot, so this is the law for the foreseeable future.\n\nThe immediate effect: gas stations, smoke shops, grocery stores, and bottle shops had to pull delta-8 products, THCA flower, and THC beverages entirely.',
+        body: 'Governor DeWine signed SB 56 on December 19, 2025, and it took effect March 20, 2026. The law reclassifies any product with more than 0.4mg of total THC per container as marijuana, which sweeps in essentially every real THC drink. The governor vetoed a carve-out that would have spared beverages, and a repeal effort failed to make the ballot, so the legislature is not going to undo it. The federal courts are another story, more on that below.\n\nThe immediate effect: gas stations, smoke shops, grocery stores, and bottle shops had to pull delta-8 products, THCA flower, and THC beverages entirely.',
       },
       {
         heading: 'Why your dispensary does not carry the hemp brands',
         body: 'The natural assumption is that the hemp seltzers just moved behind dispensary counters. They did not. Ohio dispensaries may only sell marijuana products from Ohio-licensed cultivators and processors, and the state’s Division of Cannabis Control has said plainly that hemp products cannot migrate over. What you will find in an Ohio dispensary is marijuana-derived beverages made in-state, not the national brands you knew.\n\nThe drink in the can is the same idea either way: delta-9 THC at familiar 5mg and 10mg doses. If you are switching from a hemp brand to a dispensary equivalent, our [dosage guide](/blog/thc-drink-dosage-guide) translates the numbers.',
       },
       {
+        heading: 'The court case punching holes in the ban',
+        body: 'A group of hemp drink makers sued the state in federal court, arguing SB 56 discriminates against out-of-state businesses. On July 13, 2026 Judge Jeffrey Helmick agreed they were likely to win and barred Ohio from enforcing the ban against the first ten plaintiffs. On August 7 he added fourteen more under a temporary restraining order, including Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks were back on shelves within days.\n\nOn September 4, 2026 that restraining order became a preliminary injunction in Delta Beverages v. Canepa. It covers the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also protects anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law.\n\nRead the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the state has already appealed the July order to the Sixth Circuit, so the list can still move with the docket.',
+      },
+      {
         heading: 'Will anyone ship THC drinks to Ohio?',
-        body: 'Officially, no. Since March 20, 2026, selling THC beverages to Ohio consumers outside dispensaries is illegal, and that covers mail order.\n\nIn practice, some national brands are still shipping to Ohio addresses months into the ban. The legal exposure there belongs to the seller, not to you: the ban regulates sales, and adults 21 and up can legally possess THC in Ohio under the 2023 legalization vote. Ship-to lists change without notice, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word for your address.',
+        body: 'Officially, only the brands named in that federal case. Crescent Canna and the other plaintiffs can ship to Ohio under the September 4 injunction, and the order protects you as the buyer too. For everyone else, selling THC beverages to Ohio consumers outside dispensaries is still illegal, and that covers mail order.\n\nIn practice, some national brands outside the case are still shipping to Ohio addresses months into the ban. The legal exposure there belongs to the seller, not to you: the ban regulates sales, and adults 21 and up can legally possess THC in Ohio under the 2023 legalization vote. Ship-to lists change without notice, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word for your address.',
       },
       {
         heading: 'The federal ban makes Ohio the preview',
@@ -92,7 +96,7 @@ const THC_STATE_GUIDES = [
       {
         question: 'Can you still buy THC drinks in Ohio?',
         answer:
-          'Not at retail. Since March 20, 2026, any drink over 0.4mg of total THC per container is classified as marijuana and cannot be sold outside licensed dispensaries, and dispensaries can only sell Ohio-licensed marijuana products, not hemp brands.',
+          'Mostly not. Since March 20, 2026, any drink over 0.4mg of total THC per container is classified as marijuana and cannot be sold outside licensed dispensaries, and dispensaries can only sell Ohio-licensed marijuana products, not hemp brands. The exception is the brands covered by the September 4, 2026 federal injunction, including four Ohio breweries and Crescent Canna, which can sell here while the case plays out.',
       },
       {
         question: 'Is it illegal to have THC drinks in Ohio?',
@@ -102,7 +106,7 @@ const THC_STATE_GUIDES = [
       {
         question: 'Do any brands still ship THC drinks to Ohio?',
         answer:
-          'Officially there is no legal channel, but in practice some national brands still ship to Ohio addresses. That compliance risk belongs to the seller, and each brand’s checkout page is the final word for your address.',
+          'The plaintiffs in the federal case, Crescent Canna among them, can ship to Ohio under the September 4, 2026 injunction. Outside that list there is no legal channel, though some national brands still ship to Ohio addresses anyway. That compliance risk belongs to the seller, and each brand’s checkout page is the final word for your address.',
       },
       {
         question: 'Will the Ohio THC drink ban be repealed?',
@@ -118,6 +122,14 @@ const THC_STATE_GUIDES = [
       {
         label: 'Ohio Senate on SB 56',
         url: 'https://www.ohiosenate.gov/news/on-the-record/update-governor-signs-senate-bill-56-reforming-ohios-marijuana-and-intoxicating-hemp-laws',
+      },
+      {
+        label: 'Ohio Capital Journal on the July injunction',
+        url: 'https://ohiocapitaljournal.com/2026/07/20/ohio-federal-judge-issues-preliminary-injunction-allowing-ten-businesses-to-sell-hemp-products/',
+      },
+      {
+        label: 'Marijuana Herald on the September 4 preliminary injunction',
+        url: 'https://themarijuanaherald.com/2026/09/federal-judge-blocks-ohio-from-enforcing-new-hemp-restrictions-against-companies-challenging-law/',
       },
     ],
   },

@@ -575,12 +575,12 @@ const THC_STATE_LEGALITY = [
     code: 'OH',
     name: 'Ohio',
     status: 'banned',
-    summary: 'Banned as of March 20, 2026.',
+    summary: 'Banned as of March 20, 2026, with court-ordered exceptions.',
     details:
-      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. The state has appealed to the Sixth Circuit and asked for the injunction to be put on hold, with no ruling reported as of late August. Read the fine print, though. These orders protect the companies named in them, not the cooler at your corner store, and a restraining order is a short-lived thing, so the list of who is covered can move with the docket.',
+      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. On September 4 Judge Jeffrey Helmick replaced that restraining order with a preliminary injunction in Delta Beverages v. Canepa. It bars the state from enforcing SB 56’s hemp definition against the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also covers anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law. Read the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the state has already taken the July order to the Sixth Circuit, so the list of who is covered can still move with the docket.',
     shipping:
-      'Officially no, outside the roughly two dozen companies named in those federal court orders, and that list is a moving target. Selling THC beverages to Ohio consumers is otherwise illegal, and some national brands are still shipping here months into the ban; that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
-    lastReviewed: '2026-08-31',
+      'Officially no, unless the brand is a plaintiff in the federal case. Crescent Canna and the other companies covered by the September 4 injunction can ship to Ohio, and that order protects the buyer as well as the seller. Outside that list, selling THC beverages to Ohio consumers is still illegal. Some national brands ship here anyway, that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
+    lastReviewed: '2026-09-06',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',
@@ -597,6 +597,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'NBC4 on Seventh Son and the second restraining order',
         url: 'https://www.nbc4i.com/news/politics/seventh-son-temporarily-allowed-to-sell-thc-drinks-in-ohio/',
+      },
+      {
+        label: 'Marijuana Herald on the September 4 preliminary injunction',
+        url: 'https://themarijuanaherald.com/2026/09/federal-judge-blocks-ohio-from-enforcing-new-hemp-restrictions-against-companies-challenging-law/',
       },
     ],
   },
