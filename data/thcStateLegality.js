@@ -526,12 +526,12 @@ const THC_STATE_LEGALITY = [
     code: 'NY',
     name: 'New York',
     status: 'restricted',
-    summary: 'Technically legal, capped at 1mg per serving.',
+    summary: 'Technically legal, but capped at 1mg a can.',
     details:
-      'New York’s hemp rules allow drinks at no more than 1mg THC per serving and 10mg per package with a required 15:1 CBD-to-THC ratio, sold under a state license. Mainstream 5mg seltzers do not qualify, so the real product selection is thin.',
+      'New York’s hemp rules allow drinks at no more than 1mg THC per serving and 10mg per package with a required 15:1 CBD-to-THC ratio, sold under a state license. Beverages must also be packaged as a single serving, which fixes the real ceiling at 1mg a can. Mainstream 5mg seltzers miss that by five times over, so the compliant selection is thin. Licensed dispensaries sell cannabis beverages at up to 10mg per serving under the separate marijuana rules.',
     shipping:
       'Officially no for anything mainstream. Drinks above 1mg per serving cannot legally be sold to New Yorkers, online or off. In practice, some national brands ship standard 5mg and 10mg drinks into New York anyway; the sale is the illegal part, and that sits with the seller.',
-    lastReviewed: '2026-08-08',
+    lastReviewed: '2026-09-06',
     sources: [
       {
         label: 'NY OCM Part 114 regulations',

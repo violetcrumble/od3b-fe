@@ -255,6 +255,72 @@ const THC_STATE_GUIDES = [
       },
     ],
   },
+  {
+    slug: 'new-york',
+    code: 'NY',
+    seoTitle: 'Are THC Drinks Legal in New York?',
+    metaDescription:
+      'New York caps hemp drinks at 1mg of THC per can, so the 5mg seltzers you see online cannot legally be sold here. Where the real 10mg drinks actually are.',
+    heading: 'Are THC Drinks Legal in New York?',
+    updated: '2026-09-06',
+    quickAnswer:
+      'Yes, but not the ones you are shopping for. New York allows hemp drinks only at 1mg of THC per serving, at a 15:1 CBD-to-THC ratio, and beverages have to be single-serving, so the legal ceiling is 1mg a can. Every mainstream 5mg and 10mg seltzer misses that by a wide margin and cannot lawfully be sold to a New Yorker. The state does have real THC drinks at 10mg a serving, and they are sitting in licensed dispensaries. Possession is legal for adults 21 and up, and some national hemp brands ship here regardless of the rule.',
+    sections: [
+      {
+        heading: 'What New York law actually says',
+        body: 'New York does allow hemp drinks. It allows them at a dose almost nobody makes. Under the state’s cannabinoid hemp rules, Part 114, an orally consumed hemp product cannot exceed 10mg of total THC per package or 1mg per serving, and it has to carry a ratio of at least 15 parts CBD to 1 part THC. Beverages get one more rule stacked on top: they must be packaged so that there is no more than a single serving per package.\n\nPut those together and a lawful New York hemp drink is a 1mg can sitting next to 15mg or more of CBD. The 5mg and 10mg seltzers that make up essentially the entire category are five to ten times over that line, and shopping around does not change it. They are not being sold here through a loophole; they are simply not legal to sell to a New Yorker.',
+      },
+      {
+        heading: 'Where the real THC drinks in New York are',
+        body: 'This is the part that gets missed. New York has proper THC drinks and they are not hard to find. They are in the licensed adult-use dispensaries, sold under the state’s marijuana rules rather than its hemp rules, where the cap is 10mg of THC per serving and 100mg per package. That is the ordinary dose the hemp brands were aiming at all along, sitting legally on a shelf. Ayrloom, Layup and MyHi are among the beverage lines you will see on New York dispensary menus.\n\nSo the honest answer to “can I drink a 10mg THC beverage in New York” is yes, easily, as long as you buy it from a dispensary rather than a website. If you are arriving from the hemp side and the numbers are new to you, our [dosage guide](/blog/thc-drink-dosage-guide) covers what 5mg and 10mg actually feel like before you commit to a four-pack.',
+      },
+      {
+        heading: 'Will anyone ship THC drinks to New York?',
+        body: 'Officially no, not at a normal dose. A 5mg drink cannot lawfully be sold to a New York address whether it arrives by truck or by mail, and the state has been active about enforcement: the Office of Cannabis Management has run well over a thousand inspections of unlicensed sellers and seized tens of millions of dollars in product.\n\nIn practice, plenty of national hemp brands ship into New York anyway. If you are wondering whether you are the one breaking the law by ordering, the exposure sits with the seller: Part 114 writes rules about selling, and possession is legal for adults 21 and up. Whether a given brand will actually ship to your address is its own decision and changes without notice, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word.',
+      },
+      {
+        heading: 'The December 2026 federal ban',
+        body: 'The federal hemp redefinition caps hemp products at 0.4mg of total THC per container, and the date moved on September 3, 2026 when the president signed the funding bill carrying the delay. For drinks it now lands **December 11, 2026** rather than November 12. That ends the hemp mail-order era nationally, including the brands currently shipping into New York against state rules. The delay is not blanket: delta-8, delta-10 and other cannabinoids the plant cannot produce on its own still lose hemp status on **November 12, 2026**.\n\nNew York is better placed for what comes next than most states. Dispensary drinks are sold under state marijuana law, not hemp law, so December 11 does not touch them. A New Yorker who liked hemp seltzers has somewhere to go; a reader in a state with no dispensaries does not. We cover the whole picture in our [federal THC drink ban explainer](/blog/thc-drink-ban-november-2026).',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Are THC drinks legal in New York?',
+        answer:
+          'Partly. New York allows hemp drinks only up to 1mg of THC per serving, in single-serving packages, at a 15:1 CBD-to-THC ratio, so the mainstream 5mg and 10mg seltzers cannot legally be sold here. Licensed dispensaries sell cannabis beverages at up to 10mg per serving, and those are legal for adults 21 and up.',
+      },
+      {
+        question: 'Is Willie’s Remedy legal in New York?',
+        answer:
+          'Not to sell. Willie’s Remedy drinks are hemp-derived products at doses above New York’s 1mg per serving cap, so they cannot lawfully be sold to a New York address. Possession is not the problem; the sale is, and that exposure sits with the seller. Some hemp brands ship here regardless of the rule.',
+      },
+      {
+        question: 'Can you order THC drinks online in New York?',
+        answer:
+          'There is no lawful channel for shipping a standard-dose hemp THC drink into New York. Some national brands ship here anyway; that compliance risk sits with the seller, and each brand’s checkout page is the final word for your address.',
+      },
+      {
+        question: 'Is delta-8 legal in New York?',
+        answer:
+          'No. New York’s hemp rules bar processors from making products with synthetic or chemically converted cannabinoids and bar licensed retailers from selling them, which covers delta-8 and delta-10. Dispensary products use delta-9 from cannabis and are not affected.',
+      },
+      {
+        question: 'Does the December 2026 federal ban affect New York dispensary drinks?',
+        answer:
+          'No. The federal ban rewrites hemp law. New York dispensary beverages are sold under state marijuana law and are untouched by it. The hemp drinks currently shipping into New York are the ones that end.',
+      },
+    ],
+    sources: [
+      {
+        label: 'New York Part 114 cannabinoid hemp product requirements',
+        url: 'https://www.law.cornell.edu/regulations/new-york/9-NYCRR-114.8',
+      },
+      {
+        label: 'New York Office of Cannabis Management cannabinoid hemp program',
+        url: 'https://cannabis.ny.gov/cannabinoid-hemp',
+      },
+    ],
+  },
 ];
 
 export default THC_STATE_GUIDES;
