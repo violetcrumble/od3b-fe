@@ -249,7 +249,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
             )}
 
             <p className={styles.disclaimer}>
-              Links marked with a cart icon, and the product links in the sidebar, are affiliate links. We may earn a
+              Links marked with a cart icon and the product links in the sidebar are affiliate links. We may earn a
               commission if you buy through one, at no extra cost to you.
             </p>
 
