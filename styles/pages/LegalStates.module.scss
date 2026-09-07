@@ -1,5 +1,6 @@
 @use '../colors';
 @use '../grids';
+@use '../affiliateLinks';
 
 $status-legal: #2f8f6b;
 $status-restricted: #d08b1f;
@@ -7,6 +8,10 @@ $status-banned: #c93a2c;
 $status-unclear: colors.$gray;
 
 .legal-states-page {
+  a:global(.affiliate-link) {
+    @include affiliateLinks.affiliate-link;
+  }
+
   .federal-callout {
     border-left: 6px solid $status-banned;
     background: colors.$gray-lighter;

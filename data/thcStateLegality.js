@@ -574,13 +574,14 @@ const THC_STATE_LEGALITY = [
   {
     code: 'OH',
     name: 'Ohio',
-    status: 'banned',
-    summary: 'Banned as of March 20, 2026, with court-ordered exceptions.',
+    status: 'unclear',
+    summary:
+      'Gray area. Banned on paper since March 20, 2026, but a federal injunction lets named brands, Crescent Canna included, sell and ship here.',
     details:
       'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. On September 4 Judge Jeffrey Helmick replaced that restraining order with a preliminary injunction in Delta Beverages v. Canepa. It bars the state from enforcing SB 56’s hemp definition against the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also covers anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law. Read the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the state has already taken the July order to the Sixth Circuit, so the list of who is covered can still move with the docket.',
     shipping:
-      'Officially no, unless the brand is a plaintiff in the federal case. Crescent Canna and the other companies covered by the September 4 injunction can ship to Ohio, and that order protects the buyer as well as the seller. Outside that list, selling THC beverages to Ohio consumers is still illegal. Some national brands ship here anyway, that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
-    lastReviewed: '2026-09-06',
+      'Yes, from the brands named in the federal case. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_ohio) and the other companies covered by the September 4 injunction can ship to Ohio, and that order protects the buyer as well as the seller. Outside that list, selling THC beverages to Ohio consumers is still illegal on paper. Some national brands ship here anyway, that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
+    lastReviewed: '2026-09-07',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',

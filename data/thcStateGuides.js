@@ -63,13 +63,13 @@ const THC_STATE_GUIDES = [
   {
     slug: 'ohio',
     code: 'OH',
-    seoTitle: 'Can You Still Buy THC Drinks in Ohio? The 2026 Ban Explained',
+    seoTitle: 'Can You Still Buy THC Drinks in Ohio? Yes, From These Brands',
     metaDescription:
-      'Ohio banned retail THC drink sales on March 20, 2026. What SB 56 changed, why dispensaries cannot stock hemp brands, and which brands a judge let back in.',
+      'Yes, from a court-protected list of brands. A federal injunction lets Crescent Canna and others ship THC drinks to Ohio despite the 2026 ban. Who qualifies and what SB 56 still blocks.',
     heading: 'Can You Still Buy THC Drinks in Ohio?',
-    updated: '2026-09-06',
+    updated: '2026-09-07',
     quickAnswer:
-      'Not at most stores. Since March 20, 2026, Ohio treats anything over 0.4mg of total THC per container as marijuana, which ended retail sales of hemp THC drinks statewide, and dispensaries cannot pick up the hemp brands either. The exception is a federal court case. Since September 4, 2026 a preliminary injunction lets a named list of brands, including four Ohio breweries and Crescent Canna, sell here again, and it protects anyone buying or holding their drinks. Possession is legal for adults 21 and up regardless, and some national brands outside that list still ship here despite the ban.',
+      'Yes, from a short list of brands. Since March 20, 2026, Ohio treats anything over 0.4mg of total THC per container as marijuana, which ended retail sales of hemp THC drinks statewide, and dispensaries cannot pick up the hemp brands either. The way around it is a federal court case. Since September 4, 2026 a preliminary injunction lets a named list of brands, including four Ohio breweries and [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_ohio), sell and ship here again, and it protects anyone buying or holding their drinks. Possession is legal for adults 21 and up regardless, and some national brands outside that list still ship here despite the ban.',
     sections: [
       {
         heading: 'What Senate Bill 56 changed',
@@ -85,7 +85,7 @@ const THC_STATE_GUIDES = [
       },
       {
         heading: 'Will anyone ship THC drinks to Ohio?',
-        body: 'Officially, only the brands named in that federal case. Crescent Canna and the other plaintiffs can ship to Ohio under the September 4 injunction, and the order protects you as the buyer too. For everyone else, selling THC beverages to Ohio consumers outside dispensaries is still illegal, and that covers mail order.\n\nIn practice, some national brands outside the case are still shipping to Ohio addresses months into the ban. The legal exposure there belongs to the seller, not to you: the ban regulates sales, and adults 21 and up can legally possess THC in Ohio under the 2023 legalization vote. Ship-to lists change without notice, so the checkout page of [a brand we have vetted](/thc-drinks/discounts) is the final word for your address.',
+        body: 'Yes, from the brands named in that federal case. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_ohio) and the other plaintiffs can ship to Ohio under the September 4 injunction, and the order protects you as the buyer too. For everyone else, selling THC beverages to Ohio consumers outside dispensaries is still illegal on paper, and that covers mail order.\n\nIn practice, some national brands outside the case are still shipping to Ohio addresses months into the ban. [Grind With Gratitude](https://grindwithgratitude.com/collections?ref=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_inline&utm_campaign=legal-states-ohio), the brand we have reviewed most, is worth checking, and their checkout page is the final word for your address. The legal exposure there belongs to the seller, not to you: the ban regulates sales, and adults 21 and up can legally possess THC in Ohio under the 2023 legalization vote. Ship-to lists change without notice, so treat the checkout of [any brand we have vetted](/thc-drinks/discounts) as the last word for where it can go.',
       },
       {
         heading: 'The federal ban makes Ohio the preview',
@@ -96,7 +96,7 @@ const THC_STATE_GUIDES = [
       {
         question: 'Can you still buy THC drinks in Ohio?',
         answer:
-          'Mostly not. Since March 20, 2026, any drink over 0.4mg of total THC per container is classified as marijuana and cannot be sold outside licensed dispensaries, and dispensaries can only sell Ohio-licensed marijuana products, not hemp brands. The exception is the brands covered by the September 4, 2026 federal injunction, including four Ohio breweries and Crescent Canna, which can sell here while the case plays out.',
+          'Yes, from the brands covered by the September 4, 2026 federal injunction, including Crescent Canna and four Ohio breweries, which can sell and ship here while the case plays out. Everywhere else the ban holds: since March 20, 2026, any drink over 0.4mg of total THC per container is classified as marijuana and cannot be sold outside licensed dispensaries, and dispensaries can only sell Ohio-licensed marijuana products, not hemp brands.',
       },
       {
         question: 'Is it illegal to have THC drinks in Ohio?',
@@ -106,7 +106,7 @@ const THC_STATE_GUIDES = [
       {
         question: 'Do any brands still ship THC drinks to Ohio?',
         answer:
-          'The plaintiffs in the federal case, Crescent Canna among them, can ship to Ohio under the September 4, 2026 injunction. Outside that list there is no legal channel, though some national brands still ship to Ohio addresses anyway. That compliance risk belongs to the seller, and each brand’s checkout page is the final word for your address.',
+          'Yes. The plaintiffs in the federal case, Crescent Canna among them, can ship to Ohio under the September 4, 2026 injunction. Outside that list there is no legal channel on paper, though some national brands still ship to Ohio addresses anyway. That compliance risk belongs to the seller, and each brand’s checkout page is the final word for your address.',
       },
       {
         question: 'Will the Ohio THC drink ban be repealed?',

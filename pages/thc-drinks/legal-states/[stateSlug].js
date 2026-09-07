@@ -89,7 +89,7 @@ export default function StateGuide({ guide, stateEntry, affiliates }) {
 
           <div className={styles['federal-callout']}>
             <h2 className="text-brand-purple">The short answer</h2>
-            <p>{guide.quickAnswer}</p>
+            <Markdown components={markdownLinkComponents}>{guide.quickAnswer}</Markdown>
           </div>
 
           {guide.sections.map((section) => (
