@@ -68,6 +68,11 @@
   .recipe-ingredients p:first-child {
     margin: 0;
   }
+  // Affiliate links in the intro and method get the same cart icon as the ingredient list.
+  :global(.recipe-intro) a:global(.affiliate-link),
+  .recipe-body a:global(.affiliate-link) {
+    @include affiliateLinks.affiliate-link;
+  }
 
   .video-embed-container {
     position: relative;

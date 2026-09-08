@@ -198,7 +198,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
               {recipe.title}
             </h2>
             <div className={`${styles['recipe-body']}`}>
-              <Markdown>{recipe.recipebody}</Markdown>
+              <Markdown components={markdownLinkComponents}>{recipe.recipebody}</Markdown>
             </div>
 
             {recipe.PhotoMain?.[0]?.url && (

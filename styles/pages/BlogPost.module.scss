@@ -24,6 +24,21 @@
   h2 {
     font-size: 20px;
   }
+  // Group headings outrank drink names inside the article body.
+  .blog-post-content h2 {
+    font-size: 32px;
+  }
+  .blog-post-content h3 {
+    font-size: 26px;
+  }
+  @media screen and (max-width: 768px) {
+    .blog-post-content h2 {
+      font-size: 28px;
+    }
+    .blog-post-content h3 {
+      font-size: 24px;
+    }
+  }
   p {
     max-width: 1000px;
   }

@@ -12,6 +12,20 @@ import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import Byline from '../../components/Byline/Byline';
 import SITE_URL from '../../utils/siteUrl';
 import markdownLinkComponents from '../../utils/markdownLinkComponents';
+import NegroniFamilyTree, {
+  NEGRONI_FAMILY_TREE_SRC_PATTERN,
+} from '../../components/NegroniFamilyTree/NegroniFamilyTree';
+
+// The family tree PNG in the post body becomes the clickable SVG; every other image renders as-is.
+const blogMarkdownComponents = {
+  ...markdownLinkComponents,
+  img: ({ node, ...props }) =>
+    NEGRONI_FAMILY_TREE_SRC_PATTERN.test(props.src || '') ? (
+      <NegroniFamilyTree fallbackSrc={props.src} alt={props.alt} />
+    ) : (
+      <img {...props} alt={props.alt || ''} />
+    ),
+};
 
 export default function BlogPost({ blogPost, affiliates }) {
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;
@@ -81,7 +95,7 @@ export default function BlogPost({ blogPost, affiliates }) {
             date={blogPost.Date}
             updatedDate={blogPost.lastUpdated}
           />
-          <Markdown components={markdownLinkComponents}>{blogPost.BlogPostBody}</Markdown>
+          <Markdown components={blogMarkdownComponents}>{blogPost.BlogPostBody}</Markdown>
         </div>
 
         <div className={`${styles['sidebar']}`}>

@@ -1,0 +1,107 @@
+@use '../../styles/colors';
+
+.tree {
+  display: block;
+  clear: both;
+  margin: 8px 0 24px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.fallback {
+  display: none;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 800;
+  fill: colors.$brand-purple-900;
+}
+
+.line {
+  stroke: colors.$brand-purple-400;
+  stroke-width: 4;
+  fill: none;
+}
+
+.dash {
+  stroke-dasharray: 10 10;
+}
+
+.node rect {
+  stroke: colors.$brand-purple;
+  stroke-width: 4;
+  transition: fill 120ms ease;
+}
+
+.classic rect {
+  fill: colors.$white;
+}
+.classic text {
+  fill: colors.$brand-purple-900;
+}
+.classic .year {
+  fill: colors.$brand-purple;
+}
+
+.mine rect {
+  fill: colors.$brand-purple;
+}
+.mine text {
+  fill: colors.$white;
+}
+.mine .year,
+.mine .sub {
+  fill: colors.$brand-purple-100;
+}
+
+.year {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.name {
+  font-weight: 700;
+}
+.sub {
+  font-weight: 400;
+}
+
+.link {
+  cursor: pointer;
+  outline: none;
+
+  &:hover .classic rect,
+  &:focus-visible .classic rect {
+    fill: colors.$brand-purple-100;
+  }
+  &:hover .mine rect,
+  &:focus-visible .mine rect {
+    fill: colors.$brand-purple-400;
+  }
+}
+
+.legend text {
+  font-size: 22px;
+  fill: colors.$brand-purple-800;
+}
+.legend-classic {
+  fill: colors.$white;
+  stroke: colors.$brand-purple;
+  stroke-width: 4;
+}
+.legend-mine {
+  fill: colors.$brand-purple;
+}
+
+// Five columns of 34px type do not survive a phone screen, so the tree is desktop-only.
+@media screen and (max-width: 600px) {
+  .tree {
+    display: none;
+  }
+}
