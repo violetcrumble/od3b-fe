@@ -102,9 +102,9 @@ export default function THCDiscounts({ partners }) {
                   <span className={styles.code}>{partner.discountCode}</span>
                   <CopyCodeButton code={partner.discountCode} />
                 </div>
-              ) : (
+              ) : partner.discountDetails ? (
                 <p className={styles['no-code']}>No code needed. Your discount is applied through our link.</p>
-              )}
+              ) : null}
 
               {partner.reviewUrl && (
                 <Link className={styles['review-link']} href={partner.reviewUrl}>
