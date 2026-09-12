@@ -27,24 +27,48 @@
       margin: 40px auto;
     }
 
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 16px;
+    }
+
+    .thc-button,
     .youtube-button {
-      background: linear-gradient(90deg, colors.$brand-orange-900 0%, colors.$brand-orange 100%);
       color: colors.$white;
       text-decoration: none;
-      padding: 10px;
+      padding: 10px 16px;
       font-weight: bold;
       text-shadow: black 0.1em 0.1em 0.2em;
       border-radius: 5px;
-      margin: 0 auto;
       display: inline-block;
       border: none;
       transition: background 0.3s;
 
       &:hover,
       &:focus {
-        background: linear-gradient(90deg, colors.$brand-orange-800 0%, colors.$brand-orange-400 100%);
         color: colors.$white;
         cursor: pointer;
+      }
+    }
+
+    .thc-button {
+      background: linear-gradient(90deg, colors.$brand-purple-900 0%, colors.$brand-purple 100%);
+
+      &:hover,
+      &:focus {
+        background: linear-gradient(90deg, colors.$brand-purple-800 0%, colors.$brand-purple-400 100%);
+      }
+    }
+
+    .youtube-button {
+      background: linear-gradient(90deg, colors.$brand-orange-900 0%, colors.$brand-orange 100%);
+
+      &:hover,
+      &:focus {
+        background: linear-gradient(90deg, colors.$brand-orange-800 0%, colors.$brand-orange-400 100%);
       }
     }
   }
