@@ -656,10 +656,10 @@ const THC_STATE_LEGALITY = [
     status: 'restricted',
     summary: 'Licensed retailers can sell them, capped at 1mg per serving.',
     details:
-      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does.',
+      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does. It isn’t waiting on the federal cap, though. On September 11, 2026 the commission told licensed hemp businesses to pull every product over 0.4mg of total THC per container from their shelves and websites before December 11, 2026, and it won’t let that stock be moved into cannabis stores instead. Even a 1mg can is over that line, so after December 11 there isn’t much left to call a THC drink here.',
     shipping:
-      "No, not for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here and reputable brands will not do it. The low-dose products that clear the cap are sold through the state's licensed retailers.",
-    lastReviewed: '2026-08-25',
+      "No, not for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here and reputable brands will not do it. The low-dose products that clear the cap are sold through the state's licensed retailers, and starting December 11, 2026 anything over 0.4mg per container is noncompliant in Rhode Island, online sales included.",
+    lastReviewed: '2026-09-14',
     sources: [
       {
         label: 'Rhode Island Current on the CCC draft beverage rules',
@@ -673,6 +673,10 @@ const THC_STATE_LEGALITY = [
         label: 'LegiScan bill history for RI S 3215 (2026)',
         url: 'https://legiscan.com/RI/bill/S3215/2026',
       },
+      {
+        label: 'Marijuana Herald on CCC Cannabis Office Bulletin 2026-7',
+        url: 'https://themarijuanaherald.com/2026/09/rhode-island-orders-hemp-products-above-0-4-mg-thc-removed-from-licensed-facilities-before-december-11/',
+      },
     ],
   },
   {
@@ -683,7 +687,7 @@ const THC_STATE_LEGALITY = [
     details:
       'Hemp drinks are sold here with almost no state regulation. H.3924 would have imposed the 0.4mg total THC cap, but the House rejected the conference report on June 25, 2026 and the bill died with the session. South Carolina stays one of the least regulated markets in the country, which cuts both ways.',
     shipping:
-      'Yes. Brands ship to South Carolina freely. The federal November date is the real deadline now, not anything coming out of the statehouse.',
+      'Yes. Brands ship to South Carolina freely. The federal December 11, 2026 date is the real deadline for drinks now, not anything coming out of the statehouse.',
     lastReviewed: '2026-08-10',
     sources: [
       {
