@@ -81,6 +81,14 @@
     }
   }
 
+  .footer-disclosure {
+    max-width: 1440px;
+    margin: 12px auto 0;
+    color: colors.$gray;
+    font-size: 12px;
+    text-align: center;
+  }
+
   @media (min-width: grids.$breakpoint-md) {
     .footer-grid-main {
       grid-template-columns: repeat(2, 1fr);

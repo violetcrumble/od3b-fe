@@ -104,6 +104,9 @@ export default function Footer() {
         <SocialLinks />
         <p>Copyright &copy; {currentTime.getFullYear()} Cocktail Underground</p>
       </div>
+      <p className={styles['footer-disclosure']}>
+        As an Amazon Associate, Cocktail Underground earns from qualifying purchases.
+      </p>
     </footer>
   );
 }
