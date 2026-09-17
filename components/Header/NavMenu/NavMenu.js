@@ -84,11 +84,6 @@ export default function NavMenu() {
             Home Bar Supplies
           </Link>
         </li>
-        <li className={styles['top-level-menu-item']}>
-          <Link href="/friends" className={activeClass('/friends')}>
-            Our Friends
-          </Link>
-        </li>
       </ul>
     </nav>
   );

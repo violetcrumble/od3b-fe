@@ -60,17 +60,17 @@
       height: 85px;
     }
 
-    // Between the nav breakpoint and lg there isn't room for the wordmark
-    // beside the full nav on the content grid — the skull carries the brand.
+    // Wordmark + four nav items only just fit the 90% grid at 1000px.
     .logo-text {
-      display: none;
+      font-size: 18px;
+      letter-spacing: 0.5px;
     }
   }
 
   @media (min-width: grids.$breakpoint-nav-full) {
     .logo-text {
-      display: inline-block;
       font-size: 24px;
+      letter-spacing: 1px;
     }
   }
 }
