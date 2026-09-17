@@ -7,3 +7,4 @@ node_modules
 .vercel
 .env*
 scripts/check-amazon-products.py
+blood-bags-2-script.md

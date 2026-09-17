@@ -15,6 +15,7 @@ import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeLi
 import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import { linkifyAffiliateIngredients, selectRecipeAffiliates } from '../../utils/affiliateIngredients';
 import getArticle from '../../utils/getArticle';
+import { getRecipeSteps, stripMarkdown } from '../../utils/recipeSteps';
 import cloudinaryOptimize, { cloudinarySocialImage } from '../../utils/cloudinaryOptimize';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
@@ -48,6 +49,10 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
       }`
     : null;
 
+  const plainBody = stripMarkdown(recipe.recipebody);
+  const fallbackDescription = `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`;
+  const description = recipe.seoDescription || fallbackDescription;
+
   function addRecipeJsonLd() {
     const jsonLd = {
       '@context': 'https://schema.org/',
@@ -59,10 +64,11 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
       ],
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',
-      description: recipe.recipebody,
-      recipeInstructions: recipe.recipebody,
+      description,
+      recipeInstructions: getRecipeSteps(recipe.recipebody),
       prepTime: 'PT5M',
       cookTime: 'PT0M',
+      totalTime: 'PT5M',
       keywords: recipe.keywords
         ? recipe.keywords
         : 'cocktail recipes, easy cocktails to make at home, alcoholic drink recipes',
@@ -71,7 +77,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
         ? {
             '@type': 'VideoObject',
             name: `How to make ${getArticle(recipe.title)}${recipe.title}`,
-            description: recipe.recipebody,
+            description: plainBody,
             contentUrl: recipe.YouTubeLink,
             ...(youTubeEmbedUrl && { embedUrl: youTubeEmbedUrl }),
             ...(recipe.videoUploadDate && {
@@ -83,8 +89,9 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
           }
         : undefined,
       author: {
-        '@type': 'Organization',
-        name: 'Cocktail Underground',
+        '@type': 'Person',
+        name: 'Bonnie Mellott',
+        url: SITE_URL,
       },
       ...(recipe.ratingCount > 0 && {
         aggregateRating: {
@@ -102,17 +109,11 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
     <ContentWrapper>
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
-        <meta
-          name="description"
-          content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
-        />
+        <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/cocktail-recipes/${recipe.recipeUrlSlug}`} />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
-        <meta
-          property="og:description"
-          content={recipe.seoDescription || `How to make ${getArticle(recipe.title)}${recipe.title} cocktail at home`}
-        />
+        <meta property="og:description" content={description} />
         <meta
           property="og:image"
           content={cloudinarySocialImage(recipe.PhotoOGSocial?.url || recipe.PhotoMain[0].url)}
