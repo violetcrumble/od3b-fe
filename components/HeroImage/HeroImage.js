@@ -1,13 +1,30 @@
-import Image from 'next/image';
+import { getImageProps } from 'next/image';
 import Link from 'next/link';
 import trackEvent from '../../utils/analytics';
 import styles from './HeroImage.module.scss';
-import heroBanner from '../../public/hero5.jpg';
+import cloudinaryImageLoader from '../../image-loader';
+
+const heroBanner =
+  'https://res.cloudinary.com/onedrinkthreebars/image/upload/v1789734081/homepage_hero_ranch_water_14b5b993b5.jpg';
+
+// deviceSizes stops at 1200; the hero is the one image that needs its full 1600.
+const heroFull = cloudinaryImageLoader({ src: heroBanner, width: 1600 });
 
 export default function HeroImage() {
+  const { props: heroProps } = getImageProps({
+    src: heroBanner,
+    alt: '',
+    fill: true,
+    fetchPriority: 'high',
+    loading: 'eager',
+    sizes: '100vw',
+    className: styles.heroImg,
+  });
+
   return (
     <div className={styles.hero}>
-      <Image priority src={heroBanner} fill sizes="100vw" className={styles.heroImg} alt="Ranch Water Cocktail" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img {...heroProps} srcSet={`${heroProps.srcSet}, ${heroFull} 1600w`} src={heroFull} alt="Ranch Water Cocktail" />
 
       <div className={styles.heroContent}>
         <h1>Empowering you to create craft cocktails at home</h1>

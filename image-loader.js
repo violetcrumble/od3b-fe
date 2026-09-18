@@ -5,9 +5,13 @@
 //   already stored in the URL (e.g. the e_trim/w_300 affiliate bottle photos),
 //   so existing crops are preserved. c_limit prevents upscaling beyond the
 //   source or an earlier derived size.
-// - Local assets (/logo.svg etc.) and non-Cloudinary remotes (Amazon product
-//   images) pass through untouched — they never needed optimizing.
+// - Local assets (/logo.svg etc.) pass through untouched.
 export default function cloudinaryImageLoader({ src, width }) {
+  if (src.includes('m.media-amazon.com')) {
+    // Amazon sizes by filename modifier: ._AC_SL1500_.jpg -> ._AC_SL640_.jpg
+    return src.replace(/_SL\d+_/, `_SL${width}_`);
+  }
+
   if (!src.includes('res.cloudinary.com') || !src.includes('/upload/')) {
     return src;
   }

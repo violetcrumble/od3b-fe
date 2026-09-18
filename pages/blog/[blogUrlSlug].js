@@ -11,6 +11,7 @@ import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonLi
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import Byline from '../../components/Byline/Byline';
 import SITE_URL from '../../utils/siteUrl';
+import cloudinaryOptimize from '../../utils/cloudinaryOptimize';
 import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import NegroniFamilyTree, {
   NEGRONI_FAMILY_TREE_SRC_PATTERN,
@@ -66,7 +67,10 @@ export default function BlogPost({ blogPost, affiliates }) {
         {/* Same fallback chain the review template uses: explicit ogImage, else the listing card image. */}
         <meta
           property="og:image"
-          content={blogPost.ogImage?.url || blogPost.ListingCardImage?.url || `${SITE_URL}/pic-not-available.gif`}
+          content={
+            cloudinaryOptimize(blogPost.ogImage?.url || blogPost.ListingCardImage?.url, 1200) ||
+            `${SITE_URL}/pic-not-available.gif`
+          }
         />
 
         <meta property="og:url" content={canonicalUrl} />

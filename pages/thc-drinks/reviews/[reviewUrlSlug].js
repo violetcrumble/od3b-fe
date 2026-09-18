@@ -74,7 +74,7 @@ export default function Review({ review, affiliates }) {
         <meta property="og:description" content={review.seoDescription || review.previewSnippet} />
         <meta
           property="og:image"
-          content={ogImageUrl ? cloudinaryOptimize(ogImageUrl) : `${SITE_URL}/pic-not-available.gif`}
+          content={ogImageUrl ? cloudinaryOptimize(ogImageUrl, 1200) : `${SITE_URL}/pic-not-available.gif`}
         />
         <meta property="og:url" content={canonicalUrl} />
         <script type="application/ld+json" dangerouslySetInnerHTML={addReviewJsonLd()} key="review-jsonld" />
