@@ -38,7 +38,7 @@ export default function CategoryNavPills({ activeCategory = '' }) {
         Rum Cocktails
       </Link>
       <Link
-        href="/cocktail-recipes/category/cachaça"
+        href="/cocktail-recipes/category/cacha%C3%A7a"
         className={activeCategory === 'cachaça' ? styles.active : undefined}
       >
         Cachaça Cocktails

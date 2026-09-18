@@ -42,7 +42,7 @@ export default function NavMenu() {
               <Link href="/cocktail-recipes/category/rum">Rum Cocktail Recipes</Link>
             </li>
             <li>
-              <Link href="/cocktail-recipes/category/cachaça">Cachaça Cocktail Recipes</Link>
+              <Link href="/cocktail-recipes/category/cacha%C3%A7a">Cachaça Cocktail Recipes</Link>
             </li>
             <li>
               <Link href="/cocktail-recipes/category/gin">Gin Cocktail Recipes</Link>

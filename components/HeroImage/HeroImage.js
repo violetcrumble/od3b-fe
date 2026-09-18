@@ -44,6 +44,7 @@ export default function HeroImage() {
           <Link
             href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ"
             target="_blank"
+            rel="noopener noreferrer"
             className={styles['youtube-button']}
             onClick={() => trackEvent('hero_cta_click', { cta: 'youtube' })}
           >

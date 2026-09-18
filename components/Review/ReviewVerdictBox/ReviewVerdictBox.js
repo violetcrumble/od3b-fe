@@ -5,7 +5,7 @@ import styles from './ReviewVerdictBox.module.scss';
 export default function ReviewVerdictBox({ verdict }) {
   return (
     <div className={styles['verdict-box']}>
-      <h3 className="text-brand-purple">Quick Verdict</h3>
+      <h2 className={`text-brand-purple ${styles['verdict-heading']}`}>Quick Verdict</h2>
       <Markdown components={markdownLinkComponents}>{verdict}</Markdown>
     </div>
   );

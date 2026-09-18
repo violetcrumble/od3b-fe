@@ -74,7 +74,7 @@ const CATEGORY_CONTENT = {
   },
   thc: {
     title: 'THC Cocktail Recipes',
-    h1: 'THC Drink Recipes',
+    h1: 'THC Cocktail Recipes',
     metaDescription:
       'THC cocktail recipes made with hemp-derived THC drinks: real recipes, tested and filmed, dosage notes included.',
     intro: (
@@ -113,7 +113,7 @@ export default function CategoryRecipes({ categorySlug, recipes }) {
 
   const visibleRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  const canonicalUrl = `${SITE_URL}/cocktail-recipes/category/${categorySlug}`;
+  const canonicalUrl = `${SITE_URL}/cocktail-recipes/category/${encodeURIComponent(categorySlug)}`;
 
   return (
     <ContentWrapper>

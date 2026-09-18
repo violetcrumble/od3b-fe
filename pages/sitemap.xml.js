@@ -38,7 +38,7 @@ const STATIC_PATHS = [
 ];
 
 function urlEntry(loc, lastmod) {
-  return `  <url>\n    <loc>${loc}</loc>\n${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}  </url>`;
+  return `  <url>\n    <loc>${encodeURI(loc)}</loc>\n${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}  </url>`;
 }
 
 function generateSiteMap(recipes, blogPosts, reviews) {
