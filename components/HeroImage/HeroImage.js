@@ -15,7 +15,6 @@ export default function HeroImage() {
     src: heroBanner,
     alt: '',
     fill: true,
-    fetchPriority: 'high',
     loading: 'eager',
     sizes: '100vw',
     className: styles.heroImg,
@@ -24,7 +23,13 @@ export default function HeroImage() {
   return (
     <div className={styles.hero}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img {...heroProps} srcSet={`${heroProps.srcSet}, ${heroFull} 1600w`} src={heroFull} alt="Ranch Water Cocktail" />
+      <img
+        {...heroProps}
+        fetchpriority="high"
+        srcSet={`${heroProps.srcSet}, ${heroFull} 1600w`}
+        src={heroFull}
+        alt="Ranch Water Cocktail"
+      />
 
       <div className={styles.heroContent}>
         <h1>Empowering you to create craft cocktails at home</h1>

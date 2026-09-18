@@ -282,7 +282,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
             {recipe.PhotoPinterest?.url && (
               <Image
                 src={recipe.PhotoPinterest.url}
-                alt={recipe.PhotoPinterest.alternativeText}
+                alt={recipe.PhotoPinterest.alternativeText || `${recipe.title} cocktail recipe`}
                 width="256"
                 height="370"
                 style={{
