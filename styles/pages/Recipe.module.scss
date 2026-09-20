@@ -73,6 +73,11 @@
   .recipe-body a:global(.affiliate-link) {
     @include affiliateLinks.affiliate-link;
   }
+  :global(.recipe-intro) img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
 
   .video-embed-container {
     position: relative;
