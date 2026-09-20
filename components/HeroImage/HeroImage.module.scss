@@ -11,8 +11,22 @@
     object-position: center;
   }
 
+  &.halloween {
+    .heroImg {
+      object-position: center 40%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0.15) 100%);
+    }
+  }
+
   .heroContent {
     position: relative;
+    z-index: 1;
     border-top: solid 1px transparent;
     text-align: center;
 
@@ -77,6 +91,14 @@
 @media (min-width: grids.$breakpoint-md) {
   .hero {
     height: 60vh;
+
+    &.halloween {
+      height: 65vh;
+
+      .heroImg {
+        object-position: center 80%;
+      }
+    }
 
     .heroImg {
       object-fit: cover;

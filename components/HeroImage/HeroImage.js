@@ -4,8 +4,32 @@ import trackEvent from '../../utils/analytics';
 import styles from './HeroImage.module.scss';
 import cloudinaryImageLoader from '../../image-loader';
 
-const heroBanner =
-  'https://res.cloudinary.com/onedrinkthreebars/image/upload/v1789734081/homepage_hero_ranch_water_14b5b993b5.jpg';
+const heroes = {
+  default: {
+    image:
+      'https://res.cloudinary.com/onedrinkthreebars/image/upload/v1789734081/homepage_hero_ranch_water_14b5b993b5.jpg',
+    alt: 'Ranch Water Cocktail',
+    heading: 'Empowering you to create craft cocktails at home',
+    cta: {
+      key: 'youtube',
+      label: 'Watch Our YouTube Videos',
+      href: 'https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ',
+      external: true,
+    },
+  },
+  halloween: {
+    image:
+      'https://res.cloudinary.com/onedrinkthreebars/image/upload/v1789920286/homepage_hero_halloween_01a9bc1af5.jpg',
+    alt: 'Halloween rum cocktail in a skull glass',
+    heading: 'Halloween cocktails from the basement',
+    cta: { key: 'halloween', label: 'Halloween Cocktails', href: '/blog/halloween-cocktails' },
+  },
+};
+
+// Switch back to 'default' after Halloween.
+const activeHero = 'halloween';
+const hero = heroes[activeHero];
+const heroBanner = hero.image;
 
 // deviceSizes stops at 1200; the hero is the one image that needs its full 1600.
 const heroFull = cloudinaryImageLoader({ src: heroBanner, width: 1600 });
@@ -21,18 +45,18 @@ export default function HeroImage() {
   });
 
   return (
-    <div className={styles.hero}>
+    <div className={`${styles.hero} ${styles[activeHero] || ''}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         {...heroProps}
         fetchpriority="high"
         srcSet={`${heroProps.srcSet}, ${heroFull} 1600w`}
         src={heroFull}
-        alt="Ranch Water Cocktail"
+        alt={hero.alt}
       />
 
       <div className={styles.heroContent}>
-        <h1>Empowering you to create craft cocktails at home</h1>
+        <h1>{hero.heading}</h1>
         <div className={styles['hero-buttons']}>
           <Link
             href="/thc-drinks/discounts"
@@ -42,13 +66,12 @@ export default function HeroImage() {
             THC Discount Codes
           </Link>
           <Link
-            href="https://www.youtube.com/channel/UCicZ2KV8_1cIKPI_82KI_AQ"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={hero.cta.href}
+            {...(hero.cta.external && { target: '_blank', rel: 'noopener noreferrer' })}
             className={styles['youtube-button']}
-            onClick={() => trackEvent('hero_cta_click', { cta: 'youtube' })}
+            onClick={() => trackEvent('hero_cta_click', { cta: hero.cta.key })}
           >
-            Watch Our YouTube Videos
+            {hero.cta.label}
           </Link>
         </div>
       </div>
