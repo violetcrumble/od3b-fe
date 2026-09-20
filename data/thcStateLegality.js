@@ -227,7 +227,8 @@ const THC_STATE_LEGALITY = [
     summary: 'Legal at retail, with some legal fog around the edges.',
     details:
       'Hemp drinks are widely sold under the federal farm bill definition and there is no beverage-specific state law. The attorney general has taken a hostile view of delta-8 products, so the broader hemp market has some legal fog, but delta-9 drinks under 0.3% are on shelves.',
-    shipping: 'Yes. Brands ship to Indiana under the federal default, same as in-store sales.',
+    shipping:
+      'Yes. Brands ship to Indiana under the federal default, same as in-store sales. [Grind With Gratitude](https://grindwithgratitude.com/collections?ref=cocktailunderground&utm_source=cocktailunderground&utm_medium=legal_states_table&utm_campaign=legal-states-indiana) delivers here.',
     lastReviewed: '2026-08-03',
     sources: [
       {
