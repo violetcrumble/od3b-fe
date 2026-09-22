@@ -16,7 +16,7 @@ import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import { linkifyAffiliateIngredients, selectRecipeAffiliates } from '../../utils/affiliateIngredients';
 import getArticle from '../../utils/getArticle';
 import { getRecipeSteps, stripMarkdown } from '../../utils/recipeSteps';
-import cloudinaryOptimize, { cloudinarySocialImage } from '../../utils/cloudinaryOptimize';
+import cloudinaryOptimize, { cloudinarySocialImage, cloudinarySchemaCrop43 } from '../../utils/cloudinaryOptimize';
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
@@ -54,13 +54,16 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
   const description = recipe.seoDescription || fallbackDescription;
 
   function addRecipeJsonLd() {
+    const schemaCrops = recipe.PhotoSchemaCrops || [];
+    const has43Crop = schemaCrops.some((photo) => Math.abs(photo.width / photo.height - 4 / 3) < 0.02);
     const jsonLd = {
       '@context': 'https://schema.org/',
       '@type': 'Recipe',
       name: recipe.title,
       image: [
         cloudinaryOptimize(recipe.PhotoMain[0].url),
-        ...(recipe.PhotoSchemaCrops || []).map((photo) => cloudinaryOptimize(photo.url)),
+        ...schemaCrops.map((photo) => cloudinaryOptimize(photo.url)),
+        ...(has43Crop ? [] : [cloudinarySchemaCrop43(recipe.PhotoMain[0].url)]),
       ],
       recipeIngredient: recipe.cocktailIngredients.ingredients,
       recipeYield: '1 cocktail',

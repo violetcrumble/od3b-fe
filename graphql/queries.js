@@ -92,6 +92,8 @@ const GET_INDIVIDUAL_RECIPE = `
       }
       PhotoSchemaCrops {
         url
+        width
+        height
       }
       relatedProducts {
         AmazonLink

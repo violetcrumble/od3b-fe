@@ -14,3 +14,8 @@ export function cloudinarySocialImage(url) {
   if (!url || !url.includes('res.cloudinary.com') || !url.includes('/upload/')) return url;
   return url.replace('/upload/', '/upload/c_fill,g_north,w_1200,h_630,q_auto,f_auto/');
 }
+
+export function cloudinarySchemaCrop43(url) {
+  if (!url || !url.includes('res.cloudinary.com') || !url.includes('/upload/')) return url;
+  return url.replace('/upload/', '/upload/c_fill,g_center,ar_4:3,q_auto,f_auto/');
+}
