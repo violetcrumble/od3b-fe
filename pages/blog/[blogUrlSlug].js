@@ -5,6 +5,7 @@ import { strapiQuery, strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
@@ -107,7 +108,8 @@ export default function BlogPost({ blogPost, affiliates }) {
             date={blogPost.Date}
             updatedDate={blogPost.lastUpdated}
           />
-          <Markdown components={blogMarkdownComponents} remarkPlugins={[remarkGfm]}>
+          {/* rehype-slug gives every heading an id so posts can carry in-page jump links. */}
+          <Markdown components={blogMarkdownComponents} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
             {blogPost.BlogPostBody}
           </Markdown>
         </div>

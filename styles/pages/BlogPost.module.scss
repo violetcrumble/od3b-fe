@@ -54,6 +54,10 @@
   .blog-post-content hr {
     clear: both;
   }
+  .blog-post-content h2,
+  .blog-post-content h3 {
+    scroll-margin-top: 24px;
+  }
   .blog-post-content :nth-child(even of p:not([class]):has(> img)) img {
     float: left;
     margin: 0 24px 16px 0;

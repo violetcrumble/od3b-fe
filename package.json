@@ -13,6 +13,7 @@
   "dependencies": {
     "@next/third-parties": "^16.2.10",
     "next": "^16.2.10",
+    "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "sass": "^1.101.0"
   },
