@@ -35,6 +35,7 @@ export default function Recipes({ recipes }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/cocktail-recipes`} />
         <meta property="og:title" content="Cocktail Underground - Cocktail Recipes" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:description"
           content="Craft cocktail recipes tested and filmed at home, organized by spirit, with exact measurements and real technique for every drink."

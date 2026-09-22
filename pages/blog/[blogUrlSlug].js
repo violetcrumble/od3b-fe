@@ -70,6 +70,7 @@ export default function BlogPost({ blogPost, affiliates }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={blogPost.Title} />
+        <meta property="og:type" content="article" />
         <meta property="og:description" content={metaDescription} />
         {/* Same fallback chain the review template uses: explicit ogImage, else the listing card image. */}
         <meta

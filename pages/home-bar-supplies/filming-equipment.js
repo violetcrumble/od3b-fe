@@ -14,6 +14,7 @@ export default function FilmingEquipment() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/home-bar-supplies/filming-equipment`} />
         <meta property="og:title" content="Cocktail Underground - Vlogging and Filming Equipment" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:description"
           content="The cameras, lighting, mics, and teleprompter gear I use to film Cocktail Underground videos."

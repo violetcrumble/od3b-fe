@@ -71,6 +71,7 @@ export default function Review({ review, affiliates }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={review.title} />
+        <meta property="og:type" content="article" />
         <meta property="og:description" content={review.seoDescription || review.previewSnippet} />
         <meta
           property="og:image"

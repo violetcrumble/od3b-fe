@@ -35,6 +35,7 @@ export default function BlogListing({ blogPosts }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/blog`} />
         <meta property="og:title" content="Cocktail Underground - Cocktail Blog Posts and Cocktail Articles" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:description"
           content="Cocktail articles from Cocktail Underground: THC drink news and laws, drink guides, product picks, and stories from the home bar."

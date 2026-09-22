@@ -113,6 +113,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={`${SITE_URL}/cocktail-recipes/${recipe.recipeUrlSlug}`} />
         <meta property="og:title" content={`${recipe.title} cocktail recipe`} />
+        <meta property="og:type" content="article" />
         <meta property="og:description" content={description} />
         <meta
           property="og:image"

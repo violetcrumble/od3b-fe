@@ -123,6 +123,7 @@ export default function CategoryRecipes({ categorySlug, recipes }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={`Cocktail Underground - ${content.title}`} />
+        <meta property="og:type" content="website" />
         <meta property="og:description" content={content.metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <script
