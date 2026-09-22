@@ -21,22 +21,33 @@ import NegroniFamilyTree, {
 
 // The family tree PNG in the post body becomes the clickable SVG; every other image renders as-is.
 // Tables get a scroll wrapper so wide comparisons don't break the phone layout.
-const blogMarkdownComponents = {
-  ...markdownLinkComponents,
-  table: ({ node, ...props }) => (
-    <div className={styles['table-scroll']}>
-      <table {...props} />
-    </div>
-  ),
-  img: ({ node, ...props }) =>
-    NEGRONI_FAMILY_TREE_SRC_PATTERN.test(props.src || '') ? (
-      <NegroniFamilyTree fallbackSrc={props.src} alt={props.alt} />
-    ) : (
-      <img {...props} alt={props.alt || ''} />
+// Blog posts have no hero, so the first body image is often the mobile LCP element and must not lazy-load.
+// "First" is read from the markdown source rather than counted during render, which keeps server and client in sync.
+const FIRST_MARKDOWN_IMAGE = /!\[[^\]]*\]\(([^)\s]+)/;
+
+function createBlogMarkdownComponents(firstImageSrc) {
+  return {
+    ...markdownLinkComponents,
+    table: ({ node, ...props }) => (
+      <div className={styles['table-scroll']}>
+        <table {...props} />
+      </div>
     ),
-};
+    img: ({ node, ...props }) => {
+      if (NEGRONI_FAMILY_TREE_SRC_PATTERN.test(props.src || '')) {
+        return <NegroniFamilyTree fallbackSrc={props.src} alt={props.alt} />;
+      }
+      return props.src === firstImageSrc ? (
+        <img {...props} alt={props.alt || ''} fetchpriority="high" decoding="async" />
+      ) : (
+        <img {...props} alt={props.alt || ''} loading="lazy" decoding="async" />
+      );
+    },
+  };
+}
 
 export default function BlogPost({ blogPost, affiliates }) {
+  const blogMarkdownComponents = createBlogMarkdownComponents(blogPost.BlogPostBody?.match(FIRST_MARKDOWN_IMAGE)?.[1]);
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;
   const metaDescription = blogPost.seoDescription || blogPost.TextPreviewSnippet;
 

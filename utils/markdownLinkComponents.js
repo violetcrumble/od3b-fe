@@ -7,6 +7,8 @@ const markdownLinkComponents = {
     ) : (
       <a {...props} />
     ),
+  // Markdown bodies never hold a page's first image (heroes and cards use next/image), so these can all lazy-load.
+  img: ({ node, ...props }) => <img {...props} alt={props.alt || ''} loading="lazy" decoding="async" />,
 };
 
 export default markdownLinkComponents;
