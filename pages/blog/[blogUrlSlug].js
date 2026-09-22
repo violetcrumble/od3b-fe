@@ -4,6 +4,7 @@ import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST, GET_ALL_AFFILIATE_PARTNERS } from '.
 import { strapiQuery, strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
@@ -18,8 +19,14 @@ import NegroniFamilyTree, {
 } from '../../components/NegroniFamilyTree/NegroniFamilyTree';
 
 // The family tree PNG in the post body becomes the clickable SVG; every other image renders as-is.
+// Tables get a scroll wrapper so wide comparisons don't break the phone layout.
 const blogMarkdownComponents = {
   ...markdownLinkComponents,
+  table: ({ node, ...props }) => (
+    <div className={styles['table-scroll']}>
+      <table {...props} />
+    </div>
+  ),
   img: ({ node, ...props }) =>
     NEGRONI_FAMILY_TREE_SRC_PATTERN.test(props.src || '') ? (
       <NegroniFamilyTree fallbackSrc={props.src} alt={props.alt} />
@@ -36,8 +43,8 @@ export default function BlogPost({ blogPost, affiliates }) {
     const jsonLd = {
       '@context': 'https://schema.org/',
       '@type': 'BlogPosting',
-      name: blogPost.Title,
-      image: [blogPost.ListingCardImage?.url || `${SITE_URL}/pic-not-available.gif`],
+      headline: blogPost.Title,
+      image: [cloudinaryOptimize(blogPost.ListingCardImage?.url, 1200) || `${SITE_URL}/pic-not-available.gif`],
       articleBody: blogPost.BlogPostBody,
       keywords: blogPost.seoKeywords,
       description: metaDescription,
@@ -99,7 +106,9 @@ export default function BlogPost({ blogPost, affiliates }) {
             date={blogPost.Date}
             updatedDate={blogPost.lastUpdated}
           />
-          <Markdown components={blogMarkdownComponents}>{blogPost.BlogPostBody}</Markdown>
+          <Markdown components={blogMarkdownComponents} remarkPlugins={[remarkGfm]}>
+            {blogPost.BlogPostBody}
+          </Markdown>
         </div>
 
         <div className={`${styles['sidebar']}`}>

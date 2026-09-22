@@ -65,6 +65,30 @@
   .blog-post-content a:global(.affiliate-link) {
     @include affiliateLinks.affiliate-link;
   }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 16px 0 24px;
+  }
+  .blog-post-content table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 560px;
+    font-size: 0.95rem;
+  }
+  .blog-post-content th,
+  .blog-post-content td {
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid colors.$brand-teal-100;
+  }
+  .blog-post-content th {
+    color: colors.$brand-teal;
+    border-bottom: 2px solid colors.$brand-teal;
+  }
+  .blog-post-content tbody tr:nth-child(even) {
+    background: colors.$gray-lighter;
+  }
   .blog-post-content p:not([class]):has(> img) {
     clear: both;
   }

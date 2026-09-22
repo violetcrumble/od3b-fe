@@ -72,7 +72,9 @@ export default function THCDiscounts({ partners }) {
         <p>
           Current discount codes for the THC drink brands we have actually tried. Every code on this page is one we use
           ourselves, and where we have published a full review, it is linked so you can read our honest take before you
-          buy.
+          buy. Not sure which bottle to use a code on? The{' '}
+          <Link href="/blog/willies-remedy-alternatives">Willie&apos;s Remedy alternatives</Link> post ranks them by
+          cost per milligram.
         </p>
         <p>
           This site contains product affiliate links. We may receive a commission if you make a purchase after clicking
