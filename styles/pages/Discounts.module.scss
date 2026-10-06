@@ -95,6 +95,21 @@
     color: colors.$gray-darker;
   }
 
+  .seasonal {
+    margin: 0 0 16px;
+    color: colors.$brand-purple;
+    font-weight: bold;
+  }
+
+  .inline-code {
+    border: 2px dashed colors.$brand-purple;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: monospace;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
   .cta-link {
     margin-top: auto;
 

@@ -12,6 +12,17 @@ import SITE_URL from '../../../utils/siteUrl';
 import thcStyles from '../../../styles/pages/THC.module.scss';
 import styles from '../../../styles/pages/Discounts.module.scss';
 
+// Seasonal deal note per partner name; delete the entry when the deal ends.
+const SEASONAL_NOTES = {
+  'Grind With Gratitude': {
+    linkText: '24 cans of the 12 oz watermelon 10mg seltzer',
+    url: 'https://grindwithgratitude.com/products/watermelon-10mg?variant=49736098382061&ref=cocktailunderground',
+    utmContent: 'grind_spooky',
+    code: 'SPOOKY',
+    after: '. That beats 50OFF on this pack only. Everything else, use 50OFF.',
+  },
+};
+
 export async function getStaticProps() {
   const data = await strapiQueryCached(GET_AFFILIATE_DISCOUNTS);
 
@@ -107,6 +118,26 @@ export default function THCDiscounts({ partners }) {
               ) : partner.discountDetails ? (
                 <p className={styles['no-code']}>No code needed. Your discount is applied through our link.</p>
               ) : null}
+
+              {SEASONAL_NOTES[partner.name] && (
+                <p className={styles.seasonal}>
+                  Limited time:{' '}
+                  <a
+                    href={affiliateLink(SEASONAL_NOTES[partner.name].url, {
+                      medium: 'discounts_page',
+                      campaign: 'thc_discounts',
+                      content: SEASONAL_NOTES[partner.name].utmContent,
+                    })}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                  >
+                    {SEASONAL_NOTES[partner.name].linkText}
+                  </a>{' '}
+                  for $33.33 with code{' '}
+                  <span className={styles['inline-code']}>{SEASONAL_NOTES[partner.name].code}</span>
+                  {SEASONAL_NOTES[partner.name].after}
+                </p>
+              )}
 
               {partner.reviewUrl && (
                 <Link className={styles['review-link']} href={partner.reviewUrl}>
