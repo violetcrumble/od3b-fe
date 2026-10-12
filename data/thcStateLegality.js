@@ -495,14 +495,18 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal in liquor stores at 5mg, with a hard stop coming in November.',
     details:
-      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only.',
+      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. It sits in the Senate Judiciary Committee with an Assembly twin, A 5604, and nothing has passed, so plan on November 13 until it does.',
     shipping:
       "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline.",
-    lastReviewed: '2026-08-08',
+    lastReviewed: '2026-10-09',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
         url: 'https://www.nj.gov/cannabis/resources/faqs/intoxicating-hemp/index.shtml',
+      },
+      {
+        label: 'Marijuana Herald on S 4635 and the deadline extension bill',
+        url: 'https://themarijuanaherald.com/2026/10/new-jersey-senate-president-introduces-bill-to-extend-intoxicating-hemp-beverage-sales-deadline-to-match-federal-law/',
       },
     ],
   },
@@ -661,10 +665,10 @@ const THC_STATE_LEGALITY = [
     status: 'restricted',
     summary: 'Licensed retailers can sell them, capped at 1mg per serving.',
     details:
-      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does. It isn’t waiting on the federal cap, though. On September 11, 2026 the commission told licensed hemp businesses to pull every product over 0.4mg of total THC per container from their shelves and websites before December 11, 2026, and it won’t let that stock be moved into cannabis stores instead. Even a 1mg can is over that line, so after December 11 there isn’t much left to call a THC drink here.',
+      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does. It isn’t waiting on the federal cap, though. On September 11, 2026 the commission told licensed hemp businesses to pull every product over 0.4mg of total THC per container from their shelves and websites before December 11, 2026, and it won’t let that stock be moved into cannabis stores instead. Even a 1mg can is over that line, so after December 11 there isn’t much left to call a THC drink here. The commission has since softened its tone. On October 10, 2026 a spokesperson said it plans to revise the September bulletin and issue updated guidance within days, and its chief legal counsel said it isn’t telling businesses to shut down ahead of the federal date and would rather wait and see what Washington does. The December 11 line hasn’t moved, but the specifics of what Rhode Island expects from licensees before then could. Drinks are most of what’s at stake: THC seltzers and drinks were about 83 percent of the state’s $2.85 million in licensed hemp sales in 2025.',
     shipping:
       "No, not for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here and reputable brands will not do it. The low-dose products that clear the cap are sold through the state's licensed retailers, and starting December 11, 2026 anything over 0.4mg per container is noncompliant in Rhode Island, online sales included.",
-    lastReviewed: '2026-09-14',
+    lastReviewed: '2026-10-12',
     sources: [
       {
         label: 'Rhode Island Current on the CCC draft beverage rules',
@@ -681,6 +685,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Marijuana Herald on CCC Cannabis Office Bulletin 2026-7',
         url: 'https://themarijuanaherald.com/2026/09/rhode-island-orders-hemp-products-above-0-4-mg-thc-removed-from-licensed-facilities-before-december-11/',
+      },
+      {
+        label: 'Marijuana Moment on the CCC’s planned revision of the bulletin',
+        url: 'https://www.marijuanamoment.net/rhode-island-grapples-with-hemp-policy-as-federal-ban-on-thc-products-looms/',
       },
     ],
   },
@@ -744,11 +752,15 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail, and the fight is not over.',
     details:
-      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. A third case is running in state court, where hemp distributors sued the health department in Travis County over the enforcement standard it has applied since July. On September 6, 2026 Judge Maria Cantu Hexsel denied their request for a temporary restraining order and set a hearing on a temporary injunction for October 30. Low-dose delta-9 drinks were never part of the ban and are not part of any of these fights.',
+      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. A third case is running in state court, where hemp distributors sued the health department in Travis County over the enforcement standard it has applied since July. On September 6, 2026 Judge Maria Cantu Hexsel denied their request for a temporary restraining order and set a hearing on a temporary injunction for October 30. A fourth fight is over the health department’s rule that counts THCA toward the THC limit in finished hemp products. A Travis County judge blocked that rule in May, the Fifteenth Court of Appeals put the block on hold in June, and on October 5 it set oral arguments for December 8 in Austin, so the rule stays in force through the federal deadline. Low-dose delta-9 drinks were never part of the ban and are not part of any of these fights.',
     shipping:
       'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
-    lastReviewed: '2026-09-07',
+    lastReviewed: '2026-10-09',
     sources: [
+      {
+        label: 'Marijuana Herald on the December 8 appeals court hearing',
+        url: 'https://themarijuanaherald.com/2026/10/texas-hemp-lawsuit-heads-to-december-8-appeals-court-hearing-as-new-legal-brief-challenges-states-thc-rules/',
+      },
       {
         label: 'Marijuana Herald on the denied restraining order and the October 30 hearing',
         url: 'https://themarijuanaherald.com/2026/09/texas-judge-denies-temporary-restraining-order-in-hemp-industry-lawsuit-injunction-hearing-set-for-october-30/',
