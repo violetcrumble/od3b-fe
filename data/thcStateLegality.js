@@ -125,16 +125,20 @@ const THC_STATE_LEGALITY = [
     code: 'DE',
     name: 'Delaware',
     status: 'restricted',
-    summary: 'Cannabis program only, with liquor stores opening October 21.',
+    summary: 'Cannabis program only, with liquor stores allowed in from October 21 once they hold a permit.',
     details:
-      'Delaware kept intoxicating hemp out of ordinary retail and inside its cannabis program. HB 373, signed July 23, 2026, changes that: licensed liquor stores and marijuana retailers can sell THC drinks to adults 21+, capped at 10mg of delta-9 per single-serving container and 60mg per package, and the THC has to be extracted from hemp rather than converted from other cannabinoids. Most of the law takes effect October 21, 2026, which gives the new market about three weeks before the federal date lands on it.',
+      'Delaware kept intoxicating hemp out of ordinary retail and inside its cannabis program. HB 373, signed July 23, 2026, changes that: licensed liquor stores and marijuana retailers can sell THC drinks to adults 21+, capped at 10mg of delta-9 per single-serving container and 60mg per package, and the THC has to be extracted from hemp rather than converted from other cannabinoids. Most of the law takes effect October 21, 2026, which gives the new market about three weeks before the federal date lands on it. In October 2026 the alcohol commissioner’s office published its guidance for licensees, and it tempers the launch. Liquor stores can’t just start selling on October 21. They have to email the office a permit request with a floor plan and an inventory, pass an inspection, and buy only from a wholesaler the marijuana commissioner has endorsed, and the office says it won’t process permits until those wholesaler endorsements are underway. Compliant stock already on the shelf can stay if it’s reported first. Single-serving containers have to be at least 12 ounces, 750ml bottles top out at 170mg, and anything over the caps, mixed with alcohol, or made with THC other than delta-9 extract has to be gone by October 21. Bars, taprooms, and restaurants get no pathway at all and were told to clear their products by the same date. The office also says plainly that the law expires if the federal hemp change takes effect in December 2026, so this market could open and close inside the same two months.',
     shipping:
-      'No. Delaware law routes these drinks through licensed in-person retail, and reputable brands will not ship here.',
-    lastReviewed: '2026-08-10',
+      'No. Delaware law routes these drinks through licensed in-person retail, and reputable brands will not ship here. Third-party delivery from liquor stores isn’t on the table until January 2027, and only if the law is still alive by then.',
+    lastReviewed: '2026-10-18',
     sources: [
       {
         label: 'Marijuana Moment on Delaware HB 373',
         url: 'https://www.marijuanamoment.net/delaware-governor-signs-bill-to-regulate-and-tax-hemp-thc-drinks/',
+      },
+      {
+        label: 'Delaware OABCC THC-infused beverages guidance (October 2026)',
+        url: 'https://oabcc.delaware.gov/wp-content/blogs.dir/221/files/sites/221/2026/10/Fall-2026-OABCC-Communication-HB-373.pdf',
       },
     ],
   },
@@ -824,11 +828,15 @@ const THC_STATE_LEGALITY = [
     status: 'restricted',
     summary: 'A 2mg package cap keeps real drinks out, and it just got stricter.',
     details:
-      'Virginia caps hemp products at 2mg total THC per package, one of the strictest limits in the South. The 25:1 CBD-to-THC ratio exception that let some products clear that cap went away at midnight on August 15, 2026, and hemp enforcement moves from the agriculture department to the Cannabis Control Authority the same month. Seven hemp businesses sued to stop it and a federal judge denied them on August 14, finding they had shown neither a likely win on the merits nor irreparable harm, so the cap took effect on schedule. Mainstream THC drinks did not qualify before and they do not now.',
+      'Virginia caps hemp products at 2mg total THC per package, one of the strictest limits in the South. The 25:1 CBD-to-THC ratio exception that let some products clear that cap went away at midnight on August 15, 2026, and hemp enforcement moves from the agriculture department to the Cannabis Control Authority the same month. Seven hemp businesses sued to stop it and a federal judge denied them on August 14, finding they had shown neither a likely win on the merits nor irreparable harm, so the cap took effect on schedule. The businesses dropped that suit on October 2, 2026, without prejudice, and their lawyer said they plan to refile a revised case. Mainstream THC drinks did not qualify before and they do not now.',
     shipping:
       'Officially no. The 2mg package cap makes mainstream drinks illegal to sell into Virginia by any channel, and the August 15 change closed the ratio workaround that a few products leaned on. In practice, some national brands ship here anyway; the cap regulates sellers, and they are the ones betting on it.',
-    lastReviewed: '2026-08-17',
+    lastReviewed: '2026-10-18',
     sources: [
+      {
+        label: 'Cardinal News on the businesses dropping their suit',
+        url: 'https://cardinalnews.org/2026/10/02/virginia-hemp-businesses-ask-to-dismiss-lawsuit-over-thc-restrictions/',
+      },
       {
         label: 'Virginia Cannabis Control Authority on the new laws',
         url: 'https://cca.virginia.gov/news/virginias-new-marijuana-and-hemp-laws-what-you-need-to-know',
