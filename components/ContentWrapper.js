@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import BanCountdownBar from './BanCountdownBar/BanCountdownBar';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
@@ -12,6 +13,7 @@ export default function ContentWrapper({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
 
+      <BanCountdownBar />
       <Header />
 
       <main>{children}</main>

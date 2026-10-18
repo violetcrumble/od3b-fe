@@ -1,0 +1,69 @@
+@use '../../styles/colors';
+@use '../../styles/grids';
+
+// Slim notice above the site header on THC pages. Dark purple so it reads as
+// part of the black header rather than a page banner.
+.ban-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 12px;
+  background-color: colors.$brand-purple-900;
+  color: colors.$white;
+  font-size: 14px;
+  line-height: 1.35;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  strong {
+    color: colors.$brand-seafoam;
+  }
+
+  a:link,
+  a:visited {
+    color: colors.$white;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+
+    &:hover {
+      color: colors.$brand-seafoam;
+    }
+  }
+
+  // Phone width: drop the middle sentence so the bar stays two short lines.
+  @media (max-width: calc(grids.$breakpoint-sm - 1px)) {
+    font-size: 13px;
+    padding: 6px 8px;
+
+    .detail {
+      display: none;
+    }
+  }
+}
+
+// Overrides the global teal button styling in globals.scss.
+.dismiss {
+  flex: none;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0 6px;
+  color: colors.$brand-purple-200;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: none;
+    color: colors.$white;
+  }
+}
