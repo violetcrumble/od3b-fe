@@ -5,6 +5,7 @@ import ListingCard from '../../../components/Cards/ListingCard/ListingCard';
 import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
 import { GET_ALL_REVIEWS } from '../../../graphql/queries';
 import { strapiQueryCached } from '../../../utils/strapiQuery';
+import { REVIEW_SECTIONS, reviewHref, reviewsInSection } from '../../../utils/reviewSections';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 import styles from '../../../styles/pages/THC.module.scss';
@@ -14,7 +15,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      reviews: data.reviews,
+      reviews: reviewsInSection(data.reviews, REVIEW_SECTIONS.thc),
     },
   };
 }
@@ -56,11 +57,7 @@ export default function THCReviews({ reviews }) {
 
         <div className="listings-3-col">
           {reviews.map((review) => (
-            <Link
-              className="listing-card"
-              key={review.reviewUrlSlug}
-              href={`/thc-drinks/reviews/${review.reviewUrlSlug}`}
-            >
+            <Link className="listing-card" key={review.reviewUrlSlug} href={reviewHref(review)}>
               <ListingCard
                 title={review.title}
                 authorName={review.review_authors[0]?.AuthorName}

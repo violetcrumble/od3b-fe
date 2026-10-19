@@ -1,130 +1,17 @@
-import Head from 'next/head';
-import Link from 'next/link';
 import { GET_ALL_REVIEW_SLUGS, GET_REVIEW, GET_ALL_AFFILIATE_PARTNERS } from '../../../graphql/queries';
 import { strapiQuery, strapiQueryCached } from '../../../utils/strapiQuery';
-import ContentWrapper from '../../../components/ContentWrapper';
-import Markdown from 'react-markdown';
-import styles from '../../../styles/pages/Review.module.scss';
-import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSignup';
-import ThcAffiliateCTAs from '../../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
-import ReviewRatingBadge from '../../../components/Review/ReviewRatingBadge/ReviewRatingBadge';
-import ReviewVerdictBox from '../../../components/Review/ReviewVerdictBox/ReviewVerdictBox';
-import ReviewProsCons from '../../../components/Review/ReviewProsCons/ReviewProsCons';
-import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
-import Byline from '../../../components/Byline/Byline';
-import markdownLinkComponents from '../../../utils/markdownLinkComponents';
-import cloudinaryOptimize from '../../../utils/cloudinaryOptimize';
-import SITE_URL from '../../../utils/siteUrl';
+import ReviewPage from '../../../components/Review/ReviewPage/ReviewPage';
+import { REVIEW_SECTIONS, reviewsInSection } from '../../../utils/reviewSections';
 
+// THC drink reviews. Non-THC reviews build under /reviews instead.
 export default function Review({ review, affiliates }) {
-  const canonicalUrl = `${SITE_URL}/thc-drinks/reviews/${review.reviewUrlSlug}`;
-  const authorName = review.review_authors[0]?.AuthorName || 'Cocktail Underground';
-  const listingImageUrl = review.listingCardImage?.url;
-  const ogImageUrl = review.ogImage?.url || listingImageUrl;
-
-  function addReviewJsonLd() {
-    const jsonLd = {
-      '@context': 'https://schema.org/',
-      '@type': 'Review',
-      name: review.title,
-      // Verdict may contain markdown links; structured data wants plain text.
-      reviewBody: review.verdict.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1'),
-      itemReviewed: {
-        '@type': 'Product',
-        name: review.productName,
-        image: [listingImageUrl ? cloudinaryOptimize(listingImageUrl) : `${SITE_URL}/pic-not-available.gif`],
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: review.rating,
-          reviewCount: 1,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        ...(review.price && {
-          offers: { '@type': 'Offer', price: review.price, priceCurrency: 'USD', url: review.buyUrl },
-        }),
-      },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: review.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      author: {
-        '@type': 'Person',
-        name: authorName,
-      },
-      datePublished: review.reviewDate,
-      // Hand-set in Strapi for genuine revisions. Strapi's updatedAt bumps on any save,
-      // so it would overstate freshness here the same way it did on blog posts.
-      dateModified: review.lastUpdated || review.reviewDate,
-      publisher: { '@type': 'Organization', name: 'Cocktail Underground' },
-    };
-    return { __html: JSON.stringify(jsonLd) };
-  }
-
-  return (
-    <ContentWrapper>
-      <Head>
-        <title>{review.title}</title>
-        <meta name="description" content={review.seoDescription || review.previewSnippet} />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={review.title} />
-        <meta property="og:type" content="article" />
-        <meta property="og:description" content={review.seoDescription || review.previewSnippet} />
-        <meta
-          property="og:image"
-          content={ogImageUrl ? cloudinaryOptimize(ogImageUrl, 1200) : `${SITE_URL}/pic-not-available.gif`}
-        />
-        <meta property="og:url" content={canonicalUrl} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={addReviewJsonLd()} key="review-jsonld" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={getBreadcrumbJsonLd([
-            { name: 'Home', url: '/' },
-            { name: 'THC Drinks', url: '/thc-drinks' },
-            { name: 'Reviews', url: '/thc-drinks/reviews' },
-            { name: review.title },
-          ])}
-          key="breadcrumb-jsonld"
-        />
-      </Head>
-
-      <div className={`${styles['review-page']} constrained-content`}>
-        <div className={`${styles['review-content']}`}>
-          <div className="breadcrumb">
-            <Link href="/">Home</Link>&nbsp;:&nbsp;
-            <Link href="/thc-drinks">THC Drinks</Link>&nbsp;:&nbsp;
-            <Link href="/thc-drinks/reviews">Reviews</Link>&nbsp;:&nbsp;
-            {review.title}
-          </div>
-          <h1 className="text-brand-purple">{review.title}</h1>
-          <Byline authorName={authorName} date={review.reviewDate} />
-
-          <ReviewRatingBadge rating={review.rating} />
-          <ReviewVerdictBox verdict={review.verdict} />
-
-          <Markdown components={markdownLinkComponents}>{review.reviewBody}</Markdown>
-
-          <ReviewProsCons pros={review.pros?.items || []} cons={review.cons?.items || []} />
-
-          {review.disclaimer && <p className={styles.disclaimer}>{review.disclaimer}</p>}
-        </div>
-
-        <div className={`${styles['sidebar']}`}>
-          <ThcAffiliateCTAs affiliates={affiliates} campaign={review.reviewUrlSlug} />
-          <NewsletterSignup />
-        </div>
-      </div>
-    </ContentWrapper>
-  );
+  return <ReviewPage review={review} section={REVIEW_SECTIONS.thc} affiliates={affiliates} />;
 }
 
 export async function getStaticPaths() {
   const data = await strapiQuery(GET_ALL_REVIEW_SLUGS);
 
-  const paths = data.reviews.map((review) => {
+  const paths = reviewsInSection(data.reviews, REVIEW_SECTIONS.thc).map((review) => {
     return { params: { reviewUrlSlug: review.reviewUrlSlug } };
   });
 

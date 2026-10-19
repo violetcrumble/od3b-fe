@@ -46,6 +46,12 @@
     margin-top: 24px;
   }
 
+  .related-product-cards {
+    > div {
+      margin-bottom: 40px;
+    }
+  }
+
   @media (min-width: grids.$breakpoint-md) {
     display: flex;
     justify-content: space-between;

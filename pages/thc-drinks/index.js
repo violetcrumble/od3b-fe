@@ -8,6 +8,7 @@ import { GET_ALL_THC_RECIPES, GET_ALL_BLOG_POSTS, GET_ALL_REVIEWS } from '../../
 import { strapiQueryCached } from '../../utils/strapiQuery';
 import THC_GUIDE_SLUGS from '../../utils/thcGuideSlugs';
 import SITE_URL from '../../utils/siteUrl';
+import { REVIEW_SECTIONS, reviewHref, reviewsInSection } from '../../utils/reviewSections';
 import styles from '../../styles/pages/THC.module.scss';
 
 export async function getStaticProps() {
@@ -23,7 +24,7 @@ export async function getStaticProps() {
     props: {
       recipes: data.recipes.slice(0, 3),
       guides,
-      reviews: reviewsData.reviews,
+      reviews: reviewsInSection(reviewsData.reviews, REVIEW_SECTIONS.thc),
     },
   };
 }
@@ -50,11 +51,7 @@ export default function THCMain({ recipes, guides, reviews }) {
         <h2 className="text-brand-teal">THC Drink Reviews</h2>
         <div className="listings-3-col">
           {reviews.map((review) => (
-            <Link
-              className="listing-card"
-              key={review.reviewUrlSlug}
-              href={`/thc-drinks/reviews/${review.reviewUrlSlug}`}
-            >
+            <Link className="listing-card" key={review.reviewUrlSlug} href={reviewHref(review)}>
               <ListingCard
                 title={review.title}
                 authorName={review.review_authors[0]?.AuthorName}

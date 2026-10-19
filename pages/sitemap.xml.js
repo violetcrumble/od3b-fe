@@ -4,6 +4,7 @@ import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS, GET_ALL_REVIEW_SLUGS } from '
 import { strapiQuery } from '../utils/strapiQuery';
 import PRODUCT_CATEGORIES from '../utils/productCategories';
 import THC_STATE_GUIDES from '../data/thcStateGuides';
+import { reviewHref } from '../utils/reviewSections';
 
 const URL = 'https://www.cocktailunderground.com';
 
@@ -30,6 +31,7 @@ const STATIC_PATHS = [
   'thc-drinks/discounts',
   'thc-drinks/legal-states',
   ...THC_STATE_GUIDES.map((guide) => `thc-drinks/legal-states/${guide.slug}`),
+  'reviews',
   'home-bar-supplies',
   ...PRODUCT_CATEGORIES.map((category) => `home-bar-supplies/${category.slug}`),
   'home-bar-supplies/filming-equipment',
@@ -47,7 +49,7 @@ function generateSiteMap(recipes, blogPosts, reviews) {
     ...STATIC_PATHS.map((path) => urlEntry(`${URL}/${path}`)),
     ...recipes.map((recipe) => urlEntry(`${URL}/cocktail-recipes/${recipe.slug}`, recipe.updatedAt)),
     ...blogPosts.map((post) => urlEntry(`${URL}/blog/${post.slug}`, post.updatedAt)),
-    ...reviews.map((review) => urlEntry(`${URL}/thc-drinks/reviews/${review.slug}`, review.updatedAt)),
+    ...reviews.map((review) => urlEntry(`${URL}${reviewHref(review)}`, review.updatedAt)),
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -75,7 +77,8 @@ export async function getServerSideProps({ res }) {
       updatedAt: blogPost.updatedAt,
     }));
   const reviews = reviewsData.reviews.map((review) => ({
-    slug: review.reviewUrlSlug,
+    reviewUrlSlug: review.reviewUrlSlug,
+    category: review.category,
     updatedAt: review.updatedAt,
   }));
 

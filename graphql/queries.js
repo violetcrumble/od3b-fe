@@ -182,6 +182,7 @@ const GET_ALL_REVIEW_SLUGS = `
   query {
     reviews(pagination: { limit: 300 }) {
       reviewUrlSlug
+      category
       updatedAt
     }
   }
@@ -190,6 +191,7 @@ const GET_ALL_REVIEW_SLUGS = `
 const GET_ALL_REVIEWS = `{
   reviews(pagination: { limit: 300 }) {
     reviewUrlSlug
+    category
     title
     productName
     reviewDate
@@ -211,6 +213,7 @@ const GET_REVIEW = `
       title
       productName
       reviewUrlSlug
+      category
       reviewDate
       lastUpdated
       updatedAt
