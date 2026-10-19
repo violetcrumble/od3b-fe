@@ -38,8 +38,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Alaska bars any detectable delta-9 THC in consumable hemp products, so hemp seltzers cannot be sold at ordinary retail. THC drinks exist, but only through licensed cannabis stores.',
     shipping:
-      'No. THC products here move through licensed cannabis stores, and dispensaries cannot mail THC. Reputable hemp brands will not ship to Alaska.',
-    lastReviewed: '2026-08-03',
+      'Officially no. THC products here move through licensed cannabis stores, and dispensaries cannot mail THC, so the legal route is a licensed cannabis store. In practice, some national hemp brands still take orders from Alaska; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [{ label: 'Floral state law guide (Alaska)', url: 'https://tryfloral.com/pages/thc-laws-alaska' }],
   },
   {
@@ -84,8 +84,8 @@ const THC_STATE_LEGALITY = [
     details:
       'California’s AB 45 rules and the emergency regulations that followed ban intoxicating hemp products outside the licensed cannabis market. THC drinks are on dispensary shelves, not at the corner store.',
     shipping:
-      "No. California is on major brands' no-ship lists, including Crescent Canna's. Dispensary shelves are the route here.",
-    lastReviewed: '2026-08-03',
+      'Officially no. California keeps intoxicating hemp out of ordinary retail, and some brands, Crescent Canna included, list it as a no-ship state, so the legal route is dispensary shelves. In practice, some national brands still ship to California; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Gilmore Law on AB 8 and the federal ban',
@@ -100,8 +100,9 @@ const THC_STATE_LEGALITY = [
     summary: 'Dispensary only.',
     details:
       'Colorado routes intoxicating hemp products through its licensed cannabis system. THC drinks are available, but only from dispensaries and state-regulated retailers.',
-    shipping: 'No. Same dispensary-only logic as retail: reputable hemp brands will not ship into Colorado.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. Same dispensary-only logic as retail, so the legal route is a licensed dispensary. In practice, some national hemp brands still take orders from Colorado; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [{ label: 'BudPop 50-state guide', url: 'https://budpop.com/are-thc-drinks-legal-in-my-state/' }],
   },
   {
@@ -129,8 +130,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Delaware kept intoxicating hemp out of ordinary retail and inside its cannabis program. HB 373, signed July 23, 2026, changes that: licensed liquor stores and marijuana retailers can sell THC drinks to adults 21+, capped at 10mg of delta-9 per single-serving container and 60mg per package, and the THC has to be extracted from hemp rather than converted from other cannabinoids. Most of the law takes effect October 21, 2026, which gives the new market about three weeks before the federal date lands on it. In October 2026 the alcohol commissioner’s office published its guidance for licensees, and it tempers the launch. Liquor stores can’t just start selling on October 21. They have to email the office a permit request with a floor plan and an inventory, pass an inspection, and buy only from a wholesaler the marijuana commissioner has endorsed, and the office says it won’t process permits until those wholesaler endorsements are underway. Compliant stock already on the shelf can stay if it’s reported first. Single-serving containers have to be at least 12 ounces, 750ml bottles top out at 170mg, and anything over the caps, mixed with alcohol, or made with THC other than delta-9 extract has to be gone by October 21. Bars, taprooms, and restaurants get no pathway at all and were told to clear their products by the same date. The office also says plainly that the law expires if the federal hemp change takes effect in December 2026, so this market could open and close inside the same two months.',
     shipping:
-      'No. Delaware law routes these drinks through licensed in-person retail, and reputable brands will not ship here. Third-party delivery from liquor stores isn’t on the table until January 2027, and only if the law is still alive by then.',
-    lastReviewed: '2026-10-18',
+      'Officially no. Delaware law routes these drinks through licensed in-person retail, and third-party delivery from liquor stores isn’t on the table until January 2027, and only if the law is still alive by then. In practice, some national brands still take orders from Delaware; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Marijuana Moment on Delaware HB 373',
@@ -316,8 +317,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Maine’s Office of Cannabis Policy oversees intoxicating hemp products with testing standards and THC limits, and drinks are sold under that framework.',
     shipping:
-      "Mostly no. Maine's rules keep most national brands from shipping here; Crescent Canna lists it as a no-ship state. Buy through Maine's own licensed retail.",
-    lastReviewed: '2026-08-03',
+      "Officially no. Maine's rules keep most national brands from shipping here, and Crescent Canna lists it as a no-ship state, so the legal route is Maine's own licensed retail. In practice, some national brands still ship to Maine; that compliance risk sits with the seller, not the buyer.",
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Marijuana Herald 50-state status',
@@ -332,8 +333,9 @@ const THC_STATE_LEGALITY = [
     summary: 'Dispensary only since 2023.',
     details:
       'Maryland requires intoxicating hemp products to be sold through licensed cannabis dispensaries. The rule survived court challenges and keeps hemp drinks out of ordinary retail.',
-    shipping: 'No. Dispensary-only at retail means reputable brands will not mail products in either.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. Dispensary-only at retail means mail order is not a legal sales channel, so the legal route is a licensed dispensary. In practice, some national brands still take orders from Maryland; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Marijuana Herald 50-state status',
@@ -348,8 +350,9 @@ const THC_STATE_LEGALITY = [
     summary: 'Not allowed outside dispensaries, and regulators mean it.',
     details:
       'A 2024 joint advisory from state agencies says hemp-derived THC and CBD cannot be added to food or drinks sold in the state, and the liquor commission has warned licensees they could lose licenses over it. Dispensary products are the only sanctioned route.',
-    shipping: 'No. Regulators have warned licensees directly, and reputable brands will not ship to Massachusetts.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. Regulators have warned licensees directly, and the legal route is a licensed dispensary. In practice, some national brands still ship to Massachusetts; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Boston Globe on the hemp crackdown',
@@ -467,8 +470,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Nevada’s Cannabis Compliance Board decided that anything containing THC that can get you high is a cannabis product, which means licensed dispensaries only. No hemp seltzers at the mini-mart, even in Vegas.',
     shipping:
-      'No. The Cannabis Compliance Board treats anything intoxicating as a cannabis product, so no legitimate mail order.',
-    lastReviewed: '2026-08-03',
+      'Officially no. The Cannabis Compliance Board treats anything intoxicating as a cannabis product, so the legal route is a licensed dispensary. In practice, some national brands still ship to Nevada; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Marijuana Herald 50-state status',
@@ -675,8 +678,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does. It isn’t waiting on the federal cap, though. On September 11, 2026 the commission told licensed hemp businesses to pull every product over 0.4mg of total THC per container from their shelves and websites before December 11, 2026, and it won’t let that stock be moved into cannabis stores instead. Even a 1mg can is over that line, so after December 11 there isn’t much left to call a THC drink here. The commission has since softened its tone. On October 10, 2026 a spokesperson said it plans to revise the September bulletin and issue updated guidance within days, and its chief legal counsel said it isn’t telling businesses to shut down ahead of the federal date and would rather wait and see what Washington does. The December 11 line hasn’t moved, but the specifics of what Rhode Island expects from licensees before then could. Drinks are most of what’s at stake: THC seltzers and drinks were about 83 percent of the state’s $2.85 million in licensed hemp sales in 2025.',
     shipping:
-      "No, not for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here and reputable brands will not do it. The low-dose products that clear the cap are sold through the state's licensed retailers, and starting December 11, 2026 anything over 0.4mg per container is noncompliant in Rhode Island, online sales included.",
-    lastReviewed: '2026-10-12',
+      "Officially no for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here; the low-dose products that clear the cap are sold through the state's licensed retailers. In practice, some national brands still ship to Rhode Island; that compliance risk sits with the seller, not the buyer. Starting December 11, 2026 anything over 0.4mg per container is noncompliant in Rhode Island, online sales included.",
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'Rhode Island Current on the CCC draft beverage rules',
@@ -745,8 +748,8 @@ const THC_STATE_LEGALITY = [
     details:
       'Since January 2026 the Alcoholic Beverage Commission regulates hemp drinks: 21+, up to 15mg per serving and two servings per container, with full-panel testing and QR-coded labels. Yes, that cap is higher than Minnesota’s.',
     shipping:
-      'No. Tennessee banned online sales and direct-to-consumer delivery of hemp products effective January 1, 2026. In-person licensed retail only.',
-    lastReviewed: '2026-08-03',
+      'Officially no. Tennessee banned online sales and direct-to-consumer delivery of hemp products effective January 1, 2026, so the legal route is in person at licensed retailers. In practice, some national brands still ship to Tennessee; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
@@ -862,8 +865,9 @@ const THC_STATE_LEGALITY = [
     summary: 'Dispensary only since 2023.',
     details:
       'Washington was an early mover, banning intoxicating hemp products outside the regulated cannabis market in 2023. THC drinks are dispensary-only.',
-    shipping: 'No. Dispensary-only since 2023; reputable brands will not ship here.',
-    lastReviewed: '2026-08-03',
+    shipping:
+      'Officially no. Dispensary-only since 2023, so the legal route is a licensed cannabis store. In practice, some national brands still ship to Washington; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-10-19',
     sources: [{ label: 'BudPop 50-state guide', url: 'https://budpop.com/are-thc-drinks-legal-in-my-state/' }],
   },
   {
