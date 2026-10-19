@@ -499,10 +499,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal in liquor stores at 5mg, with a hard stop coming in November.',
     details:
-      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. It sits in the Senate Judiciary Committee with an Assembly twin, A 5604, and nothing has passed, so plan on November 13 until it does.',
+      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote, so S 4635 and its Assembly twin, A 5604, are headed for floor votes. Neither chamber has passed anything yet and the governor hasn’t signed, so plan on November 13 until that happens.',
     shipping:
-      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline.",
-    lastReviewed: '2026-10-09',
+      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if the extension bill passes.",
+    lastReviewed: '2026-10-19',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
@@ -511,6 +511,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Marijuana Herald on S 4635 and the deadline extension bill',
         url: 'https://themarijuanaherald.com/2026/10/new-jersey-senate-president-introduces-bill-to-extend-intoxicating-hemp-beverage-sales-deadline-to-match-federal-law/',
+      },
+      {
+        label: 'Marijuana Herald on the October 15 committee votes',
+        url: 'https://themarijuanaherald.com/2026/10/new-jersey-senate-and-assembly-committees-unanimously-advance-bills-extending-intoxicating-hemp-beverage-sales-deadline/',
       },
     ],
   },
