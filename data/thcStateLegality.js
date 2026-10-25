@@ -502,10 +502,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal in liquor stores at 5mg, with a hard stop coming in November.',
     details:
-      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote, so S 4635 and its Assembly twin, A 5604, are headed for floor votes. Neither chamber has passed anything yet and the governor hasn’t signed, so plan on November 13 until that happens.',
+      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and the Assembly Appropriations Committee cleared A 5604 13 to 0 the same day, so an Assembly floor vote is the last step before it reaches Governor Sherrill. The bill takes effect the moment it’s signed. Until that happens, plan on November 13.',
     shipping:
-      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if the extension bill passes.",
-    lastReviewed: '2026-10-19',
+      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if the extension bill clears the Assembly and gets signed.",
+    lastReviewed: '2026-10-25',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
@@ -518,6 +518,14 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Marijuana Herald on the October 15 committee votes',
         url: 'https://themarijuanaherald.com/2026/10/new-jersey-senate-and-assembly-committees-unanimously-advance-bills-extending-intoxicating-hemp-beverage-sales-deadline/',
+      },
+      {
+        label: 'Marijuana Herald on the October 22 Senate vote',
+        url: 'https://themarijuanaherald.com/2026/10/new-jersey-senate-votes-37-to-0-to-extend-hemp-beverage-sales-deadline-align-it-with-future-federal-changes/',
+      },
+      {
+        label: 'Heady NJ on the Assembly Appropriations vote',
+        url: 'https://headynj.com/breaking/nj-legislature-ramming-hemp-drinks-ban-deadline-extension-through/',
       },
     ],
   },
@@ -594,10 +602,10 @@ const THC_STATE_LEGALITY = [
     summary:
       'Gray area. Banned on paper since March 20, 2026, but a federal injunction lets named brands, Crescent Canna included, sell and ship here.',
     details:
-      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. On September 4 Judge Jeffrey Helmick replaced that restraining order with a preliminary injunction in Delta Beverages v. Canepa. It bars the state from enforcing SB 56’s hemp definition against the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also covers anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law. Read the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the appeals court has started trimming. On September 26, 2026 the Sixth Circuit partially stayed the July order in Titan Logistics v. Tischler, so those ten companies now need approval from Ohio’s marijuana regulators to sell here, though the state still cannot turn them down for being out of state. That ruling does not touch the September 4 Delta Beverages injunction, so Crescent Canna and the other brands on that list are still covered for now. Expect the state to point to the September 26 ruling when it argues to narrow this one too, so the list of who is covered can still move with the docket.',
+      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. On September 4 Judge Jeffrey Helmick replaced that restraining order with a preliminary injunction in Delta Beverages v. Canepa. It bars the state from enforcing SB 56’s hemp definition against the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also covers anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law. Read the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the appeals court has started trimming. On September 26, 2026 the Sixth Circuit partially stayed the July order in Titan Logistics v. Tischler, so those ten companies now need approval from Ohio’s marijuana regulators to sell here, though the state still cannot turn them down for being out of state. That ruling does not touch the September 4 Delta Beverages injunction, so Crescent Canna and the other brands on that list are still covered for now. The Sixth Circuit heard Ohio’s full appeal of the July order on October 22, 2026 and hasn’t ruled yet. Expect the state to point to the September 26 ruling when it argues to narrow this one too, so the list of who is covered can still move with the docket.',
     shipping:
       'Yes, from the brands named in the federal case. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_ohio) and the other companies covered by the September 4 injunction can ship to Ohio, and that order protects the buyer as well as the seller. Outside that list, selling THC beverages to Ohio consumers is still illegal on paper. Some national brands ship here anyway, that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
-    lastReviewed: '2026-10-05',
+    lastReviewed: '2026-10-25',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',
@@ -622,6 +630,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Marijuana Herald on the Sixth Circuit’s September 26 partial stay',
         url: 'https://themarijuanaherald.com/2026/09/ohio-can-enforce-hemp-licensing-requirements-under-new-federal-appeals-court-ruling/',
+      },
+      {
+        label: 'Law360 on the October 22 Sixth Circuit argument',
+        url: 'https://www.law360.com/retail/articles/2539764',
       },
     ],
   },
@@ -676,10 +688,10 @@ const THC_STATE_LEGALITY = [
     status: 'restricted',
     summary: 'Licensed retailers can sell them, capped at 1mg per serving.',
     details:
-      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does. It isn’t waiting on the federal cap, though. On September 11, 2026 the commission told licensed hemp businesses to pull every product over 0.4mg of total THC per container from their shelves and websites before December 11, 2026, and it won’t let that stock be moved into cannabis stores instead. Even a 1mg can is over that line, so after December 11 there isn’t much left to call a THC drink here. The commission has since softened its tone. On October 10, 2026 a spokesperson said it plans to revise the September bulletin and issue updated guidance within days, and its chief legal counsel said it isn’t telling businesses to shut down ahead of the federal date and would rather wait and see what Washington does. The December 11 line hasn’t moved, but the specifics of what Rhode Island expects from licensees before then could. Drinks are most of what’s at stake: THC seltzers and drinks were about 83 percent of the state’s $2.85 million in licensed hemp sales in 2025.',
+      'Rhode Island has let licensed retailers, including bars, restaurants, and liquor stores, sell hemp THC drinks since August 2024, which sounds friendlier than it is. State rules cap hemp consumables at 1mg of total THC per serving and 5mg per package, so the standard 5mg and 10mg cans do not qualify and what is on the shelf here is light by design. The Cannabis Control Commission recommended in March 2026 that the General Assembly also bar THC drinks at businesses licensed to serve alcohol on site. S 3215, which would have created an infused-beverage endorsement for liquor and cannabis retailers, was held for further study on June 2, 2026 and went nowhere. The commission has signaled its own rule rewrite could slip into 2027 while it waits to see what the federal government does. It isn’t waiting on the federal cap, though. On September 11, 2026 the commission told licensed hemp businesses to pull every product over 0.4mg of total THC per container from their shelves and websites before December 11, 2026, and it won’t let that stock be moved into cannabis stores instead. Even a 1mg can is over that line, so after December 11 there isn’t much left to call a THC drink here. The commission has since softened that order. An amended bulletin dated October 8, 2026, emailed to all 201 hemp licensees on October 9, lets businesses quarantine stock over 0.4mg instead of clearing it out, as long as none of it reaches a customer. Licensees have to file an inventory report with the commission by December 4, and after December 11 nothing can be added to or taken out of the quarantined stock, though a business can ask to destroy it under state supervision at any time. A spokesperson said the point is to avoid forcing destruction while Congress could still change the federal rule. The December 11 line hasn’t moved, and over-limit products still can’t be offered for sale after that date, online included. Drinks are most of what’s at stake: THC seltzers and drinks were about 83 percent of the state’s $2.85 million in licensed hemp sales in 2025.',
     shipping:
       "Officially no for anything mainstream. The 1mg per serving cap applies to any sale into Rhode Island, so ordinary-strength drinks cannot legally be shipped here; the low-dose products that clear the cap are sold through the state's licensed retailers. In practice, some national brands still ship to Rhode Island; that compliance risk sits with the seller, not the buyer. Starting December 11, 2026 anything over 0.4mg per container is noncompliant in Rhode Island, online sales included.",
-    lastReviewed: '2026-10-19',
+    lastReviewed: '2026-10-25',
     sources: [
       {
         label: 'Rhode Island Current on the CCC draft beverage rules',
@@ -700,6 +712,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Marijuana Moment on the CCC’s planned revision of the bulletin',
         url: 'https://www.marijuanamoment.net/rhode-island-grapples-with-hemp-policy-as-federal-ban-on-thc-products-looms/',
+      },
+      {
+        label: 'Rhode Island Current on the October 8 quarantine guidance',
+        url: 'https://rhodeislandcurrent.com/2026/10/21/hemp-businesses-dont-have-to-destroy-their-stock-after-federal-ban-starts-they-just-cant-sell-it/',
       },
     ],
   },
