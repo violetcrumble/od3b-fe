@@ -26,8 +26,8 @@ const heroes = {
   },
 };
 
-// Switch back to 'default' after Halloween.
-const activeHero = 'halloween';
+// Set to 'halloween' for October; the entry above stays for next year.
+const activeHero = 'default';
 const hero = heroes[activeHero];
 const heroBanner = hero.image;
 
