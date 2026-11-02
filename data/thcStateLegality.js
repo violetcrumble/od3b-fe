@@ -210,10 +210,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail today, banned November 12, 2026. The federal delay does not help here.',
     details:
-      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line, which pushes anything stronger into the licensed cannabis system. This is the state to watch for the difference between the two dates. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. Plan on November 12 here even though most of the country now has until December 11.',
+      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line, which pushes anything stronger into the licensed cannabis system. This is the state to watch for the difference between the two dates. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. Plan on November 12 here even though most of the country now has until December 11. On October 21, 2026 the Department of Agriculture put out its bulletin on the switch. It confirms the November 12 date, counts delta-9, delta-8, THCa, THC-O, HHC and THC-P toward the 0.4mg total, and says anything over that line can only be sold by a licensed cannabis dispensary, with unlicensed sales treated as unlicensed cannabis sales and penalties to match. Retailers don’t need a license for what still counts as hemp, and the bulletin says nothing about a sell-through period for stock over the cap.',
     shipping:
       'Yes, until November 12, 2026. After that the state cap ends ordinary sales, shipped or otherwise. Note that this is a month earlier than the federal deadline, because the Illinois date is set in state law and was not affected by the federal delay.',
-    lastReviewed: '2026-09-03',
+    lastReviewed: '2026-11-02',
     sources: [
       {
         label: 'Marijuana Moment on the signed bill',
@@ -222,6 +222,10 @@ const THC_STATE_LEGALITY = [
       {
         label: 'IDFPR SB 3222 fact sheet',
         url: 'https://idfpr.illinois.gov/content/dam/soi/en/web/idfpr/forms/cannabis/sb-3222-fact-sheet.pdf',
+      },
+      {
+        label: 'Illinois Department of Agriculture bulletin on the Hemp Act (October 21, 2026)',
+        url: 'https://agr.illinois.gov/content/dam/soi/en/web/cannabis/documents/idoa/informational-bulletin-illinois-hemp-act-update.pdf',
       },
     ],
   },
@@ -502,10 +506,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal in liquor stores at 5mg, with a hard stop coming in November.',
     details:
-      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and the Assembly Appropriations Committee cleared A 5604 13 to 0 the same day, so an Assembly floor vote is the last step before it reaches Governor Sherrill. The bill takes effect the moment it’s signed. Until that happens, plan on November 13.',
+      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and on October 29 the Assembly substituted it for its own A 5604 and passed it 75 to 2, so the bill has cleared both houses and sits with Governor Sherrill. It takes effect the moment it’s signed, and as of November 2 she hasn’t acted on it. Until she does, plan on November 13.',
     shipping:
-      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if the extension bill clears the Assembly and gets signed.",
-    lastReviewed: '2026-10-25',
+      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if Governor Sherrill signs the extension bill that passed both houses on October 29.",
+    lastReviewed: '2026-11-02',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
@@ -526,6 +530,14 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Heady NJ on the Assembly Appropriations vote',
         url: 'https://headynj.com/breaking/nj-legislature-ramming-hemp-drinks-ban-deadline-extension-through/',
+      },
+      {
+        label: 'Marijuana Herald on the October 29 Assembly vote',
+        url: 'https://themarijuanaherald.com/2026/10/new-jersey-assembly-votes-75-to-2-to-extend-hemp-beverage-sales-deadline-sending-bill-to-governor/',
+      },
+      {
+        label: 'NJ Legislature bill history for S 4635',
+        url: 'https://www.njleg.state.nj.us/bill-search/2026/S4635',
       },
     ],
   },
@@ -600,12 +612,12 @@ const THC_STATE_LEGALITY = [
     name: 'Ohio',
     status: 'unclear',
     summary:
-      'Gray area. Banned on paper since March 20, 2026, but a federal injunction lets named brands, Crescent Canna included, sell and ship here.',
+      'Gray area. Banned on paper since March 20, 2026. A federal injunction let named brands, Crescent Canna included, sell here until the courts cut it back in October.',
     details:
-      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. On September 4 Judge Jeffrey Helmick replaced that restraining order with a preliminary injunction in Delta Beverages v. Canepa. It bars the state from enforcing SB 56’s hemp definition against the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also covers anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law. Read the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the appeals court has started trimming. On September 26, 2026 the Sixth Circuit partially stayed the July order in Titan Logistics v. Tischler, so those ten companies now need approval from Ohio’s marijuana regulators to sell here, though the state still cannot turn them down for being out of state. That ruling does not touch the September 4 Delta Beverages injunction, so Crescent Canna and the other brands on that list are still covered for now. The Sixth Circuit heard Ohio’s full appeal of the July order on October 22, 2026 and hasn’t ruled yet. Expect the state to point to the September 26 ruling when it argues to narrow this one too, so the list of who is covered can still move with the docket.',
+      'Senate Bill 56 reclassified anything over 0.4mg total THC per container as marijuana, and the governor vetoed a carve-out that would have spared drinks. Since March 20, 2026, THC beverages can only be sold through licensed dispensaries. A repeal effort failed to make the ballot. The courts have been punching holes in it since. On July 13, 2026 a federal judge issued a preliminary injunction barring the state from enforcing the ban against ten hemp beverage companies, ruling that it likely discriminates against out-of-state businesses. On August 7 the same judge granted a second temporary restraining order covering fourteen more, including Ohio breweries like Rhinegeist, Fifty West, Seventh Son, and Great Lakes Brewing, and their drinks started turning up on shelves again around August 10. On September 4 Judge Jeffrey Helmick replaced that restraining order with a preliminary injunction in Delta Beverages v. Canepa. It bars the state from enforcing SB 56’s hemp definition against the named plaintiffs, a list that includes Delta Beverages, Crescent Canna, Cheech & Chong’s, Torch, Hometown Hero, Uncle Arnie’s, and those four breweries, and it also covers anyone possessing, selling, distributing, or consuming their products, as long as the product is legal hemp under federal law. Read the fine print, though. The injunction protects the brands named in the case, not every can on every shelf, and the appeals court has started trimming. On September 26, 2026 the Sixth Circuit partially stayed the July order in Titan Logistics v. Tischler, so those ten companies now need approval from Ohio’s marijuana regulators to sell here, though the state still cannot turn them down for being out of state. The Delta Beverages order has now been cut back the same way. Ohio appealed it on October 5, 2026, and on October 7 Judge Helmick stayed his own September 4 injunction except for the part that blocks Ohio’s in-state sourcing rule, saying he saw no reason to think the Sixth Circuit would treat this case differently. He turned down the plaintiffs’ request to reconsider on October 14, while noting he still thinks the narrower remedy is too thin because Ohio is unlikely to write rules letting out-of-state companies in before the federal date. So as of October 7, Crescent Canna and the other brands named in that case need approval from Ohio’s marijuana regulators to sell here, just like the Titan Logistics plaintiffs, and the state can’t turn them down for being out of state. The Sixth Circuit heard Ohio’s full appeal of the July order on October 22, 2026 and hasn’t ruled yet, and both appeals could be overtaken by December 11 anyway.',
     shipping:
-      'Yes, from the brands named in the federal case. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_ohio) and the other companies covered by the September 4 injunction can ship to Ohio, and that order protects the buyer as well as the seller. Outside that list, selling THC beverages to Ohio consumers is still illegal on paper. Some national brands ship here anyway, that gamble belongs to the seller, and adults can legally possess THC in Ohio either way.',
-    lastReviewed: '2026-10-25',
+      'Officially no, since October 7, 2026. The stay means even the brands named in the federal case, Crescent Canna included, need approval from Ohio’s marijuana regulators before they can legally sell or ship here, and none has been reported. In practice, some national brands still ship to Ohio; that compliance risk sits with the seller, not the buyer, and adults can legally possess THC in Ohio either way.',
+    lastReviewed: '2026-11-02',
     sources: [
       {
         label: 'Ohio Capital Journal on SB 56',
@@ -635,6 +647,14 @@ const THC_STATE_LEGALITY = [
         label: 'Law360 on the October 22 Sixth Circuit argument',
         url: 'https://www.law360.com/retail/articles/2539764',
       },
+      {
+        label: 'Judge Helmick’s October 7 order staying the Delta Beverages injunction',
+        url: 'https://www.govinfo.gov/content/pkg/USCOURTS-ohnd-3_26-cv-01793/pdf/USCOURTS-ohnd-3_26-cv-01793-3.pdf',
+      },
+      {
+        label: 'Judge Helmick’s October 14 order denying reconsideration',
+        url: 'https://www.govinfo.gov/content/pkg/USCOURTS-ohnd-3_26-cv-01793/pdf/USCOURTS-ohnd-3_26-cv-01793-4.pdf',
+      },
     ],
   },
   {
@@ -643,14 +663,26 @@ const THC_STATE_LEGALITY = [
     status: 'unclear',
     summary: 'Gray area, trending restrictive.',
     details:
-      'Oklahoma applies a total-THC reading of the hemp limit, and January 2026 agency guidance points toward the federal 0.4mg per container standard. Legislation to codify restrictions has been pending. Products are still around, but the direction of travel is clear.',
+      'Oklahoma applies a total-THC reading of the hemp limit, and January 2026 agency guidance points toward the federal 0.4mg per container standard. The legislature has now gone further. SB 1257, signed May 20, 2026 and in force since November 1, 2026, puts tetrahydrocannabinols on the state’s Schedule I and defines them to include anything chemically synthesized to mimic THC, specifically including THC derived from industrial hemp. It also writes the combined delta-9 and THCA test into the hemp definition. The attorney general pitched it as a trafficking bill that doesn’t touch licensed medical marijuana businesses or patients, and the law doesn’t say how it applies to drinks made with delta-9 that was extracted from hemp rather than converted from CBD. Delta-8 and other converted cannabinoids are the clearest targets. Products are still around, but the direction of travel is clear.',
     shipping:
-      'Gray and tightening. Some brands still ship to Oklahoma, but agency guidance pointing at a 0.4mg cap makes that a shrinking window.',
-    lastReviewed: '2026-08-03',
+      'Gray and tightening. Some brands still ship to Oklahoma, but with converted hemp THC on Schedule I since November 1, 2026 and agency guidance pointing at a 0.4mg cap, that’s a shrinking window.',
+    lastReviewed: '2026-11-02',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
         url: 'https://csgsouth.org/policies/hemp-beverages-high-risk-or-high-reward/',
+      },
+      {
+        label: 'Oklahoma Legislature bill history for SB 1257 (2026)',
+        url: 'http://www.oklegislature.gov/BillInfo.aspx?Bill=SB1257&Session=2600',
+      },
+      {
+        label: 'Enrolled text of SB 1257',
+        url: 'https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/SB/SB1257%20ENR.PDF',
+      },
+      {
+        label: 'Oklahoma attorney general on SB 1257',
+        url: 'https://oklahoma.gov/oag/news/newsroom/2026/february/drummond-applauds-senate-passage-of-bill-closing-drug-trafficking-loophole.html',
       },
     ],
   },
@@ -779,11 +811,15 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail, and the fight is not over.',
     details:
-      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. A third case is running in state court, where hemp distributors sued the health department in Travis County over the enforcement standard it has applied since July. On September 6, 2026 Judge Maria Cantu Hexsel denied their request for a temporary restraining order and set a hearing on a temporary injunction for October 30. A fourth fight is over the health department’s rule that counts THCA toward the THC limit in finished hemp products. A Travis County judge blocked that rule in May, the Fifteenth Court of Appeals put the block on hold in June, and on October 5 it set oral arguments for December 8 in Austin, so the rule stays in force through the federal deadline. Low-dose delta-9 drinks were never part of the ban and are not part of any of these fights.',
+      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. A third case is running in state court, where hemp distributors sued the health department in Travis County over the enforcement standard it has applied since July. On September 6, 2026 Judge Maria Cantu Hexsel denied their request for a temporary restraining order and set a hearing on a temporary injunction for October 30, which was then pushed to November 2. A fourth fight is over the health department’s rule that counts THCA toward the THC limit in finished hemp products. A Travis County judge blocked that rule in May, the Fifteenth Court of Appeals put the block on hold in June, and on October 5 it set oral arguments for December 8 in Austin, so the rule stays in force through the federal deadline. Low-dose delta-9 drinks were never part of the ban and are not part of any of these fights.',
     shipping:
       'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
-    lastReviewed: '2026-10-09',
+    lastReviewed: '2026-11-02',
     sources: [
+      {
+        label: 'Cannabis Business Times on the hearing moving to November 2',
+        url: 'https://www.cannabisbusinesstimes.com/us-states/texas/news/16125212/court-hearing-set-for-nov-2-on-texas-hemp-businesses-lawsuit-against-department-of-state-health-services',
+      },
       {
         label: 'Marijuana Herald on the December 8 appeals court hearing',
         url: 'https://themarijuanaherald.com/2026/10/texas-hemp-lawsuit-heads-to-december-8-appeals-court-hearing-as-new-legal-brief-challenges-states-thc-rules/',
