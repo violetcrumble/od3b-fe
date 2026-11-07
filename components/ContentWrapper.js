@@ -3,7 +3,8 @@ import BanCountdownBar from './BanCountdownBar/BanCountdownBar';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
-export default function ContentWrapper({ children }) {
+// thcPage shows the THC ban bar on a page whose URL isn't under /thc-drinks.
+export default function ContentWrapper({ children, thcPage = false }) {
   return (
     <>
       <Head>
@@ -13,7 +14,7 @@ export default function ContentWrapper({ children }) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
 
-      <BanCountdownBar />
+      <BanCountdownBar thcPage={thcPage} />
       <Header />
 
       <main>{children}</main>

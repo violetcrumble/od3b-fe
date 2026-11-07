@@ -35,7 +35,7 @@ function getYouTubeStartSeconds(youTubeLink) {
   return match ? parseInt(match[1], 10) : null;
 }
 
-export default function Recipe({ recipe, relatedRecipes, affiliates }) {
+export default function Recipe({ recipe, relatedRecipes, affiliates, isThcRecipe }) {
   // Related Products is Amazon-only: THC partner products are promoted via the
   // affiliate CTA boxes and ingredient links instead, not listed twice.
   const amazonProducts = recipe.relatedProducts.filter((product) =>
@@ -109,7 +109,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates }) {
     return { __html: JSON.stringify(jsonLd) };
   }
   return (
-    <ContentWrapper>
+    <ContentWrapper thcPage={isThcRecipe}>
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={description} />
@@ -364,6 +364,7 @@ export async function getStaticProps({ params }) {
       recipe: attrs,
       relatedRecipes,
       affiliates,
+      isThcRecipe,
     },
   };
 }

@@ -116,7 +116,7 @@ export default function CategoryRecipes({ categorySlug, recipes }) {
   const canonicalUrl = `${SITE_URL}/cocktail-recipes/category/${encodeURIComponent(categorySlug)}`;
 
   return (
-    <ContentWrapper>
+    <ContentWrapper thcPage={categorySlug === 'thc'}>
       <Head>
         <title>{`Cocktail Underground - ${content.title}`}</title>
         <meta name="description" content={content.metaDescription} />

@@ -15,7 +15,9 @@ const COUNTDOWN_HREF = '/thc-drinks/discounts';
 const AFTER_BAN_HREF = '/blog/willies-remedy-alternatives';
 
 // Route gate. Any path under these prefixes shows the bar (that covers the THC
-// hub, guides, recipes, legal states, discounts and every review).
+// hub, guides, legal states, discounts and every THC review). Pages outside
+// these prefixes that are still about THC, like a THC recipe under
+// /cocktail-recipes, pass thcPage to ContentWrapper instead.
 const PATH_PREFIXES = ['/thc-drinks'];
 // Plus these blog posts by slug. Add a slug here to show the bar on another post.
 const BLOG_SLUGS = ['thc-drink-ban-november-2026', 'is-willies-remedy-legal-thc-drinks-explained'];
@@ -77,11 +79,11 @@ function dismiss(phase) {
   listeners.forEach((listener) => listener());
 }
 
-export default function BanCountdownBar() {
+export default function BanCountdownBar({ thcPage = false }) {
   const { asPath } = useRouter();
   const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  if (snapshot === null || !isThcPath(asPath)) return null;
+  if (snapshot === null || !(thcPage || isThcPath(asPath))) return null;
 
   const [phase, daysText, dismissedFlag] = snapshot.split('|');
   if (dismissedFlag) return null;
