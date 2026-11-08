@@ -40,7 +40,7 @@ export default function CreatorCard(props) {
         </div>
 
         <div className="creator-image-container">
-          <Image src={props.creatorImage.src} alt={props.name} width="150" height="150" />
+          <Image src={props.creatorImage.src} alt={props.name} width="150" height="150" unoptimized />
         </div>
       </div>
     </div>

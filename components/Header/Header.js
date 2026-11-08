@@ -15,6 +15,7 @@ export default function Header() {
             width="65"
             height="85"
             className={styles.logo}
+            unoptimized
           />
           <div className={styles['logo-text']}>Cocktail Underground</div>
         </Link>

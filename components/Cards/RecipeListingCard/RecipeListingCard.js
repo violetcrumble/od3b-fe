@@ -18,7 +18,7 @@ export default function RecipeListingCard(props) {
         </div>
       ) : (
         <div className="no-pic">
-          <Image src="/pic-not-available.gif" alt="Image not Available" fill sizes={sizes} />
+          <Image src="/pic-not-available.gif" alt="Image not Available" fill sizes={sizes} unoptimized />
         </div>
       )}
 

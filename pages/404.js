@@ -14,7 +14,7 @@ export default function NotFound() {
 
       <div className={`${styles['not-found']} constrained-content`}>
         <span className={styles['skull-badge']}>
-          <Image src="/logo-skull-only.svg" alt="Cocktail Underground skull logo" width="82" height="107" />
+          <Image src="/logo-skull-only.svg" alt="Cocktail Underground skull logo" width="82" height="107" unoptimized />
         </span>
         <h1>404: This page got 86&apos;d</h1>
         <p>Whatever you were after is off the menu. Maybe it moved, maybe the link had one too many.</p>

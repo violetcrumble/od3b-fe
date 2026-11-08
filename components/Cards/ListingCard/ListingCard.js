@@ -23,7 +23,13 @@ export default function ListingCard({ title, authorName, date, imageUrl, imageCa
         </div>
       ) : (
         <div className="imageWrapper">
-          <Image src="/pic-not-available.gif" alt="Image not Available" fill sizes={sizes || DEFAULT_SIZES} />
+          <Image
+            src="/pic-not-available.gif"
+            alt="Image not Available"
+            fill
+            sizes={sizes || DEFAULT_SIZES}
+            unoptimized
+          />
         </div>
       )}
 

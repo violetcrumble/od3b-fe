@@ -4,7 +4,14 @@ import styles from './AboutSection.module.scss';
 export default function AboutSection() {
   return (
     <div className={styles['about-card']}>
-      <Image src="/bonnie-mellott-about.jpg" alt="Bonnie Mellott" width={90} height={90} className={styles.photo} />
+      <Image
+        src="/bonnie-mellott-about.jpg"
+        alt="Bonnie Mellott"
+        width={90}
+        height={90}
+        className={styles.photo}
+        unoptimized
+      />
       <div className={styles.content}>
         <p className={styles.eyebrow}>The lady in the basement</p>
         <h2 className={styles.heading}>Hi, I&apos;m Bonnie</h2>

@@ -47,7 +47,7 @@ export default function ShareMenu({ url, title, image }) {
   return (
     <div className={styles['share-menu']} ref={menuRef}>
       <button type="button" className={styles['share-button']} aria-expanded={open} onClick={() => setOpen(!open)}>
-        <Image priority src={shareIcon} alt="" height={24} width={24} />
+        <Image priority src={shareIcon} alt="" height={24} width={24} unoptimized />
         share
       </button>
       {open && (
@@ -58,7 +58,7 @@ export default function ShareMenu({ url, title, image }) {
             rel="noopener noreferrer"
             onClick={() => trackShare('facebook')}
           >
-            <Image src={facebookIcon} alt="" height={24} width={24} />
+            <Image src={facebookIcon} alt="" height={24} width={24} unoptimized />
             Share on Facebook
           </a>
           <a
@@ -69,7 +69,7 @@ export default function ShareMenu({ url, title, image }) {
             rel="noopener noreferrer"
             onClick={() => trackShare('pinterest')}
           >
-            <Image src={pinterestIcon} alt="" height={24} width={24} />
+            <Image src={pinterestIcon} alt="" height={24} width={24} unoptimized />
             Pin on Pinterest
           </a>
           <div className={styles['copy-link-row']}>

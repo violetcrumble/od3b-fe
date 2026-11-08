@@ -17,7 +17,7 @@ export default function Byline({ authorName, date, updatedDate, showPhoto = true
 
   return (
     <p className={styles['byline']}>
-      {showPhoto && <Image src="/bonnie-mellott-about.jpg" alt={authorName} width={36} height={36} />}
+      {showPhoto && <Image src="/bonnie-mellott-about.jpg" alt={authorName} width={36} height={36} unoptimized />}
       <span className={styles['author']}>{authorName}</span> | {formattedDate}
       {showUpdated && <span className={styles['updated']}>Updated {formattedUpdated}</span>}
     </p>

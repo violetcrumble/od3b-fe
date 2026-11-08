@@ -156,7 +156,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates, isThcRecipe
                 window.print();
               }}
             >
-              <Image priority src={printIcon} alt="" height={24} width={24} />
+              <Image priority src={printIcon} alt="" height={24} width={24} unoptimized />
               print
             </button>
             <ShareMenu
@@ -239,6 +239,8 @@ export default function Recipe({ recipe, relatedRecipes, affiliates, isThcRecipe
                 width="487"
                 height="487"
                 style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+                loading="eager"
+                fetchPriority="high"
                 sizes="(min-width: 1600px) 500px, 35vw"
               />
             )}
