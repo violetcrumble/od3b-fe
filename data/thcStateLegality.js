@@ -210,10 +210,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail today, banned November 12, 2026. The federal delay does not help here.',
     details:
-      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line, which pushes anything stronger into the licensed cannabis system. This is the state to watch for the difference between the two dates. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. Plan on November 12 here even though most of the country now has until December 11. On October 21, 2026 the Department of Agriculture put out its bulletin on the switch. It confirms the November 12 date, counts delta-9, delta-8, THCa, THC-O, HHC and THC-P toward the 0.4mg total, and says anything over that line can only be sold by a licensed cannabis dispensary, with unlicensed sales treated as unlicensed cannabis sales and penalties to match. Retailers don’t need a license for what still counts as hemp, and the bulletin says nothing about a sell-through period for stock over the cap.',
+      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line, which pushes anything stronger into the licensed cannabis system. This is the state to watch for the difference between the two dates. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. Plan on November 12 here even though most of the country now has until December 11. On October 21, 2026 the Department of Agriculture put out its bulletin on the switch. It confirms the November 12 date, counts delta-9, delta-8, THCa, THC-O, HHC and THC-P toward the 0.4mg total, and says anything over that line can only be sold by a licensed cannabis dispensary, with unlicensed sales treated as unlicensed cannabis sales and penalties to match. Retailers don’t need a license for what still counts as hemp, and the bulletin says nothing about a sell-through period for stock over the cap. The industry is trying to stop the clock in court. On November 5, 2026 the Illinois Healthy Alternatives Association and five hemp businesses sued Attorney General Raoul and the heads of five state agencies in federal court in Chicago (Illinois Healthy Alternatives Association v. Raoul, N.D. Ill. 1:26-cv-13799, assigned to Judge Martha Pacold on November 6) and asked for a temporary restraining order before November 12, arguing the law discriminates against out-of-state companies under the Commerce Clause. As of November 8 no hearing had been set and nothing had been ruled on. Don’t plan around it: liquor stores and breweries were already clearing their THC drinks the first week of November, the United Center and the Salt Shed drop them November 12, and Governor Pritzker’s post-election agenda, released November 4, asks Congress to let the federal ban take effect on December 11 too.',
     shipping:
       'Yes, until November 12, 2026. After that the state cap ends ordinary sales, shipped or otherwise. Note that this is a month earlier than the federal deadline, because the Illinois date is set in state law and was not affected by the federal delay.',
-    lastReviewed: '2026-11-02',
+    lastReviewed: '2026-11-08',
     sources: [
       {
         label: 'Marijuana Moment on the signed bill',
@@ -226,6 +226,18 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Illinois Department of Agriculture bulletin on the Hemp Act (October 21, 2026)',
         url: 'https://agr.illinois.gov/content/dam/soi/en/web/cannabis/documents/idoa/informational-bulletin-illinois-hemp-act-update.pdf',
+      },
+      {
+        label: 'Block Club Chicago on the November 5 lawsuit',
+        url: 'https://blockclubchicago.org/2026/11/06/illinois-hemp-industry-advocates-sue-state-ahead-of-sweeping-hemp-derived-thc-ban/',
+      },
+      {
+        label: 'Docket for Illinois Healthy Alternatives Association v. Raoul (N.D. Ill. 1:26-cv-13799)',
+        url: 'https://www.courtlistener.com/docket/75081497/illinois-healthy-alternatives-association-v-kwame-raoul/',
+      },
+      {
+        label: 'Marijuana Herald on Governor Pritzker’s congressional agenda',
+        url: 'https://themarijuanaherald.com/2026/11/illinois-governor-jb-pritzker-calls-on-congress-to-let-federal-ban-on-intoxicating-hemp-take-effect/',
       },
     ],
   },
@@ -420,10 +432,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Drinks legal until December 11, 2026. Other hemp THC products end November 12.',
     details:
-      'Missouri drinks are legal right now. HB 2641 (signed April 2026) adopts the federal 0.4mg total THC cap, and because the Missouri law carves out beverages specifically, Missouri tracks the federal date for drinks rather than fixing its own. That wrinkle now pays off: the federal delay signed on September 2, 2026 moved the drinks deadline to December 11, 2026, so Missouri beverages get the extra month too. Everything else intoxicating and hemp-derived still comes off the shelf on November 12, 2026, since the products made from cannabinoids the plant cannot produce on its own were left out of the delay entirely.',
+      'Missouri drinks are legal right now. HB 2641 (signed April 2026) adopts the federal 0.4mg total THC cap, and because the Missouri law carves out beverages specifically, Missouri tracks the federal date for drinks rather than fixing its own. That wrinkle now pays off: the federal delay signed on September 2, 2026 moved the drinks deadline to December 11, 2026, so Missouri beverages get the extra month too. Everything else intoxicating and hemp-derived still comes off the shelf on November 12, 2026, since the products made from cannabinoids the plant cannot produce on its own were left out of the delay entirely. The court challenge is over, at least for now. On November 4, 2026 a federal judge in the Western District of Missouri, M. Douglas Harpool, dismissed the suit the Missouri Hemp Trade Association, Lifted Liquids and MNG 2005 filed in July, rejecting their preemption, vagueness and interstate commerce arguments, and the plaintiffs say they’re weighing an appeal. The same day Attorney General Catherine Hanaway sued four shops in Aurora, Des Peres, Independence and Rock Port for selling what the state says was marijuana labeled as hemp flower, and promised more suits once the law gives her office its full powers on November 12. None of that touches compliant drinks before December 11, but it tells you how the state plans to enforce.',
     shipping:
       'Yes, until December 11, 2026 for drinks, when the 0.4mg cap ends ordinary sales, shipped or otherwise. Non-beverage intoxicating hemp products lose their legal basis a month earlier, on November 12.',
-    lastReviewed: '2026-09-03',
+    lastReviewed: '2026-11-08',
     sources: [
       {
         label: 'CSG South hemp beverage overview',
@@ -432,6 +444,14 @@ const THC_STATE_LEGALITY = [
       {
         label: 'KCUR on the Missouri ban and the federal stopgap',
         url: 'https://www.kcur.org/politics-elections-and-government/2026-08-17/missouri-hemp-thc-drinks-ban-congress',
+      },
+      {
+        label: 'Missouri attorney general on the November 4 dismissal and retailer suits',
+        url: 'https://ago.mo.gov/attorney-general-hanaway-launches-statewide-action-against-illegal-marijuana-defeats-challenge-to-intoxicating-cannabinoid-law/',
+      },
+      {
+        label: 'Marijuana Herald on the dismissal',
+        url: 'https://themarijuanaherald.com/2026/11/federal-judge-dismisses-challenge-to-missouri-hemp-law-as-attorney-general-sues-four-retailers/',
       },
     ],
   },
@@ -506,10 +526,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal in liquor stores at 5mg, with a hard stop coming in November.',
     details:
-      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and on October 29 the Assembly substituted it for its own A 5604 and passed it 75 to 2, so the bill has cleared both houses and sits with Governor Sherrill. It takes effect the moment it’s signed, and as of November 2 she hasn’t acted on it. Until she does, plan on November 13.',
+      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and on October 29 the Assembly substituted it for its own A 5604 and passed it 75 to 2, so the bill has cleared both houses and sits with Governor Sherrill. It takes effect the moment it’s signed, and as of November 8 the Legislature’s bill page still shows no action from her, five days out. Until she signs, plan on November 13.',
     shipping:
       "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if Governor Sherrill signs the extension bill that passed both houses on October 29.",
-    lastReviewed: '2026-11-02',
+    lastReviewed: '2026-11-08',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
@@ -811,10 +831,10 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail, and the fight is not over.',
     details:
-      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. A third case is running in state court, where hemp distributors sued the health department in Travis County over the enforcement standard it has applied since July. On September 6, 2026 Judge Maria Cantu Hexsel denied their request for a temporary restraining order and set a hearing on a temporary injunction for October 30, which was then pushed to November 2. A fourth fight is over the health department’s rule that counts THCA toward the THC limit in finished hemp products. A Travis County judge blocked that rule in May, the Fifteenth Court of Appeals put the block on hold in June, and on October 5 it set oral arguments for December 8 in Austin, so the rule stays in force through the federal deadline. Low-dose delta-9 drinks were never part of the ban and are not part of any of these fights.',
+      'Low-dose delta-9 drinks remain legal under TABC oversight. The July 31, 2026 crackdown put delta-8, delta-10, THCP, and THCA flower on the state Schedule 1 list, with felony penalties for possession, but it left compliant delta-9 beverages alone. That covers the brands people ask us about by name: yes, Crescent 9 is legal in Texas, and so is Willie’s Remedy. This round came from a May 2026 Texas Supreme Court ruling rather than new legislation, and hemp industry groups sued on August 4 to block it. On August 10 a federal judge turned down their emergency request to pause the ban, ruling they had not shown irreparable harm, so the ban stands while the case goes on. The broader request for a preliminary injunction is still pending, and four more hemp retailers filed a separate federal suit on August 21 arguing the health department overstepped its authority, so the delta-8 and THCA side of this could move again. A third case is running in state court, where hemp distributors sued the health department in Travis County over the enforcement standard it has applied since July. On September 6, 2026 Judge Maria Cantu Hexsel denied their request for a temporary restraining order and set a hearing on a temporary injunction for October 30, which was then pushed to November 2. That hearing went ahead, and as of November 8 no ruling has been reported. A fourth fight is over the health department’s rule that counts THCA toward the THC limit in finished hemp products. A Travis County judge blocked that rule in May, the Fifteenth Court of Appeals put the block on hold in June, and on October 5 it set oral arguments for December 8 in Austin, so the rule stays in force through the federal deadline. Low-dose delta-9 drinks were never part of the ban and are not part of any of these fights.',
     shipping:
       'Yes. Texas remains a major direct-to-consumer market, and compliant low-dose delta-9 drinks ship here under TABC-era rules. [Crescent Canna](https://www.awin1.com/cread.php?awinmid=129383&awinaffid=2989155&ued=https%3A%2F%2Fwww.crescentcanna.com%2F&clickref=legal_states_inline_legal-states_texas) ships Crescent 9 to Texas addresses (21+, no medical card needed), and the cans are on store shelves around the state too.',
-    lastReviewed: '2026-11-02',
+    lastReviewed: '2026-11-08',
     sources: [
       {
         label: 'Cannabis Business Times on the hearing moving to November 2',
