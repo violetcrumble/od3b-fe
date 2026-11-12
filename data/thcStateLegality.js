@@ -165,13 +165,17 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail with a 10mg serving cap.',
     details:
-      'Georgia regulates hemp beverages through the Department of Agriculture under SB 494: 21+, 10mg of delta-9 per 12oz serving, with testing and warning labels required. SB 33, signed May 11, 2026, tightened the definition of intoxicating cannabinoids and set a 0.3% total THC ceiling, but it left the beverage milligram caps where they were. SB 254, which would have cut drinks to 5mg per serving and confined sales to liquor stores, died in a House committee in March 2026. One local quirk: liquor stores are the one place in Georgia that cannot sell these, so look in convenience stores and hemp shops instead.',
+      'Georgia regulates hemp beverages through the Department of Agriculture under SB 494: 21+, 10mg of delta-9 per 12oz serving, with testing and warning labels required. Two 2026 attempts to tighten that went nowhere. SB 33 started as a hemp bill that would have set new total THC limits, but in the last days of the session its hemp language was stripped out and replaced with a property tax measure, and that is what the governor signed on May 11, 2026. SB 254, which would have cut drinks to 5mg per serving and confined sales to liquor stores, died in a House committee in March 2026. One local quirk: liquor stores are the one place in Georgia that cannot sell these, so look in convenience stores and hemp shops instead.',
     shipping: "Yes. Most national brands ship to Georgia, and compliant products carry the state's 10mg serving cap.",
-    lastReviewed: '2026-08-10',
+    lastReviewed: '2026-11-12',
     sources: [
       {
-        label: 'Eversheds Sutherland on Georgia SB 33',
-        url: 'https://www.eversheds-sutherland.com/en/united-states/insights/georgia-passes-new-laws-regulating-hemp-and-medical-cannabis',
+        label: 'Georgia General Assembly: SB 33 history',
+        url: 'https://www.legis.ga.gov/legislation/69550',
+      },
+      {
+        label: 'The Current on SB 33 becoming a property tax bill',
+        url: 'https://thecurrentga.org/2026/05/12/governor-kemp-signs-property-tax-measure-igniting-constitutional-debate/',
       },
       {
         label: 'Georgia DOR bulletin on hemp in liquor stores',
@@ -338,13 +342,17 @@ const THC_STATE_LEGALITY = [
     code: 'ME',
     name: 'Maine',
     status: 'legal',
-    summary: 'Legal at retail under state oversight.',
+    summary: 'Legal at retail under the state hemp law.',
     details:
-      'Maine’s Office of Cannabis Policy oversees intoxicating hemp products with testing standards and THC limits, and drinks are sold under that framework.',
+      'Maine handles these drinks under its hemp law, not its cannabis program. The hemp program sits with the Department of Agriculture, Conservation and Forestry, and a 2025 law set a minimum age of 21 plus packaging and labeling rules for what the statute calls potentially intoxicating hemp products. Drinks are sold at ordinary retail under that law.',
     shipping:
       "Officially no. Maine's rules keep most national brands from shipping here, and Crescent Canna lists it as a no-ship state, so the legal route is Maine's own licensed retail. In practice, some national brands still ship to Maine; that compliance risk sits with the seller, not the buyer.",
-    lastReviewed: '2026-10-19',
+    lastReviewed: '2026-11-12',
     sources: [
+      {
+        label: 'Maine Revised Statutes, Title 7, section 2231 (hemp)',
+        url: 'https://legislature.maine.gov/statutes/7/title7sec2231.html',
+      },
       {
         label: 'Marijuana Herald 50-state status',
         url: 'https://themarijuanaherald.com/2025/11/legal-status-of-hemp-derived-thc-products-in-all-50-states-november-2025/',
@@ -823,11 +831,15 @@ const THC_STATE_LEGALITY = [
     status: 'legal',
     summary: 'Legal at retail with the most generous caps around.',
     details:
-      'Since January 2026 the Alcoholic Beverage Commission regulates hemp drinks: 21+, up to 15mg per serving and two servings per container, with full-panel testing and QR-coded labels. Yes, that cap is higher than Minnesota’s.',
+      'The Alcoholic Beverage Commission regulates hemp drinks, and since July 1, 2026 a store needs a TABC license to sell them: 21+, up to 15mg per serving and two servings per container, with full-panel testing and QR-coded labels. Yes, that cap is higher than Minnesota’s.',
     shipping:
       'Officially no. Tennessee banned online sales and direct-to-consumer delivery of hemp products effective January 1, 2026, so the legal route is in person at licensed retailers. In practice, some national brands still ship to Tennessee; that compliance risk sits with the seller, not the buyer.',
-    lastReviewed: '2026-10-19',
+    lastReviewed: '2026-11-12',
     sources: [
+      {
+        label: 'Hemp Law Group TABC switchover FAQ',
+        url: 'https://www.hemplawgroup.com/tennessee-hemp-tabc-faq',
+      },
       {
         label: 'CSG South hemp beverage overview',
         url: 'https://csgsouth.org/policies/hemp-beverages-high-risk-or-high-reward/',

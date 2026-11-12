@@ -109,6 +109,14 @@ export default function LegalStates({ affiliates }) {
               {FEDERAL_BAN.summary} We cover what that means and what you can do about it in{' '}
               <Link href={FEDERAL_BAN.postUrl}>our federal THC drink ban explainer</Link>.
             </p>
+            <p>
+              That date doesn&apos;t clear every shelf, though. Regulators in Tennessee and Minnesota have said their
+              licensed stores keep selling under state law, and we sorted the rest in{' '}
+              <Link href="/blog/where-thc-drinks-are-still-legal-after-december-11">
+                where THC drinks are still legal after December 11
+              </Link>
+              .
+            </p>
           </div>
 
           <div className={styles['state-picker']}>
