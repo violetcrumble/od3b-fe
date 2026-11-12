@@ -207,13 +207,14 @@ const THC_STATE_LEGALITY = [
   {
     code: 'IL',
     name: 'Illinois',
-    status: 'legal',
-    summary: 'Legal at retail today, banned November 12, 2026. The federal delay does not help here.',
+    status: 'restricted',
+    summary:
+      'Dispensary-only since November 12, 2026. About 250 businesses in a federal lawsuit have a reprieve until a November 19 hearing.',
     details:
-      'Illinois has been one of the friendlier states for hemp drinks, and SB 3222 ends that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopts the same 0.4mg total THC per container line, which pushes anything stronger into the licensed cannabis system. This is the state to watch for the difference between the two dates. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. Plan on November 12 here even though most of the country now has until December 11. On October 21, 2026 the Department of Agriculture put out its bulletin on the switch. It confirms the November 12 date, counts delta-9, delta-8, THCa, THC-O, HHC and THC-P toward the 0.4mg total, and says anything over that line can only be sold by a licensed cannabis dispensary, with unlicensed sales treated as unlicensed cannabis sales and penalties to match. Retailers don’t need a license for what still counts as hemp, and the bulletin says nothing about a sell-through period for stock over the cap. The industry is trying to stop the clock in court. On November 5, 2026 the Illinois Healthy Alternatives Association and five hemp businesses sued Attorney General Raoul and the heads of five state agencies in federal court in Chicago (Illinois Healthy Alternatives Association v. Raoul, N.D. Ill. 1:26-cv-13799, assigned to Judge Martha Pacold on November 6) and asked for a temporary restraining order before November 12, arguing the law discriminates against out-of-state companies under the Commerce Clause. As of November 8 no hearing had been set and nothing had been ruled on. Don’t plan around it: liquor stores and breweries were already clearing their THC drinks the first week of November, the United Center and the Salt Shed drop them November 12, and Governor Pritzker’s post-election agenda, released November 4, asks Congress to let the federal ban take effect on December 11 too.',
+      'Illinois was one of the friendlier states for hemp drinks until SB 3222 ended that. The governor signed it on June 12, 2026. Sales to anyone under 21 stopped immediately, and on November 12, 2026 the state adopted the same 0.4mg total THC per container line the federal government is using, which pushes anything stronger into the licensed cannabis system. Illinois wrote the 0.4mg cap and the November 12 date into its own statute, deliberately aligned with the federal timetable rather than adopted by reference to it, so when Congress pushed the federal drinks deadline to December 11, 2026, the Illinois date did not move with it. That is why the cap landed here a month before most of the country. The Department of Agriculture’s October 21, 2026 bulletin spells out the rules: delta-9, delta-8, THCa, THC-O, HHC and THC-P all count toward the 0.4mg total, and anything over that line can only be sold by a licensed cannabis dispensary, with unlicensed sales treated as unlicensed cannabis sales and penalties to match. Retailers don’t need a license for what still counts as hemp, and the bulletin says nothing about a sell-through period for stock over the cap. The law is in effect, but not against everyone yet. On November 5, 2026 the Illinois Healthy Alternatives Association and five hemp businesses sued Attorney General Raoul and the heads of five state agencies in federal court in Chicago (Illinois Healthy Alternatives Association v. Raoul, N.D. Ill. 1:26-cv-13799, assigned to Judge Martha Pacold on November 6) and asked for a temporary restraining order, arguing the law discriminates against out-of-state companies under the Commerce Clause. In a joint court filing reported on November 9, the state agreed not to enforce the Hemp Act against the plaintiffs or the association’s members, roughly 250 companies, until the court hears the request for a restraining order and preliminary injunction on November 19. That agreement doesn’t suspend the law statewide. Every other seller has been under the cap since November 12, and what happens after the hearing is up to the judge. For shoppers, most of the shelf was already gone: liquor stores and breweries were clearing their THC drinks the first week of November, the United Center and the Salt Shed planned to drop them on November 12, and Governor Pritzker’s post-election agenda, released November 4, asks Congress to let the federal ban take effect on December 11 too.',
     shipping:
-      'Yes, until November 12, 2026. After that the state cap ends ordinary sales, shipped or otherwise. Note that this is a month earlier than the federal deadline, because the Illinois date is set in state law and was not affected by the federal delay.',
-    lastReviewed: '2026-11-08',
+      'Officially no, since November 12, 2026. Illinois now treats anything over 0.4mg of total THC per container as cannabis, so the legal route is a licensed dispensary. In practice, some national brands still ship to Illinois; that compliance risk sits with the seller, not the buyer.',
+    lastReviewed: '2026-11-12',
     sources: [
       {
         label: 'Marijuana Moment on the signed bill',
@@ -230,6 +231,14 @@ const THC_STATE_LEGALITY = [
       {
         label: 'Block Club Chicago on the November 5 lawsuit',
         url: 'https://blockclubchicago.org/2026/11/06/illinois-hemp-industry-advocates-sue-state-ahead-of-sweeping-hemp-derived-thc-ban/',
+      },
+      {
+        label: 'Block Club Chicago on the enforcement pause and the November 19 hearing',
+        url: 'https://blockclubchicago.org/2026/11/10/illinois-delays-hemp-thc-ban-for-250-businesses-that-sued-over-it/',
+      },
+      {
+        label: 'Marijuana Herald on who the pause covers',
+        url: 'https://themarijuanaherald.com/2026/11/illinois-agrees-to-pause-hemp-thc-enforcement-for-250-businesses-until-november-19-amid-federal-lawsuit/',
       },
       {
         label: 'Docket for Illinois Healthy Alternatives Association v. Raoul (N.D. Ill. 1:26-cv-13799)',
