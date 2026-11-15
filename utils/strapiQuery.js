@@ -1,7 +1,33 @@
 const URL = process.env.STRAPIBASEURL;
+const PREVIEW_DRAFTS = process.env.STRAPI_PREVIEW_DRAFTS === 'true' && process.env.NODE_ENV !== 'production';
+const PREVIEW_PLACEHOLDER_PHOTO = {
+  url: 'https://res.cloudinary.com/onedrinkthreebars/image/upload/e_grayscale,o_35/l_text:Arial_110_bold:PHOTO%20NEEDED,co_rgb:5b2a86/v1784250292/jack_daniels_blackberry_lynchburg_lemonade_a68ab485db.jpg',
+  caption: null,
+  alternativeText: 'Placeholder photo (draft preview)',
+};
+const PREVIEW_PLACEHOLDER_AUTHOR = { AuthorName: 'Author not set (draft preview)' };
+
+function askForDrafts(query) {
+  return query.replace(/\b(recipes|blogPosts)\(/g, '$1(status: DRAFT, ');
+}
+
+function fillDraftGaps(data) {
+  data?.recipes?.forEach((recipe) => {
+    if ('PhotoMain' in recipe && !recipe.PhotoMain?.length) {
+      recipe.PhotoMain = [PREVIEW_PLACEHOLDER_PHOTO];
+    }
+  });
+  data?.blogPosts?.forEach((blogPost) => {
+    if ('blog_authors' in blogPost && !blogPost.blog_authors?.length) {
+      blogPost.blog_authors = [PREVIEW_PLACEHOLDER_AUTHOR];
+    }
+  });
+  return data;
+}
 
 // The one way this site reads from Strapi: a plain POST to /graphql.
 export async function strapiQuery(query, variables) {
+  if (PREVIEW_DRAFTS) query = askForDrafts(query);
   const res = await fetch(`${URL}/graphql`, {
     method: 'post',
     headers: { 'content-type': 'application/json' },
@@ -14,15 +40,9 @@ export async function strapiQuery(query, variables) {
   if (errors?.length) {
     throw new Error(`Strapi query failed: ${errors[0].message}`);
   }
-  return data;
+  return PREVIEW_DRAFTS ? fillDraftGaps(data) : data;
 }
 
-// For queries whose result is identical across pages (all-recipes, affiliate
-// partners, blog listings): getStaticProps runs once per page, so each build
-// worker would otherwise hit Strapi with the same query dozens of times —
-// which has OOM-crashed the Heroku dyno mid-build before. Cached per worker
-// process; in `next dev` this means a server restart is needed to pick up
-// Strapi content changes (an existing quirk of this project's dev workflow).
 const cache = new Map();
 export function strapiQueryCached(query) {
   if (!cache.has(query)) {

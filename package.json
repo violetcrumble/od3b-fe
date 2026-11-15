@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:drafts": "STRAPI_PREVIEW_DRAFTS=true next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

@@ -541,12 +541,12 @@ const THC_STATE_LEGALITY = [
     code: 'NJ',
     name: 'New Jersey',
     status: 'legal',
-    summary: 'Legal in liquor stores at 5mg, with a hard stop coming in November.',
+    summary: 'Legal in liquor stores at 5mg until the federal cutoff on December 11, 2026.',
     details:
-      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. On November 13, 2026, anything over the new federal 0.4mg line becomes cannabis and moves to dispensaries only. That date could still move. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and on October 29 the Assembly substituted it for its own A 5604 and passed it 75 to 2, so the bill has cleared both houses and sits with Governor Sherrill. It takes effect the moment it’s signed, and as of November 8 the Legislature’s bill page still shows no action from her, five days out. Until she signs, plan on November 13.',
+      'New Jersey’s 2026 laws let licensed liquor retailers and cannabis stores sell hemp drinks capped at 5mg per serving and 10mg per container. Those same laws set November 13, 2026 as the day anything over the new federal 0.4mg line would become cannabis and move to dispensaries only, but that date moved. Senate President Nicholas Scutari introduced S 4635 on October 1, 2026 to swap the fixed November 13 cutoff for the federal one, December 11 or later if Congress delays again. On October 15, 2026 the Senate Judiciary Committee and the Assembly State and Local Government Committee both advanced the bills without a no vote. On October 22 the full Senate passed S 4635 37 to 0, and on October 29 the Assembly substituted it for its own A 5604 and passed it 75 to 2, and Governor Sherrill signed it on November 12, the day before the old cutoff. So liquor stores and cannabis stores can keep selling 5mg drinks until the federal ban lands on December 11, 2026, and after that anything over 0.4mg is dispensary-only cannabis.',
     shipping:
-      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good at the November 13 dispensary-only deadline, or December 11 if Governor Sherrill signs the extension bill that passed both houses on October 29.",
-    lastReviewed: '2026-11-08',
+      "Officially no. New Jersey's 2026 law bans online sales of intoxicating hemp products outright, and licensed liquor stores and dispensaries are the only legal route. In practice, some national brands still ship here; expect that window to close for good on December 11, 2026, the date New Jersey now uses after Governor Sherrill signed the extension bill on November 12.",
+    lastReviewed: '2026-11-15',
     sources: [
       {
         label: 'NJ Cannabis Regulatory Commission FAQ',
@@ -575,6 +575,14 @@ const THC_STATE_LEGALITY = [
       {
         label: 'NJ Legislature bill history for S 4635',
         url: 'https://www.njleg.state.nj.us/bill-search/2026/S4635',
+      },
+      {
+        label: 'Governor Sherrill’s November 12 bill signings, including S 4635',
+        url: 'https://www.nj.gov/governor/news/2026/approved/20261112a.shtml',
+      },
+      {
+        label: 'Marijuana Herald on the signing',
+        url: 'https://themarijuanaherald.com/2026/11/new-jersey-governor-signs-hemp-beverages/',
       },
     ],
   },
