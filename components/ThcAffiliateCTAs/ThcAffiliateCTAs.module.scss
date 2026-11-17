@@ -45,6 +45,19 @@
     margin: 0;
   }
 
+  // Sale line on the Crescent Canna card while a sale runs.
+  .sale {
+    margin-top: 8px;
+    color: colors.$brand-purple;
+    font-weight: bold;
+  }
+
+  .code {
+    font-family: monospace;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
   a:link,
   a:visited {
     display: block;

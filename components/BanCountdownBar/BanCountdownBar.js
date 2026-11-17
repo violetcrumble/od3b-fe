@@ -2,6 +2,7 @@ import { useSyncExternalStore } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import trackEvent from '../../utils/analytics';
+import { SALE_CODE, currentTime, saleHref, saleStage } from '../../utils/crescentSale';
 import SITE_URL from '../../utils/siteUrl';
 import styles from './BanCountdownBar.module.scss';
 
@@ -14,6 +15,11 @@ const easternDate = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_Yo
 const COUNTDOWN_HREF = '/thc-drinks/discounts';
 const AFTER_BAN_HREF = '/blog/willies-remedy-alternatives';
 
+// While Crescent Canna's buy one get one runs (utils/crescentSale.js), the bar
+// shows the sale in place of the countdown and links straight to the campaign
+// link, with the code beside it.
+const SALE_HREF = saleHref('ban_countdown_bar', 'gwbogo');
+
 // Route gate. Any path under these prefixes shows the bar (that covers the THC
 // hub, guides, legal states, discounts and every THC review). Pages outside
 // these prefixes that are still about THC, like a THC recipe under
@@ -22,8 +28,10 @@ const PATH_PREFIXES = ['/thc-drinks'];
 // Plus these blog posts by slug. Add a slug here to show the bar on another post.
 const BLOG_SLUGS = ['thc-drink-ban-november-2026', 'is-willies-remedy-legal-thc-drinks-explained'];
 
-// One localStorage key holds which phase was dismissed, so someone who closed
-// the countdown still sees the after-ban message once.
+// One localStorage key holds the messages that were dismissed, comma separated.
+// Each message has its own name (countdown, sale, sale_last_day, after_ban), so
+// closing one never hides a message the reader hasn't seen yet, and closing the
+// sale doesn't bring the countdown back.
 const STORAGE_KEY = 'banCountdownBarDismissed';
 
 export function isThcPath(asPath) {
@@ -53,29 +61,37 @@ function subscribe(listener) {
   return () => listeners.delete(listener);
 }
 
-function getSnapshot() {
-  const days = daysUntilBan();
-  const phase = days > 0 ? 'countdown' : 'after_ban';
-  let dismissed = dismissedThisPageView;
+function dismissedMessages() {
+  let stored = '';
   try {
-    dismissed = dismissed || window.localStorage.getItem(STORAGE_KEY) || '';
+    stored = window.localStorage.getItem(STORAGE_KEY) || '';
   } catch {
     // Private mode or storage blocked: the bar just comes back next visit.
   }
-  return `${phase}|${days}|${dismissed === phase ? 'dismissed' : ''}`;
+  return [...stored.split(','), ...dismissedThisPageView.split(',')].filter(Boolean);
+}
+
+function getSnapshot() {
+  const now = currentTime();
+  const days = daysUntilBan(now);
+  const stage = saleStage(now);
+  const phase = stage ? 'sale' : days > 0 ? 'countdown' : 'after_ban';
+  const message = stage === 'last_day' ? 'sale_last_day' : phase;
+  return `${phase}|${days}|${dismissedMessages().includes(message) ? 'dismissed' : ''}|${message}`;
 }
 
 function getServerSnapshot() {
   return null;
 }
 
-function dismiss(phase) {
+function dismiss(message) {
+  const messages = [...new Set([...dismissedMessages(), message])].join(',');
   try {
-    window.localStorage.setItem(STORAGE_KEY, phase);
+    window.localStorage.setItem(STORAGE_KEY, messages);
   } catch {
     // See above.
   }
-  dismissedThisPageView = phase;
+  dismissedThisPageView = messages;
   listeners.forEach((listener) => listener());
 }
 
@@ -85,8 +101,34 @@ export default function BanCountdownBar({ thcPage = false }) {
 
   if (snapshot === null || !(thcPage || isThcPath(asPath))) return null;
 
-  const [phase, daysText, dismissedFlag] = snapshot.split('|');
+  const [phase, daysText, dismissedFlag, message] = snapshot.split('|');
+  const lastDay = message === 'sale_last_day';
   if (dismissedFlag) return null;
+
+  if (phase === 'sale') {
+    // rel="sponsored" hands the click to utils/trackAffiliateClicks.js, like
+    // every other partner link, so there's no handler here.
+    return (
+      <div className={styles['ban-bar']} role="region" aria-label="THC drink sale notice">
+        <p>
+          <strong>{lastDay ? 'Ends tonight: buy' : 'Buy'} one, get one free on Ellora and Crescent 9.</strong>{' '}
+          {!lastDay && <span className={styles.detail}>Through Monday, Nov 30. </span>}
+          Code <span className={styles.code}>{SALE_CODE}</span>{' '}
+          <a href={SALE_HREF} target="_blank" rel="sponsored noopener noreferrer">
+            Shop the sale &rarr;
+          </a>
+        </p>
+        <button
+          type="button"
+          className={styles.dismiss}
+          onClick={() => dismiss(message)}
+          aria-label="Dismiss this notice"
+        >
+          &times;
+        </button>
+      </div>
+    );
+  }
 
   const days = Number(daysText);
   const href = phase === 'countdown' ? COUNTDOWN_HREF : AFTER_BAN_HREF;
@@ -128,7 +170,12 @@ export default function BanCountdownBar({ thcPage = false }) {
           </>
         )}
       </p>
-      <button type="button" className={styles.dismiss} onClick={() => dismiss(phase)} aria-label="Dismiss this notice">
+      <button
+        type="button"
+        className={styles.dismiss}
+        onClick={() => dismiss(message)}
+        aria-label="Dismiss this notice"
+      >
         &times;
       </button>
     </div>
