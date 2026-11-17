@@ -107,14 +107,22 @@ export default function BanCountdownBar({ thcPage = false }) {
 
   if (phase === 'sale') {
     // rel="sponsored" hands the click to utils/trackAffiliateClicks.js, like
-    // every other partner link, so there's no handler here.
+    // every other partner link, so there's no handler here. The data attributes
+    // give it the same placement the countdown link reports, with the phase as
+    // the campaign.
     return (
       <div className={styles['ban-bar']} role="region" aria-label="THC drink sale notice">
         <p>
           <strong>{lastDay ? 'Ends tonight: buy' : 'Buy'} one, get one free on Ellora and Crescent 9.</strong>{' '}
           {!lastDay && <span className={styles.detail}>Through Monday, Nov 30. </span>}
           Code <span className={styles.code}>{SALE_CODE}</span>{' '}
-          <a href={SALE_HREF} target="_blank" rel="sponsored noopener noreferrer">
+          <a
+            href={SALE_HREF}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            data-affiliate-placement="ban_countdown_bar"
+            data-affiliate-campaign={phase}
+          >
             Shop the sale &rarr;
           </a>
         </p>

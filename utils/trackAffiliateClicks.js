@@ -27,11 +27,13 @@ export default function useAffiliateClickTracking() {
         }
       }
 
+      // Awin links carry no UTMs, so a link can name its own placement and
+      // campaign with data-affiliate-placement / data-affiliate-campaign.
       trackEvent('affiliate_click', {
         affiliate_url: link.href,
         affiliate_domain: domain,
-        affiliate_placement: url.searchParams.get('utm_medium') || '',
-        affiliate_campaign: url.searchParams.get('utm_campaign') || '',
+        affiliate_placement: link.dataset.affiliatePlacement || url.searchParams.get('utm_medium') || '',
+        affiliate_campaign: link.dataset.affiliateCampaign || url.searchParams.get('utm_campaign') || '',
         affiliate_partner: url.searchParams.get('utm_content') || '',
         affiliate_clickref: url.searchParams.get('clickref') || '',
         link_text: link.innerText.trim().slice(0, 100),
