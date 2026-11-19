@@ -43,11 +43,20 @@
     max-width: 1000px;
   }
   .blog-post-content p:not([class]) img {
-    max-width: 45%;
+    // 340px cap: on wide screens 45% made photos taller than the text beside them,
+    // leaving a gap before the next entry.
+    max-width: min(45%, 340px);
     height: auto;
     border-radius: 8px;
     float: right;
     margin: 0 0 16px 24px;
+  }
+  // The state map on the "still legal after December 11" post is a diagram, not a drink
+  // photo, so it keeps the uncapped size. Matched by file name; phones still get full width.
+  @media screen and (min-width: 601px) {
+    .blog-post-content p:not([class]) img[src*='thc_drinks_after_dec_11_map'] {
+      max-width: 45%;
+    }
   }
   .blog-post-content h2,
   .blog-post-content h3,
