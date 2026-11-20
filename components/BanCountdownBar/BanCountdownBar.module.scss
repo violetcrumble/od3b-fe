@@ -27,6 +27,12 @@
     color: colors.$brand-seafoam;
   }
 
+  // The sale code, set apart so it's easy to spot and copy by eye.
+  .code {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
   a:link,
   a:visited {
     color: colors.$white;

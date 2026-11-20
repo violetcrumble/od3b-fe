@@ -4,6 +4,8 @@ import Markdown from 'react-markdown';
 import ContentWrapper from '../../ContentWrapper';
 import NewsletterSignup from '../../NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../ThcAffiliateCTAs/ThcAffiliateCTAs';
+import CrescentSaleBox from '../../CrescentSaleBox/CrescentSaleBox';
+import { SALE_BOX_REVIEW_SLUGS, WILLIES_SALE_NOTE } from '../../../utils/crescentSale';
 import AmazonListingCard from '../../Cards/AmazonListingCard/AmazonListingCard';
 import ReviewRatingBadge from '../ReviewRatingBadge/ReviewRatingBadge';
 import ReviewVerdictBox from '../ReviewVerdictBox/ReviewVerdictBox';
@@ -103,6 +105,15 @@ export default function ReviewPage({ review, section, affiliates = [] }) {
 
           <ReviewRatingBadge rating={review.rating} />
           <ReviewVerdictBox verdict={review.verdict} />
+
+          {/* Crescent Canna's buy one get one, only while it runs: on Crescent's own products, and on the reviews listed in utils/crescentSale.js */}
+          {/ellora|crescent ?9/i.test(`${review.productName} ${review.title}`) ? (
+            <CrescentSaleBox slug={review.reviewUrlSlug} />
+          ) : (
+            SALE_BOX_REVIEW_SLUGS.includes(review.reviewUrlSlug) && (
+              <CrescentSaleBox slug={review.reviewUrlSlug} note={WILLIES_SALE_NOTE} />
+            )
+          )}
 
           <Markdown components={markdownLinkComponents}>{review.reviewBody}</Markdown>
 

@@ -7,6 +7,7 @@ import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSig
 import { GET_AFFILIATE_DISCOUNTS } from '../../../graphql/queries';
 import { strapiQueryCached } from '../../../utils/strapiQuery';
 import affiliateLink from '../../../utils/affiliateLink';
+import { SALE_CODE, isCrescentPartner, saleHref, useSaleStage } from '../../../utils/crescentSale';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
 import thcStyles from '../../../styles/pages/THC.module.scss';
@@ -40,7 +41,31 @@ function CopyCodeButton({ code }) {
   );
 }
 
-export default function THCDiscounts({ partners }) {
+export default function THCDiscounts({ partners: strapiPartners }) {
+  // Crescent Canna's buy one get one: while it runs, the Crescent card shows the
+  // sale, the code and the campaign link, with no change to the partner in Strapi.
+  // It also moves to the front of this page for those days only (Bonnie's call,
+  // Nov 17 2026). The rest keep their Strapi order, and so does the sidebar,
+  // where Mission Farms stays first.
+  const saleStage = useSaleStage();
+  const orderedPartners = saleStage
+    ? [...strapiPartners.filter(isCrescentPartner), ...strapiPartners.filter((partner) => !isCrescentPartner(partner))]
+    : strapiPartners;
+  const partners = orderedPartners.map((partner) =>
+    saleStage && isCrescentPartner(partner)
+      ? {
+          ...partner,
+          discountCode: SALE_CODE,
+          discountDetails:
+            saleStage === 'last_day'
+              ? 'Ends tonight: buy one, get one free on Ellora and Crescent 9 seltzers'
+              : 'Buy one, get one free on Ellora and Crescent 9 seltzers through Monday, Nov 30',
+          cta: 'Shop the sale',
+          saleHref: saleHref('discounts_page', 'gwbogo'),
+        }
+      : partner,
+  );
+
   return (
     <ContentWrapper>
       <Head>
@@ -116,11 +141,14 @@ export default function THCDiscounts({ partners }) {
 
               <a
                 className={styles['cta-link']}
-                href={affiliateLink(partner.baseUrl, {
-                  medium: 'discounts_page',
-                  campaign: 'thc_discounts',
-                  content: partner.name.toLowerCase().replace(/\s+/g, '_'),
-                })}
+                href={
+                  partner.saleHref ||
+                  affiliateLink(partner.baseUrl, {
+                    medium: 'discounts_page',
+                    campaign: 'thc_discounts',
+                    content: partner.name.toLowerCase().replace(/\s+/g, '_'),
+                  })
+                }
                 target="_blank"
                 rel="sponsored noopener noreferrer"
               >

@@ -1,0 +1,97 @@
+@use '../../styles/colors';
+
+// Same look as a card on the discounts page: white, dashed purple code, purple
+// button, so the code reads the same everywhere on the site.
+// It fills its column. Where the column is wide enough the words sit on the
+// left and the code and button on the right; where it isn't, they stack.
+.sale-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin: 20px 0;
+  padding: 16px 20px;
+  background-color: colors.$white;
+  border: 1px solid colors.$brand-teal-100;
+  border-left: 6px solid colors.$brand-purple;
+  border-radius: 10px;
+
+  .text {
+    flex: 3 1 300px;
+    min-width: 0;
+  }
+
+  .actions {
+    flex: 1 1 240px;
+    min-width: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .headline {
+    color: colors.$brand-purple;
+    font-size: 1.15rem;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .code-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 12px;
+  }
+
+  .code {
+    border: 2px dashed colors.$brand-purple;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  // Overrides the global teal button styling in globals.scss.
+  .copy-btn {
+    background-color: colors.$white;
+    color: colors.$brand-purple;
+    border: 1px solid colors.$brand-purple;
+    border-radius: 24px;
+    padding: 8px 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors.$brand-purple-100;
+    }
+  }
+
+  .cta-link {
+    &:link,
+    &:visited {
+      display: block;
+      background-color: colors.$brand-purple;
+      color: colors.$white;
+      text-decoration: none;
+      text-align: center;
+      padding: 12px;
+      border-radius: 24px;
+      font-weight: bold;
+    }
+
+    &:hover,
+    &:active {
+      background-color: colors.$brand-purple-300;
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+}

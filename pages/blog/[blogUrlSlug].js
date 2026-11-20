@@ -9,6 +9,8 @@ import rehypeSlug from 'rehype-slug';
 import styles from '../../styles/pages/BlogPost.module.scss';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
+import CrescentSaleBox from '../../components/CrescentSaleBox/CrescentSaleBox';
+import { SALE_BOX_BLOG_HEADINGS } from '../../utils/crescentSale';
 import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonListingCard';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import Byline from '../../components/Byline/Byline';
@@ -25,9 +27,20 @@ import NegroniFamilyTree, {
 // "First" is read from the markdown source rather than counted during render, which keeps server and client in sync.
 const FIRST_MARKDOWN_IMAGE = /!\[[^\]]*\]\(([^)\s]+)/;
 
-function createBlogMarkdownComponents(firstImageSrc) {
+function createBlogMarkdownComponents(firstImageSrc, slug) {
+  // Crescent Canna's buy one get one: on the posts listed in utils/crescentSale.js
+  // the sale box goes right under one h2, and only shows while the sale runs.
+  const saleBoxHeadingId = SALE_BOX_BLOG_HEADINGS[slug];
   return {
     ...markdownLinkComponents,
+    ...(saleBoxHeadingId && {
+      h2: ({ node, ...props }) => (
+        <>
+          <h2 {...props} />
+          {props.id === saleBoxHeadingId && <CrescentSaleBox slug={slug} />}
+        </>
+      ),
+    }),
     table: ({ node, ...props }) => (
       <div className={styles['table-scroll']}>
         <table {...props} />
@@ -47,7 +60,10 @@ function createBlogMarkdownComponents(firstImageSrc) {
 }
 
 export default function BlogPost({ blogPost, affiliates }) {
-  const blogMarkdownComponents = createBlogMarkdownComponents(blogPost.BlogPostBody?.match(FIRST_MARKDOWN_IMAGE)?.[1]);
+  const blogMarkdownComponents = createBlogMarkdownComponents(
+    blogPost.BlogPostBody?.match(FIRST_MARKDOWN_IMAGE)?.[1],
+    blogPost.urlSlug,
+  );
   const canonicalUrl = `${SITE_URL}/blog/${blogPost.urlSlug}`;
   const metaDescription = blogPost.seoDescription || blogPost.TextPreviewSnippet;
 

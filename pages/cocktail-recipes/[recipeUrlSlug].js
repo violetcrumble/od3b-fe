@@ -20,6 +20,7 @@ import cloudinaryOptimize, { cloudinarySocialImage, cloudinarySchemaCrop43 } fro
 import getRelatedRecipes from '../../utils/getRelatedRecipes';
 import NewsletterSignup from '../../components/NewsletterSignup/NewsletterSignup';
 import ThcAffiliateCTAs from '../../components/ThcAffiliateCTAs/ThcAffiliateCTAs';
+import CrescentSaleBox from '../../components/CrescentSaleBox/CrescentSaleBox';
 import RecipeRating from '../../components/RecipeRating/RecipeRating';
 import getBreadcrumbJsonLd from '../../utils/breadcrumbJsonLd';
 import trackEvent from '../../utils/analytics';
@@ -184,6 +185,9 @@ export default function Recipe({ recipe, relatedRecipes, affiliates, isThcRecipe
                   : recipe.ingredients}
               </Markdown>
             </div>
+
+            {/* Crescent Canna's buy one get one: only on recipes that use Ellora or Crescent 9, only while it runs */}
+            {/ellora|crescent ?9/i.test(recipe.ingredients) && <CrescentSaleBox slug={recipe.recipeUrlSlug} />}
 
             {/* real embedded player, not a link-out — required for Google video indexing */}
             {youTubeEmbedUrl && (
