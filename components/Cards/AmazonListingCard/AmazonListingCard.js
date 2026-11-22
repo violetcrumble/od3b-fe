@@ -22,7 +22,7 @@ export default function AmazonListingCard(props) {
       </div>
 
       <a href={props.amazonLink} target="_blank" rel="sponsored noopener noreferrer">
-        Purchase
+        Purchase <span className={styles['hidden-name']}>{props.productName}</span>
       </a>
     </div>
   );
