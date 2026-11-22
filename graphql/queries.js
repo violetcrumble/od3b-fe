@@ -174,6 +174,23 @@ const GET_BLOG_POST = `
         ProductName
         ProductCategory
       }
+      roundupPicks {
+        name
+        label
+        priceNote
+        photo {
+          url
+          alternativeText
+        }
+        photoUrl
+        photoAlt
+        link
+        review {
+          reviewUrlSlug
+          category
+        }
+        writeUp
+      }
     }
   }
 `;

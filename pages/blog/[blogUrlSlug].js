@@ -17,6 +17,9 @@ import Byline from '../../components/Byline/Byline';
 import SITE_URL from '../../utils/siteUrl';
 import cloudinaryOptimize from '../../utils/cloudinaryOptimize';
 import markdownLinkComponents from '../../utils/markdownLinkComponents';
+import PickCard from '../../components/Roundup/PickCard';
+import QuickPicks from '../../components/Roundup/QuickPicks';
+import { splitRoundupBody, stripRoundupMarkers } from '../../utils/roundup';
 import NegroniFamilyTree, {
   NEGRONI_FAMILY_TREE_SRC_PATTERN,
 } from '../../components/NegroniFamilyTree/NegroniFamilyTree';
@@ -73,7 +76,7 @@ export default function BlogPost({ blogPost, affiliates }) {
       '@type': 'BlogPosting',
       headline: blogPost.Title,
       image: [cloudinaryOptimize(blogPost.ListingCardImage?.url, 1200) || `${SITE_URL}/pic-not-available.gif`],
-      articleBody: blogPost.BlogPostBody,
+      articleBody: stripRoundupMarkers(blogPost.BlogPostBody),
       keywords: blogPost.seoKeywords,
       description: metaDescription,
       datePublished: blogPost.Date,
@@ -136,9 +139,22 @@ export default function BlogPost({ blogPost, affiliates }) {
             updatedDate={blogPost.lastUpdated}
           />
           {/* rehype-slug gives every heading an id so posts can carry in-page jump links. */}
-          <Markdown components={blogMarkdownComponents} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
-            {blogPost.BlogPostBody}
-          </Markdown>
+          {/* Roundup posts split the body at [[pick N]] markers; other posts come back as one markdown chunk. */}
+          {splitRoundupBody(blogPost.BlogPostBody, blogPost.roundupPicks).map((part, i) => {
+            if (part.type === 'quickPicks') return <QuickPicks key="quick-picks" picks={blogPost.roundupPicks} />;
+            if (part.type === 'pick')
+              return <PickCard key={`pick-${part.number}`} number={part.number} pick={part.pick} />;
+            return (
+              <Markdown
+                key={`markdown-${i}`}
+                components={blogMarkdownComponents}
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeSlug]}
+              >
+                {part.text}
+              </Markdown>
+            );
+          })}
         </div>
 
         <div className={`${styles['sidebar']}`}>
