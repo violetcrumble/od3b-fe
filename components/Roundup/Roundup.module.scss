@@ -1,6 +1,8 @@
 @use '../../styles/colors';
 
+// Both boxes start below any floated body photo so it can't hang into them.
 .quick-picks {
+  clear: both;
   margin: 24px 0 32px;
   padding: 16px 20px;
   border: 1px solid colors.$brand-purple-100;
@@ -28,6 +30,7 @@
 }
 
 .pick-card {
+  clear: both;
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr);
   gap: 24px;
