@@ -119,6 +119,22 @@ query {
 }
 `;
 
+// The "Start here" picks on /home-bar-supplies: products with a FeaturedOrder
+// number in Strapi, lowest first. Kept apart from GET_AMAZON_PRODUCTS so the
+// other product pages don't depend on the field.
+const GET_FEATURED_PRODUCTS = `
+query {
+  products(filters: { FeaturedOrder: { notNull: true } }, sort: "FeaturedOrder:asc", pagination: { limit: 12 }) {
+    documentId
+    AmazonLink
+    AmazonASIN
+    AmazonPhotoURL
+    ProductName
+    ProductCategory
+  }
+}
+`;
+
 const GET_ALL_BLOG_SLUGS = `
   query {
     blogPosts(pagination: { limit: 300 }) {
@@ -311,6 +327,7 @@ export {
   GET_LATEST_RECIPES,
   GET_INDIVIDUAL_RECIPE,
   GET_AMAZON_PRODUCTS,
+  GET_FEATURED_PRODUCTS,
   GET_ALL_BLOG_SLUGS,
   GET_ALL_BLOG_POSTS,
   GET_BLOG_POST,

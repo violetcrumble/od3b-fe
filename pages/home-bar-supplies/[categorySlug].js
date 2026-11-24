@@ -55,10 +55,7 @@ export default function ProductCategory({ category, products }) {
 
         <h1 className="text-brand-purple">{category.name}</h1>
         <p>{category.intro}</p>
-        <p>
-          This site contains product affiliate links. We may receive a commission if you make a purchase after clicking
-          on one of these links.
-        </p>
+        <p className="affiliate-note">These are affiliate links. I may earn a commission if you buy through them.</p>
 
         <ProductCategoryPills activeCategory={category.slug} />
 

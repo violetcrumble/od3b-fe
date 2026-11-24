@@ -1,0 +1,116 @@
+@use '../../styles/colors';
+@use '../../styles/grids';
+
+.start-here {
+  background-color: colors.$white;
+  border: 2px solid colors.$brand-purple;
+  border-radius: 12px;
+  padding: 20px 20px 16px;
+  margin-bottom: 44px;
+
+  h2 {
+    margin: 0 0 4px 0;
+  }
+
+  p {
+    margin: 0 0 16px 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 16px 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px 24px;
+
+    @media (min-width: grids.$breakpoint-sm) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: grids.$breakpoint-md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px;
+    border-radius: 8px;
+    color: colors.$brand-teal;
+    text-decoration: none;
+    line-height: 1.25;
+
+    &:hover {
+      background-color: colors.$brand-purple-100;
+    }
+  }
+
+  .thumb {
+    position: relative;
+    flex: 0 0 56px;
+    height: 56px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .hidden-label {
+    display: inline-block;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    vertical-align: top;
+  }
+
+  .list-link {
+    margin: 4px 0 4px 0;
+
+    a:link,
+    a:visited {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: colors.$brand-purple;
+      color: colors.$white;
+      padding: 12px 24px;
+      border-radius: 24px;
+      text-decoration: none;
+      line-height: 1.25;
+    }
+
+    a:hover,
+    a:active {
+      background-color: colors.$brand-purple-300;
+    }
+
+    a:focus-visible {
+      outline: 2px solid colors.$brand-purple;
+      outline-offset: 2px;
+    }
+
+    svg {
+      flex: 0 0 auto;
+    }
+
+    // Full width on phones so it's an easy tap target.
+    @media (max-width: 599px) {
+      a:link,
+      a:visited {
+        display: flex;
+      }
+    }
+  }
+}

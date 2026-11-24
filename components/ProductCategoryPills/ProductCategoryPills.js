@@ -4,7 +4,7 @@ import styles from '../CategoryNavPills/CategoryNavPills.module.scss';
 
 export default function ProductCategoryPills({ activeCategory = '' }) {
   return (
-    <div className={styles['category-nav-pills']}>
+    <div className={`${styles['category-nav-pills']} ${styles['single-row']}`}>
       <Link href="/home-bar-supplies" className={activeCategory === '' ? styles.active : undefined}>
         All Supplies
       </Link>
