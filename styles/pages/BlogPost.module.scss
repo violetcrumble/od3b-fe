@@ -102,6 +102,42 @@
   .blog-post-content tbody tr:nth-child(even) {
     background: colors.$gray-lighter;
   }
+  // Italic text in a table cell is a callout (a sale price, say): red and bold.
+  .blog-post-content td em {
+    font-style: normal;
+    font-weight: 700;
+    color: colors.$brand-orange-700;
+  }
+  // Backticked text in a table cell is a coupon code: the dashed purple look
+  // from the discounts cards, sized down to sit in a line of text.
+  .blog-post-content td code {
+    border: 2px dashed colors.$brand-purple;
+    border-radius: 6px;
+    padding: 1px 6px;
+    font-family: monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    background: colors.$white;
+  }
+  // In the first column the callout sits on its own line under the name.
+  .blog-post-content td:first-child em {
+    display: block;
+  }
+  // Narrow cells wrap names a word at a time, and the cart icon could end up
+  // alone on the last line. Drawn on a non-breaking space it stays with the
+  // last word.
+  .blog-post-content td a:global(.affiliate-link)::after {
+    content: '\00a0';
+    display: inline;
+    width: auto;
+    height: auto;
+    padding-left: 0.6em;
+  }
+  // Room for the dashed box when the cell's text wraps around it.
+  .blog-post-content td:has(code) {
+    line-height: 1.9;
+  }
   .blog-post-content p:not([class]):has(> img) {
     clear: both;
   }
