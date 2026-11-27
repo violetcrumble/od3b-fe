@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:drafts": "STRAPI_PREVIEW_DRAFTS=true next dev",
+    "dev:local": "STRAPIBASEURL=http://localhost:1337 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
