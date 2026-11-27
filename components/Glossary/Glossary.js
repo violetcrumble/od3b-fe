@@ -4,13 +4,43 @@ import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import { sortGlossaryTerms } from '../../utils/glossary';
 import styles from './Glossary.module.scss';
 
-// A term is its definition, then whatever labeled rows it was given in Strapi.
-function TermEntry({ term }) {
+// The small line under a term: when it was last checked and where its facts
+// come from. Same wording as the state entries on the legal states page.
+function SourceLine({ sources, lastReviewed }) {
+  if (!sources.length && !lastReviewed) return null;
+
+  return (
+    <p className={styles['source-line']}>
+      {lastReviewed && `Last reviewed ${lastReviewed}.`}
+      {sources.length > 0 && (
+        <>
+          {lastReviewed && ' '}
+          Source{sources.length > 1 ? 's' : ''}:{' '}
+          {sources.map((source, index) => (
+            <span key={source.url}>
+              {index > 0 && ', '}
+              <a href={source.url} target="_blank" rel="noopener noreferrer">
+                {source.label}
+              </a>
+            </span>
+          ))}
+        </>
+      )}
+    </p>
+  );
+}
+
+// A term is its definition, then whatever labeled rows it was given in Strapi,
+// then its sources.
+function TermEntry({ term, Heading }) {
   const details = (term.details || []).filter((detail) => detail.label?.trim() && detail.text?.trim());
+  const sources = (term.sources || []).filter((source) => source.label?.trim() && source.url?.trim());
 
   return (
     <section className={styles.term}>
-      <h3 id={term.anchor}>{term.term}</h3>
+      <Heading id={term.anchor} className={styles['term-heading']}>
+        {term.term}
+      </Heading>
       <Markdown components={markdownLinkComponents} remarkPlugins={[remarkGfm]}>
         {term.definition}
       </Markdown>
@@ -28,13 +58,16 @@ function TermEntry({ term }) {
           ))}
         </dl>
       )}
+      <SourceLine sources={sources} lastReviewed={term.lastReviewed} />
     </section>
   );
 }
 
-// Everything a [[glossary handle]] marker stands for: a jump list, then the
-// terms, A to Z.
-export default function Glossary({ terms }) {
+// A glossary's terms: a jump list, then the terms, A to Z. Inside a blog post
+// the terms are h3s, since they sit under the post's own h2s. On a glossary
+// page nothing sits above them, so that page asks for h2s.
+export default function Glossary({ terms, headingLevel = 3 }) {
+  const Heading = `h${headingLevel}`;
   const sorted = sortGlossaryTerms(terms);
   if (!sorted.length) return null;
 
@@ -54,7 +87,7 @@ export default function Glossary({ terms }) {
       </nav>
 
       {sorted.map((term) => (
-        <TermEntry key={term.anchor} term={term} />
+        <TermEntry key={term.anchor} term={term} Heading={Heading} />
       ))}
     </div>
   );

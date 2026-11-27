@@ -28,13 +28,23 @@
   }
 }
 
-.term {
+.glossary .term {
   margin: 0 0 28px;
 
+  // A term looks the same whether it's an h2 (glossary page) or an h3 (inside
+  // a blog post). The three classes outrank the blog styles' h2 rule, which
+  // would otherwise give every term a divider line and a bigger size.
   // Jump links land a little above the term.
-  h3 {
+  .term-heading {
     margin: 0 0 8px;
+    padding-top: 0;
+    border-top: none;
+    font-size: 26px;
     scroll-margin-top: 16px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+    }
   }
 
   dl {
@@ -43,6 +53,17 @@
 
   .row {
     margin: 0 0 10px;
+  }
+
+  // Small print, matching the source line on the legal states page.
+  .source-line {
+    margin: 10px 0 0;
+    font-size: 0.8rem;
+    color: colors.$gray-darker;
+
+    a {
+      color: colors.$brand-teal;
+    }
   }
 
   dt {

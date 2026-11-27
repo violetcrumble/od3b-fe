@@ -1,10 +1,16 @@
 // pages/sitemap.xml.js
 
-import { GET_ALL_RECIPE_SLUGS, GET_ALL_BLOG_SLUGS, GET_ALL_REVIEW_SLUGS } from '../graphql/queries';
+import {
+  GET_ALL_RECIPE_SLUGS,
+  GET_ALL_BLOG_SLUGS,
+  GET_ALL_REVIEW_SLUGS,
+  GET_GLOSSARY_HANDLES,
+} from '../graphql/queries';
 import { strapiQuery } from '../utils/strapiQuery';
 import PRODUCT_CATEGORIES from '../utils/productCategories';
 import THC_STATE_GUIDES from '../data/thcStateGuides';
 import { reviewHref } from '../utils/reviewSections';
+import { glossaryPages } from '../utils/glossary';
 
 const URL = 'https://www.cocktailunderground.com';
 
@@ -43,13 +49,14 @@ function urlEntry(loc, lastmod) {
   return `  <url>\n    <loc>${encodeURI(loc)}</loc>\n${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ''}  </url>`;
 }
 
-function generateSiteMap(recipes, blogPosts, reviews) {
+function generateSiteMap(recipes, blogPosts, reviews, glossaries) {
   const entries = [
     urlEntry(URL),
     ...STATIC_PATHS.map((path) => urlEntry(`${URL}/${path}`)),
     ...recipes.map((recipe) => urlEntry(`${URL}/cocktail-recipes/${recipe.slug}`, recipe.updatedAt)),
     ...blogPosts.map((post) => urlEntry(`${URL}/blog/${post.slug}`, post.updatedAt)),
     ...reviews.map((review) => urlEntry(`${URL}${reviewHref(review)}`, review.updatedAt)),
+    ...glossaries.map((glossary) => urlEntry(`${URL}/glossary/${glossary.handle}`, glossary.updatedAt)),
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -60,10 +67,11 @@ ${entries.join('\n')}
 }
 
 export async function getServerSideProps({ res }) {
-  const [recipesData, blogData, reviewsData] = await Promise.all([
+  const [recipesData, blogData, reviewsData, glossaryData] = await Promise.all([
     strapiQuery(GET_ALL_RECIPE_SLUGS),
     strapiQuery(GET_ALL_BLOG_SLUGS),
     strapiQuery(GET_ALL_REVIEW_SLUGS),
+    strapiQuery(GET_GLOSSARY_HANDLES),
   ]);
 
   const recipes = recipesData.recipes.map((recipe) => ({
@@ -82,7 +90,7 @@ export async function getServerSideProps({ res }) {
     updatedAt: review.updatedAt,
   }));
 
-  const sitemap = generateSiteMap(recipes, blogPosts, reviews);
+  const sitemap = generateSiteMap(recipes, blogPosts, reviews, glossaryPages(glossaryData.glossaryTerms));
 
   res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);

@@ -1,6 +1,7 @@
-// Glossary posts: a blog post whose body has [[glossary some-handle]] on its
-// own line. The marker is replaced by every published term in that Glossary
-// (Strapi), A to Z, with a jump list on top.
+// A Glossary in Strapi shows up two ways. It has its own page at
+// /glossary/its-handle (pages/glossary/[handle].js), and a blog post can show
+// it too: [[glossary some-handle]] on its own line in the body is replaced by
+// every published term in that glossary, A to Z, with a jump list on top.
 const MARKER = /^[ \t]*\[\[\s*glossary\s+([a-z0-9-]+)\s*\]\][ \t]*$/im;
 const MARKER_ALL = new RegExp(MARKER.source, 'gim');
 
@@ -58,6 +59,37 @@ export function getGlossaryJsonLd(terms, pageUrl, fallbackName) {
         url: `${pageUrl}#${term.anchor}`,
         inDefinedTermSet: `${pageUrl}#glossary`,
       })),
+    }),
+  };
+}
+
+// From the GET_GLOSSARY_HANDLES result: one entry per glossary that has a
+// published term, with the date its newest term changed (for the sitemap).
+export function glossaryPages(glossaryTerms) {
+  const newest = new Map();
+  (glossaryTerms || []).forEach((term) => {
+    const handle = term.glossary?.handle;
+    if (!handle) return;
+    if (!newest.has(handle) || term.updatedAt > newest.get(handle)) newest.set(handle, term.updatedAt);
+  });
+  return [...newest].map(([handle, updatedAt]) => ({ handle, updatedAt }));
+}
+
+// schema.org Article for a glossary page: who wrote it and when it last
+// changed. The dates are typed in by hand in Strapi, like a blog post's.
+export function getGlossaryArticleJsonLd(glossary, pageUrl) {
+  const published = glossary.datePublished || undefined;
+  return {
+    __html: JSON.stringify({
+      '@context': 'https://schema.org/',
+      '@type': 'Article',
+      headline: glossary.title || glossary.name,
+      description: glossary.seoDescription || undefined,
+      url: pageUrl,
+      datePublished: published,
+      dateModified: glossary.lastUpdated || published,
+      author: glossary.author ? { '@type': 'Person', name: glossary.author.AuthorName } : undefined,
+      about: { '@id': `${pageUrl}#glossary` },
     }),
   };
 }

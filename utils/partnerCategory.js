@@ -11,7 +11,8 @@ export const PARTNER_CATEGORIES = {
 
 // Blog posts whose sidebar shows the non-THC drink partners. Every other post
 // keeps the THC partners. Add a post's slug here when it should switch.
-const DRINKS_PARTNER_BLOG_SLUGS = ['thc-drink-alternatives', 'functional-drink-glossary'];
+// Glossary pages (/glossary/...) always show the drink partners.
+const DRINKS_PARTNER_BLOG_SLUGS = ['thc-drink-alternatives'];
 
 export function partnersInCategory(partners, handle) {
   return (partners || []).filter((partner) => (partner.category?.handle || PARTNER_CATEGORIES.thc) === handle);

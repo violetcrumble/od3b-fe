@@ -42,6 +42,9 @@ export default function Footer() {
               <Link href="/home-bar-supplies">Home Bar Supplies</Link>
             </li>
             <li>
+              <Link href="/glossary/functional-beverages">Functional Beverage Glossary</Link>
+            </li>
+            <li>
               <Link href="/friends">Our Friends</Link>
             </li>
           </ul>

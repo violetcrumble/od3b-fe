@@ -344,6 +344,67 @@ const GET_GLOSSARY_TERMS = `
         label
         text
       }
+      sources {
+        label
+        url
+      }
+      lastReviewed
+      glossary {
+        name
+      }
+    }
+  }
+`;
+
+// Every published term with its glossary's handle: which glossary pages exist
+// (a glossary needs a published term to get a page) and when each last changed.
+const GET_GLOSSARY_HANDLES = `
+  query {
+    glossaryTerms(pagination: { limit: 1000 }) {
+      updatedAt
+      glossary {
+        handle
+      }
+    }
+  }
+`;
+
+// One glossary page: the glossary's own text, then its terms.
+const GET_GLOSSARY_PAGE = `
+  query ($handle: String!) {
+    glossaries(filters: { handle: { eq: $handle } }) {
+      name
+      handle
+      title
+      author {
+        AuthorName
+      }
+      datePublished
+      lastUpdated
+      intro
+      closing
+      seoDescription
+      shareImage {
+        url
+      }
+    }
+    glossaryTerms(
+      sort: "term:asc"
+      pagination: { limit: 500 }
+      filters: { glossary: { handle: { eq: $handle } } }
+    ) {
+      term
+      anchor
+      definition
+      details {
+        label
+        text
+      }
+      sources {
+        label
+        url
+      }
+      lastReviewed
       glossary {
         name
       }
@@ -368,4 +429,6 @@ export {
   GET_ALL_AFFILIATE_PARTNERS,
   GET_AFFILIATE_DISCOUNTS,
   GET_GLOSSARY_TERMS,
+  GET_GLOSSARY_HANDLES,
+  GET_GLOSSARY_PAGE,
 };
