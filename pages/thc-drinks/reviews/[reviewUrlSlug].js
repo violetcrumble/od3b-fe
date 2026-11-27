@@ -2,6 +2,7 @@ import { GET_ALL_REVIEW_SLUGS, GET_REVIEW, GET_ALL_AFFILIATE_PARTNERS } from '..
 import { strapiQuery, strapiQueryCached } from '../../../utils/strapiQuery';
 import ReviewPage from '../../../components/Review/ReviewPage/ReviewPage';
 import { REVIEW_SECTIONS, reviewsInSection } from '../../../utils/reviewSections';
+import { PARTNER_CATEGORIES, partnersInCategory } from '../../../utils/partnerCategory';
 
 // THC drink reviews. Non-THC reviews build under /reviews instead.
 export default function Review({ review, affiliates }) {
@@ -28,7 +29,7 @@ export async function getStaticProps({ params }) {
   ]);
 
   const attrs = data.reviews[0];
-  const affiliates = affiliatesData.affiliatePartners;
+  const affiliates = partnersInCategory(affiliatesData.affiliatePartners, PARTNER_CATEGORIES.thc);
 
   return {
     props: {

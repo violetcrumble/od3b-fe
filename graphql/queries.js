@@ -287,6 +287,7 @@ const GET_REVIEW = `
 // Excludes discountsPageOnly partners (extra discount cards for a brand's
 // other product lines, e.g. Grind seltzers) so sidebars show one box per
 // brand. The or/null form keeps entries saved before the flag existed.
+// Returns every category; pages pick theirs with partnersInCategory().
 const GET_ALL_AFFILIATE_PARTNERS = `
   query {
     affiliatePartners(
@@ -295,6 +296,9 @@ const GET_ALL_AFFILIATE_PARTNERS = `
       filters: { or: [{ discountsPageOnly: { eq: false } }, { discountsPageOnly: { null: true } }] }
     ) {
       name
+      category {
+        handle
+      }
       blurb
       baseUrl
       cta
@@ -309,6 +313,9 @@ const GET_AFFILIATE_DISCOUNTS = `
   query {
     affiliatePartners(sort: "displayOrder:asc", pagination: { limit: 50 }) {
       name
+      category {
+        handle
+      }
       blurb
       baseUrl
       cta

@@ -7,6 +7,7 @@ import NewsletterSignup from '../../../components/NewsletterSignup/NewsletterSig
 import { GET_AFFILIATE_DISCOUNTS } from '../../../graphql/queries';
 import { strapiQueryCached } from '../../../utils/strapiQuery';
 import affiliateLink from '../../../utils/affiliateLink';
+import { PARTNER_CATEGORIES, partnersInCategory } from '../../../utils/partnerCategory';
 import { SALE_CODE, isCrescentPartner, saleHref, useSaleStage } from '../../../utils/crescentSale';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import SITE_URL from '../../../utils/siteUrl';
@@ -18,7 +19,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      partners: data.affiliatePartners,
+      partners: partnersInCategory(data.affiliatePartners, PARTNER_CATEGORIES.thc),
     },
   };
 }

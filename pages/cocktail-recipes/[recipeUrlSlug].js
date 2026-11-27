@@ -14,6 +14,7 @@ import AmazonListingCard from '../../components/Cards/AmazonListingCard/AmazonLi
 import RecipeListingCard from '../../components/Cards/RecipeListingCard/RecipeListingCard';
 import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import { linkifyAffiliateIngredients, selectRecipeAffiliates } from '../../utils/affiliateIngredients';
+import { PARTNER_CATEGORIES, partnersInCategory } from '../../utils/partnerCategory';
 import getArticle from '../../utils/getArticle';
 import { getRecipeSteps, stripMarkdown } from '../../utils/recipeSteps';
 import cloudinaryOptimize, { cloudinarySocialImage, cloudinarySchemaCrop43 } from '../../utils/cloudinaryOptimize';
@@ -362,7 +363,10 @@ export async function getStaticProps({ params }) {
   let affiliates = [];
   if (isThcRecipe) {
     const affiliatesData = await strapiQueryCached(GET_ALL_AFFILIATE_PARTNERS);
-    affiliates = selectRecipeAffiliates(attrs, affiliatesData.affiliatePartners);
+    affiliates = selectRecipeAffiliates(
+      attrs,
+      partnersInCategory(affiliatesData.affiliatePartners, PARTNER_CATEGORIES.thc),
+    );
   }
 
   return {

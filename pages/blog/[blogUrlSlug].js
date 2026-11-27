@@ -20,6 +20,7 @@ import markdownLinkComponents from '../../utils/markdownLinkComponents';
 import PickCard from '../../components/Roundup/PickCard';
 import QuickPicks from '../../components/Roundup/QuickPicks';
 import { splitRoundupBody, stripRoundupMarkers } from '../../utils/roundup';
+import { blogPartnerCategory, partnersInCategory } from '../../utils/partnerCategory';
 import NegroniFamilyTree, {
   NEGRONI_FAMILY_TREE_SRC_PATTERN,
 } from '../../components/NegroniFamilyTree/NegroniFamilyTree';
@@ -205,7 +206,8 @@ export async function getStaticProps({ params }) {
   ]);
 
   const attrs = data.blogPosts[0];
-  const affiliates = affiliatesData.affiliatePartners;
+  // Most posts show the THC partners; the few listed in utils/partnerCategory.js show the drink partners.
+  const affiliates = partnersInCategory(affiliatesData.affiliatePartners, blogPartnerCategory(params.blogUrlSlug));
 
   return {
     props: {

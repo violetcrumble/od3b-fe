@@ -9,6 +9,7 @@ import THC_STATE_LEGALITY, { FEDERAL_BAN } from '../../../data/thcStateLegality'
 import THC_STATE_GUIDES from '../../../data/thcStateGuides';
 import { GET_ALL_AFFILIATE_PARTNERS } from '../../../graphql/queries';
 import { strapiQueryCached } from '../../../utils/strapiQuery';
+import { PARTNER_CATEGORIES, partnersInCategory } from '../../../utils/partnerCategory';
 import getBreadcrumbJsonLd from '../../../utils/breadcrumbJsonLd';
 import markdownLinkComponents from '../../../utils/markdownLinkComponents';
 import SITE_URL from '../../../utils/siteUrl';
@@ -20,7 +21,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      affiliates: affiliatesData.affiliatePartners,
+      affiliates: partnersInCategory(affiliatesData.affiliatePartners, PARTNER_CATEGORIES.thc),
     },
   };
 }
