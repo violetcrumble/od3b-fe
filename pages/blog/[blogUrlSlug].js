@@ -1,6 +1,11 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { GET_ALL_BLOG_SLUGS, GET_BLOG_POST, GET_ALL_AFFILIATE_PARTNERS } from '../../graphql/queries';
+import {
+  GET_ALL_BLOG_SLUGS,
+  GET_BLOG_POST,
+  GET_ALL_AFFILIATE_PARTNERS,
+  GET_GLOSSARY_TERMS,
+} from '../../graphql/queries';
 import { strapiQuery, strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper';
 import Markdown from 'react-markdown';
@@ -21,6 +26,8 @@ import PickCard from '../../components/Roundup/PickCard';
 import QuickPicks from '../../components/Roundup/QuickPicks';
 import { splitRoundupBody, stripRoundupMarkers } from '../../utils/roundup';
 import { blogPartnerCategory, partnersInCategory } from '../../utils/partnerCategory';
+import Glossary from '../../components/Glossary/Glossary';
+import { getGlossaryJsonLd, glossaryHandle, splitGlossaryBody, stripGlossaryMarker } from '../../utils/glossary';
 import NegroniFamilyTree, {
   NEGRONI_FAMILY_TREE_SRC_PATTERN,
 } from '../../components/NegroniFamilyTree/NegroniFamilyTree';
@@ -63,7 +70,7 @@ function createBlogMarkdownComponents(firstImageSrc, slug) {
   };
 }
 
-export default function BlogPost({ blogPost, affiliates }) {
+export default function BlogPost({ blogPost, affiliates, glossaryTerms }) {
   const blogMarkdownComponents = createBlogMarkdownComponents(
     blogPost.BlogPostBody?.match(FIRST_MARKDOWN_IMAGE)?.[1],
     blogPost.urlSlug,
@@ -77,7 +84,7 @@ export default function BlogPost({ blogPost, affiliates }) {
       '@type': 'BlogPosting',
       headline: blogPost.Title,
       image: [cloudinaryOptimize(blogPost.ListingCardImage?.url, 1200) || `${SITE_URL}/pic-not-available.gif`],
-      articleBody: stripRoundupMarkers(blogPost.BlogPostBody),
+      articleBody: stripGlossaryMarker(stripRoundupMarkers(blogPost.BlogPostBody)),
       keywords: blogPost.seoKeywords,
       description: metaDescription,
       datePublished: blogPost.Date,
@@ -124,6 +131,13 @@ export default function BlogPost({ blogPost, affiliates }) {
           ])}
           key="breadcrumb-jsonld"
         />
+        {glossaryTerms?.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={getGlossaryJsonLd(glossaryTerms, canonicalUrl, blogPost.Title)}
+            key="glossary-jsonld"
+          />
+        )}
       </Head>
 
       <div className={`${styles['blog-post-page']} constrained-content`}>
@@ -141,21 +155,25 @@ export default function BlogPost({ blogPost, affiliates }) {
           />
           {/* rehype-slug gives every heading an id so posts can carry in-page jump links. */}
           {/* Roundup posts split the body at [[pick N]] markers; other posts come back as one markdown chunk. */}
-          {splitRoundupBody(blogPost.BlogPostBody, blogPost.roundupPicks).map((part, i) => {
-            if (part.type === 'quickPicks') return <QuickPicks key="quick-picks" picks={blogPost.roundupPicks} />;
-            if (part.type === 'pick')
-              return <PickCard key={`pick-${part.number}`} number={part.number} pick={part.pick} />;
-            return (
-              <Markdown
-                key={`markdown-${i}`}
-                components={blogMarkdownComponents}
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeSlug]}
-              >
-                {part.text}
-              </Markdown>
-            );
-          })}
+          {/* A glossary post's [[glossary handle]] marker becomes that glossary's terms from Strapi. */}
+          {splitRoundupBody(blogPost.BlogPostBody, blogPost.roundupPicks)
+            .flatMap((part) => (part.type === 'markdown' ? splitGlossaryBody(part.text) : part))
+            .map((part, i) => {
+              if (part.type === 'glossary') return <Glossary key="glossary" terms={glossaryTerms} />;
+              if (part.type === 'quickPicks') return <QuickPicks key="quick-picks" picks={blogPost.roundupPicks} />;
+              if (part.type === 'pick')
+                return <PickCard key={`pick-${part.number}`} number={part.number} pick={part.pick} />;
+              return (
+                <Markdown
+                  key={`markdown-${i}`}
+                  components={blogMarkdownComponents}
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeSlug]}
+                >
+                  {part.text}
+                </Markdown>
+              );
+            })}
         </div>
 
         <div className={`${styles['sidebar']}`}>
@@ -206,6 +224,9 @@ export async function getStaticProps({ params }) {
   ]);
 
   const attrs = data.blogPosts[0];
+  // Only a post with a [[glossary handle]] marker asks Strapi for terms.
+  const handle = glossaryHandle(attrs.BlogPostBody);
+  const glossaryTerms = handle ? (await strapiQuery(GET_GLOSSARY_TERMS, { handle })).glossaryTerms : null;
   // Most posts show the THC partners; the few listed in utils/partnerCategory.js show the drink partners.
   const affiliates = partnersInCategory(affiliatesData.affiliatePartners, blogPartnerCategory(params.blogUrlSlug));
 
@@ -213,6 +234,7 @@ export async function getStaticProps({ params }) {
     props: {
       blogPost: attrs,
       affiliates,
+      glossaryTerms,
     },
   };
 }

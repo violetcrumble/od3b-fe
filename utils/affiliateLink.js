@@ -1,9 +1,12 @@
 // Matches affiliate destinations: Awin tracker links, Impact tracker links
-// (sjv.io, Mission Farms), refr.cc referral links (Mission Farms legacy),
+// (sjv.io for Mission Farms and Tempter's, pxf.io for Sensori; Impact gives
+// each brand one of several domains, so check a new partner's link against
+// this list), refr.cc referral links (Mission Farms legacy),
 // Amazon Associates links (amzn.to short links or amazon.com URLs carrying a
 // ?tag= associate id), and direct programs that use ?sld= (Crescent Canna)
 // or ?ref= (Grind with Gratitude).
-export const AFFILIATE_LINK_PATTERN = /awin1\.com|sjv\.io|refr\.cc|amzn\.to|amazon\.com\S*[?&]tag=|[?&](sld|ref)=/;
+export const AFFILIATE_LINK_PATTERN =
+  /awin1\.com|sjv\.io|pxf\.io|refr\.cc|amzn\.to|amazon\.com\S*[?&]tag=|[?&](sld|ref)=/;
 
 // Appends tracking params to an affiliate URL without disturbing any
 // params the affiliate program itself requires (e.g. ?sld= for Crescent Canna,

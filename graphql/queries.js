@@ -327,6 +327,30 @@ const GET_AFFILIATE_DISCOUNTS = `
   }
 `;
 
+// The published terms of one glossary, for a blog post whose body has
+// [[glossary its-handle]]. Only that post's build runs this, so other pages
+// never depend on it.
+const GET_GLOSSARY_TERMS = `
+  query ($handle: String!) {
+    glossaryTerms(
+      sort: "term:asc"
+      pagination: { limit: 500 }
+      filters: { glossary: { handle: { eq: $handle } } }
+    ) {
+      term
+      anchor
+      definition
+      details {
+        label
+        text
+      }
+      glossary {
+        name
+      }
+    }
+  }
+`;
+
 export {
   GET_ALL_RECIPE_SLUGS,
   GET_ALL_RECIPE_SUMMARIES,
@@ -343,4 +367,5 @@ export {
   GET_REVIEW,
   GET_ALL_AFFILIATE_PARTNERS,
   GET_AFFILIATE_DISCOUNTS,
+  GET_GLOSSARY_TERMS,
 };

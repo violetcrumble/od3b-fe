@@ -8,7 +8,7 @@ const PREVIEW_PLACEHOLDER_PHOTO = {
 const PREVIEW_PLACEHOLDER_AUTHOR = { AuthorName: 'Author not set (draft preview)' };
 
 function askForDrafts(query) {
-  return query.replace(/\b(recipes|blogPosts)\(/g, '$1(status: DRAFT, ');
+  return query.replace(/\b(recipes|blogPosts|glossaryTerms)\(/g, '$1(status: DRAFT, ');
 }
 
 function fillDraftGaps(data) {

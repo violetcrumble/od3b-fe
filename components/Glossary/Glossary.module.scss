@@ -1,0 +1,61 @@
+@use '../../styles/colors';
+
+.glossary {
+  clear: both;
+}
+
+.jump-list {
+  margin: 24px 0 32px;
+  padding: 16px 20px;
+  border: 1px solid colors.$brand-purple-100;
+  border-radius: 12px;
+  background-color: colors.$white;
+
+  .jump-title {
+    margin: 0 0 8px;
+    font-weight: bold;
+    color: colors.$brand-purple;
+  }
+
+  // Terms run across the box and wrap, so 20-odd of them don't make a tall column.
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.term {
+  margin: 0 0 28px;
+
+  // Jump links land a little above the term.
+  h3 {
+    margin: 0 0 8px;
+    scroll-margin-top: 16px;
+  }
+
+  dl {
+    margin: 10px 0 0;
+  }
+
+  .row {
+    margin: 0 0 10px;
+  }
+
+  dt {
+    font-weight: bold;
+    color: colors.$gray-darker;
+  }
+
+  dd {
+    margin: 0;
+
+    // The markdown inside each row brings its own paragraphs; keep them tight.
+    p {
+      margin: 2px 0 0;
+    }
+  }
+}
