@@ -12,7 +12,7 @@ import SITE_URL from '../../utils/siteUrl';
 
 export default function Friends() {
   return (
-    <ContentWrapper>
+    <ContentWrapper showCallout quoteTag="any">
       <Head>
         <title>Cocktail Underground - The Best Cocktail Content Creators</title>
         <meta

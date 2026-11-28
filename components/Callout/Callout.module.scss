@@ -1,0 +1,107 @@
+@use 'sass:color';
+@use '../../styles/colors';
+@use '../../styles/grids';
+
+.callout,
+.placeholder {
+  box-sizing: border-box;
+  min-height: 260px;
+  margin-top: 60px;
+
+  @media screen and (min-width: grids.$breakpoint-md) {
+    min-height: 430px;
+  }
+
+  // The callout sits flush on the footer, so it takes over the footer's gap.
+  + footer {
+    margin-top: 0;
+  }
+}
+
+.callout {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 5%;
+  background-color: var(--callout-bg);
+}
+
+// Color versions. Each sets the band, the skull, the quote and the name.
+// Quote and name are at least 4.5:1 against the band in every version.
+.orange {
+  --callout-bg: #{colors.$brand-orange-100};
+  --callout-skull: #fdc5c0; // the skull's own fill in the Figma file
+  --callout-quote: #{colors.$brand-orange-800};
+  --callout-name: #{colors.$brand-teal};
+}
+
+.purple {
+  --callout-bg: #{colors.$brand-purple-100};
+  --callout-skull: #{color.mix(colors.$brand-purple-200, colors.$brand-purple-100, 55%)};
+  --callout-quote: #{colors.$brand-purple-600};
+  --callout-name: #{colors.$brand-teal-700};
+}
+
+.seafoam {
+  --callout-bg: #{colors.$brand-seafoam-100};
+  --callout-skull: #{color.mix(colors.$brand-teal-200, colors.$brand-seafoam-100, 45%)};
+  --callout-quote: #{colors.$brand-teal};
+  --callout-name: #{colors.$brand-purple};
+}
+
+.night {
+  --callout-bg: #{colors.$brand-purple-900};
+  --callout-skull: #{colors.$brand-purple-800};
+  --callout-quote: #{colors.$brand-seafoam};
+  --callout-name: #{colors.$brand-orange-300};
+}
+
+// The skull is a mask, so one drawing takes each version's color.
+.skull {
+  position: absolute;
+  top: 45%;
+  left: 210px;
+  width: 370px;
+  height: 490px;
+  background-color: var(--callout-skull);
+  -webkit-mask: url('/callout-skull.svg') center / 100% 100% no-repeat;
+  mask: url('/callout-skull.svg') center / 100% 100% no-repeat;
+  transform: translate(-50%, -50%) rotate(-11.92deg);
+  pointer-events: none;
+
+  @media screen and (max-width: grids.$breakpoint-md) {
+    left: 110px;
+    width: 240px;
+    height: 318px;
+  }
+}
+
+.content {
+  position: relative;
+  max-width: 1100px;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.quote {
+  margin: 0;
+  color: var(--callout-quote);
+  font-size: clamp(26px, 3.4vw, 48px);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.name {
+  margin-top: 10px;
+  color: var(--callout-name);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.source {
+  font-style: italic;
+}

@@ -8,6 +8,7 @@ import {
 } from '../../graphql/queries';
 import { strapiQuery, strapiQueryCached } from '../../utils/strapiQuery';
 import ContentWrapper from '../../components/ContentWrapper';
+import { blogQuoteTag } from '../../components/Callout/quotes';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -102,7 +103,7 @@ export default function BlogPost({ blogPost, affiliates, glossaryTerms }) {
     return { __html: JSON.stringify(jsonLd) };
   }
   return (
-    <ContentWrapper>
+    <ContentWrapper showCallout quoteTag={blogQuoteTag(blogPost.urlSlug)}>
       <Head>
         <title>{blogPost.Title}</title>
         <meta name="description" content={metaDescription} />

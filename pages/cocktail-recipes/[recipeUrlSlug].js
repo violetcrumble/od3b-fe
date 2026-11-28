@@ -111,7 +111,7 @@ export default function Recipe({ recipe, relatedRecipes, affiliates, isThcRecipe
     return { __html: JSON.stringify(jsonLd) };
   }
   return (
-    <ContentWrapper thcPage={isThcRecipe}>
+    <ContentWrapper thcPage={isThcRecipe} showCallout>
       <Head>
         <title>{`${recipe.title} cocktail recipe`}</title>
         <meta name="description" content={description} />

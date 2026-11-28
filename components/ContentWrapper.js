@@ -1,10 +1,19 @@
 import Head from 'next/head';
-import BanCountdownBar from './BanCountdownBar/BanCountdownBar';
+import { useRouter } from 'next/router';
+import BanCountdownBar, { isThcPath } from './BanCountdownBar/BanCountdownBar';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
+import RandomCallout from './Callout/RandomCallout';
 
 // thcPage shows the THC ban bar on a page whose URL isn't under /thc-drinks.
-export default function ContentWrapper({ children, thcPage = false }) {
+// showCallout adds the quote callout above the footer; pages opt in.
+// quoteTag picks which quotes it draws from ('alcohol', 'thc', 'na' or 'any');
+// left out, THC pages get 'thc' quotes and every other page gets 'alcohol'.
+export default function ContentWrapper({ children, thcPage = false, showCallout = false, quoteTag }) {
+  const { asPath } = useRouter();
+  const path = asPath.split(/[?#]/)[0];
+  const calloutTag = quoteTag || (thcPage || isThcPath(asPath) ? 'thc' : 'alcohol');
+
   return (
     <>
       <Head>
@@ -19,6 +28,7 @@ export default function ContentWrapper({ children, thcPage = false }) {
 
       <main>{children}</main>
 
+      {showCallout && <RandomCallout tag={calloutTag} path={path} />}
       <Footer />
     </>
   );

@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
 
 export default function Home({ recipes, thcRecipes, latestRecipe }) {
   return (
-    <ContentWrapper>
+    <ContentWrapper showCallout quoteTag="any">
       <Head>
         <title>Cocktail Underground</title>
         <meta
